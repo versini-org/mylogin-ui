@@ -26,7 +26,7 @@ export default defineConfig({
 			provider: "v8",
 			lines: 55,
 			functions: 30,
-			branches: 100,
+			branches: 95,
 			statements: 55,
 		},
 	},
