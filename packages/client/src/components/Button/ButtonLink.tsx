@@ -15,6 +15,7 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 			raw = false,
 			"aria-label": ariaLabel,
 			link,
+			target,
 		},
 		ref,
 	) => {
@@ -28,6 +29,11 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 			slim,
 		});
 
+		const extraProps = {
+			target,
+			rel: target === "_blank" ? "noopener noreferrer" : undefined,
+		};
+
 		return (
 			<>
 				<a
@@ -36,6 +42,7 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 					aria-label={ariaLabel}
 					className={buttonClass}
 					href={link}
+					{...extraProps}
 				>
 					{children}
 				</a>
