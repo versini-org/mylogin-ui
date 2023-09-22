@@ -19,6 +19,7 @@ const renderShortcuts = (data: ShortcutProps[]) => {
 								key={shortcut.id}
 								slim
 								link={shortcut.url}
+								target="_blank"
 								className="mr-1 mt-1 w-52"
 							>
 								{truncate(shortcut.label, 20)}
