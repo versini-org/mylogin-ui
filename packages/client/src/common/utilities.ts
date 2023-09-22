@@ -1,5 +1,6 @@
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
+export const isAuthEnabled = import.meta.env.VITE_AUTH_ENABLED === "true";
 
 export const truncate = (str: string, length: number) => {
 	return str.length > length ? str.substring(0, length) + "..." : str;

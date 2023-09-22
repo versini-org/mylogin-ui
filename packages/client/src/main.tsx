@@ -4,7 +4,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// import { isDev } from "./common/utilities";
+import { isAuthEnabled } from "./common/utilities";
 import { getConfig } from "./config";
 import App from "./modules/App/App";
 
@@ -21,20 +21,12 @@ const providerConfig = {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<Auth0Provider {...providerConfig}>
+		{!isAuthEnabled ? (
 			<App />
-		</Auth0Provider>
+		) : (
+			<Auth0Provider {...providerConfig}>
+				<App />
+			</Auth0Provider>
+		)}
 	</React.StrictMode>,
 );
-
-// ReactDOM.createRoot(document.getElementById("root")!).render(
-// 	<React.StrictMode>
-// 		{isDev ? (
-// 			<App />
-// 		) : (
-// 			<Auth0Provider {...providerConfig}>
-// 				<App />
-// 			</Auth0Provider>
-// 		)}
-// 	</React.StrictMode>,
-// );
