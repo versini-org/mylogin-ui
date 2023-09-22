@@ -3,7 +3,7 @@ import { useEffect, useReducer } from "react";
 
 import { ACTION_DATA } from "../../common/constants";
 import { FAKE_USER_EMAIL, LOG_IN } from "../../common/strings";
-import { isDev, serviceCall } from "../../common/utilities";
+import { isAuthEnabled, isDev, serviceCall } from "../../common/utilities";
 import { Button, Footer, Main } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -16,7 +16,7 @@ function App() {
 	});
 
 	useEffect(() => {
-		if (isLoading && !isDev) {
+		if (isAuthEnabled && isLoading && !isDev) {
 			return;
 		}
 		document.getElementById("logo")?.classList.add("fadeOut");
@@ -28,7 +28,7 @@ function App() {
 	}, [isLoading]);
 
 	useEffect(() => {
-		if (!isAuthenticated || isLoading) {
+		if (isAuthEnabled && (!isAuthenticated || isLoading)) {
 			return;
 		}
 		(async () => {
@@ -63,11 +63,11 @@ function App() {
 		})();
 	}, [isAuthenticated, isLoading, user?.email]);
 
-	if (isLoading) {
+	if (isAuthEnabled && isLoading) {
 		return null;
 	}
 
-	if (!isAuthenticated) {
+	if (isAuthEnabled && !isAuthenticated) {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
@@ -85,7 +85,6 @@ function App() {
 			<Main>
 				<Shortcuts />
 			</Main>
-
 			<Footer />
 		</AppContext.Provider>
 	);
