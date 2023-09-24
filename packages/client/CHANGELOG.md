@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/aversini/mylogin-ui/compare/client-v1.1.0...client-v1.2.0) (2023-09-24)
+
+
+### Features
+
+* enabling basic auth ([1431adf](https://github.com/aversini/mylogin-ui/commit/1431adf00f7d45377629812cf36c23372eb676bd))
+
 ## [1.1.0](https://github.com/aversini/mylogin-ui/compare/client-v1.0.0...client-v1.1.0) (2023-09-22)
 
 
