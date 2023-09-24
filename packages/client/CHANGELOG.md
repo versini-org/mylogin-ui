@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/aversini/mylogin-ui/compare/client-v1.2.0...client-v1.2.1) (2023-09-24)
+
+
+### Bug Fixes
+
+* incorrect favicon ([e8d95b5](https://github.com/aversini/mylogin-ui/commit/e8d95b56bc99d986b0b0c24eba3b6797a88e048c))
+
 ## [1.2.0](https://github.com/aversini/mylogin-ui/compare/client-v1.1.0...client-v1.2.0) (2023-09-24)
 
 
