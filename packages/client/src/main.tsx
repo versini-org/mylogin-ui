@@ -4,7 +4,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { isAuthEnabled } from "./common/utilities";
+import { isBasicAuth } from "./common/utilities";
 import { getConfig } from "./config";
 import App from "./modules/App/App";
 
@@ -21,7 +21,7 @@ const providerConfig = {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		{!isAuthEnabled ? (
+		{isBasicAuth ? (
 			<App />
 		) : (
 			<Auth0Provider {...providerConfig}>

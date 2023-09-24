@@ -1,22 +1,30 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
-import { ACTION_DATA } from "../../common/constants";
+import { ACTION_DATA, LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
+import { useLocalStorage } from "../../common/hooks";
 import { FAKE_USER_EMAIL, LOG_IN } from "../../common/strings";
-import { isAuthEnabled, isDev, serviceCall } from "../../common/utilities";
+import { isBasicAuth, isDev, serviceCall } from "../../common/utilities";
 import { Button, Footer, Main } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
 
 function App() {
+	const storage = useLocalStorage();
+	const [basicAuth, setBasicAuth] = useState(
+		storage.get(LOCAL_STORAGE_BASIC_AUTH),
+	);
+	const [simpleLogin, setSimpleLogin] = useState({
+		password: "",
+	});
 	const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0();
 	const [state, dispatch] = useReducer(reducer, {
 		shortcuts: [],
 	});
 
 	useEffect(() => {
-		if (isAuthEnabled && isLoading && !isDev) {
+		if (!isBasicAuth && isLoading && !isDev) {
 			return;
 		}
 		document.getElementById("logo")?.classList.add("fadeOut");
@@ -28,19 +36,50 @@ function App() {
 	}, [isLoading]);
 
 	useEffect(() => {
-		if (isAuthEnabled && (!isAuthenticated || isLoading)) {
+		let authorization = "";
+		/**
+		 * Authentication is handled by Auth0 and the user is
+		 * in the process of being authenticated. We cannot request
+		 * for data yet.
+		 */
+		if (!isBasicAuth && (!isAuthenticated || isLoading)) {
 			return;
 		}
+
+		/**
+		 * Authentication is not handled by Auth0 and user is
+		 * not authenticated, we cannot request for data yet.
+		 */
+		if (isBasicAuth && (!basicAuth || basicAuth === "")) {
+			return;
+		}
+
+		/**
+		 * Authentication is not handled by Auth0 and user is
+		 * authenticated, we can request for data, with the
+		 * corresponding basic auth header.
+		 */
+		if (isBasicAuth && basicAuth && basicAuth !== "") {
+			authorization = `Basic ${basicAuth}`;
+		}
+
 		(async () => {
 			try {
 				const response = await serviceCall({
 					name: "shortcuts",
+					headers: {
+						authorization,
+					},
 					data: {
 						user: user?.email || FAKE_USER_EMAIL,
 					},
 				});
 
 				if (response.status !== 200) {
+					if (response.status === 401 && isBasicAuth) {
+						storage.remove(LOCAL_STORAGE_BASIC_AUTH);
+						setBasicAuth("");
+					}
 					dispatch({
 						type: ACTION_DATA,
 						payload: {
@@ -61,13 +100,59 @@ function App() {
 				console.error(error);
 			}
 		})();
-	}, [isAuthenticated, isLoading, user?.email]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [basicAuth, isAuthenticated, isLoading, user?.email]);
 
-	if (isAuthEnabled && isLoading) {
+	/**
+	 * Authentication is not handled by Auth0 and user is
+	 * not authenticated, we need to show simple login form.
+	 */
+	if (isBasicAuth && (!basicAuth || basicAuth === "")) {
+		return (
+			<AppContext.Provider value={{ state, dispatch }}>
+				<Main>
+					<form className="flex flex-wrap flex-col mx-auto w-96">
+						<input
+							type="password"
+							placeholder="One time password"
+							onChange={(e) =>
+								setSimpleLogin({ ...simpleLogin, password: e.target.value })
+							}
+						/>
+						<Button
+							type="submit"
+							className="mt-6 mb-4"
+							onClick={() => {
+								const data = `${btoa(
+									`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
+								)}`;
+								storage.set(LOCAL_STORAGE_BASIC_AUTH, data);
+								setBasicAuth(storage.get(LOCAL_STORAGE_BASIC_AUTH));
+							}}
+						>
+							{LOG_IN}
+						</Button>
+					</form>
+				</Main>
+				<Footer />
+			</AppContext.Provider>
+		);
+	}
+
+	/**
+	 * Authentication is handled by Auth0.
+	 * User is not authenticated but still loading...
+	 */
+	if (!isBasicAuth && isLoading) {
 		return null;
 	}
 
-	if (isAuthEnabled && !isAuthenticated) {
+	/**
+	 * Authentication is handled by Auth0.
+	 * User is not authenticated, we need to show a login
+	 * button to redirect the user to the Auth0 login page.
+	 */
+	if (!isBasicAuth && !isAuthenticated) {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
@@ -80,6 +165,10 @@ function App() {
 		);
 	}
 
+	/**
+	 * Authentication is handled by Auth0 and the user is
+	 * fully authenticated. We can show the app.
+	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
 			<Main>
