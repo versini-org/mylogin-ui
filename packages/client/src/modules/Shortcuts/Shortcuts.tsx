@@ -1,7 +1,6 @@
 import { useContext } from "react";
 
 import type { ShortcutProps } from "../../common/types";
-import { truncate } from "../../common/utilities";
 import { ButtonLink } from "../../components";
 import { AppContext } from "../App/AppContext";
 
@@ -20,9 +19,10 @@ const renderShortcuts = (data: ShortcutProps[]) => {
 								slim
 								link={shortcut.url}
 								target="_blank"
-								className="mr-1 mt-1 w-52"
+								className="mr-1 mt-1 w-44 sm:w-52"
+								maxLabelLength={24}
 							>
-								{truncate(shortcut.label, 20)}
+								{shortcut.label}
 							</ButtonLink>
 						);
 					})}

@@ -17,4 +17,5 @@ export type ButtonIconProps = {
 export type ButtonLinkProps = {
 	link?: string;
 	target?: string;
+	maxLabelLength?: number;
 } & ButtonProps;

@@ -2,8 +2,18 @@ export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 export const isBasicAuth = import.meta.env.VITE_AUTH0_ENABLED !== "true";
 
-export const truncate = (str: string, length: number) => {
-	return str.length > length ? str.substring(0, length) + "..." : str;
+export const truncate = (fullString: string, maxLength: number) => {
+	const ELLIPSIS = "...";
+	const ELLIPSIS_LENGTH = ELLIPSIS.length;
+	const truncatedString =
+		maxLength > ELLIPSIS_LENGTH && fullString.length > maxLength
+			? fullString.substring(0, maxLength - ELLIPSIS_LENGTH) + ELLIPSIS
+			: fullString;
+
+	return {
+		truncatedString,
+		fullString,
+	};
 };
 
 /* c8 ignore start */

@@ -5,9 +5,12 @@ import { truncate } from "../utilities";
 describe("Non-DOM tests", () => {
 	describe("truncate", () => {
 		it("should truncate according to plan", () => {
-			expect(truncate("hello world", 5)).toBe("hello...");
-			expect(truncate("hello world", 11)).toBe("hello world");
-			expect(truncate("hello world", 12)).toBe("hello world");
+			const STR = "hello world";
+			expect(truncate(STR, 5).truncatedString).toBe("he...");
+			expect(truncate(STR, 7).truncatedString).toBe("hell...");
+			expect(truncate(STR, 10).truncatedString).toBe("hello w...");
+			expect(truncate(STR, 11).truncatedString).toBe(STR);
+			expect(truncate(STR, 12).truncatedString).toBe(STR);
 		});
 	});
 });
