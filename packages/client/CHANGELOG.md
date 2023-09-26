@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/aversini/mylogin-ui/compare/client-v1.2.1...client-v1.2.2) (2023-09-26)
+
+
+### Bug Fixes
+
+* better support for smaller breakpoints ([4442d06](https://github.com/aversini/mylogin-ui/commit/4442d06b8fee94a3cf3aca406cf5e9634d0b00bb))
+
 ## [1.2.1](https://github.com/aversini/mylogin-ui/compare/client-v1.2.0...client-v1.2.1) (2023-09-24)
 
 
