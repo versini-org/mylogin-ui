@@ -1,5 +1,6 @@
 import React from "react";
 
+import { truncate } from "../../common/utilities";
 import type { ButtonLinkProps } from "./ButtonTypes";
 import { getButtonClasses, TYPE_LINK } from "./utilities";
 
@@ -16,6 +17,7 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 			"aria-label": ariaLabel,
 			link,
 			target,
+			maxLabelLength,
 		},
 		ref,
 	) => {
@@ -29,6 +31,11 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 			slim,
 		});
 
+		const formattedLabel =
+			maxLabelLength && typeof children === "string"
+				? truncate(children, maxLabelLength)
+				: null;
+
 		const extraProps = {
 			target,
 			rel: target === "_blank" ? "noopener noreferrer" : undefined,
@@ -39,12 +46,14 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 				<a
 					ref={ref}
 					type={type}
-					aria-label={ariaLabel}
+					aria-label={ariaLabel || formattedLabel?.fullString}
 					className={buttonClass}
 					href={link}
 					{...extraProps}
 				>
-					{children}
+					{formattedLabel?.truncatedString ||
+						formattedLabel?.fullString ||
+						children}
 				</a>
 			</>
 		);
