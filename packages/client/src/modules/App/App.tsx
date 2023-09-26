@@ -3,7 +3,11 @@ import { useEffect, useReducer, useState } from "react";
 
 import { ACTION_DATA, LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
-import { FAKE_USER_EMAIL, LOG_IN } from "../../common/strings";
+import {
+	FAKE_USER_EMAIL,
+	LOG_IN,
+	PASSWORD_PLACEHOLDER,
+} from "../../common/strings";
 import { isBasicAuth, isDev, serviceCall } from "../../common/utilities";
 import { Button, Footer, Main } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
@@ -114,7 +118,7 @@ function App() {
 					<form className="flex flex-wrap flex-col mx-auto w-96">
 						<input
 							type="password"
-							placeholder="One time password"
+							placeholder={PASSWORD_PLACEHOLDER}
 							onChange={(e) =>
 								setSimpleLogin({ ...simpleLogin, password: e.target.value })
 							}
