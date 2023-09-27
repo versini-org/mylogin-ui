@@ -87,4 +87,13 @@ describe("Button methods", () => {
 
 		expect(spyOnClick).toHaveBeenCalledTimes(2);
 	});
+
+	it("should implement a focus method via the ref prop", () => {
+		const buttonRef = (ref: HTMLButtonElement) => {
+			if (ref) {
+				expect(ref.focus).toBeDefined();
+			}
+		};
+		render(<Button ref={buttonRef}>Button</Button>);
+	});
 });
