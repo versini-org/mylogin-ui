@@ -9,7 +9,7 @@ import {
 	PASSWORD_PLACEHOLDER,
 } from "../../common/strings";
 import { isBasicAuth, isDev, serviceCall } from "../../common/utilities";
-import { Button, Footer, Main } from "../../components";
+import { Button, Footer, Main, TextInput } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
@@ -22,6 +22,7 @@ function App() {
 	const [simpleLogin, setSimpleLogin] = useState({
 		password: "",
 	});
+	const [errorMessage, setErrorMessage] = useState("");
 	const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0();
 	const [state, dispatch] = useReducer(reducer, {
 		shortcuts: [],
@@ -83,6 +84,7 @@ function App() {
 					if (response.status === 401 && isBasicAuth) {
 						storage.remove(LOCAL_STORAGE_BASIC_AUTH);
 						setBasicAuth("");
+						setErrorMessage("Invalid credentials");
 					}
 					dispatch({
 						type: ACTION_DATA,
@@ -116,17 +118,21 @@ function App() {
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
 					<form className="flex flex-wrap flex-col mx-auto w-96">
-						<input
+						<TextInput
 							type="password"
 							placeholder={PASSWORD_PLACEHOLDER}
-							onChange={(e) =>
-								setSimpleLogin({ ...simpleLogin, password: e.target.value })
-							}
+							onChange={(e) => {
+								setSimpleLogin({ ...simpleLogin, password: e.target.value });
+								setErrorMessage("");
+							}}
+							errorMessage={errorMessage}
 						/>
+
 						<Button
 							type="submit"
 							className="mt-6 mb-4"
-							onClick={() => {
+							onClick={(e) => {
+								e.preventDefault();
 								const data = `${btoa(
 									`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
 								)}`;
