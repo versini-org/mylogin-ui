@@ -20,7 +20,7 @@ const renderShortcuts = (data: ShortcutProps[]) => {
 								link={shortcut.url}
 								target="_blank"
 								className="mr-1 mt-1 w-44 sm:w-52"
-								maxLabelLength={24}
+								maxLabelLength={23}
 							>
 								{shortcut.label}
 							</ButtonLink>
