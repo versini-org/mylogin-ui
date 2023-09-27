@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/aversini/mylogin-ui/compare/client-v1.2.3...client-v1.2.4) (2023-09-27)
+
+
+### Bug Fixes
+
+* missing error message on failed basic auth ([356ac17](https://github.com/aversini/mylogin-ui/commit/356ac171fe62ced4f3cfd10124fd8a0600880f9d))
+
 ## [1.2.3](https://github.com/aversini/mylogin-ui/compare/client-v1.2.2...client-v1.2.3) (2023-09-27)
 
 
