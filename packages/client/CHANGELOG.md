@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/aversini/mylogin-ui/compare/client-v1.2.2...client-v1.2.3) (2023-09-27)
+
+
+### Bug Fixes
+
+* one button label is not truncated correctly ([65158ae](https://github.com/aversini/mylogin-ui/commit/65158ae4e36852cadfbcb78f8ac92a103ddfb087))
+
 ## [1.2.2](https://github.com/aversini/mylogin-ui/compare/client-v1.2.1...client-v1.2.2) (2023-09-26)
 
 
