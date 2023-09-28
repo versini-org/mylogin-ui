@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/aversini/mylogin-ui/compare/client-v1.2.4...client-v1.3.0) (2023-09-28)
+
+
+### Features
+
+* adding edit capabilities ([7b94375](https://github.com/aversini/mylogin-ui/commit/7b943756cdd3b872e386589762e55323d5c84464))
+
 ## [1.2.4](https://github.com/aversini/mylogin-ui/compare/client-v1.2.3...client-v1.2.4) (2023-09-27)
 
 
