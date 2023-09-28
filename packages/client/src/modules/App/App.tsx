@@ -4,6 +4,8 @@ import { useEffect, useReducer, useState } from "react";
 import {
 	ACTION_GET_DATA,
 	ACTION_SET_STATUS,
+	ACTION_STATUS_ERROR,
+	ACTION_STATUS_SUCCESS,
 	LOCAL_STORAGE_BASIC_AUTH,
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
@@ -29,7 +31,7 @@ function App() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0();
 	const [state, dispatch] = useReducer(reducer, {
-		status: "success",
+		status: ACTION_STATUS_SUCCESS,
 		shortcuts: [],
 	});
 
@@ -77,7 +79,7 @@ function App() {
 					dispatch({
 						type: ACTION_SET_STATUS,
 						payload: {
-							status: "error",
+							status: ACTION_STATUS_ERROR,
 						},
 					});
 				} else {
@@ -85,7 +87,7 @@ function App() {
 					dispatch({
 						type: ACTION_GET_DATA,
 						payload: {
-							status: "success",
+							status: ACTION_STATUS_SUCCESS,
 							shortcuts: data,
 						},
 					});
@@ -147,7 +149,7 @@ function App() {
 					dispatch({
 						type: ACTION_GET_DATA,
 						payload: {
-							status: "error",
+							status: ACTION_STATUS_ERROR,
 							shortcuts: [],
 						},
 					});
@@ -156,7 +158,7 @@ function App() {
 					dispatch({
 						type: ACTION_GET_DATA,
 						payload: {
-							status: "success",
+							status: ACTION_STATUS_SUCCESS,
 							shortcuts: data,
 						},
 					});

@@ -2,6 +2,9 @@ import {
 	ACTION_GET_DATA,
 	ACTION_SET_DATA,
 	ACTION_SET_STATUS,
+	ACTION_STATUS_ERROR,
+	ACTION_STATUS_STALE,
+	ACTION_STATUS_SUCCESS,
 } from "./constants";
 
 export type ShortcutDataProps = {
@@ -17,7 +20,11 @@ export type ShortcutProps = {
 };
 
 export type StateProps = {
-	status: "stale" | "error" | "success";
+	status:
+		| string
+		| typeof ACTION_STATUS_STALE
+		| typeof ACTION_STATUS_ERROR
+		| typeof ACTION_STATUS_SUCCESS;
 	shortcuts: ShortcutProps[];
 };
 
@@ -26,20 +33,26 @@ export type ActionProps =
 	| {
 			type: typeof ACTION_SET_STATUS;
 			payload: {
-				status: "error" | "success" | "stale";
+				status:
+					| typeof ACTION_STATUS_STALE
+					| typeof ACTION_STATUS_ERROR
+					| typeof ACTION_STATUS_SUCCESS;
 			};
 	  }
 	| {
 			type: typeof ACTION_GET_DATA;
 			payload: {
-				status: "error" | "success";
+				status:
+					| string
+					| typeof ACTION_STATUS_ERROR
+					| typeof ACTION_STATUS_SUCCESS;
 				shortcuts: ShortcutProps[];
 			};
 	  }
 	| {
 			type: typeof ACTION_SET_DATA;
 			payload: {
-				status: "stale";
+				status: typeof ACTION_STATUS_STALE;
 				shortcut: ShortcutProps;
 			};
 	  };
