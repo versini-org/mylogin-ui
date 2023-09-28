@@ -84,9 +84,10 @@ function App() {
 					const data = await response.json();
 					console.log("==> ", data);
 					dispatch({
-						type: ACTION_SET_STATUS,
+						type: ACTION_GET_DATA,
 						payload: {
 							status: "success",
+							shortcuts: data,
 						},
 					});
 				}

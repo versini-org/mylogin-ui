@@ -57,14 +57,19 @@ export const Shortcuts = () => {
 										setEditable(
 											editable === item.position ? null : item.position,
 										);
-										item.data = JSON.parse(userInput);
-										dispatch({
-											type: ACTION_SET_DATA,
-											payload: {
-												status: "stale",
-												shortcut: item,
-											},
-										});
+										try {
+											item.data = JSON.parse(userInput);
+											dispatch({
+												type: ACTION_SET_DATA,
+												payload: {
+													status: "stale",
+													shortcut: item,
+												},
+											});
+										} catch (error) {
+											// eslint-disable-next-line no-console
+											console.error(error);
+										}
 									}}
 								>
 									Save
