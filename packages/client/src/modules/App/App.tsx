@@ -1,7 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useReducer, useState } from "react";
 
-import { ACTION_DATA, LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
+import {
+	ACTION_GET_DATA,
+	ACTION_SET_STATUS,
+	LOCAL_STORAGE_BASIC_AUTH,
+} from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import {
 	FAKE_USER_EMAIL,
@@ -25,6 +29,7 @@ function App() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0();
 	const [state, dispatch] = useReducer(reducer, {
+		status: "success",
 		shortcuts: [],
 	});
 
@@ -39,6 +44,59 @@ function App() {
 				?.classList.replace("app-hidden", "fadeIn");
 		}, 500);
 	}, [isLoading]);
+
+	useEffect(() => {
+		if (state.shortcuts.length === 0 || state.status !== "stale") {
+			return;
+		}
+
+		let authorization = "";
+		/**
+		 * Authentication is not handled by Auth0 and user is
+		 * authenticated, we can request for data, with the
+		 * corresponding basic auth header.
+		 */
+		if (isBasicAuth && basicAuth && basicAuth !== "") {
+			authorization = `Basic ${basicAuth}`;
+		}
+
+		(async () => {
+			try {
+				const response = await serviceCall({
+					name: "update-shortcuts",
+					headers: {
+						authorization,
+					},
+					data: {
+						user: user?.email || FAKE_USER_EMAIL,
+						shortcuts: state.shortcuts,
+					},
+				});
+
+				if (response.status !== 200) {
+					dispatch({
+						type: ACTION_SET_STATUS,
+						payload: {
+							status: "error",
+						},
+					});
+				} else {
+					const data = await response.json();
+					console.log("==> ", data);
+					dispatch({
+						type: ACTION_SET_STATUS,
+						payload: {
+							status: "success",
+						},
+					});
+				}
+			} catch (error) {
+				// eslint-disable-next-line no-console
+				console.error(error);
+			}
+		})();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [state.shortcuts, state.status]);
 
 	useEffect(() => {
 		let authorization = "";
@@ -87,16 +145,18 @@ function App() {
 						setErrorMessage("Invalid credentials");
 					}
 					dispatch({
-						type: ACTION_DATA,
+						type: ACTION_GET_DATA,
 						payload: {
+							status: "error",
 							shortcuts: [],
 						},
 					});
 				} else {
 					const data = await response.json();
 					dispatch({
-						type: ACTION_DATA,
+						type: ACTION_GET_DATA,
 						payload: {
+							status: "success",
 							shortcuts: data,
 						},
 					});
