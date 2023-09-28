@@ -82,7 +82,6 @@ function App() {
 					});
 				} else {
 					const data = await response.json();
-					console.log("==> ", data);
 					dispatch({
 						type: ACTION_GET_DATA,
 						payload: {
