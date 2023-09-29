@@ -20,6 +20,7 @@
 		"@auth0/auth0-react": "2.2.1",
 		"autoprefixer": "10.4.16",
 		"clsx": "2.0.0",
+		"json5": "2.2.3",
 		"postcss": "8.4.30",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

@@ -53,12 +53,15 @@ export const Shortcuts = () => {
 								<Button
 									className="mt-3"
 									slim
-									onClick={() => {
+									onClick={async () => {
 										setEditable(
 											editable === item.position ? null : item.position,
 										);
 										try {
-											item.data = JSON.parse(userInput);
+											const { jsonParse } = await import(
+												"../../common/jsonUtilities"
+											);
+											item.data = jsonParse(userInput);
 											dispatch({
 												type: ACTION_SET_DATA,
 												payload: {

@@ -14,6 +14,10 @@ module.exports = {
 			maxSize: "65kb",
 		},
 		{
+			path: "assets/jsonUtilities-<hash>.js",
+			maxSize: "10kb",
+		},
+		{
 			path: "assets/index-<hash>.css",
 			maxSize: "3kb",
 		},
