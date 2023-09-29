@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/aversini/mylogin-ui/compare/client-v1.3.0...client-v1.3.1) (2023-09-29)
+
+
+### Bug Fixes
+
+* automated id per shortcut even when there is none ([3266334](https://github.com/aversini/mylogin-ui/commit/3266334f81e64efc21489b97a2a72be2cbe1812d))
+* pre-parse user entered string to sanitize JSON ([14def10](https://github.com/aversini/mylogin-ui/commit/14def10c0a673cbffce5f5c83ab1866b71528bc1))
+
 ## [1.3.0](https://github.com/aversini/mylogin-ui/compare/client-v1.2.4...client-v1.3.0) (2023-09-28)
 
 
