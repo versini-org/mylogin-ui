@@ -58,10 +58,11 @@ export const Shortcuts = () => {
 											editable === item.position ? null : item.position,
 										);
 										try {
-											const { jsonParse } = await import(
+											const { jsonParse, addUniqueId } = await import(
 												"../../common/jsonUtilities"
 											);
-											item.data = jsonParse(userInput);
+											item.data = addUniqueId(jsonParse(userInput));
+
 											dispatch({
 												type: ACTION_SET_DATA,
 												payload: {
