@@ -11,7 +11,7 @@ export const TextInput = ({
 		<>
 			<input
 				{...extraProps}
-				className="block w-full resize-none rounded-md border-none py-3 px-4 text-base caret-slate-100 focus:outline-none focus:ring-offset-0 focus:ring-2 focus:ring-slate-300 bg-slate-900 text-slate-200 placeholder-slate-400 sm:text-base"
+				className="block w-full resize-none rounded-md border-none bg-slate-900 px-4 py-3 text-base text-slate-200 placeholder-slate-400 caret-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-0 sm:text-base"
 				type={type}
 				placeholder={placeholder}
 				onChange={(e) => onChange && onChange(e)}

@@ -14,7 +14,7 @@ export const Shortcuts = () => {
 			{state.shortcuts.map((item) => {
 				return (
 					<div key={item.position} className="mb-5">
-						<h2 className="heading text-center text-slate-200 font-bold">
+						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
 							<Button
 								raw
@@ -35,12 +35,12 @@ export const Shortcuts = () => {
 						{editable && editable === item.position ? (
 							<>
 								<textarea
-									className="font-mono text-sm h-36 w-full"
+									className="h-36 w-full font-mono text-sm"
 									value={userInput}
 									onChange={(e) => setUserInput(e.target.value)}
 								/>
 								<Button
-									className="mt-3 mr-2"
+									className="mr-2 mt-3"
 									slim
 									onClick={() => {
 										setEditable(
