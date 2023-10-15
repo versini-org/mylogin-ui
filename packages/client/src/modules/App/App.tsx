@@ -179,7 +179,7 @@ function App() {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
-					<form className="flex flex-wrap flex-col mx-auto w-96">
+					<form className="mx-auto flex w-96 flex-col flex-wrap">
 						<TextInput
 							type="password"
 							placeholder={PASSWORD_PLACEHOLDER}
@@ -192,7 +192,7 @@ function App() {
 
 						<Button
 							type="submit"
-							className="mt-6 mb-4"
+							className="mb-4 mt-6"
 							onClick={(e) => {
 								e.preventDefault();
 								const data = `${btoa(
@@ -228,7 +228,7 @@ function App() {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
-					<Button className="mt-6 mb-4" onClick={() => loginWithRedirect()}>
+					<Button className="mb-4 mt-6" onClick={() => loginWithRedirect()}>
 						{LOG_IN}
 					</Button>
 				</Main>
