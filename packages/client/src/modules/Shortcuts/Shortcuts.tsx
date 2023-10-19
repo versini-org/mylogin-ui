@@ -7,7 +7,8 @@ import { AppContext } from "../App/AppContext";
 export const Shortcuts = () => {
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<number | null>();
-	const [userInput, setUserInput] = useState("");
+	const [userInputShortcuts, setUserInputShortcuts] = useState("");
+	const [userInputSectionTitle, setUserInputSectionTitle] = useState("");
 
 	return state && state?.shortcuts?.length > 0 ? (
 		<>
@@ -25,7 +26,8 @@ export const Shortcuts = () => {
 									setEditable(
 										editable === item.position ? null : item.position,
 									);
-									setUserInput(JSON.stringify(item.data, null, 2));
+									setUserInputSectionTitle(JSON.stringify(item.title, null, 2));
+									setUserInputShortcuts(JSON.stringify(item.data, null, 2));
 								}}
 							>
 								<IconEdit />
@@ -34,10 +36,16 @@ export const Shortcuts = () => {
 
 						{editable && editable === item.position ? (
 							<>
+								<input
+									className="mb-1 h-8 w-full p-2 font-mono text-sm"
+									type="text"
+									value={userInputSectionTitle}
+									onChange={(e) => setUserInputSectionTitle(e.target.value)}
+								/>
 								<textarea
-									className="h-36 w-full font-mono text-sm"
-									value={userInput}
-									onChange={(e) => setUserInput(e.target.value)}
+									className="h-36 w-full p-2 font-mono text-sm"
+									value={userInputShortcuts}
+									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
 								<Button
 									className="mr-2 mt-3"
@@ -61,7 +69,19 @@ export const Shortcuts = () => {
 											const { jsonParse, addUniqueId } = await import(
 												"../../common/jsonUtilities"
 											);
-											item.data = addUniqueId(jsonParse(userInput));
+											try {
+												item.data = addUniqueId(jsonParse(userInputShortcuts));
+											} catch (error) {
+												// eslint-disable-next-line no-console
+												console.error(error);
+											}
+
+											try {
+												item.title = JSON.parse(userInputSectionTitle);
+											} catch (error) {
+												// eslint-disable-next-line no-console
+												console.error(error);
+											}
 
 											dispatch({
 												type: ACTION_SET_DATA,
