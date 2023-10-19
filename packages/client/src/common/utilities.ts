@@ -1,6 +1,5 @@
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
-export const isBasicAuth = import.meta.env.VITE_AUTH0_ENABLED !== "true";
 
 export const truncate = (fullString: string, maxLength: number) => {
 	const ELLIPSIS = "...";

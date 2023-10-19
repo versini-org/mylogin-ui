@@ -1,4 +1,3 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -14,7 +13,7 @@ import {
 	LOG_IN,
 	PASSWORD_PLACEHOLDER,
 } from "../../common/strings";
-import { isBasicAuth, isDev, serviceCall } from "../../common/utilities";
+import { serviceCall } from "../../common/utilities";
 import { Button, Footer, Main, TextInput } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -29,38 +28,26 @@ function App() {
 		password: "",
 	});
 	const [errorMessage, setErrorMessage] = useState("");
-	const { isLoading, loginWithRedirect, isAuthenticated, user } = useAuth0();
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
 		shortcuts: [],
 	});
 
 	useEffect(() => {
-		if (!isBasicAuth && isLoading && !isDev) {
-			return;
-		}
 		document.getElementById("logo")?.classList.add("fadeOut");
 		setTimeout(() => {
 			document
 				.getElementById("root")
 				?.classList.replace("app-hidden", "fadeIn");
 		}, 500);
-	}, [isLoading]);
+	});
 
 	useEffect(() => {
 		if (state.shortcuts.length === 0 || state.status !== "stale") {
 			return;
 		}
 
-		let authorization = "";
-		/**
-		 * Authentication is not handled by Auth0 and user is
-		 * authenticated, we can request for data, with the
-		 * corresponding basic auth header.
-		 */
-		if (isBasicAuth && basicAuth && basicAuth !== "") {
-			authorization = `Basic ${basicAuth}`;
-		}
+		const authorization = `Basic ${basicAuth}`;
 
 		(async () => {
 			try {
@@ -70,7 +57,7 @@ function App() {
 						authorization,
 					},
 					data: {
-						user: user?.email || FAKE_USER_EMAIL,
+						user: FAKE_USER_EMAIL,
 						shortcuts: state.shortcuts,
 					},
 				});
@@ -102,29 +89,19 @@ function App() {
 
 	useEffect(() => {
 		let authorization = "";
+
 		/**
-		 * Authentication is handled by Auth0 and the user is
-		 * in the process of being authenticated. We cannot request
-		 * for data yet.
+		 * User is not authenticated, we cannot request for data yet.
 		 */
-		if (!isBasicAuth && (!isAuthenticated || isLoading)) {
+		if (!basicAuth || basicAuth === "") {
 			return;
 		}
 
 		/**
-		 * Authentication is not handled by Auth0 and user is
-		 * not authenticated, we cannot request for data yet.
-		 */
-		if (isBasicAuth && (!basicAuth || basicAuth === "")) {
-			return;
-		}
-
-		/**
-		 * Authentication is not handled by Auth0 and user is
-		 * authenticated, we can request for data, with the
+		 * User is authenticated, we can request for data, with the
 		 * corresponding basic auth header.
 		 */
-		if (isBasicAuth && basicAuth && basicAuth !== "") {
+		if (basicAuth && basicAuth !== "") {
 			authorization = `Basic ${basicAuth}`;
 		}
 
@@ -136,12 +113,12 @@ function App() {
 						authorization,
 					},
 					data: {
-						user: user?.email || FAKE_USER_EMAIL,
+						user: FAKE_USER_EMAIL,
 					},
 				});
 
 				if (response.status !== 200) {
-					if (response.status === 401 && isBasicAuth) {
+					if (response.status === 401) {
 						storage.remove(LOCAL_STORAGE_BASIC_AUTH);
 						setBasicAuth("");
 						setErrorMessage("Invalid credentials");
@@ -169,13 +146,12 @@ function App() {
 			}
 		})();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [basicAuth, isAuthenticated, isLoading, user?.email]);
+	}, [basicAuth]);
 
 	/**
-	 * Authentication is not handled by Auth0 and user is
-	 * not authenticated, we need to show simple login form.
+	 * User is not authenticated, we need to show simple login form.
 	 */
-	if (isBasicAuth && (!basicAuth || basicAuth === "")) {
+	if (!basicAuth || basicAuth === "") {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
@@ -212,34 +188,7 @@ function App() {
 	}
 
 	/**
-	 * Authentication is handled by Auth0.
-	 * User is not authenticated but still loading...
-	 */
-	if (!isBasicAuth && isLoading) {
-		return null;
-	}
-
-	/**
-	 * Authentication is handled by Auth0.
-	 * User is not authenticated, we need to show a login
-	 * button to redirect the user to the Auth0 login page.
-	 */
-	if (!isBasicAuth && !isAuthenticated) {
-		return (
-			<AppContext.Provider value={{ state, dispatch }}>
-				<Main>
-					<Button className="mb-4 mt-6" onClick={() => loginWithRedirect()}>
-						{LOG_IN}
-					</Button>
-				</Main>
-				<Footer />
-			</AppContext.Provider>
-		);
-	}
-
-	/**
-	 * Authentication is handled by Auth0 and the user is
-	 * fully authenticated. We can show the app.
+	 * User is fully authenticated. We can show the app.
 	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
