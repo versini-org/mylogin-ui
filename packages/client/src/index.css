@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+h2.heading {
+	font-family: "Open Sans";
+}
+
 .fadeIn {
 	animation: fadeInAnimation ease 1s;
 	animation-iteration-count: 1;
