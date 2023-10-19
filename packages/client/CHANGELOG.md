@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.2](https://github.com/aversini/mylogin-ui/compare/client-v1.4.1...client-v1.4.2) (2023-10-19)
+
+
+### Bug Fixes
+
+* missing aria-label from icon-only button ([eba9ac7](https://github.com/aversini/mylogin-ui/commit/eba9ac739bfc7895a56fcc532c40db7969af8b0c))
+* nicer section title font style ([f616003](https://github.com/aversini/mylogin-ui/commit/f616003c4715296813b969d3b11ae515d63658db))
+
 ## [1.4.1](https://github.com/aversini/mylogin-ui/compare/client-v1.4.0...client-v1.4.1) (2023-10-19)
 
 
