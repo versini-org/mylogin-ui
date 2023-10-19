@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/aversini/mylogin-ui/compare/client-v1.4.0...client-v1.4.1) (2023-10-19)
+
+
+### Bug Fixes
+
+* remove Auth0 as it will not be used in this project ([b9ca4ce](https://github.com/aversini/mylogin-ui/commit/b9ca4ce8c317817464dff09000e62b5197c189c7))
+
 ## [1.4.0](https://github.com/aversini/mylogin-ui/compare/client-v1.3.1...client-v1.4.0) (2023-10-19)
 
 
