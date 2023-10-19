@@ -18,6 +18,7 @@ export const Shortcuts = () => {
 						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
 							<Button
+								aria-label="Edit section"
 								raw
 								className={
 									"ml-3 text-slate-300 hover:text-slate-400 active:text-slate-500"
