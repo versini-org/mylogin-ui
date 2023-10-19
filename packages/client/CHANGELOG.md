@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/aversini/mylogin-ui/compare/client-v1.3.1...client-v1.4.0) (2023-10-19)
+
+
+### Features
+
+* adding section title update capability ([833662f](https://github.com/aversini/mylogin-ui/commit/833662f3e59a5e8ec0a50a43cfc28e82af780a8e))
+
 ## [1.3.1](https://github.com/aversini/mylogin-ui/compare/client-v1.3.0...client-v1.3.1) (2023-09-29)
 
 
