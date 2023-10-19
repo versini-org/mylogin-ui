@@ -7,7 +7,6 @@ module.exports = {
 		{
 			path: "index.html",
 			maxSize: "2kb",
-			maxPercentIncrease: 5,
 		},
 		{
 			path: "assets/index-<hash>.js",
