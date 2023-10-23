@@ -883,19 +883,14 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node-notifier@8.0.3":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@types/node-notifier/-/node-notifier-8.0.3.tgz#69a1f8ab7a4af96ffd2833f83a14402740ec6249"
-  integrity sha512-hbAykVDD1DKj5iiV9ecAKX1GuYSKtFIpBJxaWCrXHW3hzZs9AHu8dGOLMsjYT2HZyCeJJSsZgQPAEu9RmCKgnQ==
+"@types/node-notifier@8.0.4":
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@types/node-notifier/-/node-notifier-8.0.4.tgz#a17a637b133391db689d5a1da363aba5201029f0"
+  integrity sha512-DKr9gzvyTCQiNNFzWPRdrwmuJm5FN7bE1TPiIOOEmQma0R4WrI/M1XCDyJVT7zM9QO44mrhvTWVAmc37NHerYQ==
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
-  version "20.6.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.6.3.tgz#5b763b321cd3b80f6b8dde7a37e1a77ff9358dd9"
-  integrity sha512-HksnYH4Ljr4VQgEy2lTStbCKv/P590tmPe5HqOnv9Gprffgv5WXAY+Y5Gqniu0GGqeTCUdBnzC3QSrzPkBkAMA==
-
-"@types/node@20.8.6":
+"@types/node@*", "@types/node@20.8.6":
   version "20.8.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.6.tgz#0dbd4ebcc82ad0128df05d0e6f57e05359ee47fa"
   integrity sha512-eWO4K2Ji70QzKUqRy6oyJWUeB7+g2cRagT3T/nxYibYcT4y2BDL8lqolRXjTHmkZCdJfIPaY73KbJAZmcryxTQ==
