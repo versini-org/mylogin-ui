@@ -1047,10 +1047,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@versini/dev-dependencies-client@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@versini/dev-dependencies-client/-/dev-dependencies-client-1.0.0.tgz#880db1abe9b40263b46e28ad5de1bbfdf67f19b2"
-  integrity sha512-aq2xZXgBekZV9xPSJHOa+xCvCS7Fg6kntiP4a+9ymSiXZJ0xAfKV43W2PMUQnAYezFsB9PHiEgplKK07LS5O+w==
+"@versini/dev-dependencies-client@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@versini/dev-dependencies-client/-/dev-dependencies-client-1.0.2.tgz#4c3a25793348aeea64cfd7c87a1a5b41df74b526"
+  integrity sha512-jk7b3Ti0QeZwp17Wt9bvBeZBwu60e4PVzTXmmiFwlg9z2FPErb+rAKCVxSmkQRMOUFkd119+YZdO9E4356f0Og==
   dependencies:
     "@testing-library/jest-dom" "6.1.4"
     "@testing-library/react" "14.0.0"
