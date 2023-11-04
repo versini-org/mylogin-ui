@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/aversini/mylogin-ui/compare/client-v1.4.2...client-v1.4.3) (2023-11-03)
+
+
+### Bug Fixes
+
+* using common library for Button ([7c6e937](https://github.com/aversini/mylogin-ui/commit/7c6e937e43427c74ccc2bb83e4a9b69eb0387373))
+
 ## [1.4.2](https://github.com/aversini/mylogin-ui/compare/client-v1.4.1...client-v1.4.2) (2023-10-19)
 
 
