@@ -1,4 +1,4 @@
-import { Button } from "@versini/ui-components";
+import { Button, Footer } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -10,12 +10,14 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import {
+	APP_NAME,
+	APP_OWNER,
 	FAKE_USER_EMAIL,
 	LOG_IN,
 	PASSWORD_PLACEHOLDER,
 } from "../../common/strings";
-import { serviceCall } from "../../common/utilities";
-import { Footer, Main, TextInput } from "../../components";
+import { isDev, serviceCall } from "../../common/utilities";
+import { Main, TextInput } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
@@ -33,6 +35,7 @@ function App() {
 		status: ACTION_STATUS_SUCCESS,
 		shortcuts: [],
 	});
+	const buildClass = isDev ? "text-slate-900" : "text-slate-300";
 
 	useEffect(() => {
 		document.getElementById("logo")?.classList.add("fadeOut");
@@ -183,7 +186,19 @@ function App() {
 						</Button>
 					</form>
 				</Main>
-				<Footer />
+				<Footer
+					row1={
+						<div>
+							{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
+							{import.meta.env.BUILDTIME}
+						</div>
+					}
+					row2={
+						<div className={buildClass}>
+							&copy; {new Date().getFullYear()} {APP_OWNER}
+						</div>
+					}
+				/>
 			</AppContext.Provider>
 		);
 	}
@@ -196,7 +211,19 @@ function App() {
 			<Main>
 				<Shortcuts />
 			</Main>
-			<Footer />
+			<Footer
+				row1={
+					<div>
+						{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
+						{import.meta.env.BUILDTIME}
+					</div>
+				}
+				row2={
+					<div className={buildClass}>
+						&copy; {new Date().getFullYear()} {APP_OWNER}
+					</div>
+				}
+			/>
 		</AppContext.Provider>
 	);
 }
