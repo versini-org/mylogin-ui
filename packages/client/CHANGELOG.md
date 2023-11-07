@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.4](https://github.com/aversini/mylogin-ui/compare/client-v1.4.3...client-v1.4.4) (2023-11-07)
+
+
+### Bug Fixes
+
+* using common library for Footer ([404dc39](https://github.com/aversini/mylogin-ui/commit/404dc39c998a8f53825d2f08f9f7bc0cb4b16857))
+* using common library for IconEdit ([01530f5](https://github.com/aversini/mylogin-ui/commit/01530f5c57dcb4df665ee553d8565061bc2a8713))
+
+
+### Performance Improvements
+
+* bump common UI library to latest ([40bcd8a](https://github.com/aversini/mylogin-ui/commit/40bcd8a79a501b66a33036a718336cf92b3ab13c))
+
 ## [1.4.3](https://github.com/aversini/mylogin-ui/compare/client-v1.4.2...client-v1.4.3) (2023-11-03)
 
 
