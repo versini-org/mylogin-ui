@@ -1,8 +1,7 @@
-import { Button, ButtonLink } from "@versini/ui-components";
+import { Button, ButtonLink, IconEdit } from "@versini/ui-components";
 import { useContext, useState } from "react";
 
 import { ACTION_SET_DATA } from "../../common/constants";
-import { IconEdit } from "../../components";
 import { AppContext } from "../App/AppContext";
 
 export const Shortcuts = () => {
@@ -32,7 +31,7 @@ export const Shortcuts = () => {
 									setUserInputShortcuts(JSON.stringify(item.data, null, 2));
 								}}
 							>
-								<IconEdit />
+								<IconEdit className="h-3 w-3" />
 							</Button>
 						</h2>
 
