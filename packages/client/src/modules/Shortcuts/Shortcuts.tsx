@@ -1,4 +1,9 @@
-import { Button, ButtonLink, IconEdit } from "@versini/ui-components";
+import {
+	Button,
+	ButtonIcon,
+	ButtonLink,
+	IconEdit,
+} from "@versini/ui-components";
 import { useContext, useState } from "react";
 
 import { ACTION_SET_DATA } from "../../common/constants";
@@ -17,12 +22,10 @@ export const Shortcuts = () => {
 					<div key={item.position} className="mb-5">
 						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
-							<Button
-								aria-label="Edit section"
-								raw
-								className={
-									"ml-3 text-slate-300 hover:text-slate-400 active:text-slate-500"
-								}
+							<ButtonIcon
+								className="ml-1"
+								kind="light"
+								label="Edit section"
 								onClick={() => {
 									setEditable(
 										editable === item.position ? null : item.position,
@@ -32,13 +35,13 @@ export const Shortcuts = () => {
 								}}
 							>
 								<IconEdit className="h-3 w-3" />
-							</Button>
+							</ButtonIcon>
 						</h2>
 
 						{editable && editable === item.position ? (
 							<>
 								<input
-									className="mb-1 h-8 w-full p-2 font-mono text-sm"
+									className="mb-1 mt-1 h-8 w-full p-2 font-mono text-sm"
 									type="text"
 									value={userInputSectionTitle}
 									onChange={(e) => setUserInputSectionTitle(e.target.value)}
