@@ -1,4 +1,4 @@
-import { Button, Footer } from "@versini/ui-components";
+import { Button, Footer, Main } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -17,7 +17,7 @@ import {
 	PASSWORD_PLACEHOLDER,
 } from "../../common/strings";
 import { isDev, serviceCall } from "../../common/utilities";
-import { Main, TextInput } from "../../components";
+import { TextInput } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";

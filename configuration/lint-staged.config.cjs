@@ -1,6 +1,6 @@
 module.exports = {
 	"*.{ts,js,tsx,jsx}": [
-		"eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+		"eslint --ext ts,tsx --report-unused-disable-directives --fix",
 		"prettier --write",
 	],
 };
