@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/aversini/mylogin-ui/compare/client-v1.4.5...client-v1.5.0) (2023-11-15)
+
+
+### Features
+
+* using Main from common UI lib ([b0bdd90](https://github.com/aversini/mylogin-ui/commit/b0bdd90bfd209ab142913191c177928705059371))
+
 ## [1.4.5](https://github.com/aversini/mylogin-ui/compare/client-v1.4.4...client-v1.4.5) (2023-11-12)
 
 
