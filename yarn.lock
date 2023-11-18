@@ -783,7 +783,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mylogin/client@workspace:packages/client"
   dependencies:
-    "@versini/ui-components": "npm:1.1.0"
+    "@versini/ui-components": "npm:2.0.0"
     autoprefixer: "npm:10.4.16"
     clsx: "npm:2.0.0"
     json5: "npm:2.2.3"
@@ -1522,20 +1522,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/typography@npm:0.5.10":
-  version: 0.5.10
-  resolution: "@tailwindcss/typography@npm:0.5.10"
-  dependencies:
-    lodash.castarray: "npm:^4.4.0"
-    lodash.isplainobject: "npm:^4.0.6"
-    lodash.merge: "npm:^4.6.2"
-    postcss-selector-parser: "npm:6.0.10"
-  peerDependencies:
-    tailwindcss: "*"
-  checksum: 0fa9c96bf091fb79fdc39a0244027b3891e9205f714197c8196e7ba2305523ce8695d14b912366de9b77d4b1d3a742fb7f9bc9bb633fddc7c7f13374b41075d2
-  languageName: node
-  linkType: hard
-
 "@testing-library/dom@npm:9.3.3, @testing-library/dom@npm:^9.0.0":
   version: 9.3.3
   resolution: "@testing-library/dom@npm:9.3.3"
@@ -2054,19 +2040,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@versini/ui-components@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@versini/ui-components@npm:1.1.0"
+"@versini/ui-components@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@versini/ui-components@npm:2.0.0"
   dependencies:
     "@floating-ui/react": "npm:0.26.2"
-    "@tailwindcss/typography": "npm:0.5.10"
     clsx: "npm:2.0.0"
     tailwindcss: "npm:3.3.5"
     uuid: "npm:9.0.1"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 16b4a1468ad11d653e7a17aa820ea97797111ffabb84b5f32a46eca31927450c809e560e72f37a0fb4a1e126e0162db86783f2f1ed053e4e4d724a0ea9ad113f
+  checksum: c6f6420b7a286836db0e801a40cf225fa635c485d76650eb48e713e247b3e4a1460d9595afc63cd91c3254066775ad6c2a91bf22929d6dd5303441c4e2d0a684
   languageName: node
   linkType: hard
 
@@ -6592,13 +6577,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.castarray@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "lodash.castarray@npm:4.4.0"
-  checksum: 0bf523ad1596a5bf17869ba047235b4453eee927005013ae152345e2b291b81a02e7f2b7c38f876a1d16f73c34aa3c3241e965193e5b31595035bc8f330c4358
-  languageName: node
-  linkType: hard
-
 "lodash.get@npm:^4.4.2":
   version: 4.4.2
   resolution: "lodash.get@npm:4.4.2"
@@ -6617,13 +6595,6 @@ __metadata:
   version: 4.4.0
   resolution: "lodash.ismatch@npm:4.4.0"
   checksum: 8f96a5dc4b8d3fc5a033dcb259d0c3148a1044fa4d02b4a0e8dce0fa1f2ef3ec4ac131e20b5cb2c985a4e9bcb1c37c0aa5af2cef70094959389617347b8fc645
-  languageName: node
-  linkType: hard
-
-"lodash.isplainobject@npm:^4.0.6":
-  version: 4.0.6
-  resolution: "lodash.isplainobject@npm:4.0.6"
-  checksum: afd70b5c450d1e09f32a737bed06ff85b873ecd3d3d3400458725283e3f2e0bb6bf48e67dbe7a309eb371a822b16a26cca4a63c8c52db3fc7dc9d5f9dd324cbb
   languageName: node
   linkType: hard
 
@@ -8304,16 +8275,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.2.14
   checksum: 2a50aa36d5d103c2e471954830489f4c024deed94fa066169101db55171368d5f80b32446b584029e0471feee409293d0b6b1d8ede361f6675ba097e477b3cbd
-  languageName: node
-  linkType: hard
-
-"postcss-selector-parser@npm:6.0.10":
-  version: 6.0.10
-  resolution: "postcss-selector-parser@npm:6.0.10"
-  dependencies:
-    cssesc: "npm:^3.0.0"
-    util-deprecate: "npm:^1.0.2"
-  checksum: a0b27c5e3f7604c8dc7cd83f145fdd7b21448e0d86072da99e0d78e536ba27aa9db2d42024c50aa530408ee517c4bdc0260529e1afb56608f9a82e839c207e82
   languageName: node
   linkType: hard
 

@@ -23,6 +23,7 @@ export const Shortcuts = () => {
 						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
 							<ButtonIcon
+								noBorder
 								className="ml-1"
 								kind="light"
 								label="Edit section"
@@ -52,6 +53,7 @@ export const Shortcuts = () => {
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
 								<Button
+									noBorder
 									className="mr-2 mt-3"
 									slim
 									onClick={() => {
@@ -63,6 +65,7 @@ export const Shortcuts = () => {
 									Cancel
 								</Button>
 								<Button
+									noBorder
 									className="mt-3"
 									slim
 									onClick={async () => {
@@ -110,6 +113,7 @@ export const Shortcuts = () => {
 										<ButtonLink
 											key={shortcut.id}
 											slim
+											noBorder
 											link={shortcut.url}
 											target="_blank"
 											className="mr-1 mt-1 w-44 sm:w-52"
