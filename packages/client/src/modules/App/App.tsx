@@ -171,6 +171,7 @@ function App() {
 						/>
 
 						<Button
+							noBorder
 							type="submit"
 							className="mb-4 mt-6"
 							onClick={(e) => {
@@ -187,6 +188,7 @@ function App() {
 					</form>
 				</Main>
 				<Footer
+					kind="light"
 					row1={
 						<div>
 							{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
@@ -212,6 +214,7 @@ function App() {
 				<Shortcuts />
 			</Main>
 			<Footer
+				kind="light"
 				row1={
 					<div>
 						{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
