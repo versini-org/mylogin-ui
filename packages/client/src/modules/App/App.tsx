@@ -1,4 +1,4 @@
-import { Button, Footer, Main } from "@versini/ui-components";
+import { Button, Footer, Main, TextInput } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -17,7 +17,6 @@ import {
 	PASSWORD_PLACEHOLDER,
 } from "../../common/strings";
 import { isDev, serviceCall } from "../../common/utilities";
-import { TextInput } from "../../components";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
@@ -162,12 +161,14 @@ function App() {
 					<form className="mx-auto flex w-96 flex-col flex-wrap">
 						<TextInput
 							type="password"
-							placeholder={PASSWORD_PLACEHOLDER}
+							name="password"
+							label={PASSWORD_PLACEHOLDER}
 							onChange={(e) => {
 								setSimpleLogin({ ...simpleLogin, password: e.target.value });
 								setErrorMessage("");
 							}}
-							errorMessage={errorMessage}
+							error={errorMessage !== ""}
+							helperText={errorMessage}
 						/>
 
 						<Button
