@@ -10,7 +10,11 @@ module.exports = {
 		},
 		{
 			path: "assets/index-<hash>.js",
-			maxSize: "65kb",
+			maxSize: "5kb",
+		},
+		{
+			path: "assets/vendor-<hash>.js",
+			maxSize: "70kb",
 		},
 		{
 			path: "assets/jsonUtilities-<hash>.js",
