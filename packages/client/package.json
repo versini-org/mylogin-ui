@@ -19,7 +19,7 @@
 		"test:watch": "vitest"
 	},
 	"dependencies": {
-		"@versini/ui-components": "3.0.0",
+		"@versini/ui-components": "3.0.1",
 		"autoprefixer": "10.4.16",
 		"clsx": "2.0.0",
 		"json5": "2.2.3",
