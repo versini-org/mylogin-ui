@@ -39,7 +39,7 @@ export const jsonParse = (json: string, autofix = false): any => {
 	try {
 		return JSON5.parse(json);
 	} catch (error) {
-		throw new Error("Invalid JSON format");
+		throw new Error(`Invalid JSON format: ${error}`);
 	}
 };
 
