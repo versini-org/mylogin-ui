@@ -3,6 +3,7 @@ import {
 	ButtonIcon,
 	ButtonLink,
 	IconEdit,
+	TextInput,
 } from "@versini/ui-components";
 import { useContext, useState } from "react";
 
@@ -41,8 +42,10 @@ export const Shortcuts = () => {
 
 						{editable && editable === item.position ? (
 							<>
-								<input
-									className="mb-1 mt-1 h-8 w-full p-2 font-mono text-sm"
+								<TextInput
+									label="Section title"
+									name={`section-title-${item.position}`}
+									className="mb-2 mt-2"
 									type="text"
 									value={userInputSectionTitle}
 									onChange={(e) => setUserInputSectionTitle(e.target.value)}
