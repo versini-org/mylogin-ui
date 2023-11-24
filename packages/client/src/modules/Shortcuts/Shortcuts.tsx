@@ -48,7 +48,9 @@ export const Shortcuts = () => {
 									className="mb-2 mt-2"
 									type="text"
 									value={userInputSectionTitle}
-									onChange={(e) => setUserInputSectionTitle(e.target.value)}
+									onChange={(e) =>
+										setUserInputSectionTitle(e.target.value.toString())
+									}
 								/>
 								<textarea
 									className="h-36 w-full p-2 font-mono text-sm"
@@ -87,7 +89,7 @@ export const Shortcuts = () => {
 											}
 
 											try {
-												item.title = JSON.parse(userInputSectionTitle);
+												item.title = jsonParse(userInputSectionTitle, true);
 											} catch (error) {
 												// eslint-disable-next-line no-console
 												console.error(error);
