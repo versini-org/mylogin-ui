@@ -1,5 +1,44 @@
 # Changelog
 
+## [1.6.0](https://github.com/aversini/mylogin-ui/compare/client-v1.5.3...client-v1.6.0) (2023-11-24)
+
+
+### Features
+
+* adding edit capabilities ([7b94375](https://github.com/aversini/mylogin-ui/commit/7b943756cdd3b872e386589762e55323d5c84464))
+* adding section title update capability ([833662f](https://github.com/aversini/mylogin-ui/commit/833662f3e59a5e8ec0a50a43cfc28e82af780a8e))
+* adding support for no auth in production ([c48e9d1](https://github.com/aversini/mylogin-ui/commit/c48e9d1d19bff1ddc3434480819d104f3b205f55))
+* enabling basic auth ([1431adf](https://github.com/aversini/mylogin-ui/commit/1431adf00f7d45377629812cf36c23372eb676bd))
+* using Main from common UI lib ([b0bdd90](https://github.com/aversini/mylogin-ui/commit/b0bdd90bfd209ab142913191c177928705059371))
+
+
+### Bug Fixes
+
+* automated id per shortcut even when there is none ([3266334](https://github.com/aversini/mylogin-ui/commit/3266334f81e64efc21489b97a2a72be2cbe1812d))
+* better support for smaller breakpoints ([4442d06](https://github.com/aversini/mylogin-ui/commit/4442d06b8fee94a3cf3aca406cf5e9634d0b00bb))
+* bump to common UI lib v2 ([a44d3ab](https://github.com/aversini/mylogin-ui/commit/a44d3ab957a92d33c83688e861915ef9d94010c4))
+* bump UI library to latest ([5b74951](https://github.com/aversini/mylogin-ui/commit/5b7495171e2e267eeec98d0e08fef67fca48dc73))
+* incorrect favicon ([e8d95b5](https://github.com/aversini/mylogin-ui/commit/e8d95b56bc99d986b0b0c24eba3b6797a88e048c))
+* links should open in a different window/tab ([3113b76](https://github.com/aversini/mylogin-ui/commit/3113b76098275e4520795b26889b9ff00641d3ec))
+* missing aria-label from icon-only button ([eba9ac7](https://github.com/aversini/mylogin-ui/commit/eba9ac739bfc7895a56fcc532c40db7969af8b0c))
+* missing error message on failed basic auth ([356ac17](https://github.com/aversini/mylogin-ui/commit/356ac171fe62ced4f3cfd10124fd8a0600880f9d))
+* more robust string formatting for Section title edit ([f9cbf73](https://github.com/aversini/mylogin-ui/commit/f9cbf73307d2c79f054546b1dae6c03ff46ffbcd))
+* nicer section title font style ([f616003](https://github.com/aversini/mylogin-ui/commit/f616003c4715296813b969d3b11ae515d63658db))
+* one button label is not truncated correctly ([65158ae](https://github.com/aversini/mylogin-ui/commit/65158ae4e36852cadfbcb78f8ac92a103ddfb087))
+* optimize build with vendor chunks ([cb011a5](https://github.com/aversini/mylogin-ui/commit/cb011a57ff5f5b2c0ec4d8386e5e78b2ba657ec9))
+* pre-parse user entered string to sanitize JSON ([14def10](https://github.com/aversini/mylogin-ui/commit/14def10c0a673cbffce5f5c83ab1866b71528bc1))
+* remove Auth0 as it will not be used in this project ([b9ca4ce](https://github.com/aversini/mylogin-ui/commit/b9ca4ce8c317817464dff09000e62b5197c189c7))
+* replace internal component with UI lib ([7b1542f](https://github.com/aversini/mylogin-ui/commit/7b1542fb43b8c3120e32f1964a4326549bbd6c23))
+* using common library for Button ([7c6e937](https://github.com/aversini/mylogin-ui/commit/7c6e937e43427c74ccc2bb83e4a9b69eb0387373))
+* using common library for Footer ([404dc39](https://github.com/aversini/mylogin-ui/commit/404dc39c998a8f53825d2f08f9f7bc0cb4b16857))
+* using common library for IconEdit ([01530f5](https://github.com/aversini/mylogin-ui/commit/01530f5c57dcb4df665ee553d8565061bc2a8713))
+
+
+### Performance Improvements
+
+* bump common UI library to latest ([40bcd8a](https://github.com/aversini/mylogin-ui/commit/40bcd8a79a501b66a33036a718336cf92b3ab13c))
+* bump ui-component library to latest ([619f53a](https://github.com/aversini/mylogin-ui/commit/619f53a817036dd90d0509b4003c3dfa21f3397c))
+
 ## [1.5.3](https://github.com/aversini/mylogin-ui/compare/client-v1.5.2...client-v1.5.3) (2023-11-24)
 
 
