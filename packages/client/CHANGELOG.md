@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/aversini/mylogin-ui/compare/client-v1.5.1...client-v1.5.2) (2023-11-24)
+
+
+### Bug Fixes
+
+* optimize build with vendor chunks ([cb011a5](https://github.com/aversini/mylogin-ui/commit/cb011a57ff5f5b2c0ec4d8386e5e78b2ba657ec9))
+* replace internal component with UI lib ([7b1542f](https://github.com/aversini/mylogin-ui/commit/7b1542fb43b8c3120e32f1964a4326549bbd6c23))
+
 ## [1.5.1](https://github.com/aversini/mylogin-ui/compare/client-v1.5.0...client-v1.5.1) (2023-11-18)
 
 
