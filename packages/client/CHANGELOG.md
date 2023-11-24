@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/aversini/mylogin-ui/compare/client-v1.5.2...client-v1.5.3) (2023-11-24)
+
+
+### Bug Fixes
+
+* more robust string formatting for Section title edit ([f9cbf73](https://github.com/aversini/mylogin-ui/commit/f9cbf73307d2c79f054546b1dae6c03ff46ffbcd))
+
 ## [1.5.2](https://github.com/aversini/mylogin-ui/compare/client-v1.5.1...client-v1.5.2) (2023-11-24)
 
 
