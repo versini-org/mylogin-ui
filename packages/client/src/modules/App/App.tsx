@@ -1,4 +1,11 @@
-import { Button, Footer, Main, TextInput } from "@versini/ui-components";
+import {
+	Button,
+	Flexgrid,
+	FlexgridItem,
+	Footer,
+	Main,
+	TextInput,
+} from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -158,34 +165,44 @@ function App() {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
-					<form className="mx-auto flex w-96 flex-col flex-wrap">
-						<TextInput
-							type="password"
-							name="password"
-							label={PASSWORD_PLACEHOLDER}
-							onChange={(e) => {
-								setSimpleLogin({ ...simpleLogin, password: e.target.value });
-								setErrorMessage("");
-							}}
-							error={errorMessage !== ""}
-							helperText={errorMessage}
-						/>
+					<form className="mx-auto">
+						<Flexgrid direction="column" width="24rem">
+							<FlexgridItem>
+								<TextInput
+									type="password"
+									name="password"
+									label={PASSWORD_PLACEHOLDER}
+									onChange={(e) => {
+										setSimpleLogin({
+											...simpleLogin,
+											password: e.target.value,
+										});
+										setErrorMessage("");
+									}}
+									error={errorMessage !== ""}
+									helperText={errorMessage}
+								/>
+							</FlexgridItem>
 
-						<Button
-							noBorder
-							type="submit"
-							className="mb-4 mt-6"
-							onClick={(e) => {
-								e.preventDefault();
-								const data = `${btoa(
-									`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
-								)}`;
-								storage.set(LOCAL_STORAGE_BASIC_AUTH, data);
-								setBasicAuth(storage.get(LOCAL_STORAGE_BASIC_AUTH));
-							}}
-						>
-							{LOG_IN}
-						</Button>
+							<FlexgridItem span={12}>
+								<Button
+									fullWidth
+									noBorder
+									type="submit"
+									className="mb-4 mt-6"
+									onClick={(e) => {
+										e.preventDefault();
+										const data = `${btoa(
+											`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
+										)}`;
+										storage.set(LOCAL_STORAGE_BASIC_AUTH, data);
+										setBasicAuth(storage.get(LOCAL_STORAGE_BASIC_AUTH));
+									}}
+								>
+									{LOG_IN}
+								</Button>
+							</FlexgridItem>
+						</Flexgrid>
 					</form>
 				</Main>
 				<Footer
@@ -211,9 +228,7 @@ function App() {
 	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
-			<Main>
-				<Shortcuts />
-			</Main>
+			<Main>{state && state?.shortcuts?.length > 0 && <Shortcuts />}</Main>
 			<Footer
 				kind="light"
 				row1={
