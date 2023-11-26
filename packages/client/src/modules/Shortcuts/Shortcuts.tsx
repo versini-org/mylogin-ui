@@ -25,6 +25,7 @@ export const Shortcuts = () => {
 							{item.title}
 							<ButtonIcon
 								noBorder
+								size="small"
 								className="ml-1"
 								kind="light"
 								label="Edit section"
