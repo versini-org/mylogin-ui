@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.4](https://github.com/aversini/mylogin-ui/compare/client-v1.5.3...client-v1.5.4) (2023-11-26)
+
+
+### Bug Fixes
+
+* migrate to UI library v4 ([d6df974](https://github.com/aversini/mylogin-ui/commit/d6df9749c9f3c3be00b33104fb84e0a610d4284b))
+
 ## [1.5.3](https://github.com/aversini/mylogin-ui/compare/client-v1.5.2...client-v1.5.3) (2023-11-24)
 
 
