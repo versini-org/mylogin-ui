@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/aversini/mylogin-ui/compare/client-v1.5.4...client-v1.6.0) (2023-12-02)
+
+
+### Features
+
+* using TextInputMask instead of TextInput for password ([ebb31d6](https://github.com/aversini/mylogin-ui/commit/ebb31d6e9f449d0e79fc278439a07d7b5f2e0ab4))
+
 ## [1.5.4](https://github.com/aversini/mylogin-ui/compare/client-v1.5.3...client-v1.5.4) (2023-11-26)
 
 
