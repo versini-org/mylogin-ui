@@ -1,11 +1,4 @@
-import {
-	Button,
-	Flexgrid,
-	FlexgridItem,
-	Footer,
-	Main,
-	TextInputMask,
-} from "@versini/ui-components";
+import { Footer, Main } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -16,27 +9,19 @@ import {
 	LOCAL_STORAGE_BASIC_AUTH,
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
-import {
-	APP_NAME,
-	APP_OWNER,
-	FAKE_USER_EMAIL,
-	LOG_IN,
-	PASSWORD_PLACEHOLDER,
-} from "../../common/strings";
+import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
 import { isDev, serviceCall } from "../../common/utilities";
+import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
 
 function App() {
 	const storage = useLocalStorage();
+	const [errorMessage, setErrorMessage] = useState("");
 	const [basicAuth, setBasicAuth] = useState(
 		storage.get(LOCAL_STORAGE_BASIC_AUTH),
 	);
-	const [simpleLogin, setSimpleLogin] = useState({
-		password: "",
-	});
-	const [errorMessage, setErrorMessage] = useState("");
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
 		shortcuts: [],
@@ -165,44 +150,12 @@ function App() {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Main>
-					<form className="mx-auto">
-						<Flexgrid direction="column" width="24rem">
-							<FlexgridItem>
-								<TextInputMask
-									name="password"
-									label={PASSWORD_PLACEHOLDER}
-									onChange={(e) => {
-										setSimpleLogin({
-											...simpleLogin,
-											password: e.target.value,
-										});
-										setErrorMessage("");
-									}}
-									error={errorMessage !== ""}
-									helperText={errorMessage}
-								/>
-							</FlexgridItem>
-
-							<FlexgridItem span={12}>
-								<Button
-									fullWidth
-									noBorder
-									type="submit"
-									className="mb-4 mt-6"
-									onClick={(e) => {
-										e.preventDefault();
-										const data = `${btoa(
-											`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
-										)}`;
-										storage.set(LOCAL_STORAGE_BASIC_AUTH, data);
-										setBasicAuth(storage.get(LOCAL_STORAGE_BASIC_AUTH));
-									}}
-								>
-									{LOG_IN}
-								</Button>
-							</FlexgridItem>
-						</Flexgrid>
-					</form>
+					<Login
+						storage={storage}
+						errorMessage={errorMessage}
+						setErrorMessage={setErrorMessage}
+						setBasicAuth={setBasicAuth}
+					/>
 				</Main>
 				<Footer
 					kind="light"
