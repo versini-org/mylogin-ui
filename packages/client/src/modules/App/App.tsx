@@ -4,7 +4,7 @@ import {
 	FlexgridItem,
 	Footer,
 	Main,
-	TextInput,
+	TextInputMask,
 } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
@@ -168,8 +168,7 @@ function App() {
 					<form className="mx-auto">
 						<Flexgrid direction="column" width="24rem">
 							<FlexgridItem>
-								<TextInput
-									type="password"
+								<TextInputMask
 									name="password"
 									label={PASSWORD_PLACEHOLDER}
 									onChange={(e) => {
