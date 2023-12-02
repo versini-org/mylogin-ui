@@ -3,9 +3,15 @@ import { obfuscate, unObfuscate } from "./utilities";
 
 type LocalStorageKey = typeof LOCAL_STORAGE_BASIC_AUTH;
 
-export const useLocalStorage = () => {
+export type StorageInterface = {
+	get: (key: LocalStorageKey) => string | boolean;
+	set: (key: LocalStorageKey, value: string | boolean) => void;
+	remove: (key: LocalStorageKey) => void;
+};
+
+export const useLocalStorage = (): StorageInterface => {
 	return {
-		get: (key: LocalStorageKey): string | boolean | null => {
+		get: (key) => {
 			const data = unObfuscate(
 				localStorage.getItem(LOCAL_STORAGE_PREFIX + key) || "",
 			);
@@ -14,12 +20,12 @@ export const useLocalStorage = () => {
 			}
 			return data;
 		},
-		set: (key: LocalStorageKey, value: string | boolean) => {
+		set: (key, value) => {
 			const data = typeof value === "boolean" ? value.toString() : value;
 			const obfuscatedValue = obfuscate(data.trim()) || "";
 			localStorage.setItem(LOCAL_STORAGE_PREFIX + key, obfuscatedValue);
 		},
-		remove: (key: LocalStorageKey) => {
+		remove: (key) => {
 			localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);
 		},
 	};

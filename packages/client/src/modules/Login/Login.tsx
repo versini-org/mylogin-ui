@@ -7,6 +7,7 @@ import {
 import { useState } from "react";
 
 import { LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
+import type { StorageInterface } from "../../common/hooks";
 import {
 	FAKE_USER_EMAIL,
 	LOG_IN,
@@ -19,10 +20,10 @@ export const Login = ({
 	setErrorMessage,
 	setBasicAuth,
 }: {
-	storage: any;
+	storage: StorageInterface;
 	errorMessage: string;
 	setErrorMessage: (errorMessage: string) => void;
-	setBasicAuth: (basicAuth: string) => void;
+	setBasicAuth: (basicAuth: string | boolean) => void;
 }) => {
 	const [simpleLogin, setSimpleLogin] = useState({
 		password: "",
