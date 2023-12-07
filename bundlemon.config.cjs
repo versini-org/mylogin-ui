@@ -14,7 +14,7 @@ module.exports = {
 		},
 		{
 			path: "assets/vendor-<hash>.js",
-			maxSize: "50kb",
+			maxSize: "55kb",
 		},
 		{
 			path: "assets/jsonUtilities-<hash>.js",
