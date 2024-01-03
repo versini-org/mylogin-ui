@@ -617,7 +617,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mylogin/client@workspace:packages/client"
   dependencies:
-    "@versini/ui-components": "npm:4.22.3"
+    "@versini/ui-components": "npm:4.22.4"
     json5: "npm:2.2.3"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -1893,17 +1893,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@versini/ui-components@npm:4.22.3":
-  version: 4.22.3
-  resolution: "@versini/ui-components@npm:4.22.3"
+"@versini/ui-components@npm:4.22.4":
+  version: 4.22.4
+  resolution: "@versini/ui-components@npm:4.22.4"
   dependencies:
     "@floating-ui/react": "npm:0.26.4"
-    clsx: "npm:2.0.0"
+    clsx: "npm:2.1.0"
     tailwindcss: "npm:3.4.0"
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 9c416e993e92d137db954f4a3349dfc0436557fb07cfdc9d4a3c48b1bfc31b948436030871b2d7a5d72f208ebcf2e62df4fd808f2682933016031c000985176f
+  checksum: 823ffbe676116b9bbe5b62ebde0d34ad7500e73c66c7f02aca88bced09d24c0df22585aa7f37a72a29b15a52c75f7c28f45b61486960e12ed1c1b0d118c3f696
   languageName: node
   linkType: hard
 
@@ -3086,10 +3086,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:2.0.0":
-  version: 2.0.0
-  resolution: "clsx@npm:2.0.0"
-  checksum: c09f43b3144a0b7826b6b11b6a111b2c7440831004eecc02d333533c5e58ef0aa5f2dce071d3b25fbb8c8ea97b45df96c74bcc1d51c8c2027eb981931107b0cd
+"clsx@npm:2.1.0":
+  version: 2.1.0
+  resolution: "clsx@npm:2.1.0"
+  checksum: c09c00ad14f638366ca814097e6cab533dfa1972a358da5b557be487168acbb25b4c1395e89ffa842a8a61ba87a462d2b4885bc9d4f8410b598f3cb339599cdb
   languageName: node
   linkType: hard
 
