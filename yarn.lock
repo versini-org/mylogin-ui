@@ -1482,6 +1482,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/culori@npm:2.0.4":
+  version: 2.0.4
+  resolution: "@types/culori@npm:2.0.4"
+  checksum: fd5d22c40e33d410a4c5f2c29d6b6ee2aa7925915ad0e3c728058ac1424922a35c7f1cf4ca6e255a377506d8257c89a02a7d13d06401fec900c9517a5aaaffff
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.0":
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"
@@ -1589,12 +1596,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.10.5":
+"@types/node@npm:*":
   version: 20.10.5
   resolution: "@types/node@npm:20.10.5"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: be30609aae0bfe492097815f166ccc07f465220cb604647fa4e5ec05a1d16c012a41b82b5f11ecfe2485cbb479d4d20384b95b809ca0bcff6d94d5bbafa645bb
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.11.0":
+  version: 20.11.0
+  resolution: "@types/node@npm:20.11.0"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 560aa850dfccb83326f9cba125459f6c3fb0c71ec78f22c61e4d248f1df78bd25fd6792cef573dfbdc49c882f8e38bb1a82ca87e0e28ff2513629c704c2b02af
   languageName: node
   linkType: hard
 
@@ -1628,7 +1644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.45":
+"@types/react@npm:*":
   version: 18.2.45
   resolution: "@types/react@npm:18.2.45"
   dependencies:
@@ -1636,6 +1652,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 4cc650c47ffb88baac29fb7a74e842e4af4a55f437086ef70250fdc75f0a5f2fcf8adc272d05ab2e00b1de6e14613296881271caee037dadf9130fdeb498c59e
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.47":
+  version: 18.2.47
+  resolution: "@types/react@npm:18.2.47"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: e98ea1827fe60636d0f7ce206397159a29fc30613fae43e349e32c10ad3c0b7e0ed2ded2f3239e07bd5a3cba8736b6114ba196acccc39905ca4a06f56a8d2841
   languageName: node
   linkType: hard
 
@@ -1876,20 +1903,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@versini/dev-dependencies-types@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@versini/dev-dependencies-types@npm:1.0.1"
+"@versini/dev-dependencies-types@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@versini/dev-dependencies-types@npm:1.1.1"
   dependencies:
+    "@types/culori": "npm:2.0.4"
     "@types/fs-extra": "npm:11.0.4"
     "@types/jest": "npm:29.5.11"
     "@types/lodash-es": "npm:4.17.12"
-    "@types/node": "npm:20.10.5"
+    "@types/node": "npm:20.11.0"
     "@types/node-notifier": "npm:8.0.5"
-    "@types/react": "npm:18.2.45"
+    "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
     "@types/uuid": "npm:9.0.7"
     "@types/yargs": "npm:17.0.32"
-  checksum: 381bb9d29a1991e922d85923a2fd617b0bc269df1f351b92537424e44d043592e339b418c5755db8f3bf6c859dd11bf2c87e1e368edd29fbb00e5799e7623d66
+  checksum: cca04350a3ec552e7948274f12a33f3fb7bf539f42423f397f7bf1758283c22acf711b504fa4d2621bad0ca31ab1075232ce5a4eda73f7dd085d8d349677a1b7
   languageName: node
   linkType: hard
 
@@ -8964,7 +8992,7 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@versini/dev-dependencies-client": "npm:4.0.0"
-    "@versini/dev-dependencies-types": "npm:1.0.1"
+    "@versini/dev-dependencies-types": "npm:1.1.1"
   languageName: unknown
   linkType: soft
 
