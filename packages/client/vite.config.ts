@@ -16,6 +16,11 @@ const buildTime = new Date()
 	.replace(/,/g, "");
 
 export default defineConfig({
+	build: {
+		modulePreload: {
+			polyfill: false,
+		},
+	},
 	esbuild: {
 		supported: {
 			"top-level-await": true, //browsers can handle top-level-await features
