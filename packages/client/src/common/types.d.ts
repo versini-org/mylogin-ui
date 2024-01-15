@@ -14,50 +14,50 @@ export type ShortcutDataProps = {
 };
 
 export type ShortcutProps = {
+	data: ShortcutDataProps[];
 	position: number;
 	title: string;
-	data: ShortcutDataProps[];
 };
 
 export type StateProps = {
+	shortcuts: ShortcutProps[];
 	status:
 		| string
 		| typeof ACTION_STATUS_STALE
 		| typeof ACTION_STATUS_ERROR
 		| typeof ACTION_STATUS_SUCCESS;
-	shortcuts: ShortcutProps[];
 };
 
 export type ActionProps =
 	| undefined
 	| {
-			type: typeof ACTION_SET_STATUS;
 			payload: {
 				status:
 					| typeof ACTION_STATUS_STALE
 					| typeof ACTION_STATUS_ERROR
 					| typeof ACTION_STATUS_SUCCESS;
 			};
+			type: typeof ACTION_SET_STATUS;
 	  }
 	| {
-			type: typeof ACTION_GET_DATA;
 			payload: {
+				shortcuts: ShortcutProps[];
 				status:
 					| string
 					| typeof ACTION_STATUS_ERROR
 					| typeof ACTION_STATUS_SUCCESS;
-				shortcuts: ShortcutProps[];
 			};
+			type: typeof ACTION_GET_DATA;
 	  }
 	| {
-			type: typeof ACTION_SET_DATA;
 			payload: {
-				status: typeof ACTION_STATUS_STALE;
 				shortcut: ShortcutProps;
+				status: typeof ACTION_STATUS_STALE;
 			};
+			type: typeof ACTION_SET_DATA;
 	  };
 
 export type AppContextProps = {
-	state?: StateProps;
 	dispatch: React.Dispatch<ActionProps>;
+	state?: StateProps;
 };

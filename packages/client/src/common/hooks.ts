@@ -5,8 +5,8 @@ type LocalStorageKey = typeof LOCAL_STORAGE_BASIC_AUTH;
 
 export type StorageInterface = {
 	get: (key: LocalStorageKey) => string | boolean;
-	set: (key: LocalStorageKey, value: string | boolean) => void;
 	remove: (key: LocalStorageKey) => void;
+	set: (key: LocalStorageKey, value: string | boolean) => void;
 };
 
 export const useLocalStorage = (): StorageInterface => {
