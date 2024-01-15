@@ -8,10 +8,10 @@ export const serviceCall = async ({
 	method = "POST",
 	headers = {},
 }: {
-	name: string;
 	data: any;
-	method?: string;
+	name: string;
 	headers?: any;
+	method?: string;
 }) => {
 	const response = await fetch(
 		`${import.meta.env.VITE_SERVER_URL}/api/${name}`,

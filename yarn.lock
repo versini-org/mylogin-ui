@@ -1946,6 +1946,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@versini/eslint-plugin-client@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@versini/eslint-plugin-client@npm:1.0.1"
+  peerDependencies:
+    eslint: ">=8"
+  checksum: 3bb41f56cf5f25cc91ea64eaee8c32643fd78078788f9e0ec19fd87e03915d7baa07a948c245b3280806db22bafc97527ab80191fc81f210afeec8cf58025774
+  languageName: node
+  linkType: hard
+
 "@versini/ui-components@npm:4.30.0":
   version: 4.30.0
   resolution: "@versini/ui-components@npm:4.30.0"
@@ -9121,6 +9130,7 @@ __metadata:
   dependencies:
     "@versini/dev-dependencies-client": "npm:4.1.4"
     "@versini/dev-dependencies-types": "npm:1.1.1"
+    "@versini/eslint-plugin-client": "npm:1.0.1"
   languageName: unknown
   linkType: soft
 

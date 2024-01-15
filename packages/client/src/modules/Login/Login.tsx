@@ -20,10 +20,10 @@ export const Login = ({
 	setErrorMessage,
 	setBasicAuth,
 }: {
-	storage: StorageInterface;
 	errorMessage: string;
-	setErrorMessage: (errorMessage: string) => void;
 	setBasicAuth: (basicAuth: string | boolean) => void;
+	setErrorMessage: (errorMessage: string) => void;
+	storage: StorageInterface;
 }) => {
 	const [simpleLogin, setSimpleLogin] = useState({
 		password: "",
