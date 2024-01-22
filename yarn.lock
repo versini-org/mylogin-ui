@@ -340,33 +340,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "@floating-ui/react-dom@npm:2.0.5"
+"@floating-ui/react-dom@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@floating-ui/react-dom@npm:2.0.6"
   dependencies:
     "@floating-ui/dom": "npm:^1.5.4"
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: cb72564ea6d6f65161fcc5c04005206e09b17513fded78906a737f01fb1d4aaef550da7109cff4c4373b3d251645ba5a102af116b797456d1e81749ffc05fa67
+  checksum: 33bdeb70487837a4b21b537c4c10874d7c86d661f7748eedee877a45bd65f61a59dc3cf10a30a193c913fb758feaaf33ddb7f2df9d898f96506dfe22eaa8e4fb
   languageName: node
   linkType: hard
 
-"@floating-ui/react@npm:0.26.5":
-  version: 0.26.5
-  resolution: "@floating-ui/react@npm:0.26.5"
+"@floating-ui/react@npm:0.26.6":
+  version: 0.26.6
+  resolution: "@floating-ui/react@npm:0.26.6"
   dependencies:
-    "@floating-ui/react-dom": "npm:^2.0.5"
-    "@floating-ui/utils": "npm:^0.2.0"
+    "@floating-ui/react-dom": "npm:^2.0.6"
+    "@floating-ui/utils": "npm:^0.2.1"
     tabbable: "npm:^6.0.1"
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: c3884061029fff47a2e9b3c91185310a4e6e707418fe2b9b1cb85f1d83151f63978a6b046ccf45e9ffc6fbe4270bf71379b115a80207beab16e4ebe79978fe79
+  checksum: 078503673e84c459d658d415ef6e8bf9cf4fbfbd9ea17279b66e0d965eab9afc28edae23fae56f37c2dd2dd452b0d2f286e602da7b23a61f6d5ddc429afa8d43
   languageName: node
   linkType: hard
 
-"@floating-ui/utils@npm:^0.2.0":
+"@floating-ui/utils@npm:^0.2.0, @floating-ui/utils@npm:^0.2.1":
   version: 0.2.1
   resolution: "@floating-ui/utils@npm:0.2.1"
   checksum: ee77756712cf5b000c6bacf11992ffb364f3ea2d0d51cc45197a7e646a17aeb86ea4b192c0b42f3fbb29487aee918a565e84f710b8c3645827767f406a6b4cc9
@@ -628,7 +628,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mylogin/client@workspace:packages/client"
   dependencies:
-    "@versini/ui-components": "npm:4.30.0"
+    "@versini/ui-components": "npm:4.30.2"
     json5: "npm:2.2.3"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -1955,11 +1955,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@versini/ui-components@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@versini/ui-components@npm:4.30.0"
+"@versini/ui-components@npm:4.30.2":
+  version: 4.30.2
+  resolution: "@versini/ui-components@npm:4.30.2"
   dependencies:
-    "@floating-ui/react": "npm:0.26.5"
+    "@floating-ui/react": "npm:0.26.6"
     "@tailwindcss/typography": "npm:0.5.10"
     "@versini/ui-hooks": "npm:>=2.1.1"
     clsx: "npm:2.1.0"
@@ -1969,7 +1969,7 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: e902addc93a7e33eb5e6b83c5a7525f0d1d4e42ebafe0381e9527114c633840990baf76b4ac04881360cfb6dc5907df1569113a0e5238394aed835618cede2f2
+  checksum: 217a708af5c24d93044a488e502a8e273282559d499e67524250fbd026f3a716447fe7ce0f46aeca0c4150cff8214ad138d51d7cab8836e14e3e6fb10628f081
   languageName: node
   linkType: hard
 
