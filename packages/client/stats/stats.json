@@ -1,1 +1,28 @@
-{}
+{
+  "1.7.1": {
+    "dist/index.html": {
+      "fileSize": 782,
+      "fileSizeGzip": 469,
+      "limit": "2 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.js": {
+      "fileSize": 30565,
+      "fileSizeGzip": 11313,
+      "limit": "12 kb",
+      "passed": true
+    },
+    "dist/jsonUtilities-<hash>.js": {
+      "fileSize": 28342,
+      "fileSizeGzip": 8379,
+      "limit": "10 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.css": {
+      "fileSize": 44862,
+      "fileSizeGzip": 7309,
+      "limit": "8 kb",
+      "passed": true
+    }
+  }
+}
