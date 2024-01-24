@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.4](https://github.com/aversini/mylogin-ui/compare/client-v1.6.3...client-v1.6.4) (2024-01-24)
+
+
+### Bug Fixes
+
+* bump non-breaking dependencies ([d260ccc](https://github.com/aversini/mylogin-ui/commit/d260ccc0ae51fbac64cbf71bc4f46f52d0e12207))
+* remove modulepreload polyfill ([daa0b56](https://github.com/aversini/mylogin-ui/commit/daa0b56326577b3567cfbab3da52de0a0774cb0c))
+* replacing bundlemon with bundlesize ([bae9a1f](https://github.com/aversini/mylogin-ui/commit/bae9a1f9c427ff9e80ffc86465cdd3f9c85a47b2))
+* using common UI tailwind plugin instead of CSS ([5d090eb](https://github.com/aversini/mylogin-ui/commit/5d090eb3a59677a57f1b1debb0bc75ef306ea2e5))
+
 ## [1.6.3](https://github.com/aversini/mylogin-ui/compare/client-v1.6.2...client-v1.6.3) (2024-01-03)
 
 
