@@ -5,7 +5,6 @@
 	"author": "Arno Versini",
 	"type": "module",
 	"scripts": {
-		"bundlesize": "bundlemon",
 		"clean": "rimraf dist",
 		"dev": "vite --host",
 		"build:check": "tsc",
@@ -13,6 +12,10 @@
 		"build": "npm-run-all --serial clean build:check build:js",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix --color",
 		"start": "static-server dist --port 5173",
+		"stats:pr": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o tmp/stats.json --silent",
+		"stats:release": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o stats/stats.json --silent",
+		"stats:report": "bundlesize -c bundlesize.config.js --type report -o tmp/pr-stats.md --silent",
+		"stats": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\"",
 		"test": "vitest run",
 		"test:coverage": "vitest run --coverage",
 		"test:coverage:ui": "vitest --coverage --ui",

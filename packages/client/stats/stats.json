@@ -1,0 +1,34 @@
+{
+  "1.6.3": {
+    "dist/index.html": {
+      "fileSize": 792,
+      "fileSizeGzip": 475,
+      "limit": "2 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.js": {
+      "fileSize": 6855,
+      "fileSizeGzip": 2888,
+      "limit": "5 kb",
+      "passed": true
+    },
+    "dist/assets/vendor-<hash>.js": {
+      "fileSize": 165432,
+      "fileSizeGzip": 53810,
+      "limit": "55 kb",
+      "passed": true
+    },
+    "dist/assets/jsonUtilities-<hash>.js": {
+      "fileSize": 28342,
+      "fileSizeGzip": 8270,
+      "limit": "10 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.css": {
+      "fileSize": 44502,
+      "fileSizeGzip": 7270,
+      "limit": "8 kb",
+      "passed": true
+    }
+  }
+}
