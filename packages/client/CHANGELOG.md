@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/aversini/mylogin-ui/compare/client-v1.6.4...client-v1.7.0) (2024-01-24)
+
+
+### Features
+
+* using a smaller TextInput for editing sections ([a88b006](https://github.com/aversini/mylogin-ui/commit/a88b0061edc9cb354b7b836e8fb9e01bc61319fc))
+
 ## [1.6.4](https://github.com/aversini/mylogin-ui/compare/client-v1.6.3...client-v1.6.4) (2024-01-24)
 
 
