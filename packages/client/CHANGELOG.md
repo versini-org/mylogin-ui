@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/aversini/mylogin-ui/compare/client-v1.7.0...client-v1.7.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* manually optimized chunks split ([93349ba](https://github.com/aversini/mylogin-ui/commit/93349ba0679bfed912c405ba2880f23bea4923bc))
+
 ## [1.7.0](https://github.com/aversini/mylogin-ui/compare/client-v1.6.4...client-v1.7.0) (2024-01-24)
 
 
