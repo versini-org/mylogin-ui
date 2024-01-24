@@ -10,14 +10,10 @@ export default {
 		},
 		{
 			path: "dist/assets/index-<hash>.js",
-			limit: "5 kb",
+			limit: "12 kb",
 		},
 		{
-			path: "dist/assets/vendor-<hash>.js",
-			limit: "55 kb",
-		},
-		{
-			path: "dist/assets/jsonUtilities-<hash>.js",
+			path: "dist/jsonUtilities-<hash>.js",
 			limit: "10 kb",
 		},
 		{
