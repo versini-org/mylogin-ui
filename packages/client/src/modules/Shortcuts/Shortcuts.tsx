@@ -44,6 +44,7 @@ export const Shortcuts = () => {
 						{editable && editable === item.position ? (
 							<>
 								<TextInput
+									simple
 									label="Section title"
 									name={`section-title-${item.position}`}
 									className="mb-2 mt-2"
