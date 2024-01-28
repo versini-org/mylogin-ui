@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/aversini/mylogin-ui/compare/client-v1.7.1...client-v1.7.2) (2024-01-28)
+
+
+### Bug Fixes
+
+* adding missing dependencies to bundle size reports ([1df1baf](https://github.com/aversini/mylogin-ui/commit/1df1bafaf01038f7f6611e6f2fbf8eea1e55a238))
+
 ## [1.7.1](https://github.com/aversini/mylogin-ui/compare/client-v1.7.0...client-v1.7.1) (2024-01-24)
 
 
