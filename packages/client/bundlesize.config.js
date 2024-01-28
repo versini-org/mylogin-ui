@@ -13,12 +13,16 @@ export default {
 			limit: "12 kb",
 		},
 		{
+			path: "dist/assets/index-<hash>.css",
+			limit: "8 kb",
+		},
+		{
 			path: "dist/jsonUtilities-<hash>.js",
 			limit: "10 kb",
 		},
 		{
-			path: "dist/assets/index-<hash>.css",
-			limit: "8 kb",
+			path: "dist/react-<semver>.js",
+			limit: "46 kb",
 		},
 	],
 };
