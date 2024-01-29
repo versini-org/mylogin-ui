@@ -662,7 +662,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mylogin/client@workspace:packages/client"
   dependencies:
-    "@versini/ui-components": "npm:4.32.1"
+    "@versini/ui-components": "npm:4.32.2"
     json5: "npm:2.2.3"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -2437,9 +2437,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@versini/ui-components@npm:4.32.1":
-  version: 4.32.1
-  resolution: "@versini/ui-components@npm:4.32.1"
+"@versini/ui-components@npm:4.32.2":
+  version: 4.32.2
+  resolution: "@versini/ui-components@npm:4.32.2"
   dependencies:
     "@floating-ui/react": "npm:0.26.6"
     "@tailwindcss/typography": "npm:0.5.10"
@@ -2451,7 +2451,7 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 8b0e7a9c1414878120b3dc75c39c1359dab8cfa94e62b33916b685fba3303199460f2ebf03f8fc90024c5407c382afcbfe690e5faea3965f9186582c8ec8699f
+  checksum: d82baa22698165a827d4544d898e3d43754d7046025082e3a6ef242e45f98b6674b323a36d8f6c4b013ac14a0e6215b402731863237b2f7a1960f4734e56d5fc
   languageName: node
   linkType: hard
 
