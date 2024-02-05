@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/aversini/mylogin-ui/compare/client-v1.7.2...client-v1.7.3) (2024-02-05)
+
+
+### Bug Fixes
+
+* bump dependencies ([ded804e](https://github.com/aversini/mylogin-ui/commit/ded804e4652581884859085b395300b3f0e1c414))
+
 ## [1.7.2](https://github.com/aversini/mylogin-ui/compare/client-v1.7.1...client-v1.7.2) (2024-01-28)
 
 
