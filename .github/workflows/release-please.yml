@@ -36,7 +36,5 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           corepack enable
-          yarn set version berry
-          yarn install
-          git checkout yarn.lock
+          pnpm install
           npx lerna run build
