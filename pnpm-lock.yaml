@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@node-cli/bundlesize':
-        specifier: 4.0.0
-        version: 4.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       '@versini/dev-dependencies-client':
         specifier: 4.1.14
         version: 4.1.14(@versini/dev-dependencies-types@1.1.5)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
@@ -622,8 +622,8 @@ packages:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
 
-  /@node-cli/bundlesize@4.0.0:
-    resolution: {integrity: sha512-WpFLBWsg2ZmWBcg4cpFz9DnglxxPLtRv1rNOmUJdvH2nYAwrOByNPXquTpnDdMwJWBUc4rqSD+A/qguwpZ4/+A==}
+  /@node-cli/bundlesize@4.0.1:
+    resolution: {integrity: sha512-6U+D3AJUQSX5OCsSORbSm7yygpYvpjCKnbyjEx1n5sd5cAm6cGxCQwuFd0pAmHmgHQ+Ny15l1ahF/MhpgfN5fg==}
     hasBin: true
     dependencies:
       '@node-cli/logger': 1.2.2
@@ -631,7 +631,7 @@ packages:
       bytes: 3.1.2
       fs-extra: 11.2.0
       glob: 10.3.10
-      semver: 7.5.4
+      semver: 7.6.0
     dev: true
 
   /@node-cli/logger@1.2.2:
