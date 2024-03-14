@@ -21,8 +21,14 @@
 		"test:coverage:ui": "vitest --coverage --ui",
 		"test:watch": "vitest"
 	},
+	"devDependencies": {
+		"@versini/ui-styles": "1.4.0"
+	},
 	"dependencies": {
-		"@versini/ui-components": "4.32.4",
+		"@versini/ui-components": "5.7.1",
+		"@versini/ui-form": "1.1.0",
+		"@versini/ui-icons": "1.2.1",
+		"@versini/ui-system": "1.2.0",
 		"json5": "2.2.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

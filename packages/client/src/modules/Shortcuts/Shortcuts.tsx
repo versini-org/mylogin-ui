@@ -1,10 +1,6 @@
-import {
-	Button,
-	ButtonIcon,
-	ButtonLink,
-	IconEdit,
-	TextInput,
-} from "@versini/ui-components";
+import { Button, ButtonIcon, ButtonLink } from "@versini/ui-components";
+import { TextInput } from "@versini/ui-form";
+import { IconEdit } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
 import { ACTION_SET_DATA } from "../../common/constants";
@@ -24,10 +20,11 @@ export const Shortcuts = () => {
 						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
 							<ButtonIcon
+								focusMode="light"
+								mode="light"
 								noBorder
 								size="small"
 								className="ml-1"
-								kind="light"
 								label="Edit section"
 								onClick={() => {
 									setEditable(
@@ -44,7 +41,7 @@ export const Shortcuts = () => {
 						{editable && editable === item.position ? (
 							<>
 								<TextInput
-									simple
+									focusMode="light"
 									label="Section title"
 									name={`section-title-${item.position}`}
 									className="mb-2 mt-2"
@@ -60,9 +57,9 @@ export const Shortcuts = () => {
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
 								<Button
+									focusMode="light"
 									noBorder
 									className="mr-2 mt-3"
-									slim
 									onClick={() => {
 										setEditable(
 											editable === item.position ? null : item.position,
@@ -72,9 +69,9 @@ export const Shortcuts = () => {
 									Cancel
 								</Button>
 								<Button
+									focusMode="light"
 									noBorder
 									className="mt-3"
-									slim
 									onClick={async () => {
 										setEditable(
 											editable === item.position ? null : item.position,
@@ -118,8 +115,8 @@ export const Shortcuts = () => {
 								{item.data.map((shortcut) => {
 									return (
 										<ButtonLink
+											focusMode="light"
 											key={shortcut.id}
-											slim
 											noBorder
 											link={shortcut.url}
 											target="_blank"
