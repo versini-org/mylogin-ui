@@ -1,4 +1,4 @@
-import { Footer, Main } from "@versini/ui-components";
+import { Footer, Header, Main } from "@versini/ui-components";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -10,7 +10,7 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
-import { isDev, serviceCall } from "../../common/utilities";
+import { serviceCall } from "../../common/utilities";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -26,7 +26,6 @@ function App() {
 		status: ACTION_STATUS_SUCCESS,
 		shortcuts: [],
 	});
-	const buildClass = isDev ? "text-slate-900" : "text-slate-300";
 
 	useEffect(() => {
 		document.getElementById("logo")?.classList.add("fadeOut");
@@ -149,28 +148,33 @@ function App() {
 	if (!basicAuth || basicAuth === "") {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
-				<Main>
-					<Login
-						storage={storage}
-						errorMessage={errorMessage}
-						setErrorMessage={setErrorMessage}
-						setBasicAuth={setBasicAuth}
+				<div className="prose prose-lighter">
+					<Header>
+						<h1 className="text-center">My Shortcuts</h1>
+					</Header>
+					<Main>
+						<Login
+							storage={storage}
+							errorMessage={errorMessage}
+							setErrorMessage={setErrorMessage}
+							setBasicAuth={setBasicAuth}
+						/>
+					</Main>
+					<Footer
+						mode="light"
+						row1={
+							<div>
+								{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
+								{import.meta.env.BUILDTIME}
+							</div>
+						}
+						row2={
+							<div>
+								&copy; {new Date().getFullYear()} {APP_OWNER}
+							</div>
+						}
 					/>
-				</Main>
-				<Footer
-					kind="light"
-					row1={
-						<div>
-							{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
-							{import.meta.env.BUILDTIME}
-						</div>
-					}
-					row2={
-						<div className={buildClass}>
-							&copy; {new Date().getFullYear()} {APP_OWNER}
-						</div>
-					}
-				/>
+				</div>
 			</AppContext.Provider>
 		);
 	}
@@ -180,21 +184,28 @@ function App() {
 	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
-			<Main>{state && state?.shortcuts?.length > 0 && <Shortcuts />}</Main>
-			<Footer
-				kind="light"
-				row1={
-					<div>
-						{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
-						{import.meta.env.BUILDTIME}
-					</div>
-				}
-				row2={
-					<div className={buildClass}>
-						&copy; {new Date().getFullYear()} {APP_OWNER}
-					</div>
-				}
-			/>
+			<div className="prose prose-lighter">
+				<Header>
+					<h1 className="heading mb-0 text-center">My Shortcuts</h1>
+				</Header>
+				<Main className="pt-0">
+					{state && state?.shortcuts?.length > 0 && <Shortcuts />}
+				</Main>
+				<Footer
+					mode="light"
+					row1={
+						<div>
+							{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
+							{import.meta.env.BUILDTIME}
+						</div>
+					}
+					row2={
+						<div>
+							&copy; {new Date().getFullYear()} {APP_OWNER}
+						</div>
+					}
+				/>
+			</div>
 		</AppContext.Provider>
 	);
 }

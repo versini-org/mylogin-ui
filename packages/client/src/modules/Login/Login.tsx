@@ -1,9 +1,7 @@
-import {
-	Button,
-	Flexgrid,
-	FlexgridItem,
-	TextInputMask,
-} from "@versini/ui-components";
+import { Button, ButtonIcon } from "@versini/ui-components";
+import { TextInputMask } from "@versini/ui-form";
+import { IconHide, IconShow } from "@versini/ui-icons";
+import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useState } from "react";
 
 import { LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
@@ -25,6 +23,7 @@ export const Login = ({
 	setErrorMessage: (errorMessage: string) => void;
 	storage: StorageInterface;
 }) => {
+	const [masked, setMasked] = useState(true);
 	const [simpleLogin, setSimpleLogin] = useState({
 		password: "",
 	});
@@ -34,8 +33,13 @@ export const Login = ({
 			<Flexgrid direction="column" width="24rem">
 				<FlexgridItem>
 					<TextInputMask
+						focusMode="light"
 						name="password"
 						label={PASSWORD_PLACEHOLDER}
+						rightElement={
+							<ButtonIcon>{masked ? <IconShow /> : <IconHide />}</ButtonIcon>
+						}
+						onMaskChange={setMasked}
 						onChange={(e) => {
 							setSimpleLogin({
 								...simpleLogin,
@@ -50,10 +54,11 @@ export const Login = ({
 
 				<FlexgridItem span={12}>
 					<Button
+						focusMode="light"
 						fullWidth
 						noBorder
 						type="submit"
-						className="mb-4 mt-6"
+						className="mb-4 mt-8"
 						onClick={(e) => {
 							e.preventDefault();
 							const data = `${btoa(

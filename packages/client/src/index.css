@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+h1.heading {
+	@apply text-2xl text-copy-lighter;
+}
+
 h2.heading {
-	font-family: "Open Sans";
+	@apply m-0 text-base text-copy-lighter;
 }
 
 .fadeIn {
