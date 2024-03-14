@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/aversini/mylogin-ui/compare/client-v1.7.3...client-v1.8.0) (2024-03-14)
+
+
+### Features
+
+* refactor to use UI Components v5 ([b367b31](https://github.com/aversini/mylogin-ui/commit/b367b319e5313c11af7203718a2a4a2ac4fec079))
+
 ## [1.7.3](https://github.com/aversini/mylogin-ui/compare/client-v1.7.2...client-v1.7.3) (2024-02-05)
 
 
