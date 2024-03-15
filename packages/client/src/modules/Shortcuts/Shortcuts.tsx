@@ -41,6 +41,7 @@ export const Shortcuts = () => {
 						{editable && editable === item.position ? (
 							<>
 								<TextInput
+									mode="dark"
 									focusMode="light"
 									label="Section title"
 									name={`section-title-${item.position}`}
@@ -52,7 +53,7 @@ export const Shortcuts = () => {
 									}
 								/>
 								<textarea
-									className="h-36 w-full p-2 font-mono text-sm"
+									className="h-36 w-full p-2 font-mono text-sm text-copy-dark"
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
