@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/aversini/mylogin-ui/compare/client-v1.8.0...client-v1.8.1) (2024-03-15)
+
+
+### Bug Fixes
+
+* text not visible in some section due to light background ([a934111](https://github.com/aversini/mylogin-ui/commit/a93411122c049796da618109475f717e16af3a5b))
+
 ## [1.8.0](https://github.com/aversini/mylogin-ui/compare/client-v1.7.3...client-v1.8.0) (2024-03-14)
 
 
