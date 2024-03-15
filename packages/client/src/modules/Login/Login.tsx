@@ -33,11 +33,14 @@ export const Login = ({
 			<Flexgrid direction="column" width="24rem">
 				<FlexgridItem>
 					<TextInputMask
+						mode="dark"
 						focusMode="light"
 						name="password"
 						label={PASSWORD_PLACEHOLDER}
 						rightElement={
-							<ButtonIcon>{masked ? <IconShow /> : <IconHide />}</ButtonIcon>
+							<ButtonIcon focusMode="light">
+								{masked ? <IconShow /> : <IconHide />}
+							</ButtonIcon>
 						}
 						onMaskChange={setMasked}
 						onChange={(e) => {
