@@ -22,11 +22,11 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@versini/ui-styles": "1.4.0"
+		"@versini/ui-styles": "1.5.1"
 	},
 	"dependencies": {
-		"@versini/ui-components": "5.7.2",
-		"@versini/ui-form": "1.1.0",
+		"@versini/ui-components": "5.9.0",
+		"@versini/ui-form": "1.1.1",
 		"@versini/ui-icons": "1.2.1",
 		"@versini/ui-system": "1.2.0",
 		"json5": "2.2.3",
