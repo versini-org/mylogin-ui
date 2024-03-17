@@ -152,5 +152,37 @@
       "limit": "46 kb",
       "passed": true
     }
+  },
+  "1.8.2": {
+    "dist/index.html": {
+      "fileSize": 918,
+      "fileSizeGzip": 498,
+      "limit": "2 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.js": {
+      "fileSize": 31846,
+      "fileSizeGzip": 9592,
+      "limit": "12 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.css": {
+      "fileSize": 51496,
+      "fileSizeGzip": 8280,
+      "limit": "9 kb",
+      "passed": true
+    },
+    "dist/jsonUtilities-<hash>.js": {
+      "fileSize": 28342,
+      "fileSizeGzip": 8379,
+      "limit": "10 kb",
+      "passed": true
+    },
+    "dist/react-<semver>.js": {
+      "fileSize": 141792,
+      "fileSizeGzip": 45437,
+      "limit": "46 kb",
+      "passed": true
+    }
   }
 }
