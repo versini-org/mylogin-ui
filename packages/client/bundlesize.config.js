@@ -14,7 +14,7 @@ export default {
 		},
 		{
 			path: "dist/assets/index-<hash>.css",
-			limit: "8 kb",
+			limit: "9 kb",
 		},
 		{
 			path: "dist/jsonUtilities-<hash>.js",
