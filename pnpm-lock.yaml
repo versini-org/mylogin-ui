@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@node-cli/bundlesize':
-        specifier: 4.0.1
-        version: 4.0.1
+        specifier: 4.0.2
+        version: 4.0.2
       '@versini/dev-dependencies-client':
         specifier: 4.1.15
         version: 4.1.15(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
@@ -635,38 +635,38 @@ packages:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
 
-  /@node-cli/bundlesize@4.0.1:
-    resolution: {integrity: sha512-6U+D3AJUQSX5OCsSORbSm7yygpYvpjCKnbyjEx1n5sd5cAm6cGxCQwuFd0pAmHmgHQ+Ny15l1ahF/MhpgfN5fg==}
+  /@node-cli/bundlesize@4.0.2:
+    resolution: {integrity: sha512-LQDxHGQbONaZlPgnm/ZFpW1zS9KMjRCsrqIR16OT3oPZCTgPFS/Sr1m3cu+R+QLJxhiQhkSg4GWyVKBk+HxM2Q==}
     hasBin: true
     dependencies:
-      '@node-cli/logger': 1.2.2
-      '@node-cli/parser': 2.2.3
+      '@node-cli/logger': 1.2.3
+      '@node-cli/parser': 2.3.2
       bytes: 3.1.2
       fs-extra: 11.2.0
       glob: 10.3.10
       semver: 7.6.0
     dev: true
 
-  /@node-cli/logger@1.2.2:
-    resolution: {integrity: sha512-WwGumUqAeMsWYDN0KSulsAIs2vDbfl78WkUhl9wTyuEhZZa6+Q63pylA0MkSn/DZqGgJ6IFjEzvpDgZrjxn79A==}
+  /@node-cli/logger@1.2.3:
+    resolution: {integrity: sha512-kxHoh2nUW5puREYGEmZPh2ZEtSvpO9JGJEKWfcgCnq/O1lFUlP/nVdiQCz+3OyTQ1AbeA7QNkX7DzM6oB+ovMg==}
     dependencies:
       boxen: 7.1.1
       kleur: 4.1.5
       ora: 8.0.1
     dev: true
 
-  /@node-cli/parser@2.2.3:
-    resolution: {integrity: sha512-GUDdrA/Tf/VmANpED/qLqE5MnFV3QdE0yWCUQgyXknsVMtR0482yRHCeGQWuqY8rHoVpJT+ob7ghainzVwYkoA==}
+  /@node-cli/parser@2.3.2:
+    resolution: {integrity: sha512-b8IkPjxGFSKRuVdcMJaXIhOU4P2C4IL5sj4C2ARo1nsEUfDl3WlE/x+15C7VevYqXbVd0WD//ikOKC/JqI4bRw==}
     dependencies:
-      '@node-cli/logger': 1.2.2
-      '@node-cli/utilities': 1.0.0
+      '@node-cli/logger': 1.2.3
+      '@node-cli/utilities': 1.0.1
       cli-table3: 0.6.3
       kleur: 4.1.5
-      meow: 13.1.0
+      meow: 13.2.0
     dev: true
 
-  /@node-cli/utilities@1.0.0:
-    resolution: {integrity: sha512-8HcbycrGTf3K5a0TIxAtGjNQwWjU/RYzK8DC4msCTjxjSc80BycYp7ZP/M/tUbCS9ZaLPoGYKIrk72+R+Xsi0Q==}
+  /@node-cli/utilities@1.0.1:
+    resolution: {integrity: sha512-QR2BqfmlfKxNzGIpRdQP9J2srQr1yY1kLC+ak7G+042vlN7FRUm1bL7Hl+pFAEIQK6xt5CYs7I5uNsgoA5x2zw==}
     dependencies:
       lodash-es: 4.17.21
     dev: true
@@ -5717,8 +5717,8 @@ packages:
     engines: {node: '>= 0.10.0'}
     dev: true
 
-  /meow@13.1.0:
-    resolution: {integrity: sha512-o5R/R3Tzxq0PJ3v3qcQJtSvSE9nKOLSAaDuuoMzDVuGTwHdccMWcYomh9Xolng2tjT6O/Y83d+0coVGof6tqmA==}
+  /meow@13.2.0:
+    resolution: {integrity: sha512-pxQJQzB6djGPXh08dacEloMFopsOqGVRKFPYvPOt9XDZ1HasbgDZA74CJGreSU4G3Ak7EFJGoiH2auq+yXISgA==}
     engines: {node: '>=18'}
     dev: true
 
