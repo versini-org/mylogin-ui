@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.3](https://github.com/aversini/mylogin-ui/compare/client-v1.8.2...client-v1.8.3) (2024-03-21)
+
+
+### Bug Fixes
+
+* minor optimization based on capo.js ([180b8bb](https://github.com/aversini/mylogin-ui/commit/180b8bb3073883681cd196bd2434f0c691f4419a))
+
 ## [1.8.2](https://github.com/aversini/mylogin-ui/compare/client-v1.8.1...client-v1.8.2) (2024-03-17)
 
 
