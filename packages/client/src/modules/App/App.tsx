@@ -1,4 +1,5 @@
-import { Footer, Header, Main } from "@versini/ui-components";
+import { ButtonIcon, Footer, Header, Main } from "@versini/ui-components";
+import { IconEdit } from "@versini/ui-icons";
 import { useEffect, useReducer, useState } from "react";
 
 import {
@@ -186,7 +187,28 @@ function App() {
 		<AppContext.Provider value={{ state, dispatch }}>
 			<div className="prose prose-lighter">
 				<Header>
-					<h1 className="heading mb-0 text-center">My Shortcuts</h1>
+					<h1 className="heading mb-0 text-center">
+						My Shortcuts
+						<ButtonIcon
+							focusMode="light"
+							mode="light"
+							noBorder
+							size="small"
+							className="ml-2"
+							label="Edit section"
+							// onClick={() => {
+							// 	setEditable(
+							// 		editable === item.position ? null : item.position,
+							// 	);
+							// 	setUserInputSectionTitle(JSON.stringify(item.title, null, 2));
+							// 	setUserInputShortcuts(JSON.stringify(item.data, null, 2));
+							// }}
+						>
+							<IconEdit
+							// className="h-3 w-3"
+							/>
+						</ButtonIcon>
+					</h1>
 				</Header>
 				<Main className="pt-0">
 					{state && state?.shortcuts?.length > 0 && <Shortcuts />}
