@@ -18,5 +18,5 @@
 		"@versini/dev-dependencies-types": "1.1.7",
 		"@versini/eslint-plugin-client": "1.0.1"
 	},
-	"packageManager": "pnpm@8.15.1+sha256.245fe901f8e7fa8782d7f17d32b6a83995e2ae03984cb5b62b8949bfdc27c7b5"
+	"packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
 }
