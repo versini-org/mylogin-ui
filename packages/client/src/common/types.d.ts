@@ -14,8 +14,8 @@ export type ShortcutDataProps = {
 };
 
 export type ShortcutProps = {
-	data: ShortcutDataProps[];
 	position: number;
+	shortcuts: ShortcutDataProps[];
 	title: string;
 };
 

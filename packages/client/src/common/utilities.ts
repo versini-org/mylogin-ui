@@ -1,7 +1,44 @@
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
+export const GRAPHQL_QUERIES = {
+	GET_SHORTCUTS: `query GetShortcuts($userId: String!) {
+		getUserSections(user: $userId) {
+			title
+			position
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+};
+
 /* c8 ignore start */
+export const graphQLCall = async ({
+	query,
+	data,
+	headers = {},
+}: {
+	data: any;
+	query: any;
+	headers?: any;
+}) => {
+	const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/graphql`, {
+		method: "POST",
+		headers: {
+			...headers,
+			"Content-Type": "application/json",
+			Accept: "application/json",
+		},
+		body: JSON.stringify({
+			query,
+			variables: data,
+		}),
+	});
+	return response;
+};
 export const serviceCall = async ({
 	name,
 	data,

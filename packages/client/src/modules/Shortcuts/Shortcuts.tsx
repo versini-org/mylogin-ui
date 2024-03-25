@@ -31,7 +31,9 @@ export const Shortcuts = () => {
 										editable === item.position ? null : item.position,
 									);
 									setUserInputSectionTitle(JSON.stringify(item.title, null, 2));
-									setUserInputShortcuts(JSON.stringify(item.data, null, 2));
+									setUserInputShortcuts(
+										JSON.stringify(item.shortcuts, null, 2),
+									);
 								}}
 							>
 								<IconEdit className="h-3 w-3" />
@@ -82,7 +84,9 @@ export const Shortcuts = () => {
 												"../../common/jsonUtilities"
 											);
 											try {
-												item.data = addUniqueId(jsonParse(userInputShortcuts));
+												item.shortcuts = addUniqueId(
+													jsonParse(userInputShortcuts),
+												);
 											} catch (error) {
 												// eslint-disable-next-line no-console
 												console.error(error);
@@ -113,7 +117,7 @@ export const Shortcuts = () => {
 							</>
 						) : (
 							<div className="flex flex-wrap justify-center">
-								{item.data.map((shortcut) => {
+								{item.shortcuts.map((shortcut) => {
 									return (
 										<ButtonLink
 											focusMode="light"

@@ -10,7 +10,11 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
-import { serviceCall } from "../../common/utilities";
+import {
+	GRAPHQL_QUERIES,
+	graphQLCall,
+	serviceCall,
+} from "../../common/utilities";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -101,13 +105,13 @@ function App() {
 
 		(async () => {
 			try {
-				const response = await serviceCall({
-					name: "shortcuts",
+				const response = await graphQLCall({
 					headers: {
 						authorization,
 					},
+					query: GRAPHQL_QUERIES.GET_SHORTCUTS,
 					data: {
-						user: FAKE_USER_EMAIL,
+						userId: FAKE_USER_EMAIL,
 					},
 				});
 
@@ -130,7 +134,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_SUCCESS,
-							shortcuts: data,
+							shortcuts: data.data.getUserSections,
 						},
 					});
 				}
