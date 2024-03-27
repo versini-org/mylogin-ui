@@ -6,6 +6,16 @@ export const GRAPHQL_QUERIES = {
 		getUserSections(user: $userId) {
 			title
 			position
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+	SET_SHORTCUTS: `query SetShortcuts($userId: String!, $sectionId: ID!, $shortcuts: [ShortcutInput]!) {
+		updateUserShortcuts(user: $userId, section: $sectionId, shortcuts: $shortcuts) {
 			shortcuts {
 				id
 				label

@@ -49,13 +49,16 @@ function App() {
 
 		(async () => {
 			try {
-				const response = await serviceCall({
-					name: "update-shortcuts",
+				console.log("==> state.shortcuts: ", state.shortcuts);
+
+				const response = await graphQLCall({
 					headers: {
 						authorization,
 					},
+					query: GRAPHQL_QUERIES.SET_SHORTCUTS,
 					data: {
-						user: FAKE_USER_EMAIL,
+						userId: FAKE_USER_EMAIL,
+						// sectionId: state.shortcuts[0].sectionId,
 						shortcuts: state.shortcuts,
 					},
 				});

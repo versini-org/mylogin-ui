@@ -99,6 +99,8 @@ export const Shortcuts = () => {
 												console.error(error);
 											}
 
+											console.log("==> item: ", item);
+
 											dispatch({
 												type: ACTION_SET_DATA,
 												payload: {
