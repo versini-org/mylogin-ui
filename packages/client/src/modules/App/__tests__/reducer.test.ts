@@ -11,7 +11,7 @@ describe("Non-DOM tests", () => {
 		it("should return the initial state", () => {
 			const state = {
 				status: ACTION_STATUS_SUCCESS,
-				shortcuts: [],
+				sections: [],
 			};
 			expect(reducer(state, undefined)).toEqual(state);
 		});
@@ -19,15 +19,16 @@ describe("Non-DOM tests", () => {
 		it("should update the data state on ACTION_DATA", () => {
 			const state = {
 				status: ACTION_STATUS_SUCCESS,
-				shortcuts: [],
+				sections: [],
 			};
 			const actionPayload = {
 				status: ACTION_STATUS_SUCCESS,
-				shortcuts: [
+				sections: [
 					{
 						position: 1,
 						title: "testTitle",
-						data: [
+						id: "testId",
+						shortcuts: [
 							{
 								id: "testId",
 								label: "testLabel",
@@ -44,7 +45,7 @@ describe("Non-DOM tests", () => {
 				}),
 			).toEqual({
 				status: actionPayload.status,
-				shortcuts: actionPayload.shortcuts,
+				sections: actionPayload.sections,
 			});
 		});
 	});

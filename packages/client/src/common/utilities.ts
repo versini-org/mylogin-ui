@@ -1,29 +1,55 @@
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
+export const GRAPHQL_QUERIES = {
+	GET_SHORTCUTS: `query GetShortcuts($userId: String!) {
+		getUserSections(user: $userId) {
+			title
+			position
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+	SET_SHORTCUTS: `mutation SetShortcuts($userId: String!, $sectionId: ID!, $sectionTitle: String, $sectionPosition: Int, $shortcuts: [ShortcutInput]!) {
+		updateUserShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, sectionPosition: $sectionPosition, shortcuts: $shortcuts) {
+			title
+			position
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+};
+
 /* c8 ignore start */
-export const serviceCall = async ({
-	name,
+export const graphQLCall = async ({
+	query,
 	data,
-	method = "POST",
 	headers = {},
 }: {
 	data: any;
-	name: string;
+	query: any;
 	headers?: any;
-	method?: string;
 }) => {
-	const response = await fetch(
-		`${import.meta.env.VITE_SERVER_URL}/api/${name}`,
-		{
-			method,
-			headers: {
-				...headers,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
+	const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/graphql`, {
+		method: "POST",
+		headers: {
+			...headers,
+			"Content-Type": "application/json",
+			Accept: "application/json",
 		},
-	);
+		body: JSON.stringify({
+			query,
+			variables: data,
+		}),
+	});
 	return response;
 };
 /* c8 ignore stop */
