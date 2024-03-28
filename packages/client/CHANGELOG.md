@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/aversini/mylogin-ui/compare/client-v1.8.3...client-v1.9.0) (2024-03-28)
+
+
+### Features
+
+* migrate from REST to GraphQL ([5b661cd](https://github.com/aversini/mylogin-ui/commit/5b661cd9db4be4c9e1ce075d870e92779e671732))
+* migrate from REST to GraphQL ([2e90c17](https://github.com/aversini/mylogin-ui/commit/2e90c1749e1543d991b8cb6cd1a9fa31790ee2ec))
+
 ## [1.8.3](https://github.com/aversini/mylogin-ui/compare/client-v1.8.2...client-v1.8.3) (2024-03-21)
 
 
