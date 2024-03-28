@@ -14,8 +14,11 @@ export const GRAPHQL_QUERIES = {
 			}
 		}
 	}`,
-	SET_SHORTCUTS: `query SetShortcuts($userId: String!, $sectionId: ID!, $shortcuts: [ShortcutInput]!) {
-		updateUserShortcuts(user: $userId, section: $sectionId, shortcuts: $shortcuts) {
+	SET_SHORTCUTS: `mutation SetShortcuts($userId: String!, $sectionId: ID!, $sectionTitle: String, $sectionPosition: Int, $shortcuts: [ShortcutInput]!) {
+		updateUserShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, sectionPosition: $sectionPosition, shortcuts: $shortcuts) {
+			title
+			position
+			id
 			shortcuts {
 				id
 				label

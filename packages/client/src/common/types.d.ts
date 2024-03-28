@@ -13,7 +13,7 @@ export type ShortcutDataProps = {
 	url: string;
 };
 
-export type ShortcutProps = {
+export type SectionProps = {
 	id: string;
 	position: number;
 	shortcuts: ShortcutDataProps[];
@@ -21,7 +21,7 @@ export type ShortcutProps = {
 };
 
 export type StateProps = {
-	shortcuts: ShortcutProps[];
+	sections: SectionProps[];
 	status:
 		| string
 		| typeof ACTION_STATUS_STALE
@@ -42,7 +42,7 @@ export type ActionProps =
 	  }
 	| {
 			payload: {
-				shortcuts: ShortcutProps[];
+				sections: SectionProps[];
 				status:
 					| string
 					| typeof ACTION_STATUS_ERROR
@@ -52,7 +52,7 @@ export type ActionProps =
 	  }
 	| {
 			payload: {
-				shortcut: ShortcutProps;
+				section: SectionProps;
 				status: typeof ACTION_STATUS_STALE;
 			};
 			type: typeof ACTION_SET_DATA;

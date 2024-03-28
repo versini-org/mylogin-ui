@@ -10,11 +10,7 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
-import {
-	GRAPHQL_QUERIES,
-	graphQLCall,
-	serviceCall,
-} from "../../common/utilities";
+import { GRAPHQL_QUERIES, graphQLCall } from "../../common/utilities";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -28,7 +24,7 @@ function App() {
 	);
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
-		shortcuts: [],
+		sections: [],
 	});
 
 	useEffect(() => {
@@ -41,7 +37,7 @@ function App() {
 	});
 
 	useEffect(() => {
-		if (state.shortcuts.length === 0 || state.status !== "stale") {
+		if (state.sections.length !== 1 || state.status !== "stale") {
 			return;
 		}
 
@@ -49,8 +45,6 @@ function App() {
 
 		(async () => {
 			try {
-				console.log("==> state.shortcuts: ", state.shortcuts);
-
 				const response = await graphQLCall({
 					headers: {
 						authorization,
@@ -58,8 +52,10 @@ function App() {
 					query: GRAPHQL_QUERIES.SET_SHORTCUTS,
 					data: {
 						userId: FAKE_USER_EMAIL,
-						// sectionId: state.shortcuts[0].sectionId,
-						shortcuts: state.shortcuts,
+						sectionId: state.sections[0].id,
+						sectionTitle: state.sections[0].title,
+						sectionPosition: state.sections[0].position,
+						shortcuts: state.sections[0].shortcuts,
 					},
 				});
 
@@ -76,7 +72,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_SUCCESS,
-							shortcuts: data,
+							sections: data.data.updateUserShortcuts,
 						},
 					});
 				}
@@ -86,7 +82,7 @@ function App() {
 			}
 		})();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [state.shortcuts, state.status]);
+	}, [state.sections, state.status]);
 
 	useEffect(() => {
 		let authorization = "";
@@ -128,7 +124,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_ERROR,
-							shortcuts: [],
+							sections: [],
 						},
 					});
 				} else {
@@ -137,7 +133,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_SUCCESS,
-							shortcuts: data.data.getUserSections,
+							sections: data.data.getUserSections,
 						},
 					});
 				}
@@ -196,7 +192,7 @@ function App() {
 					<h1 className="heading mb-0 text-center">My Shortcuts</h1>
 				</Header>
 				<Main className="pt-0">
-					{state && state?.shortcuts?.length > 0 && <Shortcuts />}
+					{state && state?.sections?.length > 0 && <Shortcuts />}
 				</Main>
 				<Footer
 					mode="light"

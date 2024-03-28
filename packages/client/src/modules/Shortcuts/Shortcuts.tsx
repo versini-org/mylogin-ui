@@ -1,5 +1,5 @@
 import { Button, ButtonIcon, ButtonLink } from "@versini/ui-components";
-import { TextInput } from "@versini/ui-form";
+import { TextArea, TextInput } from "@versini/ui-form";
 import { IconEdit } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
@@ -12,9 +12,9 @@ export const Shortcuts = () => {
 	const [userInputShortcuts, setUserInputShortcuts] = useState("");
 	const [userInputSectionTitle, setUserInputSectionTitle] = useState("");
 
-	return state && state?.shortcuts?.length > 0 ? (
+	return state && state?.sections?.length > 0 ? (
 		<>
-			{state.shortcuts.map((item) => {
+			{state.sections.map((item) => {
 				return (
 					<div key={item.position} className="mb-5">
 						<h2 className="heading text-center font-bold text-slate-200">
@@ -54,14 +54,20 @@ export const Shortcuts = () => {
 										setUserInputSectionTitle(e.target.value.toString())
 									}
 								/>
-								<textarea
-									className="h-36 w-full p-2 font-mono text-sm text-copy-dark"
+
+								<TextArea
+									className="font-mono"
+									mode="dark"
+									focusMode="light"
+									label={`Shortcuts for ${item.title}`}
+									name={`shortcuts-${item.id}`}
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
+
 								<Button
+									mode="light"
 									focusMode="light"
-									noBorder
 									className="mr-2 mt-3"
 									onClick={() => {
 										setEditable(
@@ -99,13 +105,11 @@ export const Shortcuts = () => {
 												console.error(error);
 											}
 
-											console.log("==> item: ", item);
-
 											dispatch({
 												type: ACTION_SET_DATA,
 												payload: {
 													status: "stale",
-													shortcut: item,
+													section: item,
 												},
 											});
 										} catch (error) {
