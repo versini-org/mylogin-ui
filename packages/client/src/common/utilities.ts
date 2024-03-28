@@ -52,30 +52,6 @@ export const graphQLCall = async ({
 	});
 	return response;
 };
-export const serviceCall = async ({
-	name,
-	data,
-	method = "POST",
-	headers = {},
-}: {
-	data: any;
-	name: string;
-	headers?: any;
-	method?: string;
-}) => {
-	const response = await fetch(
-		`${import.meta.env.VITE_SERVER_URL}/api/${name}`,
-		{
-			method,
-			headers: {
-				...headers,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		},
-	);
-	return response;
-};
 /* c8 ignore stop */
 
 /* c8 ignore start */
