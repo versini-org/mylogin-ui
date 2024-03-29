@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.1](https://github.com/aversini/mylogin-ui/compare/client-v1.9.0...client-v1.9.1) (2024-03-29)
+
+
+### Bug Fixes
+
+* smaller font for shortcut editable area ([e817020](https://github.com/aversini/mylogin-ui/commit/e817020192fcc9cc7bfed3e888054bfbae1f36de))
+
 ## [1.9.0](https://github.com/aversini/mylogin-ui/compare/client-v1.8.3...client-v1.9.0) (2024-03-28)
 
 
