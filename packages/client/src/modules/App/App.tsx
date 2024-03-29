@@ -11,7 +11,7 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
-import { serviceCall } from "../../common/utilities";
+import { GRAPHQL_QUERIES, graphQLCall } from "../../common/utilities";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
@@ -25,7 +25,7 @@ function App() {
 	);
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
-		shortcuts: [],
+		sections: [],
 	});
 
 	useEffect(() => {
@@ -38,7 +38,7 @@ function App() {
 	});
 
 	useEffect(() => {
-		if (state.shortcuts.length === 0 || state.status !== "stale") {
+		if (state.sections.length !== 1 || state.status !== "stale") {
 			return;
 		}
 
@@ -46,14 +46,17 @@ function App() {
 
 		(async () => {
 			try {
-				const response = await serviceCall({
-					name: "update-shortcuts",
+				const response = await graphQLCall({
 					headers: {
 						authorization,
 					},
+					query: GRAPHQL_QUERIES.SET_SHORTCUTS,
 					data: {
-						user: FAKE_USER_EMAIL,
-						shortcuts: state.shortcuts,
+						userId: FAKE_USER_EMAIL,
+						sectionId: state.sections[0].id,
+						sectionTitle: state.sections[0].title,
+						sectionPosition: state.sections[0].position,
+						shortcuts: state.sections[0].shortcuts,
 					},
 				});
 
@@ -70,7 +73,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_SUCCESS,
-							shortcuts: data,
+							sections: data.data.updateUserShortcuts,
 						},
 					});
 				}
@@ -80,7 +83,7 @@ function App() {
 			}
 		})();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [state.shortcuts, state.status]);
+	}, [state.sections, state.status]);
 
 	useEffect(() => {
 		let authorization = "";
@@ -102,13 +105,13 @@ function App() {
 
 		(async () => {
 			try {
-				const response = await serviceCall({
-					name: "shortcuts",
+				const response = await graphQLCall({
 					headers: {
 						authorization,
 					},
+					query: GRAPHQL_QUERIES.GET_SHORTCUTS,
 					data: {
-						user: FAKE_USER_EMAIL,
+						userId: FAKE_USER_EMAIL,
 					},
 				});
 
@@ -122,7 +125,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_ERROR,
-							shortcuts: [],
+							sections: [],
 						},
 					});
 				} else {
@@ -131,7 +134,7 @@ function App() {
 						type: ACTION_GET_DATA,
 						payload: {
 							status: ACTION_STATUS_SUCCESS,
-							shortcuts: data,
+							sections: data.data.getUserSections,
 						},
 					});
 				}
@@ -211,7 +214,7 @@ function App() {
 					</h1>
 				</Header>
 				<Main className="pt-0">
-					{state && state?.shortcuts?.length > 0 && <Shortcuts />}
+					{state && state?.sections?.length > 0 && <Shortcuts />}
 				</Main>
 				<Footer
 					mode="light"

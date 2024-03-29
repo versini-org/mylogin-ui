@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.9.1](https://github.com/aversini/mylogin-ui/compare/client-v1.9.0...client-v1.9.1) (2024-03-29)
+
+
+### Bug Fixes
+
+* smaller font for shortcut editable area ([e817020](https://github.com/aversini/mylogin-ui/commit/e817020192fcc9cc7bfed3e888054bfbae1f36de))
+
+## [1.9.0](https://github.com/aversini/mylogin-ui/compare/client-v1.8.3...client-v1.9.0) (2024-03-28)
+
+
+### Features
+
+* migrate from REST to GraphQL ([5b661cd](https://github.com/aversini/mylogin-ui/commit/5b661cd9db4be4c9e1ce075d870e92779e671732))
+* migrate from REST to GraphQL ([2e90c17](https://github.com/aversini/mylogin-ui/commit/2e90c1749e1543d991b8cb6cd1a9fa31790ee2ec))
+
 ## [1.8.3](https://github.com/aversini/mylogin-ui/compare/client-v1.8.2...client-v1.8.3) (2024-03-21)
 
 
