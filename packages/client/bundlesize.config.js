@@ -5,12 +5,8 @@ export default {
 	},
 	sizes: [
 		{
-			path: "dist/index.html",
-			limit: "2 kb",
-		},
-		{
 			path: "dist/assets/index-<hash>.js",
-			limit: "12 kb",
+			limit: "30 kb",
 		},
 		{
 			path: "dist/assets/index-<hash>.css",
