@@ -113,7 +113,6 @@ function App() {
 						userId: FAKE_USER_EMAIL,
 						sectionId: state.sections[0].id,
 						sectionTitle: state.sections[0].title,
-						sectionPosition: state.sections[0].position,
 						shortcuts: state.sections[0].shortcuts,
 					},
 				});

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.2](https://github.com/aversini/mylogin-ui/compare/client-v1.9.1...client-v1.9.2) (2024-03-29)
+
+
+### Bug Fixes
+
+* removing position key from DB ([eb576bc](https://github.com/aversini/mylogin-ui/commit/eb576bc65382ae62527ba05e7f3f1f823ed210d9))
+
 ## [1.9.1](https://github.com/aversini/mylogin-ui/compare/client-v1.9.0...client-v1.9.1) (2024-03-29)
 
 

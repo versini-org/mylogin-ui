@@ -5,7 +5,6 @@ export const GRAPHQL_QUERIES = {
 	GET_SHORTCUTS: `query GetShortcuts($userId: String!) {
 		getUserSections(user: $userId) {
 			title
-			position
 			id
 			shortcuts {
 				id
@@ -14,10 +13,9 @@ export const GRAPHQL_QUERIES = {
 			}
 		}
 	}`,
-	SET_SHORTCUTS: `mutation SetShortcuts($userId: String!, $sectionId: ID!, $sectionTitle: String, $sectionPosition: Int, $shortcuts: [ShortcutInput]!) {
-		updateUserShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, sectionPosition: $sectionPosition, shortcuts: $shortcuts) {
+	SET_SHORTCUTS: `mutation SetShortcuts($userId: String!, $sectionId: ID!, $sectionTitle: String, $shortcuts: [ShortcutInput]!) {
+		updateUserShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, shortcuts: $shortcuts) {
 			title
-			position
 			id
 			shortcuts {
 				id
