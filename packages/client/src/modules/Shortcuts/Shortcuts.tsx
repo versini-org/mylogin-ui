@@ -8,7 +8,7 @@ import { AppContext } from "../App/AppContext";
 
 export const Shortcuts = () => {
 	const { state, dispatch } = useContext(AppContext);
-	const [editable, setEditable] = useState<number | null>();
+	const [editable, setEditable] = useState<string | null>();
 	const [userInputShortcuts, setUserInputShortcuts] = useState("");
 	const [userInputSectionTitle, setUserInputSectionTitle] = useState("");
 
@@ -16,7 +16,7 @@ export const Shortcuts = () => {
 		<>
 			{state.sections.map((item) => {
 				return (
-					<div key={item.position} className="mb-5">
+					<div key={item.id} className="mb-5">
 						<h2 className="heading text-center font-bold text-slate-200">
 							{item.title}
 							<ButtonIcon
@@ -27,9 +27,7 @@ export const Shortcuts = () => {
 								className="ml-1"
 								label="Edit section"
 								onClick={() => {
-									setEditable(
-										editable === item.position ? null : item.position,
-									);
+									setEditable(editable === item.id ? null : item.id);
 									setUserInputSectionTitle(JSON.stringify(item.title, null, 2));
 									setUserInputShortcuts(
 										JSON.stringify(item.shortcuts, null, 2),
@@ -40,13 +38,13 @@ export const Shortcuts = () => {
 							</ButtonIcon>
 						</h2>
 
-						{editable && editable === item.position ? (
+						{editable && editable === item.id ? (
 							<>
 								<TextInput
 									mode="dark"
 									focusMode="light"
 									label="Section title"
-									name={`section-title-${item.position}`}
+									name={`section-title-${item.id}`}
 									className="mb-2 mt-2"
 									type="text"
 									value={userInputSectionTitle}
@@ -70,9 +68,7 @@ export const Shortcuts = () => {
 									focusMode="light"
 									className="mr-2 mt-3"
 									onClick={() => {
-										setEditable(
-											editable === item.position ? null : item.position,
-										);
+										setEditable(editable === item.id ? null : item.id);
 									}}
 								>
 									Cancel
@@ -82,9 +78,7 @@ export const Shortcuts = () => {
 									noBorder
 									className="mt-3"
 									onClick={async () => {
-										setEditable(
-											editable === item.position ? null : item.position,
-										);
+										setEditable(editable === item.id ? null : item.id);
 										try {
 											const { jsonParse, addUniqueId } = await import(
 												"../../common/jsonUtilities"

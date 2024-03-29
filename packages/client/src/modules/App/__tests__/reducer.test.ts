@@ -25,7 +25,6 @@ describe("Non-DOM tests", () => {
 				status: ACTION_STATUS_SUCCESS,
 				sections: [
 					{
-						position: 1,
 						title: "testTitle",
 						id: "testId",
 						shortcuts: [
