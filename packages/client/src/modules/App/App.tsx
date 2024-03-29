@@ -4,7 +4,6 @@ import {
 	Footer,
 	Header,
 	Main,
-	Panel,
 	Table,
 	TableBody,
 	TableCell,
@@ -13,7 +12,7 @@ import {
 } from "@versini/ui-components";
 import { IconDelete, IconDown, IconEdit, IconUp } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
-import { useEffect, useReducer, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useReducer, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import {
@@ -31,6 +30,8 @@ import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
+
+const LazyPanel = lazy(() => import("../Lazy/Panel"));
 
 function App() {
 	const storage = useLocalStorage();
@@ -326,50 +327,57 @@ function App() {
 	/**
 	 * User is fully authenticated. We can show the app.
 	 */
-
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
-			<Panel
-				kind="messagebox"
-				open={showConfirmation}
-				onOpenChange={setShowConfirmation}
-				title="Delete Section"
-				footer={
-					<Flexgrid columnGap={2} alignHorizontal="flex-end">
-						<FlexgridItem>
-							<Button
-								mode="dark"
-								variant="secondary"
-								focusMode="light"
-								onClick={() => {
-									setShowConfirmation(false);
-								}}
-							>
-								Cancel
-							</Button>
-						</FlexgridItem>
-						<FlexgridItem>
-							<Button
-								mode="dark"
-								variant="danger"
-								focusMode="light"
-								onClick={() => {
-									onClickDeleteSection({
-										dispatch,
-									});
-								}}
-							>
-								Delete
-							</Button>
-						</FlexgridItem>
-					</Flexgrid>
-				}
-			>
-				<p>
-					Are you sure you want to delete section{" "}
-					<span className="text-lg">{sectionToDeleteRef?.current?.title}</span>
-				</p>
-			</Panel>
+			{showConfirmation && (
+				<Suspense fallback={<div />}>
+					<LazyPanel
+						kind="messagebox"
+						open={showConfirmation}
+						onOpenChange={setShowConfirmation}
+						title="Delete Section"
+						footer={
+							<Flexgrid columnGap={2} alignHorizontal="flex-end">
+								<FlexgridItem>
+									<Button
+										mode="dark"
+										variant="secondary"
+										focusMode="light"
+										onClick={() => {
+											setShowConfirmation(false);
+										}}
+									>
+										Cancel
+									</Button>
+								</FlexgridItem>
+								<FlexgridItem>
+									<Button
+										mode="dark"
+										variant="danger"
+										focusMode="light"
+										onClick={() => {
+											onClickDeleteSection({
+												dispatch,
+											});
+										}}
+									>
+										Delete
+									</Button>
+								</FlexgridItem>
+							</Flexgrid>
+						}
+					>
+						<p>
+							Are you sure you want to delete section{" "}
+							<span className="text-lg">
+								{sectionToDeleteRef?.current?.title}
+							</span>
+							?
+						</p>
+					</LazyPanel>
+				</Suspense>
+			)}
+
 			<div className="prose prose-lighter">
 				<Header>
 					<h1 className="heading mb-0 text-center">

@@ -6,7 +6,7 @@ export default {
 	sizes: [
 		{
 			path: "dist/assets/index-<hash>.js",
-			limit: "30 kb",
+			limit: "14 kb",
 		},
 		{
 			path: "dist/assets/index-<hash>.css",
@@ -15,6 +15,10 @@ export default {
 		{
 			path: "dist/jsonUtilities-<hash>.js",
 			limit: "10 kb",
+		},
+		{
+			path: "dist/Panel-<hash>.js",
+			limit: "16 kb",
 		},
 		{
 			path: "dist/react-<semver>.js",
