@@ -56,7 +56,7 @@ export const Shortcuts = () => {
 								/>
 
 								<TextArea
-									className="font-mono"
+									textAreaClassName="font-mono text-sm"
 									mode="dark"
 									focusMode="light"
 									label={`Shortcuts for ${item.title}`}
