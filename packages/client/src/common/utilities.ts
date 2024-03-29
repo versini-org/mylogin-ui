@@ -24,6 +24,39 @@ export const GRAPHQL_QUERIES = {
 			}
 		}
 	}`,
+	CHANGE_SECTION_POSITION: `mutation ChangeSectionPosition($userId: String!, $sectionId: ID!, $direction: String!) {
+		changeSectionPosition(user: $userId, sectionId: $sectionId, direction: $direction) {
+			title
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+	DELETE_SECTION: `mutation DeleteSection($userId: String!, $sectionId: ID!) {
+		deleteSection(user: $userId, sectionId: $sectionId) {
+			title
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
+	ADD_SECTION: `mutation AddSection($userId: String!, $sectionTitle: String!, $shortcuts: [ShortcutInput]) {
+		addSection(user: $userId, sectionTitle: $sectionTitle, shortcuts: $shortcuts) {
+			title
+			id
+			shortcuts {
+				id
+				label
+				url
+			}
+		}
+	}`,
 };
 
 /* c8 ignore start */
