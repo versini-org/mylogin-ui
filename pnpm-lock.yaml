@@ -13,7 +13,7 @@ importers:
         version: 4.0.2
       '@versini/dev-dependencies-client':
         specifier: 4.1.18
-        version: 4.1.18(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.2)
+        version: 4.1.18(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
       '@versini/dev-dependencies-types':
         specifier: 1.1.8
         version: 1.1.8
@@ -30,8 +30,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-icons':
-        specifier: 1.2.1
-        version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.3.0
+        version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-system':
         specifier: 1.2.0
         version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
@@ -1912,7 +1912,7 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.10.0
-      '@typescript-eslint/parser': 7.3.1(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/parser': 7.3.1(eslint@8.57.0)(typescript@5.4.3)
       '@typescript-eslint/scope-manager': 7.3.1
       '@typescript-eslint/type-utils': 7.3.1(eslint@8.57.0)(typescript@5.4.3)
       '@typescript-eslint/utils': 7.3.1(eslint@8.57.0)(typescript@5.4.3)
@@ -1929,7 +1929,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser@7.3.1(eslint@8.57.0)(typescript@5.4.2):
+  /@typescript-eslint/parser@7.3.1(eslint@8.57.0)(typescript@5.4.3):
     resolution: {integrity: sha512-Rq49+pq7viTRCH48XAbTA+wdLRrB/3sRq4Lpk0oGDm0VmnjBrAOVXH/Laalmwsv2VpekiEfVFwJYVk6/e8uvQw==}
     engines: {node: ^18.18.0 || >=20.0.0}
     peerDependencies:
@@ -1941,11 +1941,11 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 7.3.1
       '@typescript-eslint/types': 7.3.1
-      '@typescript-eslint/typescript-estree': 7.3.1(typescript@5.4.2)
+      '@typescript-eslint/typescript-estree': 7.3.1(typescript@5.4.3)
       '@typescript-eslint/visitor-keys': 7.3.1
       debug: 4.3.4(supports-color@5.5.0)
       eslint: 8.57.0
-      typescript: 5.4.2
+      typescript: 5.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1981,28 +1981,6 @@ packages:
   /@typescript-eslint/types@7.3.1:
     resolution: {integrity: sha512-2tUf3uWggBDl4S4183nivWQ2HqceOZh1U4hhu4p1tPiIJoRRXrab7Y+Y0p+dozYwZVvLPRI6r5wKe9kToF9FIw==}
     engines: {node: ^18.18.0 || >=20.0.0}
-    dev: true
-
-  /@typescript-eslint/typescript-estree@7.3.1(typescript@5.4.2):
-    resolution: {integrity: sha512-tLpuqM46LVkduWP7JO7yVoWshpJuJzxDOPYIVWUUZbW+4dBpgGeUdl/fQkhuV0A8eGnphYw3pp8d2EnvPOfxmQ==}
-    engines: {node: ^18.18.0 || >=20.0.0}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/types': 7.3.1
-      '@typescript-eslint/visitor-keys': 7.3.1
-      debug: 4.3.4(supports-color@5.5.0)
-      globby: 11.1.0
-      is-glob: 4.0.3
-      minimatch: 9.0.3
-      semver: 7.6.0
-      ts-api-utils: 1.2.1(typescript@5.4.2)
-      typescript: 5.4.2
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@typescript-eslint/typescript-estree@7.3.1(typescript@5.4.3):
@@ -2058,7 +2036,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@versini/dev-dependencies-client@4.1.18(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.2):
+  /@versini/dev-dependencies-client@4.1.18(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
     resolution: {integrity: sha512-SWr07v+qcsrKIB2MFNV1RqVvEX+tOIC4/qgVXqD46oY2DlrsnAMD8TRB9MrPILnbaFHfkYewQ5jthLGcg7kAKg==}
     dependencies:
       '@testing-library/dom': 9.3.4
@@ -2087,9 +2065,9 @@ packages:
       rimraf: 5.0.5
       rollup: 4.13.0
       tailwindcss: 3.4.1
-      tsup: 8.0.2(postcss@8.4.38)(typescript@5.4.2)
+      tsup: 8.0.2(postcss@8.4.38)(typescript@5.4.3)
       vite: 5.2.3
-      vite-plugin-dts: 3.7.3(rollup@4.13.0)(typescript@5.4.2)(vite@5.2.3)
+      vite-plugin-dts: 3.7.3(rollup@4.13.0)(typescript@5.4.3)(vite@5.2.3)
       vite-plugin-lib-inject-css: 2.0.0(vite@5.2.3)
       vitest: 1.4.0(@vitest/ui@1.4.0)
     transitivePeerDependencies:
@@ -2144,7 +2122,7 @@ packages:
     resolution: {integrity: sha512-tLpExWqL4+sGSWJZldQXpKv+cYGLItEb+vlktCinsYjn+63+wjcddFWsuCxIxFQvY7PdTx+uP/nQf6lYJIGvNg==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.3.1(@typescript-eslint/parser@7.3.1)(eslint@8.57.0)(typescript@5.4.3)
-      '@typescript-eslint/parser': 7.3.1(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/parser': 7.3.1(eslint@8.57.0)(typescript@5.4.3)
       chokidar: 3.6.0
       culori: 4.0.1
       dotenv: 16.4.5
@@ -2245,6 +2223,17 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@versini/ui-private': 1.3.1(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@versini/ui-icons@1.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Ie1PIKctSjcFtYK54q+YhbRZ+7YtnSccS5VL5IAJXwvBpgq7sr2VHeH3AUQEPA3x3Go65XrUZ2iVNouSwqNmPQ==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@versini/ui-private': 1.4.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -2424,7 +2413,7 @@ packages:
       '@vue/shared': 3.4.18
     dev: true
 
-  /@vue/language-core@1.8.27(typescript@5.4.2):
+  /@vue/language-core@1.8.27(typescript@5.4.3):
     resolution: {integrity: sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA==}
     peerDependencies:
       typescript: '*'
@@ -2440,7 +2429,7 @@ packages:
       minimatch: 9.0.3
       muggle-string: 0.3.1
       path-browserify: 1.0.1
-      typescript: 5.4.2
+      typescript: 5.4.3
       vue-template-compiler: 2.7.16
     dev: true
 
@@ -8486,15 +8475,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-api-utils@1.2.1(typescript@5.4.2):
-    resolution: {integrity: sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      typescript: '>=4.2.0'
-    dependencies:
-      typescript: 5.4.2
-    dev: true
-
   /ts-api-utils@1.2.1(typescript@5.4.3):
     resolution: {integrity: sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==}
     engines: {node: '>=16'}
@@ -8520,7 +8500,7 @@ packages:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: true
 
-  /tsup@8.0.2(postcss@8.4.38)(typescript@5.4.2):
+  /tsup@8.0.2(postcss@8.4.38)(typescript@5.4.3):
     resolution: {integrity: sha512-NY8xtQXdH7hDUAZwcQdY/Vzlw9johQsaqf7iwZ6g1DOUlFYQ5/AtVAjTvihhEyeRlGo4dLRVHtrRaL35M1daqQ==}
     engines: {node: '>=18'}
     hasBin: true
@@ -8554,7 +8534,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.35.0
       tree-kill: 1.2.2
-      typescript: 5.4.2
+      typescript: 5.4.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -8853,7 +8833,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@3.7.3(rollup@4.13.0)(typescript@5.4.2)(vite@5.2.3):
+  /vite-plugin-dts@3.7.3(rollup@4.13.0)(typescript@5.4.3)(vite@5.2.3):
     resolution: {integrity: sha512-26eTlBYdpjRLWCsTJebM8vkCieE+p9gP3raf+ecDnzzK5E3FG6VE1wcy55OkRpfWWVlVvKkYFe6uvRHYWx7Nog==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -8865,12 +8845,12 @@ packages:
     dependencies:
       '@microsoft/api-extractor': 7.39.0
       '@rollup/pluginutils': 5.1.0(rollup@4.13.0)
-      '@vue/language-core': 1.8.27(typescript@5.4.2)
+      '@vue/language-core': 1.8.27(typescript@5.4.3)
       debug: 4.3.4(supports-color@5.5.0)
       kolorist: 1.8.0
-      typescript: 5.4.2
+      typescript: 5.4.3
       vite: 5.2.3
-      vue-tsc: 1.8.27(typescript@5.4.2)
+      vue-tsc: 1.8.27(typescript@5.4.3)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -8985,16 +8965,16 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc@1.8.27(typescript@5.4.2):
+  /vue-tsc@1.8.27(typescript@5.4.3):
     resolution: {integrity: sha512-WesKCAZCRAbmmhuGl3+VrdWItEvfoFIPXOvUJkjULi+x+6G/Dy69yO3TBRJDr9eUlmsNAwVmxsNZxvHKzbkKdg==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/typescript': 1.11.1
-      '@vue/language-core': 1.8.27(typescript@5.4.2)
+      '@vue/language-core': 1.8.27(typescript@5.4.3)
       semver: 7.6.0
-      typescript: 5.4.2
+      typescript: 5.4.3
     dev: true
 
   /w3c-xmlserializer@5.0.0:
