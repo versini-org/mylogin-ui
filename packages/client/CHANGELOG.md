@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.3](https://github.com/aversini/mylogin-ui/compare/client-v1.9.2...client-v1.9.3) (2024-03-29)
+
+
+### Bug Fixes
+
+* delay Panel load until it is needed ([558ad3a](https://github.com/aversini/mylogin-ui/commit/558ad3ae0562968581613de401b8c76870f37181))
+
 ## [1.9.2](https://github.com/aversini/mylogin-ui/compare/client-v1.9.1...client-v1.9.2) (2024-03-29)
 
 
