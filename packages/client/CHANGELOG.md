@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.5](https://github.com/aversini/mylogin-ui/compare/client-v1.9.4...client-v1.9.5) (2024-03-30)
+
+
+### Bug Fixes
+
+* unable to update existing shortcuts after last merge ([50bc0c9](https://github.com/aversini/mylogin-ui/commit/50bc0c91fac2a22ecf24ab52e7cc09c1196768e8))
+
 ## [1.9.4](https://github.com/aversini/mylogin-ui/compare/client-v1.9.3...client-v1.9.4) (2024-03-30)
 
 
