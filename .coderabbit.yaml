@@ -4,5 +4,8 @@ reviews:
   poem: false
   auto_review:
     enabled: true
+    ignore_title_keywords:
+      - "chore: release main"
+      - WIP
 chat:
   auto_reply: true
