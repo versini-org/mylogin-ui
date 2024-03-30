@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/aversini/mylogin-ui/compare/client-v1.10.0...client-v1.10.1) (2024-03-30)
+
+
+### Performance Improvements
+
+* externalize handlers from App ([5a71e4a](https://github.com/aversini/mylogin-ui/commit/5a71e4a143e74117abf2e5047c90f37b48801259))
+
 ## [1.10.0](https://github.com/aversini/mylogin-ui/compare/client-v1.9.5...client-v1.10.0) (2024-03-30)
 
 
