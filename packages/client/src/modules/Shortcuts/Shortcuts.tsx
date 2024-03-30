@@ -1,5 +1,5 @@
 import { Button, ButtonIcon, ButtonLink } from "@versini/ui-components";
-import { TextArea, TextInput } from "@versini/ui-form";
+import { TextArea } from "@versini/ui-form";
 import { IconEdit } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
@@ -42,20 +42,8 @@ export const Shortcuts = () => {
 
 						{editable && editable === section.id ? (
 							<>
-								<TextInput
-									mode="dark"
-									focusMode="light"
-									label="Section title"
-									name={`section-title-${section.id}`}
-									className="mb-2 mt-2"
-									type="text"
-									value={userInputSectionTitle}
-									onChange={(e) =>
-										setUserInputSectionTitle(e.target.value.toString())
-									}
-								/>
-
 								<TextArea
+									className="mt-2"
 									textAreaClassName="font-mono text-sm"
 									mode="dark"
 									focusMode="light"
@@ -111,11 +99,11 @@ export const Shortcuts = () => {
 							</>
 						) : (
 							<div className="flex flex-wrap justify-center">
-								{section.shortcuts.map((shortcut) => {
+								{section.shortcuts.map((shortcut, idx) => {
 									return (
 										<ButtonLink
 											focusMode="light"
-											key={`${shortcut.url}-${shortcut.label}`}
+											key={`${shortcut.url}-${shortcut.label}-${idx}`}
 											noBorder
 											link={shortcut.url}
 											target="_blank"

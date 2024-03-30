@@ -24,17 +24,17 @@ importers:
   packages/client:
     dependencies:
       '@versini/ui-components':
-        specifier: 5.10.1
-        version: 5.10.1(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.10.2
+        version: 5.10.2(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-form':
         specifier: 1.1.1
         version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-icons':
-        specifier: 1.3.0
-        version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.4.0
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-system':
-        specifier: 1.2.0
-        version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.2.1
+        version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
       json5:
         specifier: 2.2.3
         version: 2.2.3
@@ -46,8 +46,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@versini/ui-styles':
-        specifier: 1.6.0
-        version: 1.6.0
+        specifier: 1.6.1
+        version: 1.6.1
 
 packages:
 
@@ -1582,8 +1582,8 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tailwindcss/typography@0.5.10(tailwindcss@3.4.1):
-    resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
+  /@tailwindcss/typography@0.5.12(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-CNwpBpconcP7ppxmuq3qvaCxiRWnbhANpY/ruH4L5qs2GCiVDJXde/pjj2HWPV1+Q4G9+V/etrwUYopdcjAlyg==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
@@ -1591,7 +1591,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.1
+      tailwindcss: 3.4.3
 
   /@testing-library/dom@9.3.4:
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -2166,8 +2166,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /@versini/ui-components@5.10.1(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-OPcRM02I5AXQtjE4HadrnHWbF7hTs5EA9RGCpQCpGxTLlmos+pQTGoIbpobVl0WZW0Pl/ydtSQhzcLPzx7zuqA==}
+  /@versini/ui-components@5.10.2(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uLrwQrpb2wOTZbgKzV3b9JuobHB6PLWJqzg5QgS2sfQnY99DUdjUysJXsZ8bVhfwMTRF39H3Bf4zuA5B2lnMww==}
     peerDependencies:
       '@floating-ui/react': 0.26.9
       fast-equals: 5.0.1
@@ -2176,16 +2176,16 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@floating-ui/react': 0.26.9(react-dom@18.2.0)(react@18.2.0)
-      '@tailwindcss/typography': 0.5.10(tailwindcss@3.4.1)
+      '@tailwindcss/typography': 0.5.12(tailwindcss@3.4.3)
       '@versini/ui-hooks': 2.2.0(react-dom@18.2.0)(react@18.2.0)
-      '@versini/ui-icons': 1.2.1(react-dom@18.2.0)(react@18.2.0)
+      '@versini/ui-icons': 1.4.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-private': 1.4.0(react-dom@18.2.0)(react@18.2.0)
       clsx: 2.1.0
       fast-equals: 5.0.1
       micro-memoize: 4.1.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tailwindcss: 3.4.1
+      tailwindcss: 3.4.3
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -2213,37 +2213,13 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@versini/ui-icons@1.2.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-j+4yNuIQitE8IuzS0At9JufawWTL3scEZJAFi5rdypnX3Z13B/b0O/OTxt5bXTIAYQGMEDW+NVwPvT1gdN6j+w==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      '@versini/ui-private': 1.3.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@versini/ui-icons@1.3.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Ie1PIKctSjcFtYK54q+YhbRZ+7YtnSccS5VL5IAJXwvBpgq7sr2VHeH3AUQEPA3x3Go65XrUZ2iVNouSwqNmPQ==}
+  /@versini/ui-icons@1.4.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-AgyRwihwjmjGPnJFRXu+HPzUOSN1Ahp3M4P9LJi9Hvlr1X/gQuOcKMOYw4Hv+VGnIvEI6bjeHWj0wKQiMuuXKg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@versini/ui-private': 1.4.0(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@versini/ui-private@1.3.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-BeIFlG/bIyRzOhWExasQjxxSPu3xbAkbjRNvMVV3ACyGVmTS9dq7svC9HbKwLyQWV9c6swuh/N4R8XKT2iAMJg==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      '@floating-ui/react': 0.26.9(react-dom@18.2.0)(react@18.2.0)
-      '@versini/ui-hooks': 2.2.0(react-dom@18.2.0)(react@18.2.0)
-      clsx: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -2261,18 +2237,18 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@versini/ui-styles@1.6.0:
-    resolution: {integrity: sha512-1jKUhB8f/T7cNEPQiFNt6Lcp05fGNIzNHcMZWva4UEKsbQDsfCLZPkHuKtmC9SiEdmMiOjkxH1UQdDYvkKSkyg==}
+  /@versini/ui-styles@1.6.1:
+    resolution: {integrity: sha512-66N86Hd4/+EEqk7ucsMlEqZjnL2+DRWZ0uDtH628e8AE1fihj5TY2RYiAX3uRMDJFrIPj3sPI+6tPAg3cBxMsg==}
     dependencies:
-      '@tailwindcss/typography': 0.5.10(tailwindcss@3.4.1)
+      '@tailwindcss/typography': 0.5.12(tailwindcss@3.4.3)
       culori: 4.0.1
-      tailwindcss: 3.4.1
+      tailwindcss: 3.4.3
     transitivePeerDependencies:
       - ts-node
     dev: true
 
-  /@versini/ui-system@1.2.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-sk+TL27oWkdxO8JJKw6xFp3DrZUJKsDjxwPcB2ozQ2YUMVipKFi2aCjIr8vlGarYi1vv/q/IxQwlMjX9//3luA==}
+  /@versini/ui-system@1.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8Ym3LCxcrPyvoNwrafah1ZfWDpAjlyEtF8CDS4U9oznW1ZMbuFDALtvFufRKjhEHdNuGwooxAmXDiIbTCSHG4w==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2280,7 +2256,7 @@ packages:
       clsx: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tailwindcss: 3.4.1
+      tailwindcss: 3.4.3
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -7155,6 +7131,18 @@ packages:
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
+    dev: true
+
+  /postcss-import@15.1.0(postcss@8.4.38):
+    resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      postcss: ^8.0.0
+    dependencies:
+      postcss: 8.4.38
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.8
 
   /postcss-js@4.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
@@ -7164,6 +7152,16 @@ packages:
     dependencies:
       camelcase-css: 2.0.1
       postcss: 8.4.35
+    dev: true
+
+  /postcss-js@4.0.1(postcss@8.4.38):
+    resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
+    engines: {node: ^12 || ^14 || >= 16}
+    peerDependencies:
+      postcss: ^8.4.21
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.4.38
 
   /postcss-load-config@4.0.2(postcss@8.4.35):
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
@@ -7180,6 +7178,7 @@ packages:
       lilconfig: 3.0.0
       postcss: 8.4.35
       yaml: 2.3.4
+    dev: true
 
   /postcss-load-config@4.0.2(postcss@8.4.38):
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
@@ -7196,7 +7195,6 @@ packages:
       lilconfig: 3.0.0
       postcss: 8.4.38
       yaml: 2.3.4
-    dev: true
 
   /postcss-nested@6.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
@@ -7205,6 +7203,16 @@ packages:
       postcss: ^8.2.14
     dependencies:
       postcss: 8.4.35
+      postcss-selector-parser: 6.0.15
+    dev: true
+
+  /postcss-nested@6.0.1(postcss@8.4.38):
+    resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.2.14
+    dependencies:
+      postcss: 8.4.38
       postcss-selector-parser: 6.0.15
 
   /postcss-selector-parser@6.0.10:
@@ -7231,6 +7239,7 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
 
   /postcss@8.4.38:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
@@ -7239,7 +7248,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
-    dev: true
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -7999,11 +8007,11 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
@@ -8310,6 +8318,37 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.35)
       postcss-load-config: 4.0.2(postcss@8.4.35)
       postcss-nested: 6.0.1(postcss@8.4.35)
+      postcss-selector-parser: 6.0.15
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+    dev: true
+
+  /tailwindcss@3.4.3:
+    resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.6.0
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.0
+      lilconfig: 2.1.0
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.38
+      postcss-import: 15.1.0(postcss@8.4.38)
+      postcss-js: 4.0.1(postcss@8.4.38)
+      postcss-load-config: 4.0.2(postcss@8.4.38)
+      postcss-nested: 6.0.1(postcss@8.4.38)
       postcss-selector-parser: 6.0.15
       resolve: 1.22.8
       sucrase: 3.35.0

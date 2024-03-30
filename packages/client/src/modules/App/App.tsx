@@ -10,7 +10,14 @@ import {
 	TableHead,
 	TableRow,
 } from "@versini/ui-components";
-import { IconDelete, IconDown, IconEdit, IconUp } from "@versini/ui-icons";
+import { TextInput } from "@versini/ui-form";
+import {
+	IconAdd,
+	IconDelete,
+	IconDown,
+	IconEdit,
+	IconUp,
+} from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { lazy, Suspense, useEffect, useReducer, useRef, useState } from "react";
 
@@ -163,6 +170,104 @@ function App() {
 					payload: {
 						status: ACTION_STATUS_SUCCESS,
 						sections: data.data.addSection,
+					},
+				});
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.error(error);
+		}
+	};
+
+	const onClickAddShortcut = async ({
+		section,
+		dispatch,
+	}: {
+		dispatch: any;
+		section: any;
+	}) => {
+		const authorization = `Basic ${basicAuth}`;
+		try {
+			const response = await graphQLCall({
+				headers: {
+					authorization,
+				},
+				query: GRAPHQL_QUERIES.SET_SHORTCUTS,
+				data: {
+					userId: FAKE_USER_EMAIL,
+					sectionId: section.id,
+					sectionTitle: section.title,
+					shortcuts: [
+						...section.shortcuts,
+						{
+							label: "New Shortcut",
+							url: "https://example.com",
+						},
+					],
+				},
+			});
+			if (response.status !== 200) {
+				dispatch({
+					type: ACTION_SET_STATUS,
+					payload: {
+						status: ACTION_STATUS_ERROR,
+					},
+				});
+			} else {
+				const data = await response.json();
+				dispatch({
+					type: ACTION_GET_DATA,
+					payload: {
+						status: ACTION_STATUS_SUCCESS,
+						sections: data.data.updateUserShortcuts,
+					},
+				});
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.error(error);
+		}
+	};
+
+	const onChangeSectionTitle = async ({
+		e,
+		section,
+		dispatch,
+	}: {
+		dispatch: any;
+		e: any;
+		section: any;
+	}) => {
+		const sectionTitle = e.target.value;
+
+		const authorization = `Basic ${basicAuth}`;
+		try {
+			const response = await graphQLCall({
+				headers: {
+					authorization,
+				},
+				query: GRAPHQL_QUERIES.SET_SHORTCUTS,
+				data: {
+					userId: FAKE_USER_EMAIL,
+					sectionId: section.id,
+					sectionTitle: sectionTitle,
+					shortcuts: section.shortcuts,
+				},
+			});
+			if (response.status !== 200) {
+				dispatch({
+					type: ACTION_SET_STATUS,
+					payload: {
+						status: ACTION_STATUS_ERROR,
+					},
+				});
+			} else {
+				const data = await response.json();
+				dispatch({
+					type: ACTION_GET_DATA,
+					payload: {
+						status: ACTION_STATUS_SUCCESS,
+						sections: data.data.updateUserShortcuts,
 					},
 				});
 			}
@@ -418,6 +523,7 @@ function App() {
 									<TableRow>
 										<TableCell>Section</TableCell>
 										<TableCell className="text-right">Position</TableCell>
+										<TableCell className="text-right">New Shortcut</TableCell>
 										<TableCell className="text-right">Delete</TableCell>
 									</TableRow>
 								</TableHead>
@@ -425,7 +531,21 @@ function App() {
 								<TableBody>
 									{state.sections.map((section) => (
 										<TableRow key={section.id}>
-											<TableCell>{section.title}</TableCell>
+											<TableCell>
+												<TextInput
+													focusMode="light"
+													label="Section Title"
+													name={section.title}
+													defaultValue={section.title}
+													onChange={(e) => {
+														onChangeSectionTitle({
+															e,
+															section,
+															dispatch,
+														});
+													}}
+												/>
+											</TableCell>
 											<TableCell>
 												<div className="flex justify-end gap-2">
 													{section.id !== state.sections[0].id && (
@@ -472,7 +592,25 @@ function App() {
 														mode="light"
 														focusMode="alt-system"
 														noBorder
-														label="Delete chat"
+														label="New Shortcut"
+														onClick={() => {
+															onClickAddShortcut({
+																section: section,
+																dispatch,
+															});
+														}}
+													>
+														<IconAdd className="h-3 w-3" monotone />
+													</ButtonIcon>
+												</div>
+											</TableCell>
+											<TableCell>
+												<div className="flex justify-end">
+													<ButtonIcon
+														mode="light"
+														focusMode="alt-system"
+														noBorder
+														label="Delete Section"
 														onClick={() => {
 															sectionToDeleteRef.current = section;
 															setShowConfirmation(true);
