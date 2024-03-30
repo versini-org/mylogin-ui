@@ -42,19 +42,6 @@ export const Shortcuts = () => {
 
 						{editable && editable === section.id ? (
 							<>
-								{/* <TextInput
-									mode="dark"
-									focusMode="light"
-									label="Section title"
-									name={`section-title-${section.id}`}
-									className="mb-2 mt-2"
-									type="text"
-									value={userInputSectionTitle}
-									onChange={(e) =>
-										setUserInputSectionTitle(e.target.value.toString())
-									}
-								/> */}
-
 								<TextArea
 									className="mt-2"
 									textAreaClassName="font-mono text-sm"
