@@ -87,6 +87,7 @@ export const Shortcuts = () => {
 											);
 											try {
 												section.title = jsonParse(userInputSectionTitle, true);
+												section.shortcuts = jsonParse(userInputShortcuts);
 											} catch (error) {
 												// eslint-disable-next-line no-console
 												console.error(error);
