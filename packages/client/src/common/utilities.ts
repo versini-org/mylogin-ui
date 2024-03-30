@@ -52,6 +52,16 @@ export const GRAPHQL_QUERIES = {
 			}
 		}
 	}`,
+	EDIT_SECTION_TITLE: `mutation EditSection($userId: String!, $sectionId: ID!, $sectionTitle: String!) {
+		editSectionTitle(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle) {
+			title
+			id
+			shortcuts {
+				label
+				url
+			}
+		}
+	}`,
 };
 
 /* c8 ignore start */
