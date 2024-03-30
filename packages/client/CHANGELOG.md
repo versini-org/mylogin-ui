@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/aversini/mylogin-ui/compare/client-v1.9.5...client-v1.10.0) (2024-03-30)
+
+
+### Features
+
+* adding new shortcut capability and inline section title editing ([a7420ff](https://github.com/aversini/mylogin-ui/commit/a7420ff1da62f5a3b827c0cba40ccf08d3e57650))
+
 ## [1.9.5](https://github.com/aversini/mylogin-ui/compare/client-v1.9.4...client-v1.9.5) (2024-03-30)
 
 
