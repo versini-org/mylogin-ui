@@ -13,7 +13,6 @@ import {
 import { IconDelete, IconDown, IconEdit, IconUp } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { lazy, Suspense, useEffect, useReducer, useRef, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 import {
 	ACTION_GET_DATA,
@@ -143,7 +142,10 @@ function App() {
 					userId: FAKE_USER_EMAIL,
 					sectionTitle: "New Section",
 					shortcuts: [
-						{ label: "New Shortcut", url: "https://example.com", id: uuidv4() },
+						{
+							label: "New Shortcut",
+							url: "https://example.com",
+						},
 					],
 				},
 			});
