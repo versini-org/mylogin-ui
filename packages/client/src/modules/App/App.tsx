@@ -39,6 +39,217 @@ import { reducer } from "./reducer";
 
 const LazyPanel = lazy(() => import("../Lazy/Panel"));
 
+const onClickAddSection = async ({
+	basicAuth,
+	dispatch,
+	sections,
+}: {
+	basicAuth: any;
+	dispatch: any;
+	sections: any;
+}) => {
+	const authorization = `Basic ${basicAuth}`;
+	try {
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.ADD_SECTION,
+			data: {
+				userId: FAKE_USER_EMAIL,
+				sectionTitle: "New Section",
+				shortcuts: [
+					{
+						label: "New Shortcut",
+						url: "https://example.com",
+					},
+				],
+			},
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			const data = await response.json();
+			sections.push(data.data.addSection);
+			dispatch({
+				type: ACTION_GET_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: sections,
+				},
+			});
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error(error);
+	}
+};
+
+const onChangeSectionTitle = async ({
+	e,
+	section,
+	dispatch,
+	basicAuth,
+	state,
+}: {
+	basicAuth: any;
+	dispatch: any;
+	e: any;
+	section: any;
+	state: any;
+}) => {
+	const sectionTitle = e.target.value;
+
+	const authorization = `Basic ${basicAuth}`;
+	try {
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.EDIT_SECTION_TITLE,
+			data: {
+				userId: FAKE_USER_EMAIL,
+				sectionId: section.id,
+				sectionTitle: sectionTitle,
+			},
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			const data = await response.json();
+			const editedSection = data.data.editSectionTitle;
+			const sections = state.sections.map((s: any) => {
+				if (s.id === editedSection.id) {
+					return editedSection;
+				}
+				return s;
+			});
+
+			dispatch({
+				type: ACTION_GET_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections,
+				},
+			});
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error(error);
+	}
+};
+
+const onClickChangePosition = async ({
+	basicAuth,
+	sectionId,
+	direction,
+	dispatch,
+}: {
+	basicAuth: any;
+	direction: string;
+	dispatch: any;
+	sectionId: string;
+}) => {
+	const authorization = `Basic ${basicAuth}`;
+
+	try {
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.CHANGE_SECTION_POSITION,
+			data: {
+				userId: FAKE_USER_EMAIL,
+				sectionId,
+				direction,
+			},
+		});
+
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			const data = await response.json();
+			dispatch({
+				type: ACTION_GET_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: data.data.changeSectionPosition,
+				},
+			});
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error(error);
+	}
+};
+
+const onClickAddShortcut = async ({
+	basicAuth,
+	section,
+	dispatch,
+}: {
+	basicAuth: any;
+	dispatch: any;
+	section: any;
+}) => {
+	const authorization = `Basic ${basicAuth}`;
+	try {
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.SET_SHORTCUTS,
+			data: {
+				userId: FAKE_USER_EMAIL,
+				sectionId: section.id,
+				sectionTitle: section.title,
+				shortcuts: [
+					...section.shortcuts,
+					{
+						label: "New Shortcut",
+						url: "https://example.com",
+					},
+				],
+			},
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			const data = await response.json();
+			dispatch({
+				type: ACTION_GET_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: data.data.updateUserShortcuts,
+				},
+			});
+		}
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error(error);
+	}
+};
+
 function App() {
 	const storage = useLocalStorage();
 	const [errorMessage, setErrorMessage] = useState("");
@@ -52,53 +263,6 @@ function App() {
 		sections: [],
 	});
 	const sectionToDeleteRef = useRef<SectionProps | null>(null);
-
-	const onClickChangePosition = async ({
-		sectionId,
-		direction,
-		dispatch,
-	}: {
-		direction: string;
-		dispatch: any;
-		sectionId: string;
-	}) => {
-		const authorization = `Basic ${basicAuth}`;
-
-		try {
-			const response = await graphQLCall({
-				headers: {
-					authorization,
-				},
-				query: GRAPHQL_QUERIES.CHANGE_SECTION_POSITION,
-				data: {
-					userId: FAKE_USER_EMAIL,
-					sectionId,
-					direction,
-				},
-			});
-
-			if (response.status !== 200) {
-				dispatch({
-					type: ACTION_SET_STATUS,
-					payload: {
-						status: ACTION_STATUS_ERROR,
-					},
-				});
-			} else {
-				const data = await response.json();
-				dispatch({
-					type: ACTION_GET_DATA,
-					payload: {
-						status: ACTION_STATUS_SUCCESS,
-						sections: data.data.changeSectionPosition,
-					},
-				});
-			}
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error(error);
-		}
-	};
 
 	const onClickDeleteSection = async ({ dispatch }: { dispatch: any }) => {
 		setShowConfirmation(!showConfirmation);
@@ -128,146 +292,6 @@ function App() {
 					payload: {
 						status: ACTION_STATUS_SUCCESS,
 						sections: data.data.deleteSection,
-					},
-				});
-			}
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error(error);
-		}
-	};
-
-	const onClickAddSection = async () => {
-		const authorization = `Basic ${basicAuth}`;
-		try {
-			const response = await graphQLCall({
-				headers: {
-					authorization,
-				},
-				query: GRAPHQL_QUERIES.ADD_SECTION,
-				data: {
-					userId: FAKE_USER_EMAIL,
-					sectionTitle: "New Section",
-					shortcuts: [
-						{
-							label: "New Shortcut",
-							url: "https://example.com",
-						},
-					],
-				},
-			});
-			if (response.status !== 200) {
-				dispatch({
-					type: ACTION_SET_STATUS,
-					payload: {
-						status: ACTION_STATUS_ERROR,
-					},
-				});
-			} else {
-				const data = await response.json();
-				dispatch({
-					type: ACTION_GET_DATA,
-					payload: {
-						status: ACTION_STATUS_SUCCESS,
-						sections: data.data.addSection,
-					},
-				});
-			}
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error(error);
-		}
-	};
-
-	const onClickAddShortcut = async ({
-		section,
-		dispatch,
-	}: {
-		dispatch: any;
-		section: any;
-	}) => {
-		const authorization = `Basic ${basicAuth}`;
-		try {
-			const response = await graphQLCall({
-				headers: {
-					authorization,
-				},
-				query: GRAPHQL_QUERIES.SET_SHORTCUTS,
-				data: {
-					userId: FAKE_USER_EMAIL,
-					sectionId: section.id,
-					sectionTitle: section.title,
-					shortcuts: [
-						...section.shortcuts,
-						{
-							label: "New Shortcut",
-							url: "https://example.com",
-						},
-					],
-				},
-			});
-			if (response.status !== 200) {
-				dispatch({
-					type: ACTION_SET_STATUS,
-					payload: {
-						status: ACTION_STATUS_ERROR,
-					},
-				});
-			} else {
-				const data = await response.json();
-				dispatch({
-					type: ACTION_GET_DATA,
-					payload: {
-						status: ACTION_STATUS_SUCCESS,
-						sections: data.data.updateUserShortcuts,
-					},
-				});
-			}
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error(error);
-		}
-	};
-
-	const onChangeSectionTitle = async ({
-		e,
-		section,
-		dispatch,
-	}: {
-		dispatch: any;
-		e: any;
-		section: any;
-	}) => {
-		const sectionTitle = e.target.value;
-
-		const authorization = `Basic ${basicAuth}`;
-		try {
-			const response = await graphQLCall({
-				headers: {
-					authorization,
-				},
-				query: GRAPHQL_QUERIES.SET_SHORTCUTS,
-				data: {
-					userId: FAKE_USER_EMAIL,
-					sectionId: section.id,
-					sectionTitle: sectionTitle,
-					shortcuts: section.shortcuts,
-				},
-			});
-			if (response.status !== 200) {
-				dispatch({
-					type: ACTION_SET_STATUS,
-					payload: {
-						status: ACTION_STATUS_ERROR,
-					},
-				});
-			} else {
-				const data = await response.json();
-				dispatch({
-					type: ACTION_GET_DATA,
-					payload: {
-						status: ACTION_STATUS_SUCCESS,
-						sections: data.data.updateUserShortcuts,
 					},
 				});
 			}
@@ -514,7 +538,13 @@ function App() {
 								focusMode="light"
 								noBorder
 								spacing={{ b: 5 }}
-								onClick={onClickAddSection}
+								onClick={() => {
+									onClickAddSection({
+										basicAuth,
+										dispatch,
+										sections: state.sections,
+									});
+								}}
 							>
 								Add New Section
 							</Button>
@@ -539,9 +569,11 @@ function App() {
 													defaultValue={section.title}
 													onChange={(e) => {
 														onChangeSectionTitle({
+															basicAuth,
 															e,
 															section,
 															dispatch,
+															state,
 														});
 													}}
 												/>
@@ -556,6 +588,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangePosition({
+																	basicAuth,
 																	sectionId: section.id,
 																	direction: "up",
 																	dispatch,
@@ -575,6 +608,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangePosition({
+																	basicAuth,
 																	sectionId: section.id,
 																	direction: "down",
 																	dispatch,
@@ -595,6 +629,7 @@ function App() {
 														label="New Shortcut"
 														onClick={() => {
 															onClickAddShortcut({
+																basicAuth,
 																section: section,
 																dispatch,
 															});
