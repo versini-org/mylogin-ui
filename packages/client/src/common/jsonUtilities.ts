@@ -1,7 +1,4 @@
 import JSON5 from "json5";
-import { v4 as uuidv4 } from "uuid";
-
-import type { ShortcutDataProps } from "./types";
 
 /**
  * Function to wrap a string in double quotes if it is not already wrapped,
@@ -41,13 +38,4 @@ export const jsonParse = (json: string, autofix = false): any => {
 	} catch (error) {
 		throw new Error(`Invalid JSON format: ${error}`);
 	}
-};
-
-export const addUniqueId = (data: ShortcutDataProps[]): ShortcutDataProps[] => {
-	return data.map((item) => {
-		return {
-			...item,
-			id: uuidv4(),
-		};
-	});
 };

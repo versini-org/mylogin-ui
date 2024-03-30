@@ -8,7 +8,6 @@ import {
 } from "./constants";
 
 export type ShortcutDataProps = {
-	id: string;
 	label: string;
 	url: string;
 };

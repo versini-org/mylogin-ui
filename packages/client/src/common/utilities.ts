@@ -7,7 +7,6 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
-				id
 				label
 				url
 			}
@@ -18,7 +17,6 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
-				id
 				label
 				url
 			}
@@ -29,7 +27,6 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
-				id
 				label
 				url
 			}
@@ -40,7 +37,6 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
-				id
 				label
 				url
 			}
@@ -51,7 +47,6 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
-				id
 				label
 				url
 			}

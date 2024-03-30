@@ -14,11 +14,11 @@ export const Shortcuts = () => {
 
 	return state && state?.sections?.length > 0 ? (
 		<>
-			{state.sections.map((item) => {
+			{state.sections.map((section) => {
 				return (
-					<div key={item.id} className="mb-5">
+					<div key={section.id} className="mb-5">
 						<h2 className="heading text-center font-bold text-slate-200">
-							{item.title}
+							{section.title}
 							<ButtonIcon
 								focusMode="light"
 								mode="light"
@@ -27,10 +27,12 @@ export const Shortcuts = () => {
 								className="ml-1"
 								label="Edit section"
 								onClick={() => {
-									setEditable(editable === item.id ? null : item.id);
-									setUserInputSectionTitle(JSON.stringify(item.title, null, 2));
+									setEditable(editable === section.id ? null : section.id);
+									setUserInputSectionTitle(
+										JSON.stringify(section.title, null, 2),
+									);
 									setUserInputShortcuts(
-										JSON.stringify(item.shortcuts, null, 2),
+										JSON.stringify(section.shortcuts, null, 2),
 									);
 								}}
 							>
@@ -38,13 +40,13 @@ export const Shortcuts = () => {
 							</ButtonIcon>
 						</h2>
 
-						{editable && editable === item.id ? (
+						{editable && editable === section.id ? (
 							<>
 								<TextInput
 									mode="dark"
 									focusMode="light"
 									label="Section title"
-									name={`section-title-${item.id}`}
+									name={`section-title-${section.id}`}
 									className="mb-2 mt-2"
 									type="text"
 									value={userInputSectionTitle}
@@ -57,8 +59,8 @@ export const Shortcuts = () => {
 									textAreaClassName="font-mono text-sm"
 									mode="dark"
 									focusMode="light"
-									label={`Shortcuts for ${item.title}`}
-									name={`shortcuts-${item.id}`}
+									label={`Shortcuts for ${section.title}`}
+									name={`shortcuts-${section.id}`}
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/>
@@ -68,7 +70,7 @@ export const Shortcuts = () => {
 									focusMode="light"
 									className="mr-2 mt-3"
 									onClick={() => {
-										setEditable(editable === item.id ? null : item.id);
+										setEditable(editable === section.id ? null : section.id);
 									}}
 								>
 									Cancel
@@ -78,22 +80,13 @@ export const Shortcuts = () => {
 									noBorder
 									className="mt-3"
 									onClick={async () => {
-										setEditable(editable === item.id ? null : item.id);
+										setEditable(editable === section.id ? null : section.id);
 										try {
-											const { jsonParse, addUniqueId } = await import(
+											const { jsonParse } = await import(
 												"../../common/jsonUtilities"
 											);
 											try {
-												item.shortcuts = addUniqueId(
-													jsonParse(userInputShortcuts),
-												);
-											} catch (error) {
-												// eslint-disable-next-line no-console
-												console.error(error);
-											}
-
-											try {
-												item.title = jsonParse(userInputSectionTitle, true);
+												section.title = jsonParse(userInputSectionTitle, true);
 											} catch (error) {
 												// eslint-disable-next-line no-console
 												console.error(error);
@@ -103,7 +96,7 @@ export const Shortcuts = () => {
 												type: ACTION_SET_DATA,
 												payload: {
 													status: "stale",
-													section: item,
+													section: section,
 												},
 											});
 										} catch (error) {
@@ -117,11 +110,11 @@ export const Shortcuts = () => {
 							</>
 						) : (
 							<div className="flex flex-wrap justify-center">
-								{item.shortcuts.map((shortcut) => {
+								{section.shortcuts.map((shortcut) => {
 									return (
 										<ButtonLink
 											focusMode="light"
-											key={shortcut.id}
+											key={`${shortcut.url}-${shortcut.label}`}
 											noBorder
 											link={shortcut.url}
 											target="_blank"
