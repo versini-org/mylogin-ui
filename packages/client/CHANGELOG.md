@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.4](https://github.com/aversini/mylogin-ui/compare/client-v1.9.3...client-v1.9.4) (2024-03-30)
+
+
+### Bug Fixes
+
+* removing obsolete "id" from shortcut object ([26d1dcc](https://github.com/aversini/mylogin-ui/commit/26d1dcc64aaffc72be3875c658be02c108996b53))
+
 ## [1.9.3](https://github.com/aversini/mylogin-ui/compare/client-v1.9.2...client-v1.9.3) (2024-03-29)
 
 
