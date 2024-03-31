@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/aversini/mylogin-ui/compare/client-v1.10.1...client-v1.10.2) (2024-03-31)
+
+
+### Performance Improvements
+
+* refactor GraphQL requests ([220d8f4](https://github.com/aversini/mylogin-ui/commit/220d8f4b1bf2fec37040d77976eda82c6d50f2ca))
+
 ## [1.10.1](https://github.com/aversini/mylogin-ui/compare/client-v1.10.0...client-v1.10.1) (2024-03-30)
 
 
