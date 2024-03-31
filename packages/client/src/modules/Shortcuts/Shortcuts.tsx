@@ -9,7 +9,7 @@ import {
 	TableRow,
 } from "@versini/ui-components";
 import { TextArea, TextInput } from "@versini/ui-form";
-import { IconEdit } from "@versini/ui-icons";
+import { IconDelete, IconDown, IconEdit, IconUp } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
 import {
@@ -113,20 +113,23 @@ export const Shortcuts = () => {
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/> */}
-								<Table caption="Edit Shortcuts" spacing={{ b: 5 }}>
+								<Table caption="Edit Shortcuts" spacing={{ b: 5, t: 5 }}>
 									<TableHead>
 										<TableRow>
 											<TableCell>Label</TableCell>
 											<TableCell className="text-right">URL</TableCell>
+											<TableCell className="text-right">Position</TableCell>
 											<TableCell className="text-right">Delete</TableCell>
 										</TableRow>
 									</TableHead>
 									<TableBody>
-										{section.shortcuts.map((shortcut) => (
-											<TableRow key={shortcut.url}>
+										{section.shortcuts.map((shortcut, idx) => (
+											<TableRow
+												key={`${shortcut.url}-${shortcut.label}-${idx}`}
+											>
 												<TableCell>
 													<TextInput
-														className="mt-2"
+														// className="mt-2"
 														// textAreaClassName="font-mono text-sm"
 														// mode="dark"
 														focusMode="light"
@@ -152,12 +155,54 @@ export const Shortcuts = () => {
 														}}
 													/>
 												</TableCell>
+												<TableCell>
+													<div className="flex justify-end gap-2">
+														{shortcut.url !== section.shortcuts[0].url && (
+															<ButtonIcon
+																noBorder
+																label="Move up"
+																mode="light"
+																focusMode="alt-system"
+																onClick={() => {
+																	// onClickChangePosition({
+																	// 	basicAuth,
+																	// 	sectionId: section.id,
+																	// 	direction: "up",
+																	// 	dispatch,
+																	// });
+																}}
+															>
+																<IconUp monotone className="h-3 w-3" />
+															</ButtonIcon>
+														)}
+
+														{shortcut.url !==
+															section.shortcuts[section.shortcuts.length - 1]
+																.url && (
+															<ButtonIcon
+																noBorder
+																label="Move down"
+																mode="light"
+																focusMode="alt-system"
+																onClick={() => {
+																	// onClickChangePosition({
+																	// 	basicAuth,
+																	// 	sectionId: section.id,
+																	// 	direction: "down",
+																	// 	dispatch,
+																	// });
+																}}
+															>
+																<IconDown className="h-3 w-3" monotone />
+															</ButtonIcon>
+														)}
+													</div>
+												</TableCell>
 												<TableCell className="text-right">
 													<ButtonIcon
 														focusMode="light"
 														mode="light"
 														noBorder
-														size="small"
 														label="Delete shortcut"
 														onClick={() => {
 															section.shortcuts = section.shortcuts.filter(
@@ -165,7 +210,9 @@ export const Shortcuts = () => {
 															);
 														}}
 													>
-														<IconEdit className="h-3 w-3" />
+														<div className="text-red-400">
+															<IconDelete className="h-3 w-3" monotone />
+														</div>
 													</ButtonIcon>
 												</TableCell>
 											</TableRow>
