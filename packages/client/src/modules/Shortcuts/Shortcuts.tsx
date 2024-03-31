@@ -30,7 +30,6 @@ export const Shortcuts = () => {
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<string | null>();
 	const [userInputShortcuts, setUserInputShortcuts] = useState("");
-	const [userInputSectionTitle, setUserInputSectionTitle] = useState("");
 	const [basicAuth] = useState(storage.get(LOCAL_STORAGE_BASIC_AUTH));
 
 	const onClickSaveShortcuts = async ({
@@ -42,7 +41,6 @@ export const Shortcuts = () => {
 		try {
 			const { jsonParse } = await import("../../common/jsonUtilities");
 			try {
-				section.title = jsonParse(userInputSectionTitle, true);
 				section.shortcuts = jsonParse(userInputShortcuts);
 			} catch (error) {
 				// eslint-disable-next-line no-console
@@ -94,9 +92,6 @@ export const Shortcuts = () => {
 								label="Edit section"
 								onClick={() => {
 									setEditable(editable === section.id ? null : section.id);
-									setUserInputSectionTitle(
-										JSON.stringify(section.title, null, 2),
-									);
 									setUserInputShortcuts(
 										JSON.stringify(section.shortcuts, null, 2),
 									);
