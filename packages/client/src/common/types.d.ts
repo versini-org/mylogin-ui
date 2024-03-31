@@ -1,9 +1,7 @@
 import {
-	ACTION_GET_DATA,
-	ACTION_SET_DATA,
+	ACTION_REFRESH_DATA,
 	ACTION_SET_STATUS,
 	ACTION_STATUS_ERROR,
-	ACTION_STATUS_STALE,
 	ACTION_STATUS_SUCCESS,
 } from "./constants";
 
@@ -20,21 +18,14 @@ export type SectionProps = {
 
 export type StateProps = {
 	sections: SectionProps[];
-	status:
-		| string
-		| typeof ACTION_STATUS_STALE
-		| typeof ACTION_STATUS_ERROR
-		| typeof ACTION_STATUS_SUCCESS;
+	status: string | typeof ACTION_STATUS_ERROR | typeof ACTION_STATUS_SUCCESS;
 };
 
 export type ActionProps =
 	| undefined
 	| {
 			payload: {
-				status:
-					| typeof ACTION_STATUS_STALE
-					| typeof ACTION_STATUS_ERROR
-					| typeof ACTION_STATUS_SUCCESS;
+				status: typeof ACTION_STATUS_ERROR | typeof ACTION_STATUS_SUCCESS;
 			};
 			type: typeof ACTION_SET_STATUS;
 	  }
@@ -46,17 +37,10 @@ export type ActionProps =
 					| typeof ACTION_STATUS_ERROR
 					| typeof ACTION_STATUS_SUCCESS;
 			};
-			type: typeof ACTION_GET_DATA;
-	  }
-	| {
-			payload: {
-				section: SectionProps;
-				status: typeof ACTION_STATUS_STALE;
-			};
-			type: typeof ACTION_SET_DATA;
+			type: typeof ACTION_REFRESH_DATA;
 	  };
 
 export type AppContextProps = {
 	dispatch: React.Dispatch<ActionProps>;
-	state?: StateProps;
+	state: StateProps;
 };

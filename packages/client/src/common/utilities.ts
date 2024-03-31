@@ -13,7 +13,7 @@ export const GRAPHQL_QUERIES = {
 		}
 	}`,
 	SET_SHORTCUTS: `mutation SetShortcuts($userId: String!, $sectionId: ID!, $sectionTitle: String, $shortcuts: [ShortcutInput]!) {
-		updateUserShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, shortcuts: $shortcuts) {
+		editShortcuts(user: $userId, sectionId: $sectionId, sectionTitle: $sectionTitle, shortcuts: $shortcuts) {
 			title
 			id
 			shortcuts {
@@ -129,4 +129,238 @@ export const unObfuscate = (str: string) => {
 			})
 			.join(""),
 	);
+};
+
+export const getShortcuts = async ({
+	userId,
+	basicAuth,
+}: {
+	basicAuth: string | boolean;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.GET_SHORTCUTS,
+			data: { userId },
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.getUserSections };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const addSection = async ({
+	userId,
+	basicAuth,
+}: {
+	basicAuth: string | boolean;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.ADD_SECTION,
+			data: {
+				userId,
+				sectionTitle: "New Section",
+				shortcuts: [
+					{
+						label: "New Shortcut",
+						url: "https://example.com",
+					},
+				],
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.addSection };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const editSectionTitle = async ({
+	userId,
+	basicAuth,
+	sectionId,
+	sectionTitle,
+}: {
+	basicAuth: string | boolean;
+	sectionId: string;
+	sectionTitle: string;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.EDIT_SECTION_TITLE,
+			data: {
+				userId,
+				sectionId,
+				sectionTitle,
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.editSectionTitle };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const deleteSection = async ({
+	userId,
+	basicAuth,
+	sectionId,
+}: {
+	basicAuth: string | boolean;
+	userId: string;
+	sectionId?: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.DELETE_SECTION,
+			data: {
+				userId,
+				sectionId,
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.deleteSection };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const changeSectionPosition = async ({
+	userId,
+	basicAuth,
+	sectionId,
+	direction,
+}: {
+	basicAuth: string | boolean;
+	direction: string;
+	sectionId: string;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.CHANGE_SECTION_POSITION,
+			data: {
+				userId,
+				sectionId,
+				direction,
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.changeSectionPosition };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const addShortcuts = async ({
+	userId,
+	basicAuth,
+	sectionId,
+	sectionTitle,
+	shortcuts,
+}: {
+	basicAuth: string | boolean;
+	sectionId: string;
+	sectionTitle: string;
+	shortcuts: any;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.SET_SHORTCUTS,
+			data: {
+				userId,
+				sectionId,
+				sectionTitle,
+				shortcuts,
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.editShortcuts };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const editShortcuts = async ({
+	userId,
+	basicAuth,
+	sectionId,
+	sectionTitle,
+	shortcuts,
+}: {
+	basicAuth: string | boolean;
+	sectionId: string;
+	sectionTitle: string;
+	shortcuts: any;
+	userId: string;
+}) => {
+	try {
+		const authorization = `Basic ${basicAuth}`;
+		const response = await graphQLCall({
+			headers: {
+				authorization,
+			},
+			query: GRAPHQL_QUERIES.SET_SHORTCUTS,
+			data: {
+				userId,
+				sectionId,
+				sectionTitle,
+				shortcuts,
+			},
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.editShortcuts };
+	} catch (error) {
+		return { status: 500, data: [] };
+	}
 };
