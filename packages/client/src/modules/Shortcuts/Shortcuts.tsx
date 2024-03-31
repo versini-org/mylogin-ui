@@ -1,5 +1,14 @@
-import { Button, ButtonIcon, ButtonLink } from "@versini/ui-components";
-import { TextArea } from "@versini/ui-form";
+import {
+	Button,
+	ButtonIcon,
+	ButtonLink,
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableRow,
+} from "@versini/ui-components";
+import { TextArea, TextInput } from "@versini/ui-form";
 import { IconEdit } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
@@ -99,7 +108,7 @@ export const Shortcuts = () => {
 
 						{editable && editable === section.id ? (
 							<>
-								<TextArea
+								{/* <TextArea
 									className="mt-2"
 									textAreaClassName="font-mono text-sm"
 									mode="dark"
@@ -108,7 +117,66 @@ export const Shortcuts = () => {
 									name={`shortcuts-${section.id}`}
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
-								/>
+								/> */}
+								<Table caption="Edit Shortcuts" spacing={{ b: 5 }}>
+									<TableHead>
+										<TableRow>
+											<TableCell>Label</TableCell>
+											<TableCell className="text-right">URL</TableCell>
+											<TableCell className="text-right">Delete</TableCell>
+										</TableRow>
+									</TableHead>
+									<TableBody>
+										{section.shortcuts.map((shortcut) => (
+											<TableRow key={shortcut.url}>
+												<TableCell>
+													<TextInput
+														className="mt-2"
+														// textAreaClassName="font-mono text-sm"
+														// mode="dark"
+														focusMode="light"
+														label="Label"
+														name="label"
+														value={shortcut.label}
+														onChange={(e) => {
+															shortcut.label = e.target.value;
+														}}
+													/>
+												</TableCell>
+												<TableCell className="text-right">
+													<TextArea
+														className="mt-2"
+														textAreaClassName="font-mono text-sm"
+														// mode="dark"
+														focusMode="light"
+														label="URL"
+														name="url"
+														value={shortcut.url}
+														onChange={(e) => {
+															shortcut.url = e.target.value;
+														}}
+													/>
+												</TableCell>
+												<TableCell className="text-right">
+													<ButtonIcon
+														focusMode="light"
+														mode="light"
+														noBorder
+														size="small"
+														label="Delete shortcut"
+														onClick={() => {
+															section.shortcuts = section.shortcuts.filter(
+																(s) => s.url !== shortcut.url,
+															);
+														}}
+													>
+														<IconEdit className="h-3 w-3" />
+													</ButtonIcon>
+												</TableCell>
+											</TableRow>
+										))}
+									</TableBody>
+								</Table>
 
 								<Button
 									mode="light"
