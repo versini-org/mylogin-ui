@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
-	ACTION_GET_DATA,
+	ACTION_REFRESH_DATA,
 	ACTION_STATUS_SUCCESS,
 } from "../../../common/constants";
 import { reducer } from "../reducer";
@@ -39,7 +39,7 @@ describe("Non-DOM tests", () => {
 			};
 			expect(
 				reducer(state, {
-					type: ACTION_GET_DATA,
+					type: ACTION_REFRESH_DATA,
 					payload: actionPayload,
 				}),
 			).toEqual({

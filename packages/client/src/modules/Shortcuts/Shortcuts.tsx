@@ -3,14 +3,71 @@ import { TextArea } from "@versini/ui-form";
 import { IconEdit } from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
-import { ACTION_SET_DATA } from "../../common/constants";
+import {
+	ACTION_REFRESH_DATA,
+	ACTION_SET_STATUS,
+	ACTION_STATUS_ERROR,
+	ACTION_STATUS_SUCCESS,
+	LOCAL_STORAGE_BASIC_AUTH,
+} from "../../common/constants";
+import { useLocalStorage } from "../../common/hooks";
+import { FAKE_USER_EMAIL } from "../../common/strings";
+import type { SectionProps } from "../../common/types";
+import { editShortcuts } from "../../common/utilities";
 import { AppContext } from "../App/AppContext";
 
 export const Shortcuts = () => {
+	const storage = useLocalStorage();
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<string | null>();
 	const [userInputShortcuts, setUserInputShortcuts] = useState("");
 	const [userInputSectionTitle, setUserInputSectionTitle] = useState("");
+	const [basicAuth] = useState(storage.get(LOCAL_STORAGE_BASIC_AUTH));
+
+	const onClickSaveShortcuts = async ({
+		section,
+	}: {
+		section: SectionProps;
+	}) => {
+		setEditable(editable === section.id ? null : section.id);
+		try {
+			const { jsonParse } = await import("../../common/jsonUtilities");
+			try {
+				section.title = jsonParse(userInputSectionTitle, true);
+				section.shortcuts = jsonParse(userInputShortcuts);
+			} catch (error) {
+				// eslint-disable-next-line no-console
+				console.error(error);
+			}
+
+			const response = await editShortcuts({
+				userId: FAKE_USER_EMAIL,
+				basicAuth,
+				sectionId: section.id,
+				sectionTitle: section.title,
+				shortcuts: section.shortcuts,
+			});
+			if (response.status !== 200) {
+				dispatch({
+					type: ACTION_SET_STATUS,
+					payload: {
+						status: ACTION_STATUS_ERROR,
+					},
+				});
+			} else {
+				dispatch({
+					type: ACTION_REFRESH_DATA,
+					payload: {
+						status: ACTION_STATUS_SUCCESS,
+						sections: response.data,
+					},
+				});
+			}
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.error(error);
+		}
+	};
 
 	return state && state?.sections?.length > 0 ? (
 		<>
@@ -67,31 +124,8 @@ export const Shortcuts = () => {
 									focusMode="light"
 									noBorder
 									className="mt-3"
-									onClick={async () => {
-										setEditable(editable === section.id ? null : section.id);
-										try {
-											const { jsonParse } = await import(
-												"../../common/jsonUtilities"
-											);
-											try {
-												section.title = jsonParse(userInputSectionTitle, true);
-												section.shortcuts = jsonParse(userInputShortcuts);
-											} catch (error) {
-												// eslint-disable-next-line no-console
-												console.error(error);
-											}
-
-											dispatch({
-												type: ACTION_SET_DATA,
-												payload: {
-													status: "stale",
-													section: section,
-												},
-											});
-										} catch (error) {
-											// eslint-disable-next-line no-console
-											console.error(error);
-										}
+									onClick={() => {
+										onClickSaveShortcuts({ section });
 									}}
 								>
 									Save
