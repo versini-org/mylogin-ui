@@ -1,5 +1,4 @@
 import {
-	Button,
 	ButtonIcon,
 	ButtonLink,
 	Table,
@@ -9,7 +8,13 @@ import {
 	TableRow,
 } from "@versini/ui-components";
 import { TextArea, TextInput } from "@versini/ui-form";
-import { IconDelete, IconDown, IconEdit, IconUp } from "@versini/ui-icons";
+import {
+	IconAdd,
+	IconDelete,
+	IconDown,
+	IconEdit,
+	IconUp,
+} from "@versini/ui-icons";
 import { useContext, useState } from "react";
 
 import {
@@ -101,7 +106,7 @@ export const Shortcuts = () => {
 							</ButtonIcon>
 						</h2>
 
-						{editable && editable === section.id ? (
+						{editable && editable === section.id && (
 							<>
 								{/* <TextArea
 									className="mt-2"
@@ -113,12 +118,17 @@ export const Shortcuts = () => {
 									value={userInputShortcuts}
 									onChange={(e) => setUserInputShortcuts(e.target.value)}
 								/> */}
-								<Table caption="Edit Shortcuts" spacing={{ b: 5, t: 5 }}>
+								<Table
+									compact
+									caption="Edit Shortcuts"
+									spacing={{ b: 5, t: 5 }}
+								>
 									<TableHead>
 										<TableRow>
 											<TableCell>Label</TableCell>
-											<TableCell className="text-right">URL</TableCell>
+											<TableCell>URL</TableCell>
 											<TableCell className="text-right">Position</TableCell>
+											<TableCell className="text-right">Add</TableCell>
 											<TableCell className="text-right">Delete</TableCell>
 										</TableRow>
 									</TableHead>
@@ -129,23 +139,19 @@ export const Shortcuts = () => {
 											>
 												<TableCell>
 													<TextInput
-														// className="mt-2"
-														// textAreaClassName="font-mono text-sm"
-														// mode="dark"
 														focusMode="light"
-														label="Label"
-														name="label"
+														label="Shortcut label"
+														labelHidden
+														name="shortcut-label"
 														value={shortcut.label}
 														onChange={(e) => {
 															shortcut.label = e.target.value;
 														}}
 													/>
 												</TableCell>
-												<TableCell className="text-right">
+												<TableCell>
 													<TextArea
-														className="mt-2"
 														textAreaClassName="font-mono text-sm"
-														// mode="dark"
 														focusMode="light"
 														label="URL"
 														name="url"
@@ -155,9 +161,10 @@ export const Shortcuts = () => {
 														}}
 													/>
 												</TableCell>
-												<TableCell>
+												<TableCell className="text-right">
 													<div className="flex justify-end gap-2">
-														{shortcut.url !== section.shortcuts[0].url && (
+														{/* {shortcut.url !== section.shortcuts[0].url && ( */}
+														{idx !== 0 && (
 															<ButtonIcon
 																noBorder
 																label="Move up"
@@ -176,9 +183,8 @@ export const Shortcuts = () => {
 															</ButtonIcon>
 														)}
 
-														{shortcut.url !==
-															section.shortcuts[section.shortcuts.length - 1]
-																.url && (
+														{/* {shortcut.url !== section.shortcuts[section.shortcuts.length - 1] .url && ( */}
+														{idx !== section.shortcuts.length - 1 && (
 															<ButtonIcon
 																noBorder
 																label="Move down"
@@ -196,6 +202,25 @@ export const Shortcuts = () => {
 																<IconDown className="h-3 w-3" monotone />
 															</ButtonIcon>
 														)}
+													</div>
+												</TableCell>
+												<TableCell className="text-right">
+													<div className="flex justify-end">
+														<ButtonIcon
+															mode="light"
+															focusMode="alt-system"
+															noBorder
+															label="New Shortcut"
+															onClick={() => {
+																// onClickAddShortcut({
+																// 	basicAuth,
+																// 	section: section,
+																// 	dispatch,
+																// });
+															}}
+														>
+															<IconAdd className="h-3 w-3" monotone />
+														</ButtonIcon>
 													</div>
 												</TableCell>
 												<TableCell className="text-right">
@@ -219,47 +244,25 @@ export const Shortcuts = () => {
 										))}
 									</TableBody>
 								</Table>
-
-								<Button
-									mode="light"
-									focusMode="light"
-									className="mr-2 mt-3"
-									onClick={() => {
-										setEditable(editable === section.id ? null : section.id);
-									}}
-								>
-									Cancel
-								</Button>
-								<Button
-									focusMode="light"
-									noBorder
-									className="mt-3"
-									onClick={() => {
-										onClickSaveShortcuts({ section });
-									}}
-								>
-									Save
-								</Button>
 							</>
-						) : (
-							<div className="flex flex-wrap justify-center">
-								{section.shortcuts.map((shortcut, idx) => {
-									return (
-										<ButtonLink
-											focusMode="light"
-											key={`${shortcut.url}-${shortcut.label}-${idx}`}
-											noBorder
-											link={shortcut.url}
-											target="_blank"
-											className="mr-1 mt-1 w-44 sm:w-52"
-											maxLabelLength={23}
-										>
-											{shortcut.label}
-										</ButtonLink>
-									);
-								})}
-							</div>
 						)}
+						<div className="flex flex-wrap justify-center">
+							{section.shortcuts.map((shortcut, idx) => {
+								return (
+									<ButtonLink
+										focusMode="light"
+										key={`${shortcut.url}-${shortcut.label}-${idx}`}
+										noBorder
+										link={shortcut.url}
+										target="_blank"
+										className="mr-1 mt-1 w-44 sm:w-52"
+										maxLabelLength={23}
+									>
+										{shortcut.label}
+									</ButtonLink>
+								);
+							})}
+						</div>
 					</div>
 				);
 			})}

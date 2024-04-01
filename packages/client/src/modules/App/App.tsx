@@ -423,7 +423,7 @@ function App() {
 							>
 								Add New Section
 							</Button>
-							<Table caption="Edit Sections" spacing={{ b: 5 }}>
+							<Table compact caption="Edit Sections" spacing={{ b: 5 }}>
 								<TableHead>
 									<TableRow>
 										<TableCell>Section</TableCell>
@@ -438,6 +438,7 @@ function App() {
 										<TableRow key={section.id}>
 											<TableCell>
 												<TextInput
+													labelHidden
 													focusMode="light"
 													label="Section Title"
 													name={section.title}
