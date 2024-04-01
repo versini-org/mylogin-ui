@@ -1,4 +1,5 @@
 import {
+	Button,
 	ButtonIcon,
 	ButtonLink,
 	Table,
@@ -15,7 +16,8 @@ import {
 	IconEdit,
 	IconUp,
 } from "@versini/ui-icons";
-import { useContext, useState } from "react";
+import { Flexgrid, FlexgridItem } from "@versini/ui-system";
+import { Suspense, useContext, useRef, useState } from "react";
 
 import {
 	ACTION_REFRESH_DATA,
@@ -26,16 +28,20 @@ import {
 } from "../../common/constants";
 import { useLocalStorage } from "../../common/hooks";
 import { FAKE_USER_EMAIL } from "../../common/strings";
-import type { SectionProps } from "../../common/types";
+import type { SectionProps, ShortcutDataProps } from "../../common/types";
 import { editShortcuts } from "../../common/utilities";
 import { AppContext } from "../App/AppContext";
+import LazyPanel from "../Lazy/Panel";
 
 export const Shortcuts = () => {
 	const storage = useLocalStorage();
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<string | null>();
+	const [showConfirmation, setShowConfirmation] = useState(false);
 	const [userInputShortcuts, setUserInputShortcuts] = useState("");
 	const [basicAuth] = useState(storage.get(LOCAL_STORAGE_BASIC_AUTH));
+	const shortcutPositionToDeleteRef = useRef<number | null>(null);
+	const sectionWithShortcutToDeleteRef = useRef<SectionProps | null>(null);
 
 	const onClickSaveShortcuts = async ({
 		section,
@@ -81,8 +87,92 @@ export const Shortcuts = () => {
 		}
 	};
 
+	const onClickDeleteShortcut = async ({ dispatch }: { dispatch: any }) => {
+		setShowConfirmation(!showConfirmation);
+		const response = await editShortcuts({
+			basicAuth,
+			userId: FAKE_USER_EMAIL,
+			sectionId: section.id,
+			sectionTitle: section.title,
+			shortcuts: section.shortcuts,
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			dispatch({
+				type: ACTION_REFRESH_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: response.data,
+				},
+			});
+		}
+	};
+
 	return state && state?.sections?.length > 0 ? (
 		<>
+			{showConfirmation && (
+				<Suspense fallback={<div />}>
+					<LazyPanel
+						kind="messagebox"
+						open={showConfirmation}
+						onOpenChange={setShowConfirmation}
+						title="Delete Shortcut"
+						footer={
+							<Flexgrid columnGap={2} alignHorizontal="flex-end">
+								<FlexgridItem>
+									<Button
+										mode="dark"
+										variant="secondary"
+										focusMode="light"
+										onClick={() => {
+											setShowConfirmation(false);
+										}}
+									>
+										Cancel
+									</Button>
+								</FlexgridItem>
+								<FlexgridItem>
+									<Button
+										mode="dark"
+										variant="danger"
+										focusMode="light"
+										onClick={() => {
+											onClickDeleteShortcut({
+												dispatch,
+											});
+										}}
+									>
+										Delete
+									</Button>
+								</FlexgridItem>
+							</Flexgrid>
+						}
+					>
+						<p>Are you sure you want to delete the following shortcut:</p>
+						<ol>
+							<li>
+								Position:{" "}
+								<span className="text-lg">
+									{shortcutPositionToDeleteRef?.current}
+								</span>
+							</li>
+							<li>
+								Section:{" "}
+								<span className="text-lg">
+									{sectionWithShortcutToDeleteRef?.current?.title}
+								</span>
+							</li>
+						</ol>
+					</LazyPanel>
+				</Suspense>
+			)}
+
 			{state.sections.map((section) => {
 				return (
 					<div key={section.id} className="mb-5">
@@ -230,9 +320,9 @@ export const Shortcuts = () => {
 														noBorder
 														label="Delete shortcut"
 														onClick={() => {
-															section.shortcuts = section.shortcuts.filter(
-																(s) => s.url !== shortcut.url,
-															);
+															shortcutPositionToDeleteRef.current = idx;
+															sectionWithShortcutToDeleteRef.current = section;
+															setShowConfirmation(true);
 														}}
 													>
 														<div className="text-red-400">
