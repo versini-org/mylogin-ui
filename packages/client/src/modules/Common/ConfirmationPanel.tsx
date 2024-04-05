@@ -42,7 +42,7 @@ export const ConfirmationPanel = ({
 								variant="danger"
 								focusMode="light"
 								onClick={() => {
-									setShowConfirmation(!showConfirmation);
+									setShowConfirmation(false);
 									action();
 								}}
 							>
