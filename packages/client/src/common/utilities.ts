@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
@@ -7,6 +9,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -17,6 +20,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -27,6 +31,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -37,16 +42,18 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
 		}
 	}`,
-	ADD_SECTION: `mutation AddSection($userId: String!, $sectionTitle: String!, $shortcuts: [ShortcutInput]) {
-		addSection(user: $userId, sectionTitle: $sectionTitle, shortcuts: $shortcuts) {
+	ADD_SECTION: `mutation AddSection($userId: String!, $sectionTitle: String!, $sectionPosition: Int, $shortcuts: [ShortcutInput]) {
+		addSection(user: $userId, sectionTitle: $sectionTitle, sectionPosition: $sectionPosition, shortcuts: $shortcuts) {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -57,6 +64,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -160,8 +168,10 @@ export const getShortcuts = async ({
 export const addSection = async ({
 	userId,
 	basicAuth,
+	position,
 }: {
 	basicAuth: string | boolean;
+	position: number;
 	userId: string;
 }) => {
 	try {
@@ -174,8 +184,10 @@ export const addSection = async ({
 			data: {
 				userId,
 				sectionTitle: "New Section",
+				sectionPosition: position,
 				shortcuts: [
 					{
+						id: uuidv4(),
 						label: "New Shortcut",
 						url: "https://example.com",
 					},
@@ -286,43 +298,6 @@ export const changeSectionPosition = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.changeSectionPosition };
-	} catch (error) {
-		return { status: 500, data: [] };
-	}
-};
-
-export const addShortcuts = async ({
-	userId,
-	basicAuth,
-	sectionId,
-	sectionTitle,
-	shortcuts,
-}: {
-	basicAuth: string | boolean;
-	sectionId: string;
-	sectionTitle: string;
-	shortcuts: any;
-	userId: string;
-}) => {
-	try {
-		const authorization = `Basic ${basicAuth}`;
-		const response = await graphQLCall({
-			headers: {
-				authorization,
-			},
-			query: GRAPHQL_QUERIES.SET_SHORTCUTS,
-			data: {
-				userId,
-				sectionId,
-				sectionTitle,
-				shortcuts,
-			},
-		});
-		if (response.status !== 200) {
-			return { status: response.status, data: [] };
-		}
-		const { data } = await response.json();
-		return { status: response.status, data: data.editShortcuts };
 	} catch (error) {
 		return { status: 500, data: [] };
 	}

@@ -24,26 +24,26 @@ importers:
   packages/client:
     dependencies:
       '@versini/ui-components':
-        specifier: 5.10.2
-        version: 5.10.2(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.11.0
+        version: 5.11.0(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-form':
-        specifier: 1.1.1
-        version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.2.0
+        version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-icons':
         specifier: 1.4.0
         version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-system':
         specifier: 1.2.1
         version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
-      json5:
-        specifier: 2.2.3
-        version: 2.2.3
       react:
         specifier: 18.2.0
         version: 18.2.0
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      uuid:
+        specifier: 9.0.1
+        version: 9.0.1
     devDependencies:
       '@versini/ui-styles':
         specifier: 1.6.1
@@ -2166,8 +2166,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /@versini/ui-components@5.10.2(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uLrwQrpb2wOTZbgKzV3b9JuobHB6PLWJqzg5QgS2sfQnY99DUdjUysJXsZ8bVhfwMTRF39H3Bf4zuA5B2lnMww==}
+  /@versini/ui-components@5.11.0(@floating-ui/react@0.26.9)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-OXMAtmNtU6YvIDguL1JBNiKX8Xp/kdUxR0KaOKew7/GOlbUU4rZG3sSVuUxmCw+xR0dngt6kbG2NFw+oFxtk6w==}
     peerDependencies:
       '@floating-ui/react': 0.26.9
       fast-equals: 5.0.1
@@ -2190,8 +2190,8 @@ packages:
       - ts-node
     dev: false
 
-  /@versini/ui-form@1.1.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Eqcgp3jFsLvR7sNQNoXKsMqSsTmIRJRgtqrk3uxRO2nz67AHVvTrj60UywthJnkAYMMOvB5JVy9qOKGRNeIU5A==}
+  /@versini/ui-form@1.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hmqX7DMppRi46U+nf0J/aqEz8AgyxspvZHXtNJ+kbboXE9gUHMz0ZlnfFWd1JytI6Blu+N2A1aSMvPjHxqNm8Q==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2376,7 +2376,7 @@ packages:
       '@vue/shared': 3.4.18
       entities: 4.5.0
       estree-walker: 2.0.2
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /@vue/compiler-dom@3.4.18:
@@ -5561,6 +5561,7 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
+    dev: true
 
   /jsonc-parser@3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
@@ -8813,7 +8814,6 @@ packages:
   /uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
-    dev: true
 
   /v8-to-istanbul@9.2.0:
     resolution: {integrity: sha512-/EH/sDgxU2eGxajKdwLCDmQ4FWq+kpi3uCmBGpw1xJtnAxEjlD8j8PEiGWpCIMIs3ciNAgH0d3TTJiUkYzyZjA==}

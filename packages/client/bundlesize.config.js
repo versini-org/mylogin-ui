@@ -13,11 +13,7 @@ export default {
 			limit: "9 kb",
 		},
 		{
-			path: "dist/jsonUtilities-<hash>.js",
-			limit: "10 kb",
-		},
-		{
-			path: "dist/Panel-<hash>.js",
+			path: "dist/LazyPanel-<hash>.js",
 			limit: "16 kb",
 		},
 		{

@@ -1,74 +1,80 @@
-import { Button, ButtonIcon, ButtonLink } from "@versini/ui-components";
-import { TextArea } from "@versini/ui-form";
-import { IconEdit } from "@versini/ui-icons";
-import { useContext, useState } from "react";
-
 import {
-	ACTION_REFRESH_DATA,
-	ACTION_SET_STATUS,
-	ACTION_STATUS_ERROR,
-	ACTION_STATUS_SUCCESS,
-	LOCAL_STORAGE_BASIC_AUTH,
-} from "../../common/constants";
+	ButtonIcon,
+	ButtonLink,
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableRow,
+} from "@versini/ui-components";
+import { TextArea, TextInput } from "@versini/ui-form";
+import {
+	IconAdd,
+	IconDelete,
+	IconDown,
+	IconEdit,
+	IconUp,
+} from "@versini/ui-icons";
+import { useContext, useRef, useState } from "react";
+
+import { LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
+import {
+	onChangeShortcut,
+	onClickAddShortcut,
+	onClickChangeShortcutPosition,
+	onClickDeleteShortcut,
+} from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
-import { FAKE_USER_EMAIL } from "../../common/strings";
 import type { SectionProps } from "../../common/types";
-import { editShortcuts } from "../../common/utilities";
 import { AppContext } from "../App/AppContext";
+import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Shortcuts = () => {
 	const storage = useLocalStorage();
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<string | null>();
-	const [userInputShortcuts, setUserInputShortcuts] = useState("");
+	const [showConfirmation, setShowConfirmation] = useState(false);
 	const [basicAuth] = useState(storage.get(LOCAL_STORAGE_BASIC_AUTH));
-
-	const onClickSaveShortcuts = async ({
-		section,
-	}: {
-		section: SectionProps;
-	}) => {
-		setEditable(editable === section.id ? null : section.id);
-		try {
-			const { jsonParse } = await import("../../common/jsonUtilities");
-			try {
-				section.shortcuts = jsonParse(userInputShortcuts);
-			} catch (error) {
-				// eslint-disable-next-line no-console
-				console.error(error);
-			}
-
-			const response = await editShortcuts({
-				userId: FAKE_USER_EMAIL,
-				basicAuth,
-				sectionId: section.id,
-				sectionTitle: section.title,
-				shortcuts: section.shortcuts,
-			});
-			if (response.status !== 200) {
-				dispatch({
-					type: ACTION_SET_STATUS,
-					payload: {
-						status: ACTION_STATUS_ERROR,
-					},
-				});
-			} else {
-				dispatch({
-					type: ACTION_REFRESH_DATA,
-					payload: {
-						status: ACTION_STATUS_SUCCESS,
-						sections: response.data,
-					},
-				});
-			}
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.error(error);
-		}
-	};
+	const shortcutPositionRef = useRef<number | null>(null);
+	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
 	return state && state?.sections?.length > 0 ? (
 		<>
+			{showConfirmation && (
+				<ConfirmationPanel
+					setShowConfirmation={setShowConfirmation}
+					showConfirmation={showConfirmation}
+					action={() => {
+						onClickDeleteShortcut({
+							basicAuth,
+							dispatch,
+							section: sectionWithShortcutRef.current,
+							position: shortcutPositionRef.current,
+						});
+					}}
+				>
+					<p>Are you sure you want to delete the following shortcut:</p>
+					<ol>
+						<li>
+							Label:{" "}
+							<span className="text-lg">
+								{
+									sectionWithShortcutRef?.current?.shortcuts[
+										shortcutPositionRef?.current || 0
+									]?.label
+								}
+							</span>
+						</li>
+						<li>
+							Section:{" "}
+							<span className="text-lg">
+								{sectionWithShortcutRef?.current?.title}
+							</span>
+						</li>
+					</ol>
+				</ConfirmationPanel>
+			)}
+
 			{state.sections.map((section) => {
 				return (
 					<div key={section.id} className="mb-5">
@@ -83,68 +89,165 @@ export const Shortcuts = () => {
 								label="Edit section"
 								onClick={() => {
 									setEditable(editable === section.id ? null : section.id);
-									setUserInputShortcuts(
-										JSON.stringify(section.shortcuts, null, 2),
-									);
 								}}
 							>
 								<IconEdit className="h-3 w-3" />
 							</ButtonIcon>
 						</h2>
 
-						{editable && editable === section.id ? (
-							<>
-								<TextArea
-									className="mt-2"
-									textAreaClassName="font-mono text-sm"
-									mode="dark"
-									focusMode="light"
-									label={`Shortcuts for ${section.title}`}
-									name={`shortcuts-${section.id}`}
-									value={userInputShortcuts}
-									onChange={(e) => setUserInputShortcuts(e.target.value)}
-								/>
+						{editable && editable === section.id && (
+							<Table compact caption="Edit Shortcuts" spacing={{ b: 5, t: 5 }}>
+								<TableHead>
+									<TableRow>
+										<TableCell>Label</TableCell>
+										<TableCell>URL</TableCell>
+										<TableCell className="text-right">Move</TableCell>
+										<TableCell className="text-right">Add</TableCell>
+										<TableCell className="text-right">Delete</TableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody>
+									{section.shortcuts.map((shortcut, idx) => (
+										<TableRow key={`edit-shortcut-${shortcut.id}`}>
+											<TableCell>
+												<TextInput
+													focusMode="light"
+													label="Shortcut label"
+													labelHidden
+													name={shortcut.label}
+													defaultValue={shortcut.label}
+													onChange={(e) => {
+														onChangeShortcut({
+															position: idx,
+															basicAuth,
+															label: e.target.value,
+															section,
+															dispatch,
+														});
+													}}
+												/>
+											</TableCell>
+											<TableCell>
+												<TextArea
+													textAreaClassName="font-mono text-sm"
+													focusMode="light"
+													label="URL"
+													name={shortcut.url}
+													defaultValue={shortcut.url}
+													onChange={(e) => {
+														onChangeShortcut({
+															position: idx,
+															basicAuth,
+															url: e.target.value,
+															section,
+															dispatch,
+														});
+													}}
+												/>
+											</TableCell>
+											<TableCell className="text-right">
+												<div className="flex justify-end gap-2">
+													{idx !== 0 && (
+														<ButtonIcon
+															noBorder
+															label="Move up"
+															mode="light"
+															focusMode="alt-system"
+															onClick={() => {
+																onClickChangeShortcutPosition({
+																	basicAuth,
+																	section,
+																	direction: "up",
+																	dispatch,
+																	position: idx,
+																});
+															}}
+														>
+															<IconUp monotone className="h-3 w-3" />
+														</ButtonIcon>
+													)}
 
-								<Button
-									mode="light"
-									focusMode="light"
-									className="mr-2 mt-3"
-									onClick={() => {
-										setEditable(editable === section.id ? null : section.id);
-									}}
-								>
-									Cancel
-								</Button>
-								<Button
-									focusMode="light"
-									noBorder
-									className="mt-3"
-									onClick={() => {
-										onClickSaveShortcuts({ section });
-									}}
-								>
-									Save
-								</Button>
-							</>
-						) : (
-							<div className="flex flex-wrap justify-center">
-								{section.shortcuts.map((shortcut, idx) => {
-									return (
-										<ButtonLink
-											focusMode="light"
-											key={`${shortcut.url}-${shortcut.label}-${idx}`}
-											noBorder
-											link={shortcut.url}
-											target="_blank"
-											className="mr-1 mt-1 w-44 sm:w-52"
-											maxLabelLength={23}
-										>
-											{shortcut.label}
-										</ButtonLink>
-									);
-								})}
-							</div>
+													{idx !== section.shortcuts.length - 1 && (
+														<ButtonIcon
+															noBorder
+															label="Move down"
+															mode="light"
+															focusMode="alt-system"
+															onClick={() => {
+																onClickChangeShortcutPosition({
+																	basicAuth,
+																	section,
+																	direction: "down",
+																	dispatch,
+																	position: idx,
+																});
+															}}
+														>
+															<IconDown className="h-3 w-3" monotone />
+														</ButtonIcon>
+													)}
+												</div>
+											</TableCell>
+											<TableCell className="text-right">
+												<div className="flex justify-end">
+													<ButtonIcon
+														mode="light"
+														focusMode="alt-system"
+														noBorder
+														label="New Shortcut"
+														onClick={() => {
+															onClickAddShortcut({
+																basicAuth,
+																dispatch,
+																position: idx,
+																section,
+															});
+														}}
+													>
+														<IconAdd className="h-3 w-3" monotone />
+													</ButtonIcon>
+												</div>
+											</TableCell>
+											<TableCell className="text-right">
+												<ButtonIcon
+													focusMode="light"
+													mode="light"
+													noBorder
+													label="Delete shortcut"
+													disabled={section.shortcuts.length === 1}
+													onClick={() => {
+														shortcutPositionRef.current = idx;
+														sectionWithShortcutRef.current = section;
+														setShowConfirmation(true);
+													}}
+												>
+													<div className="text-red-400">
+														<IconDelete className="h-3 w-3" monotone />
+													</div>
+												</ButtonIcon>
+											</TableCell>
+										</TableRow>
+									))}
+								</TableBody>
+							</Table>
 						)}
+						<div className="flex flex-wrap justify-center">
+							{section.shortcuts.map((shortcut, idx) => {
+								return (
+									<ButtonLink
+										focusMode="light"
+										key={`${shortcut.url}-${shortcut.label}-${idx}`}
+										noBorder
+										link={shortcut.url}
+										target="_blank"
+										className="mr-1 mt-1 w-44 sm:w-52"
+										maxLabelLength={23}
+									>
+										{shortcut.label}
+									</ButtonLink>
+								);
+							})}
+						</div>
 					</div>
 				);
 			})}
