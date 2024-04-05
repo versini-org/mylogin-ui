@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.11.0](https://github.com/aversini/mylogin-ui/compare/client-v1.10.2...client-v1.11.0) (2024-04-05)
+
+
+### Features
+
+* better edit mode for shortcuts ([c8b7877](https://github.com/aversini/mylogin-ui/commit/c8b7877164189fc97fee733d45035e51b517c141))
+
+
+### Bug Fixes
+
+* remove obsolete code ([8f3e2b2](https://github.com/aversini/mylogin-ui/commit/8f3e2b2210a9438f0f3af802e479da361cfde25c))
+
 ## [1.10.2](https://github.com/aversini/mylogin-ui/compare/client-v1.10.1...client-v1.10.2) (2024-03-31)
 
 
