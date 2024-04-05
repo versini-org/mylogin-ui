@@ -10,9 +10,9 @@ export const ConfirmationPanel = ({
 	action,
 	children,
 }: {
-	action: any;
-	children: any;
-	setShowConfirmation: any;
+	action: () => void;
+	children: React.ReactNode;
+	setShowConfirmation: (show: boolean) => void;
 	showConfirmation: boolean;
 }) => {
 	return (
