@@ -1,5 +1,4 @@
 import {
-	Button,
 	ButtonIcon,
 	Footer,
 	Header,
@@ -18,185 +17,28 @@ import {
 	IconEdit,
 	IconUp,
 } from "@versini/ui-icons";
-import { Flexgrid, FlexgridItem } from "@versini/ui-system";
-import { lazy, Suspense, useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 
 import {
 	ACTION_REFRESH_DATA,
-	ACTION_SET_STATUS,
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
 	LOCAL_STORAGE_BASIC_AUTH,
 } from "../../common/constants";
+import {
+	onChangeSectionTitle,
+	onClickAddSection,
+	onClickChangePosition,
+} from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
 import { SectionProps } from "../../common/types";
-import {
-	addSection,
-	addShortcuts,
-	changeSectionPosition,
-	deleteSection,
-	editSectionTitle,
-	getShortcuts,
-} from "../../common/utilities";
+import { getShortcuts } from "../../common/utilities";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
+import { ConfirmationPanel } from "./ConfirmationPanel";
 import { reducer } from "./reducer";
-
-const LazyPanel = lazy(() => import("../Lazy/Panel"));
-
-const onClickAddSection = async ({
-	basicAuth,
-	dispatch,
-	sections,
-}: {
-	basicAuth: any;
-	dispatch: any;
-	sections: any;
-}) => {
-	const response = await addSection({
-		userId: FAKE_USER_EMAIL,
-		basicAuth,
-	});
-	if (response.status !== 200) {
-		dispatch({
-			type: ACTION_SET_STATUS,
-			payload: {
-				status: ACTION_STATUS_ERROR,
-			},
-		});
-	} else {
-		const data = response.data;
-		dispatch({
-			type: ACTION_REFRESH_DATA,
-			payload: {
-				status: ACTION_STATUS_SUCCESS,
-				sections: [...sections, data],
-			},
-		});
-	}
-};
-
-const onChangeSectionTitle = async ({
-	e,
-	section,
-	dispatch,
-	basicAuth,
-	state,
-}: {
-	basicAuth: any;
-	dispatch: any;
-	e: any;
-	section: any;
-	state: any;
-}) => {
-	const response = await editSectionTitle({
-		userId: FAKE_USER_EMAIL,
-		basicAuth,
-		sectionId: section.id,
-		sectionTitle: e.target.value,
-	});
-	if (response.status !== 200) {
-		dispatch({
-			type: ACTION_SET_STATUS,
-			payload: {
-				status: ACTION_STATUS_ERROR,
-			},
-		});
-	} else {
-		const editedSection = response.data;
-		const sections = state.sections.map((s: any) => {
-			if (s.id === editedSection.id) {
-				return editedSection;
-			}
-			return s;
-		});
-
-		dispatch({
-			type: ACTION_REFRESH_DATA,
-			payload: {
-				status: ACTION_STATUS_SUCCESS,
-				sections,
-			},
-		});
-	}
-};
-
-const onClickChangePosition = async ({
-	basicAuth,
-	sectionId,
-	direction,
-	dispatch,
-}: {
-	basicAuth: any;
-	direction: string;
-	dispatch: any;
-	sectionId: string;
-}) => {
-	const response = await changeSectionPosition({
-		userId: FAKE_USER_EMAIL,
-		basicAuth,
-		sectionId,
-		direction,
-	});
-	if (response.status !== 200) {
-		dispatch({
-			type: ACTION_SET_STATUS,
-			payload: {
-				status: ACTION_STATUS_ERROR,
-			},
-		});
-	} else {
-		dispatch({
-			type: ACTION_REFRESH_DATA,
-			payload: {
-				status: ACTION_STATUS_SUCCESS,
-				sections: response.data,
-			},
-		});
-	}
-};
-
-const onClickAddShortcut = async ({
-	basicAuth,
-	section,
-	dispatch,
-}: {
-	basicAuth: any;
-	dispatch: any;
-	section: any;
-}) => {
-	const response = await addShortcuts({
-		userId: FAKE_USER_EMAIL,
-		basicAuth,
-		sectionId: section.id,
-		sectionTitle: section.title,
-		shortcuts: [
-			...section.shortcuts,
-			{
-				label: "New Shortcut",
-				url: "https://example.com",
-			},
-		],
-	});
-	if (response.status !== 200) {
-		dispatch({
-			type: ACTION_SET_STATUS,
-			payload: {
-				status: ACTION_STATUS_ERROR,
-			},
-		});
-	} else {
-		dispatch({
-			type: ACTION_REFRESH_DATA,
-			payload: {
-				status: ACTION_STATUS_SUCCESS,
-				sections: response.data,
-			},
-		});
-	}
-};
 
 function App() {
 	const storage = useLocalStorage();
@@ -211,31 +53,6 @@ function App() {
 		sections: [],
 	});
 	const sectionToDeleteRef = useRef<SectionProps | null>(null);
-
-	const onClickDeleteSection = async ({ dispatch }: { dispatch: any }) => {
-		setShowConfirmation(!showConfirmation);
-		const response = await deleteSection({
-			userId: FAKE_USER_EMAIL,
-			basicAuth,
-			sectionId: sectionToDeleteRef?.current?.id,
-		});
-		if (response.status !== 200) {
-			dispatch({
-				type: ACTION_SET_STATUS,
-				payload: {
-					status: ACTION_STATUS_ERROR,
-				},
-			});
-		} else {
-			dispatch({
-				type: ACTION_REFRESH_DATA,
-				payload: {
-					status: ACTION_STATUS_SUCCESS,
-					sections: response.data,
-				},
-			});
-		}
-	};
 
 	/**
 	 * Fade out the logo and fade in the app.
@@ -336,52 +153,13 @@ function App() {
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
 			{showConfirmation && (
-				<Suspense fallback={<div />}>
-					<LazyPanel
-						kind="messagebox"
-						open={showConfirmation}
-						onOpenChange={setShowConfirmation}
-						title="Delete Section"
-						footer={
-							<Flexgrid columnGap={2} alignHorizontal="flex-end">
-								<FlexgridItem>
-									<Button
-										mode="dark"
-										variant="secondary"
-										focusMode="light"
-										onClick={() => {
-											setShowConfirmation(false);
-										}}
-									>
-										Cancel
-									</Button>
-								</FlexgridItem>
-								<FlexgridItem>
-									<Button
-										mode="dark"
-										variant="danger"
-										focusMode="light"
-										onClick={() => {
-											onClickDeleteSection({
-												dispatch,
-											});
-										}}
-									>
-										Delete
-									</Button>
-								</FlexgridItem>
-							</Flexgrid>
-						}
-					>
-						<p>
-							Are you sure you want to delete section{" "}
-							<span className="text-lg">
-								{sectionToDeleteRef?.current?.title}
-							</span>
-							?
-						</p>
-					</LazyPanel>
-				</Suspense>
+				<ConfirmationPanel
+					basicAuth={basicAuth}
+					dispatch={dispatch}
+					sectionToDeleteRef={sectionToDeleteRef}
+					setShowConfirmation={setShowConfirmation}
+					showConfirmation={showConfirmation}
+				/>
 			)}
 
 			<div className="prose prose-lighter">
@@ -409,32 +187,18 @@ function App() {
 				<Main className="pt-0">
 					{state && state?.sections?.length > 0 && editable && (
 						<div className="flex flex-wrap px-10">
-							<Button
-								focusMode="light"
-								noBorder
-								spacing={{ b: 5 }}
-								onClick={() => {
-									onClickAddSection({
-										basicAuth,
-										dispatch,
-										sections: state.sections,
-									});
-								}}
-							>
-								Add New Section
-							</Button>
 							<Table compact caption="Edit Sections" spacing={{ b: 5 }}>
 								<TableHead>
 									<TableRow>
 										<TableCell>Section</TableCell>
-										<TableCell className="text-right">Position</TableCell>
-										<TableCell className="text-right">New Shortcut</TableCell>
+										<TableCell className="text-right">Move</TableCell>
+										<TableCell className="text-right">Add</TableCell>
 										<TableCell className="text-right">Delete</TableCell>
 									</TableRow>
 								</TableHead>
 
 								<TableBody>
-									{state.sections.map((section) => (
+									{state.sections.map((section, idx) => (
 										<TableRow key={section.id}>
 											<TableCell>
 												<TextInput
@@ -502,12 +266,13 @@ function App() {
 														mode="light"
 														focusMode="alt-system"
 														noBorder
-														label="New Shortcut"
+														label="New Section"
 														onClick={() => {
-															onClickAddShortcut({
+															onClickAddSection({
 																basicAuth,
-																section: section,
 																dispatch,
+																sections: state.sections,
+																position: idx,
 															});
 														}}
 													>

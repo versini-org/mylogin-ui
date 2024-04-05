@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
@@ -7,6 +9,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -17,6 +20,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -27,6 +31,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -37,6 +42,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -47,6 +53,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -57,6 +64,7 @@ export const GRAPHQL_QUERIES = {
 			title
 			id
 			shortcuts {
+				id
 				label
 				url
 			}
@@ -176,6 +184,7 @@ export const addSection = async ({
 				sectionTitle: "New Section",
 				shortcuts: [
 					{
+						id: uuidv4(),
 						label: "New Shortcut",
 						url: "https://example.com",
 					},
