@@ -2,8 +2,8 @@ import { Button } from "@versini/ui-components";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { Suspense } from "react";
 
+import { onClickDeleteShortcut } from "../../common/handlers";
 import LazyPanel from "../Lazy/Panel";
-import { onClickDeleteShortcut } from "./handlers";
 
 export const ConfirmationPanel = ({
 	basicAuth,

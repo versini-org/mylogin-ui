@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 import {
 	ACTION_REFRESH_DATA,
 	ACTION_SET_STATUS,
@@ -5,14 +7,20 @@ import {
 	ACTION_STATUS_SUCCESS,
 } from "./constants";
 import { FAKE_USER_EMAIL } from "./strings";
+import type { SectionProps } from "./types";
 import {
 	addSection,
-	addShortcuts,
 	changeSectionPosition,
 	deleteSection,
 	editSectionTitle,
+	editShortcuts,
 } from "./utilities";
 
+/**
+ *
+ * Section handlers.
+ *
+ */
 export const onClickAddSection = async ({
 	basicAuth,
 	dispatch,
@@ -27,6 +35,7 @@ export const onClickAddSection = async ({
 	const response = await addSection({
 		userId: FAKE_USER_EMAIL,
 		basicAuth,
+		position,
 	});
 	if (response.status !== 200) {
 		dispatch({
@@ -36,12 +45,17 @@ export const onClickAddSection = async ({
 			},
 		});
 	} else {
-		const data = response.data;
+		const newSection = response.data;
+		if (position >= 0) {
+			sections.splice(position + 1, 0, newSection);
+		} else {
+			sections.push(newSection);
+		}
 		dispatch({
 			type: ACTION_REFRESH_DATA,
 			payload: {
 				status: ACTION_STATUS_SUCCESS,
-				sections: [...sections, data],
+				sections,
 			},
 		});
 	}
@@ -92,7 +106,7 @@ export const onChangeSectionTitle = async ({
 	}
 };
 
-export const onClickChangePosition = async ({
+export const onClickChangeSectionPosition = async ({
 	basicAuth,
 	sectionId,
 	direction,
@@ -127,27 +141,19 @@ export const onClickChangePosition = async ({
 	}
 };
 
-export const onClickAddShortcut = async ({
+export const onClickDeleteSection = async ({
+	dispatch,
 	basicAuth,
 	section,
-	dispatch,
 }: {
 	basicAuth: any;
 	dispatch: any;
 	section: any;
 }) => {
-	const response = await addShortcuts({
+	const response = await deleteSection({
 		userId: FAKE_USER_EMAIL,
 		basicAuth,
 		sectionId: section.id,
-		sectionTitle: section.title,
-		shortcuts: [
-			...section.shortcuts,
-			{
-				label: "New Shortcut",
-				url: "https://example.com",
-			},
-		],
 	});
 	if (response.status !== 200) {
 		dispatch({
@@ -167,19 +173,185 @@ export const onClickAddShortcut = async ({
 	}
 };
 
-export const onClickDeleteSection = async ({
+/**
+ *
+ * Shortcuts handlers.
+ *
+ */
+export const onClickAddShortcut = async ({
+	section,
+	position,
+	basicAuth,
+	dispatch,
+}: {
+	basicAuth: string | boolean;
+	dispatch: any;
+	position: number | null;
+	section: SectionProps | null;
+}) => {
+	if (section?.shortcuts && position !== null) {
+		section.shortcuts.splice(position + 1, 0, {
+			id: uuidv4(),
+			label: "New Shortcut",
+			url: "https://www.example.com",
+		});
+		const response = await editShortcuts({
+			basicAuth,
+			userId: FAKE_USER_EMAIL,
+			sectionId: section.id,
+			sectionTitle: section.title,
+			shortcuts: section.shortcuts,
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			dispatch({
+				type: ACTION_REFRESH_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: response.data,
+				},
+			});
+		}
+	} else {
+		dispatch({
+			type: ACTION_SET_STATUS,
+			payload: {
+				status: ACTION_STATUS_ERROR,
+			},
+		});
+	}
+};
+
+export const onChangeShortcut = async ({
+	label,
+	url,
+	position,
+	section,
 	dispatch,
 	basicAuth,
-	section,
 }: {
 	basicAuth: any;
 	dispatch: any;
+	position: any;
+	section: any;
+	label?: string;
+	url?: string;
+}) => {
+	if (label) {
+		section.shortcuts[position].label = label;
+	}
+	if (url) {
+		section.shortcuts[position].url = url;
+	}
+	const response = await editShortcuts({
+		basicAuth,
+		userId: FAKE_USER_EMAIL,
+		sectionId: section.id,
+		sectionTitle: section.title,
+		shortcuts: section.shortcuts,
+	});
+	if (response.status !== 200) {
+		dispatch({
+			type: ACTION_SET_STATUS,
+			payload: {
+				status: ACTION_STATUS_ERROR,
+			},
+		});
+	} else {
+		dispatch({
+			type: ACTION_REFRESH_DATA,
+			payload: {
+				status: ACTION_STATUS_SUCCESS,
+				sections: response.data,
+			},
+		});
+	}
+};
+
+export const onClickDeleteShortcut = async ({
+	section,
+	position,
+	basicAuth,
+	dispatch,
+}: {
+	basicAuth: string | boolean;
+	dispatch: any;
+	position: number | null;
+	section: SectionProps | null;
+}) => {
+	if (section && position !== null) {
+		section.shortcuts.splice(position, 1);
+		const response = await editShortcuts({
+			basicAuth,
+			userId: FAKE_USER_EMAIL,
+			sectionId: section.id,
+			sectionTitle: section.title,
+			shortcuts: section.shortcuts,
+		});
+		if (response.status !== 200) {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_ERROR,
+				},
+			});
+		} else {
+			dispatch({
+				type: ACTION_REFRESH_DATA,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+					sections: response.data,
+				},
+			});
+		}
+	} else {
+		dispatch({
+			type: ACTION_SET_STATUS,
+			payload: {
+				status: ACTION_STATUS_ERROR,
+			},
+		});
+	}
+};
+
+export const onClickChangeShortcutPosition = async ({
+	basicAuth,
+	section,
+	direction,
+	position,
+	dispatch,
+}: {
+	basicAuth: any;
+	direction: string;
+	dispatch: any;
+	position: number;
 	section: any;
 }) => {
-	const response = await deleteSection({
-		userId: FAKE_USER_EMAIL,
+	/**
+	 * section.shortcuts is an array of objects. Each object has an id, label, and url.
+	 * We need to move the shortcut at the given position in the given direction.
+	 */
+	const shortcut = section.shortcuts[position];
+	if (direction === "up") {
+		section.shortcuts[position] = section.shortcuts[position - 1];
+		section.shortcuts[position - 1] = shortcut;
+	} else if (direction === "down") {
+		section.shortcuts[position] = section.shortcuts[position + 1];
+		section.shortcuts[position + 1] = shortcut;
+	}
+
+	const response = await editShortcuts({
 		basicAuth,
+		userId: FAKE_USER_EMAIL,
 		sectionId: section.id,
+		sectionTitle: section.title,
+		shortcuts: section.shortcuts,
 	});
 	if (response.status !== 200) {
 		dispatch({

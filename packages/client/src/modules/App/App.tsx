@@ -28,7 +28,7 @@ import {
 import {
 	onChangeSectionTitle,
 	onClickAddSection,
-	onClickChangePosition,
+	onClickChangeSectionPosition,
 } from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
@@ -227,7 +227,7 @@ function App() {
 															mode="light"
 															focusMode="alt-system"
 															onClick={() => {
-																onClickChangePosition({
+																onClickChangeSectionPosition({
 																	basicAuth,
 																	sectionId: section.id,
 																	direction: "up",
@@ -247,7 +247,7 @@ function App() {
 															mode="light"
 															focusMode="alt-system"
 															onClick={() => {
-																onClickChangePosition({
+																onClickChangeSectionPosition({
 																	basicAuth,
 																	sectionId: section.id,
 																	direction: "down",

@@ -18,11 +18,15 @@ import {
 import { useContext, useRef, useState } from "react";
 
 import { LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
+import {
+	onChangeShortcut,
+	onClickAddShortcut,
+	onClickChangeShortcutPosition,
+} from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
 import type { SectionProps } from "../../common/types";
 import { AppContext } from "../App/AppContext";
 import { ConfirmationPanel } from "./ConfirmationPanel";
-import { onChangeShortcut, onClickAddShortcut } from "./handlers";
 
 export const Shortcuts = () => {
 	const storage = useLocalStorage();
@@ -125,12 +129,13 @@ export const Shortcuts = () => {
 															mode="light"
 															focusMode="alt-system"
 															onClick={() => {
-																// onClickChangePosition({
-																// 	basicAuth,
-																// 	sectionId: section.id,
-																// 	direction: "up",
-																// 	dispatch,
-																// });
+																onClickChangeShortcutPosition({
+																	basicAuth,
+																	section,
+																	direction: "up",
+																	dispatch,
+																	position: idx,
+																});
 															}}
 														>
 															<IconUp monotone className="h-3 w-3" />
@@ -144,12 +149,13 @@ export const Shortcuts = () => {
 															mode="light"
 															focusMode="alt-system"
 															onClick={() => {
-																// onClickChangePosition({
-																// 	basicAuth,
-																// 	sectionId: section.id,
-																// 	direction: "down",
-																// 	dispatch,
-																// });
+																onClickChangeShortcutPosition({
+																	basicAuth,
+																	section,
+																	direction: "down",
+																	dispatch,
+																	position: idx,
+																});
 															}}
 														>
 															<IconDown className="h-3 w-3" monotone />
