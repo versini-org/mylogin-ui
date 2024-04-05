@@ -2,21 +2,16 @@ import { Button } from "@versini/ui-components";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { Suspense } from "react";
 
-import { onClickDeleteShortcut } from "../../common/handlers";
-import LazyPanel from "../Lazy/Panel";
+import LazyPanel from "../Lazy/LazyPanel";
 
 export const ConfirmationPanel = ({
-	basicAuth,
-	dispatch,
 	showConfirmation,
 	setShowConfirmation,
-	section,
-	position,
+	action,
+	children,
 }: {
-	basicAuth: string | boolean;
-	dispatch: any;
-	position: number | null;
-	section: any;
+	action: any;
+	children: any;
 	setShowConfirmation: any;
 	showConfirmation: boolean;
 }) => {
@@ -48,12 +43,7 @@ export const ConfirmationPanel = ({
 								focusMode="light"
 								onClick={() => {
 									setShowConfirmation(!showConfirmation);
-									onClickDeleteShortcut({
-										basicAuth,
-										dispatch,
-										section,
-										position,
-									});
+									action();
 								}}
 							>
 								Delete
@@ -62,18 +52,7 @@ export const ConfirmationPanel = ({
 					</Flexgrid>
 				}
 			>
-				<p>Are you sure you want to delete the following shortcut:</p>
-				<ol>
-					<li>
-						Label:{" "}
-						<span className="text-lg">
-							{section.shortcuts[position || 0]?.label}
-						</span>
-					</li>
-					<li>
-						Section: <span className="text-lg">{section?.title}</span>
-					</li>
-				</ol>
+				{children}
 			</LazyPanel>
 		</Suspense>
 	);

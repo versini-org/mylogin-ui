@@ -22,11 +22,12 @@ import {
 	onChangeShortcut,
 	onClickAddShortcut,
 	onClickChangeShortcutPosition,
+	onClickDeleteShortcut,
 } from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
 import type { SectionProps } from "../../common/types";
 import { AppContext } from "../App/AppContext";
-import { ConfirmationPanel } from "./ConfirmationPanel";
+import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Shortcuts = () => {
 	const storage = useLocalStorage();
@@ -41,13 +42,37 @@ export const Shortcuts = () => {
 		<>
 			{showConfirmation && (
 				<ConfirmationPanel
-					basicAuth={basicAuth}
-					dispatch={dispatch}
-					position={shortcutPositionRef.current}
-					section={sectionWithShortcutRef.current}
 					setShowConfirmation={setShowConfirmation}
 					showConfirmation={showConfirmation}
-				/>
+					action={() => {
+						onClickDeleteShortcut({
+							basicAuth,
+							dispatch,
+							section: sectionWithShortcutRef.current,
+							position: shortcutPositionRef.current,
+						});
+					}}
+				>
+					<p>Are you sure you want to delete the following shortcut:</p>
+					<ol>
+						<li>
+							Label:{" "}
+							<span className="text-lg">
+								{
+									sectionWithShortcutRef?.current?.shortcuts[
+										shortcutPositionRef?.current || 0
+									]?.label
+								}
+							</span>
+						</li>
+						<li>
+							Section:{" "}
+							<span className="text-lg">
+								{sectionWithShortcutRef?.current?.title}
+							</span>
+						</li>
+					</ol>
+				</ConfirmationPanel>
 			)}
 
 			{state.sections.map((section) => {

@@ -29,15 +29,16 @@ import {
 	onChangeSectionTitle,
 	onClickAddSection,
 	onClickChangeSectionPosition,
+	onClickDeleteSection,
 } from "../../common/handlers";
 import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
 import { SectionProps } from "../../common/types";
 import { getShortcuts } from "../../common/utilities";
+import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
-import { ConfirmationPanel } from "./ConfirmationPanel";
 import { reducer } from "./reducer";
 
 function App() {
@@ -154,12 +155,24 @@ function App() {
 		<AppContext.Provider value={{ state, dispatch }}>
 			{showConfirmation && (
 				<ConfirmationPanel
-					basicAuth={basicAuth}
-					dispatch={dispatch}
-					sectionToDeleteRef={sectionToDeleteRef}
 					setShowConfirmation={setShowConfirmation}
 					showConfirmation={showConfirmation}
-				/>
+					action={() => {
+						onClickDeleteSection({
+							dispatch,
+							basicAuth,
+							section: sectionToDeleteRef.current,
+						});
+					}}
+				>
+					<p>
+						Are you sure you want to delete section{" "}
+						<span className="text-lg">
+							{sectionToDeleteRef?.current?.title}
+						</span>
+						?
+					</p>
+				</ConfirmationPanel>
 			)}
 
 			<div className="prose prose-lighter">
