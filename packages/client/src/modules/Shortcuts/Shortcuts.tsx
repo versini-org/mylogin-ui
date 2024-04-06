@@ -85,7 +85,7 @@ export const Shortcuts = () => {
 								mode="light"
 								noBorder
 								size="small"
-								className="ml-1"
+								className="ml-2"
 								label="Edit section"
 								onClick={() => {
 									setEditable(editable === section.id ? null : section.id);

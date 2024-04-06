@@ -25,7 +25,7 @@
 		"@versini/ui-styles": "1.6.1"
 	},
 	"dependencies": {
-		"@versini/ui-components": "5.11.0",
+		"@versini/ui-components": "5.11.1",
 		"@versini/ui-form": "1.2.0",
 		"@versini/ui-icons": "1.4.0",
 		"@versini/ui-system": "1.2.1",
