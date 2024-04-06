@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/aversini/mylogin-ui/compare/client-v1.11.0...client-v1.11.1) (2024-04-06)
+
+
+### Bug Fixes
+
+* edit icon is too close to section title + bump dependencies ([99dec53](https://github.com/aversini/mylogin-ui/commit/99dec538612803c8b8f0c7d97d50d83a8d810516))
+
 ## [1.11.0](https://github.com/aversini/mylogin-ui/compare/client-v1.10.2...client-v1.11.0) (2024-04-05)
 
 
