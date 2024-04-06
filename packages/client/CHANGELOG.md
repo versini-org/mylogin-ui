@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/aversini/mylogin-ui/compare/client-v1.11.1...client-v1.12.0) (2024-04-06)
+
+
+### Features
+
+* using Card to separate sections ([e95e1a0](https://github.com/aversini/mylogin-ui/commit/e95e1a0fe99f18dadfdd6104bba7372b0537a6eb))
+
 ## [1.11.1](https://github.com/aversini/mylogin-ui/compare/client-v1.11.0...client-v1.11.1) (2024-04-06)
 
 
