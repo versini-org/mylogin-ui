@@ -7,7 +7,7 @@ h1.heading {
 }
 
 h2.heading {
-	@apply m-0 text-base text-copy-lighter;
+	@apply m-0 mb-1 text-lg font-bold text-copy-lighter;
 }
 
 .fadeIn {

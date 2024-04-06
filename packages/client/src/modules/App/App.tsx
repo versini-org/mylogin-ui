@@ -6,6 +6,7 @@ import {
 	Table,
 	TableBody,
 	TableCell,
+	TableFooter,
 	TableHead,
 	TableRow,
 } from "@versini/ui-components";
@@ -17,6 +18,7 @@ import {
 	IconEdit,
 	IconUp,
 } from "@versini/ui-icons";
+import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
 import { useEffect, useReducer, useRef, useState } from "react";
 
 import {
@@ -54,6 +56,9 @@ function App() {
 		sections: [],
 	});
 	const sectionToDeleteRef = useRef<SectionProps | null>(null);
+	const customTheme = {
+		"--av-action-dark-hover": "#64748b",
+	};
 
 	/**
 	 * Fade out the logo and fade in the app.
@@ -175,35 +180,38 @@ function App() {
 				</ConfirmationPanel>
 			)}
 
-			<div className="prose prose-lighter">
+			<ThemeProvider customTheme={customTheme} className="prose prose-lighter">
 				<Header>
-					<h1 className="heading mb-0 text-center">
-						My Shortcuts
-						{state && state?.sections?.length > 0 && (
-							<ButtonIcon
-								focusMode="light"
-								mode="light"
-								noBorder
-								size="small"
-								className="ml-2"
-								label="Edit section"
-								onClick={() => {
-									setEditable(!editable);
-								}}
-							>
-								<IconEdit />
-							</ButtonIcon>
-						)}
-					</h1>
+					<Flexgrid alignHorizontal="space-between">
+						<FlexgridItem>
+							<h1 className="heading mb-0">My Shortcuts</h1>
+						</FlexgridItem>
+						<FlexgridItem>
+							{state && state?.sections?.length > 0 && (
+								<ButtonIcon
+									focusMode="light"
+									mode="light"
+									noBorder
+									size="small"
+									label="Edit all sections"
+									onClick={() => {
+										setEditable(!editable);
+									}}
+								>
+									<IconEdit />
+								</ButtonIcon>
+							)}
+						</FlexgridItem>
+					</Flexgrid>
 				</Header>
 
 				<Main className="pt-0">
 					{state && state?.sections?.length > 0 && editable && (
-						<div className="flex flex-wrap px-10">
+						<div className="flex flex-wrap">
 							<Table compact caption="Edit Sections" spacing={{ b: 5 }}>
 								<TableHead>
 									<TableRow>
-										<TableCell>Section</TableCell>
+										<TableCell>Name</TableCell>
 										<TableCell className="text-right">Move</TableCell>
 										<TableCell className="text-right">Add</TableCell>
 										<TableCell className="text-right">Delete</TableCell>
@@ -314,6 +322,14 @@ function App() {
 										</TableRow>
 									))}
 								</TableBody>
+
+								<TableFooter>
+									<TableRow>
+										<TableCell colSpan={4} className="text-center uppercase">
+											{state.sections.length} sections
+										</TableCell>
+									</TableRow>
+								</TableFooter>
 							</Table>
 						</div>
 					)}
@@ -333,7 +349,7 @@ function App() {
 						</div>
 					}
 				/>
-			</div>
+			</ThemeProvider>
 		</AppContext.Provider>
 	);
 }
