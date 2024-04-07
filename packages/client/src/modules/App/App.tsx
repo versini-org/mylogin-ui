@@ -123,8 +123,8 @@ function App() {
 		return (
 			<AppContext.Provider value={{ state, dispatch }}>
 				<div className="prose prose-lighter">
-					<Header>
-						<h1 className="text-center">My Shortcuts</h1>
+					<Header mode="dark">
+						<h1 className="heading mb-0">My Shortcuts</h1>
 					</Header>
 					<Main>
 						<Login
@@ -181,18 +181,18 @@ function App() {
 			)}
 
 			<ThemeProvider customTheme={customTheme} className="prose prose-lighter">
-				<Header>
-					<Flexgrid alignHorizontal="space-between">
+				<Header mode="dark">
+					<Flexgrid alignHorizontal="space-between" alignVertical="center">
 						<FlexgridItem>
 							<h1 className="heading mb-0">My Shortcuts</h1>
 						</FlexgridItem>
 						<FlexgridItem>
 							{state && state?.sections?.length > 0 && (
 								<ButtonIcon
+									noBackground
 									focusMode="light"
 									mode="light"
 									noBorder
-									size="small"
 									label="Edit all sections"
 									onClick={() => {
 										setEditable(!editable);

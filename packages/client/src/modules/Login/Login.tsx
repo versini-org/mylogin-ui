@@ -29,7 +29,7 @@ export const Login = ({
 	});
 
 	return (
-		<form className="mx-auto">
+		<form className="mx-auto mt-8">
 			<Flexgrid direction="column" width="24rem">
 				<FlexgridItem>
 					<TextInputMask
