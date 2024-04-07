@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/aversini/mylogin-ui/compare/client-v1.12.0...client-v1.13.0) (2024-04-07)
+
+
+### Features
+
+* using the most recent UI lib with accent color in dark mode ([cecbb70](https://github.com/aversini/mylogin-ui/commit/cecbb70a06d0dcb6d3848bb0fa0d4b72f3ad3424))
+
 ## [1.12.0](https://github.com/aversini/mylogin-ui/compare/client-v1.11.1...client-v1.12.0) (2024-04-06)
 
 
