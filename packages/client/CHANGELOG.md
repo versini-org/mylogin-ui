@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.1](https://github.com/aversini/mylogin-ui/compare/client-v1.13.0...client-v1.13.1) (2024-04-07)
+
+
+### Bug Fixes
+
+* bump to latest UI lib ([88593b7](https://github.com/aversini/mylogin-ui/commit/88593b77805e155f9d76053a8970f1a23598b4a0))
+
 ## [1.13.0](https://github.com/aversini/mylogin-ui/compare/client-v1.12.0...client-v1.13.0) (2024-04-07)
 
 
