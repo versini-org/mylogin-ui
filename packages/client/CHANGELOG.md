@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/aversini/mylogin-ui/compare/client-v1.13.1...client-v1.14.0) (2024-04-08)
+
+
+### Features
+
+* adding icon next to header logo ([b56fa59](https://github.com/aversini/mylogin-ui/commit/b56fa594694ad930be0702c6109bcd992523fd27))
+
 ## [1.13.1](https://github.com/aversini/mylogin-ui/compare/client-v1.13.0...client-v1.13.1) (2024-04-07)
 
 
