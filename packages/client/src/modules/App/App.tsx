@@ -18,6 +18,7 @@ import {
 	IconEdit,
 	IconUp,
 } from "@versini/ui-icons";
+import { IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
 import { useEffect, useReducer, useRef, useState } from "react";
 
@@ -124,7 +125,14 @@ function App() {
 			<AppContext.Provider value={{ state, dispatch }}>
 				<div className="prose prose-lighter">
 					<Header mode="dark">
-						<h1 className="heading mb-0">My Shortcuts</h1>
+						<h1 className="heading mb-0">
+							<Flexgrid alignVertical="center">
+								<FlexgridItem>
+									<IconStarInCircle spacing={{ r: 2 }} />
+								</FlexgridItem>
+								<FlexgridItem>My Shortcuts</FlexgridItem>
+							</Flexgrid>
+						</h1>
 					</Header>
 					<Main>
 						<Login
@@ -184,7 +192,14 @@ function App() {
 				<Header mode="dark">
 					<Flexgrid alignHorizontal="space-between" alignVertical="center">
 						<FlexgridItem>
-							<h1 className="heading mb-0">My Shortcuts</h1>
+							<h1 className="heading mb-0">
+								<Flexgrid alignVertical="center">
+									<FlexgridItem>
+										<IconStarInCircle spacing={{ r: 2 }} />
+									</FlexgridItem>
+									<FlexgridItem>My Shortcuts</FlexgridItem>
+								</Flexgrid>
+							</h1>
 						</FlexgridItem>
 						<FlexgridItem>
 							{state && state?.sections?.length > 0 && (
