@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.2](https://github.com/aversini/mylogin-ui/compare/client-v1.14.1...client-v1.14.2) (2024-04-14)
+
+
+### Bug Fixes
+
+* use new Anchor props from UI lib ([ea4eee1](https://github.com/aversini/mylogin-ui/commit/ea4eee1a8c6c450021c7256ca1633f07fedf5def))
+
 ## [1.14.1](https://github.com/aversini/mylogin-ui/compare/client-v1.14.0...client-v1.14.1) (2024-04-13)
 
 
