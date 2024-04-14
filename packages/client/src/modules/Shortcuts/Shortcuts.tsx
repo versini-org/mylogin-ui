@@ -1,6 +1,6 @@
 import {
+	Anchor,
 	ButtonIcon,
-	ButtonLink,
 	Card,
 	Table,
 	TableBody,
@@ -261,18 +261,18 @@ export const Shortcuts = () => {
 							<div className="flex flex-wrap justify-center">
 								{section.shortcuts.map((shortcut, idx) => {
 									return (
-										<ButtonLink
+										<Anchor
 											key={`${shortcut.url}-${shortcut.label}-${idx}`}
-											mode="dark"
-											focusMode="light"
-											noBorder
-											link={shortcut.url}
-											target="_blank"
 											className="mr-1 mt-1 w-44 sm:w-52"
-											maxLabelLength={23}
+											focusMode="light"
+											href={shortcut.url}
+											mode="dark"
+											noBorder
+											noNewWindowIcon
+											target="_blank"
 										>
 											{shortcut.label}
-										</ButtonLink>
+										</Anchor>
 									);
 								})}
 							</div>
