@@ -686,5 +686,31 @@
       "limit": "46 kb",
       "passed": true
     }
+  },
+  "1.14.2": {
+    "dist/assets/index-<hash>.js": {
+      "fileSize": 60672,
+      "fileSizeGzip": 15813,
+      "limit": "16 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.css": {
+      "fileSize": 56004,
+      "fileSizeGzip": 8702,
+      "limit": "9 kb",
+      "passed": true
+    },
+    "dist/LazyPanel-<hash>.js": {
+      "fileSize": 44191,
+      "fileSizeGzip": 16324,
+      "limit": "16 kb",
+      "passed": true
+    },
+    "dist/react-<semver>.js": {
+      "fileSize": 142183,
+      "fileSizeGzip": 45588,
+      "limit": "46 kb",
+      "passed": true
+    }
   }
 }
