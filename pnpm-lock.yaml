@@ -27,8 +27,8 @@ importers:
         specifier: 5.14.5
         version: 5.14.5(@floating-ui/react@0.26.12)(fast-equals@5.0.1)(micro-memoize@4.1.2)(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-form':
-        specifier: 1.2.0
-        version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.3.0
+        version: 1.3.0(react-dom@18.2.0)(react@18.2.0)
       '@versini/ui-icons':
         specifier: 1.5.0
         version: 1.5.0(react-dom@18.2.0)(react@18.2.0)
@@ -2241,14 +2241,14 @@ packages:
       - ts-node
     dev: false
 
-  /@versini/ui-form@1.2.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-hmqX7DMppRi46U+nf0J/aqEz8AgyxspvZHXtNJ+kbboXE9gUHMz0ZlnfFWd1JytI6Blu+N2A1aSMvPjHxqNm8Q==}
+  /@versini/ui-form@1.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-iuHFXTx4FLJ3jh2I1sqOZI0xgRlnXDjzJvXEcIdQN4uO0aY5cPj2m72VQVq+YLzhbDmQ+zOTv312mnxupNpYdQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@versini/ui-hooks': 2.2.0(react-dom@18.2.0)(react@18.2.0)
-      '@versini/ui-private': 1.4.0(react-dom@18.2.0)(react@18.2.0)
+      '@versini/ui-private': 1.4.2(react-dom@18.2.0)(react@18.2.0)
       clsx: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2271,19 +2271,6 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@versini/ui-private': 1.4.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@versini/ui-private@1.4.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-6WaYaxFi7p1Ae7b1EQmorsMsIIWQfw6zvtTnlVCJa9ImnXHXRHenY0laPg9TBphc/wJZW0r2n9+GMTxtZs9otg==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      '@floating-ui/react': 0.26.9(react-dom@18.2.0)(react@18.2.0)
-      '@versini/ui-hooks': 2.2.0(react-dom@18.2.0)(react@18.2.0)
-      clsx: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
