@@ -10,7 +10,7 @@
 		"build:check": "tsc",
 		"build:js": "vite build",
 		"build": "npm-run-all --serial clean build:check build:js",
-		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix --color",
+		"lint": "biome lint src",
 		"start": "static-server dist --port 5173",
 		"stats:pr": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o tmp/stats.json --silent",
 		"stats:release": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o stats/stats.json --silent",
@@ -22,12 +22,12 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@versini/ui-styles": "1.8.2"
+		"@versini/ui-styles": "1.8.3"
 	},
 	"dependencies": {
-		"@versini/ui-components": "5.14.5",
-		"@versini/ui-form": "1.2.0",
-		"@versini/ui-icons": "1.5.0",
+		"@versini/ui-components": "5.18.1",
+		"@versini/ui-form": "1.3.0",
+		"@versini/ui-icons": "1.8.0",
 		"@versini/ui-system": "1.3.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

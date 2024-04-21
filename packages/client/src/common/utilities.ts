@@ -160,7 +160,7 @@ export const getShortcuts = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.getUserSections };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };
@@ -199,7 +199,7 @@ export const addSection = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.addSection };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };
@@ -233,7 +233,7 @@ export const editSectionTitle = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.editSectionTitle };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };
@@ -264,7 +264,7 @@ export const deleteSection = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.deleteSection };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };
@@ -298,7 +298,7 @@ export const changeSectionPosition = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.changeSectionPosition };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };
@@ -335,7 +335,7 @@ export const editShortcuts = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.editShortcuts };
-	} catch (error) {
+	} catch (_error) {
 		return { status: 500, data: [] };
 	}
 };

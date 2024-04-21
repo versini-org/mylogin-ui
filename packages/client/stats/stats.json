@@ -1,716 +1,716 @@
 {
-  "1.7.1": {
-    "dist/index.html": {
-      "fileSize": 782,
-      "fileSizeGzip": 469,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 30565,
-      "fileSizeGzip": 11313,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 44862,
-      "fileSizeGzip": 7309,
-      "limit": "8 kb",
-      "passed": true
-    }
-  },
-  "1.7.2": {
-    "dist/index.html": {
-      "fileSize": 782,
-      "fileSizeGzip": 470,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 30565,
-      "fileSizeGzip": 11312,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 44862,
-      "fileSizeGzip": 7309,
-      "limit": "8 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.7.3": {
-    "dist/index.html": {
-      "fileSize": 782,
-      "fileSizeGzip": 473,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 30565,
-      "fileSizeGzip": 11315,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 44862,
-      "fileSizeGzip": 7309,
-      "limit": "8 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.8.0": {
-    "dist/index.html": {
-      "fileSize": 918,
-      "fileSizeGzip": 497,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 29011,
-      "fileSizeGzip": 9317,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 47258,
-      "fileSizeGzip": 7996,
-      "limit": "8 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.8.1": {
-    "dist/index.html": {
-      "fileSize": 918,
-      "fileSizeGzip": 498,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 29068,
-      "fileSizeGzip": 9325,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 47568,
-      "fileSizeGzip": 8007,
-      "limit": "8 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.8.2": {
-    "dist/index.html": {
-      "fileSize": 918,
-      "fileSizeGzip": 498,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 31846,
-      "fileSizeGzip": 9592,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 51496,
-      "fileSizeGzip": 8280,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.8.3": {
-    "dist/index.html": {
-      "fileSize": 915,
-      "fileSizeGzip": 492,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 31848,
-      "fileSizeGzip": 9603,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 53975,
-      "fileSizeGzip": 8471,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.0": {
-    "dist/index.html": {
-      "fileSize": 915,
-      "fileSizeGzip": 496,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 37789,
-      "fileSizeGzip": 10997,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 53957,
-      "fileSizeGzip": 8465,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.1": {
-    "dist/index.html": {
-      "fileSize": 915,
-      "fileSizeGzip": 496,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 37805,
-      "fileSizeGzip": 11003,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 53957,
-      "fileSizeGzip": 8465,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.2": {
-    "dist/index.html": {
-      "fileSize": 915,
-      "fileSizeGzip": 493,
-      "limit": "2 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 37630,
-      "fileSizeGzip": 10969,
-      "limit": "12 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 53957,
-      "fileSizeGzip": 8465,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 28342,
-      "fileSizeGzip": 8379,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 141792,
-      "fileSizeGzip": 45437,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.3": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 48448,
-      "fileSizeGzip": 13503,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54155,
-      "fileSizeGzip": 8512,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27545,
-      "fileSizeGzip": 8065,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16223,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.4": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 47447,
-      "fileSizeGzip": 13088,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54155,
-      "fileSizeGzip": 8512,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27420,
-      "fileSizeGzip": 7969,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16222,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.9.5": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 47464,
-      "fileSizeGzip": 13097,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54155,
-      "fileSizeGzip": 8512,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27420,
-      "fileSizeGzip": 7969,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16222,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.10.0": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 49041,
-      "fileSizeGzip": 13283,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54532,
-      "fileSizeGzip": 8544,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27420,
-      "fileSizeGzip": 7969,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16212,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.10.1": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 49514,
-      "fileSizeGzip": 13409,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54532,
-      "fileSizeGzip": 8544,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27420,
-      "fileSizeGzip": 7969,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16213,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.10.2": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 50674,
-      "fileSizeGzip": 13499,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54532,
-      "fileSizeGzip": 8544,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/jsonUtilities-<hash>.js": {
-      "fileSize": 27420,
-      "fileSizeGzip": 7969,
-      "limit": "10 kb",
-      "passed": true
-    },
-    "dist/Panel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16213,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.11.0": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 54377,
-      "fileSizeGzip": 14318,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54532,
-      "fileSizeGzip": 8544,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16215,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.11.1": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 54377,
-      "fileSizeGzip": 14322,
-      "limit": "14 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54762,
-      "fileSizeGzip": 8573,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16223,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.12.0": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 57771,
-      "fileSizeGzip": 15131,
-      "limit": "15 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 54707,
-      "fileSizeGzip": 8567,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43855,
-      "fileSizeGzip": 16220,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.13.0": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 58702,
-      "fileSizeGzip": 15312,
-      "limit": "15 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 55698,
-      "fileSizeGzip": 8655,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43857,
-      "fileSizeGzip": 16222,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.13.1": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 58709,
-      "fileSizeGzip": 15322,
-      "limit": "15 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 55698,
-      "fileSizeGzip": 8655,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43857,
-      "fileSizeGzip": 16221,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.14.0": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 59947,
-      "fileSizeGzip": 15603,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 55698,
-      "fileSizeGzip": 8655,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 43857,
-      "fileSizeGzip": 16221,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.14.1": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 59947,
-      "fileSizeGzip": 15605,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 55948,
-      "fileSizeGzip": 8688,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 44191,
-      "fileSizeGzip": 16324,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  },
-  "1.14.2": {
-    "dist/assets/index-<hash>.js": {
-      "fileSize": 60672,
-      "fileSizeGzip": 15813,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/assets/index-<hash>.css": {
-      "fileSize": 56004,
-      "fileSizeGzip": 8702,
-      "limit": "9 kb",
-      "passed": true
-    },
-    "dist/LazyPanel-<hash>.js": {
-      "fileSize": 44191,
-      "fileSizeGzip": 16324,
-      "limit": "16 kb",
-      "passed": true
-    },
-    "dist/react-<semver>.js": {
-      "fileSize": 142183,
-      "fileSizeGzip": 45588,
-      "limit": "46 kb",
-      "passed": true
-    }
-  }
+	"1.7.1": {
+		"dist/index.html": {
+			"fileSize": 782,
+			"fileSizeGzip": 469,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 30565,
+			"fileSizeGzip": 11313,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 44862,
+			"fileSizeGzip": 7309,
+			"limit": "8 kb",
+			"passed": true
+		}
+	},
+	"1.7.2": {
+		"dist/index.html": {
+			"fileSize": 782,
+			"fileSizeGzip": 470,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 30565,
+			"fileSizeGzip": 11312,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 44862,
+			"fileSizeGzip": 7309,
+			"limit": "8 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.7.3": {
+		"dist/index.html": {
+			"fileSize": 782,
+			"fileSizeGzip": 473,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 30565,
+			"fileSizeGzip": 11315,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 44862,
+			"fileSizeGzip": 7309,
+			"limit": "8 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.8.0": {
+		"dist/index.html": {
+			"fileSize": 918,
+			"fileSizeGzip": 497,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 29011,
+			"fileSizeGzip": 9317,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 47258,
+			"fileSizeGzip": 7996,
+			"limit": "8 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.8.1": {
+		"dist/index.html": {
+			"fileSize": 918,
+			"fileSizeGzip": 498,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 29068,
+			"fileSizeGzip": 9325,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 47568,
+			"fileSizeGzip": 8007,
+			"limit": "8 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.8.2": {
+		"dist/index.html": {
+			"fileSize": 918,
+			"fileSizeGzip": 498,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 31846,
+			"fileSizeGzip": 9592,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 51496,
+			"fileSizeGzip": 8280,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.8.3": {
+		"dist/index.html": {
+			"fileSize": 915,
+			"fileSizeGzip": 492,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 31848,
+			"fileSizeGzip": 9603,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 53975,
+			"fileSizeGzip": 8471,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.0": {
+		"dist/index.html": {
+			"fileSize": 915,
+			"fileSizeGzip": 496,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 37789,
+			"fileSizeGzip": 10997,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 53957,
+			"fileSizeGzip": 8465,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.1": {
+		"dist/index.html": {
+			"fileSize": 915,
+			"fileSizeGzip": 496,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 37805,
+			"fileSizeGzip": 11003,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 53957,
+			"fileSizeGzip": 8465,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.2": {
+		"dist/index.html": {
+			"fileSize": 915,
+			"fileSizeGzip": 493,
+			"limit": "2 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 37630,
+			"fileSizeGzip": 10969,
+			"limit": "12 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 53957,
+			"fileSizeGzip": 8465,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 28342,
+			"fileSizeGzip": 8379,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 141792,
+			"fileSizeGzip": 45437,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.3": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 48448,
+			"fileSizeGzip": 13503,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54155,
+			"fileSizeGzip": 8512,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27545,
+			"fileSizeGzip": 8065,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16223,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.4": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 47447,
+			"fileSizeGzip": 13088,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54155,
+			"fileSizeGzip": 8512,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27420,
+			"fileSizeGzip": 7969,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16222,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.9.5": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 47464,
+			"fileSizeGzip": 13097,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54155,
+			"fileSizeGzip": 8512,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27420,
+			"fileSizeGzip": 7969,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16222,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.10.0": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 49041,
+			"fileSizeGzip": 13283,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54532,
+			"fileSizeGzip": 8544,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27420,
+			"fileSizeGzip": 7969,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16212,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.10.1": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 49514,
+			"fileSizeGzip": 13409,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54532,
+			"fileSizeGzip": 8544,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27420,
+			"fileSizeGzip": 7969,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16213,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.10.2": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 50674,
+			"fileSizeGzip": 13499,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54532,
+			"fileSizeGzip": 8544,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/jsonUtilities-<hash>.js": {
+			"fileSize": 27420,
+			"fileSizeGzip": 7969,
+			"limit": "10 kb",
+			"passed": true
+		},
+		"dist/Panel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16213,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.11.0": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 54377,
+			"fileSizeGzip": 14318,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54532,
+			"fileSizeGzip": 8544,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16215,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.11.1": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 54377,
+			"fileSizeGzip": 14322,
+			"limit": "14 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54762,
+			"fileSizeGzip": 8573,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16223,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.12.0": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 57771,
+			"fileSizeGzip": 15131,
+			"limit": "15 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 54707,
+			"fileSizeGzip": 8567,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43855,
+			"fileSizeGzip": 16220,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.13.0": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 58702,
+			"fileSizeGzip": 15312,
+			"limit": "15 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 55698,
+			"fileSizeGzip": 8655,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43857,
+			"fileSizeGzip": 16222,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.13.1": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 58709,
+			"fileSizeGzip": 15322,
+			"limit": "15 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 55698,
+			"fileSizeGzip": 8655,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43857,
+			"fileSizeGzip": 16221,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.14.0": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 59947,
+			"fileSizeGzip": 15603,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 55698,
+			"fileSizeGzip": 8655,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 43857,
+			"fileSizeGzip": 16221,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.14.1": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 59947,
+			"fileSizeGzip": 15605,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 55948,
+			"fileSizeGzip": 8688,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 44191,
+			"fileSizeGzip": 16324,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	},
+	"1.14.2": {
+		"dist/assets/index-<hash>.js": {
+			"fileSize": 60672,
+			"fileSizeGzip": 15813,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/assets/index-<hash>.css": {
+			"fileSize": 56004,
+			"fileSizeGzip": 8702,
+			"limit": "9 kb",
+			"passed": true
+		},
+		"dist/LazyPanel-<hash>.js": {
+			"fileSize": 44191,
+			"fileSizeGzip": 16324,
+			"limit": "16 kb",
+			"passed": true
+		},
+		"dist/react-<semver>.js": {
+			"fileSize": 142183,
+			"fileSizeGzip": 45588,
+			"limit": "46 kb",
+			"passed": true
+		}
+	}
 }

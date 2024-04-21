@@ -73,6 +73,7 @@ function App() {
 		}, 500);
 	});
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		/**
 		 * User is not authenticated, we cannot request for data yet.

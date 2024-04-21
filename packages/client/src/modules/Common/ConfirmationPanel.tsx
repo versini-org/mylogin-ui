@@ -1,6 +1,6 @@
 import { Button } from "@versini/ui-components";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
-import { lazy, Suspense } from "react";
+import { Suspense, lazy } from "react";
 
 const LazyPanel = lazy(() => import("../Lazy/LazyPanel"));
 
