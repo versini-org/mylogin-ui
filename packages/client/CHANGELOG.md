@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.3](https://github.com/aversini/mylogin-ui/compare/client-v1.14.2...client-v1.14.3) (2024-04-21)
+
+
+### Bug Fixes
+
+* bump to latest deps + replace ESLint/Prettier with Biome ([abf204c](https://github.com/aversini/mylogin-ui/commit/abf204cae75a5ea6c4685c1c3c4b6298dbe42e7c))
+
 ## [1.14.2](https://github.com/aversini/mylogin-ui/compare/client-v1.14.1...client-v1.14.2) (2024-04-14)
 
 
