@@ -26,9 +26,7 @@ export default defineConfig({
 		rollupOptions: {
 			output: {
 				/**
-				 * Manually creating chunks for React and
-				 * @floating-ui. React should be listed first, so
-				 * that it does not end up in the floatingUI chunk.
+				 * Manually creating chunks for React and heavy libraries.
 				 */
 				manualChunks: {
 					[REACT_CHUNK]: [
@@ -53,7 +51,8 @@ export default defineConfig({
 					if (chunkInfo.name.includes(REACT_CHUNK)) {
 						return `react-${reactVersion}.js`;
 					}
-					return "[name]-[hash].js";
+
+					return "index-[hash].js";
 				},
 			},
 		},
