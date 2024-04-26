@@ -43,40 +43,38 @@ export const Shortcuts = () => {
 
 	return state && state?.sections?.length > 0 ? (
 		<>
-			{showConfirmation && (
-				<ConfirmationPanel
-					setShowConfirmation={setShowConfirmation}
-					showConfirmation={showConfirmation}
-					action={() => {
-						onClickDeleteShortcut({
-							basicAuth,
-							dispatch,
-							section: sectionWithShortcutRef.current,
-							position: shortcutPositionRef.current,
-						});
-					}}
-				>
-					<p>Are you sure you want to delete the following shortcut:</p>
-					<ol>
-						<li>
-							Label:{" "}
-							<span className="text-lg">
-								{
-									sectionWithShortcutRef?.current?.shortcuts[
-										shortcutPositionRef?.current || 0
-									]?.label
-								}
-							</span>
-						</li>
-						<li>
-							Section:{" "}
-							<span className="text-lg">
-								{sectionWithShortcutRef?.current?.title}
-							</span>
-						</li>
-					</ol>
-				</ConfirmationPanel>
-			)}
+			<ConfirmationPanel
+				setShowConfirmation={setShowConfirmation}
+				showConfirmation={showConfirmation}
+				action={() => {
+					onClickDeleteShortcut({
+						basicAuth,
+						dispatch,
+						section: sectionWithShortcutRef.current,
+						position: shortcutPositionRef.current,
+					});
+				}}
+			>
+				<p>Are you sure you want to delete the following shortcut:</p>
+				<ol>
+					<li>
+						Label:{" "}
+						<span className="text-lg">
+							{
+								sectionWithShortcutRef?.current?.shortcuts[
+									shortcutPositionRef?.current || 0
+								]?.label
+							}
+						</span>
+					</li>
+					<li>
+						Section:{" "}
+						<span className="text-lg">
+							{sectionWithShortcutRef?.current?.title}
+						</span>
+					</li>
+				</ol>
+			</ConfirmationPanel>
 
 			{state.sections.map((section) => {
 				return (

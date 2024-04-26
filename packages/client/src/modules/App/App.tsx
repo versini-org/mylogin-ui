@@ -167,27 +167,22 @@ function App() {
 	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
-			{showConfirmation && (
-				<ConfirmationPanel
-					setShowConfirmation={setShowConfirmation}
-					showConfirmation={showConfirmation}
-					action={() => {
-						onClickDeleteSection({
-							dispatch,
-							basicAuth,
-							section: sectionToDeleteRef.current,
-						});
-					}}
-				>
-					<p>
-						Are you sure you want to delete section{" "}
-						<span className="text-lg">
-							{sectionToDeleteRef?.current?.title}
-						</span>
-						?
-					</p>
-				</ConfirmationPanel>
-			)}
+			<ConfirmationPanel
+				setShowConfirmation={setShowConfirmation}
+				showConfirmation={showConfirmation}
+				action={() => {
+					onClickDeleteSection({
+						dispatch,
+						basicAuth,
+						section: sectionToDeleteRef.current,
+					});
+				}}
+			>
+				<p>
+					Are you sure you want to delete section{" "}
+					<span className="text-lg">{sectionToDeleteRef?.current?.title}</span>?
+				</p>
+			</ConfirmationPanel>
 
 			<ThemeProvider customTheme={customTheme} className="prose prose-lighter">
 				<Header mode="dark">
