@@ -13,10 +13,6 @@ export default {
 			limit: "9 kb",
 		},
 		{
-			path: "dist/LazyPanel-<hash>.js",
-			limit: "16 kb",
-		},
-		{
 			path: "dist/react-<semver>.js",
 			limit: "46 kb",
 		},
