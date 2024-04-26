@@ -6,14 +6,14 @@ export default {
 	sizes: [
 		{
 			path: "dist/assets/index-<hash>.js",
-			limit: "16 kb",
+			limit: "17 kb",
 		},
 		{
 			path: "dist/assets/index-<hash>.css",
 			limit: "9 kb",
 		},
 		{
-			path: "dist/LazyPanel-<hash>.js",
+			path: "dist/index-<hash>.js",
 			limit: "16 kb",
 		},
 		{
