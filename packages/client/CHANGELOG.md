@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.5](https://github.com/aversini/mylogin-ui/compare/client-v1.14.4...client-v1.14.5) (2024-04-26)
+
+
+### Performance Improvements
+
+* replace custom LazyPanel with built-in lazy Panel ([3563532](https://github.com/aversini/mylogin-ui/commit/35635321a207887c1736bf422c334d789b700c06))
+
 ## [1.14.4](https://github.com/aversini/mylogin-ui/compare/client-v1.14.3...client-v1.14.4) (2024-04-23)
 
 
