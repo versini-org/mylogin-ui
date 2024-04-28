@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.6](https://github.com/aversini/mylogin-ui/compare/client-v1.14.5...client-v1.14.6) (2024-04-28)
+
+
+### Bug Fixes
+
+* bump non-breaking dependencies ([c5556a9](https://github.com/aversini/mylogin-ui/commit/c5556a9eccc387c13bff2275e6477d3d15cb4c56))
+
 ## [1.14.5](https://github.com/aversini/mylogin-ui/compare/client-v1.14.4...client-v1.14.5) (2024-04-26)
 
 
