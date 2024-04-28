@@ -790,5 +790,31 @@
       "limit": "46 kb",
       "passed": true
     }
+  },
+  "1.14.6": {
+    "dist/assets/index-<hash>.js": {
+      "fileSize": 66513,
+      "fileSizeGzip": 16765,
+      "limit": "17 kb",
+      "passed": true
+    },
+    "dist/assets/index-<hash>.css": {
+      "fileSize": 58144,
+      "fileSizeGzip": 8979,
+      "limit": "9 kb",
+      "passed": true
+    },
+    "dist/index-<hash>.js": {
+      "fileSize": 43059,
+      "fileSizeGzip": 15691,
+      "limit": "16 kb",
+      "passed": true
+    },
+    "dist/react-<semver>.js": {
+      "fileSize": 142146,
+      "fileSizeGzip": 45562,
+      "limit": "46 kb",
+      "passed": true
+    }
   }
 }
