@@ -43,8 +43,8 @@ importers:
         version: 9.0.1
     devDependencies:
       '@versini/ui-styles':
-        specifier: 1.9.1
-        version: 1.9.1
+        specifier: 1.9.2
+        version: 1.9.2
 
 packages:
 
@@ -1241,8 +1241,8 @@ packages:
       react: ^18.3.1
       react-dom: ^18.3.1
 
-  '@versini/ui-styles@1.9.1':
-    resolution: {integrity: sha512-e1VH4nZyNGbFMD537H72f21hsqyfQajQUA5RFT808fO6jaBYB/cuN3oByoMnnvFuztv5qlwx4CZv7tEHHrwDbQ==}
+  '@versini/ui-styles@1.9.2':
+    resolution: {integrity: sha512-rK+u+vD3SLxcdbxW/7h42P8hGUr1pKstUHrgRxofPBqquBxrJMARg4XBsab4YrF0tGBVUhxDEKbQIipphbDd0w==}
 
   '@versini/ui-system@1.4.1':
     resolution: {integrity: sha512-LamTmzgsoFpqfxoYqK0D0GVkT5wmewwXgmp++9h3rRp6df2dcudS+4JPB1JwIcKqoocEUaBYd6wnRzhcPVHv3g==}
@@ -6243,7 +6243,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@versini/ui-styles@1.9.1':
+  '@versini/ui-styles@1.9.2':
     dependencies:
       '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.3)
       culori: 4.0.1

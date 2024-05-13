@@ -22,7 +22,7 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@versini/ui-styles": "1.9.1"
+		"@versini/ui-styles": "1.9.2"
 	},
 	"dependencies": {
 		"@versini/ui-components": "5.19.1",
