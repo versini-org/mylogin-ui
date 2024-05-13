@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@node-cli/bundlesize": "4.0.3",
 		"@versini/dev-dependencies-client": "4.1.24",
-		"@versini/dev-dependencies-types": "1.1.12"
+		"@versini/dev-dependencies-types": "1.1.13"
 	},
 	"packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3"
 }
