@@ -6,9 +6,10 @@
 	"type": "module",
 	"scripts": {
 		"clean": "rimraf dist",
-		"dev": "vite --host",
+		"dev": "rsbuild dev",
+		"build:bundlesize": "rsbuild build -c \"../../configuration/rsbuild-bundlesize.config.js\" ",
 		"build:check": "tsc",
-		"build:js": "vite build",
+		"build:js": "rsbuild build",
 		"build": "npm-run-all --serial clean build:check build:js",
 		"lint": "biome lint src",
 		"start": "static-server dist --port 5173",
