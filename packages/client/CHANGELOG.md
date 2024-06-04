@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/aversini/mylogin-ui/compare/client-v1.14.7...client-v1.15.0) (2024-06-04)
+
+
+### Features
+
+* migrating from Vite to Rsbuild ([8a31f67](https://github.com/aversini/mylogin-ui/commit/8a31f67b4c1365a5685a544860e42c20756a70d1))
+
 ## [1.14.7](https://github.com/aversini/mylogin-ui/compare/client-v1.14.6...client-v1.14.7) (2024-05-28)
 
 
