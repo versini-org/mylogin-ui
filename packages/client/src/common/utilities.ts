@@ -82,7 +82,7 @@ export const graphQLCall = async ({
 	query: any;
 	headers?: any;
 }) => {
-	const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/graphql`, {
+	const response = await fetch(`${process.env.PUBLIC_SERVER_URL}/graphql`, {
 		method: "POST",
 		headers: {
 			...headers,
