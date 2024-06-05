@@ -3,6 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
+export const GRAPHQL_AUTH_QUERIES = {
+	AUTHENTICATE: `query authenticate($username: String!, $password: String!) {
+		authenticate(username: $username, password: $password) {
+			token
+		}
+	}`,
+};
+
 export const GRAPHQL_QUERIES = {
 	GET_SHORTCUTS: `query GetShortcuts($userId: String!) {
 		getUserSections(user: $userId) {
@@ -335,6 +343,28 @@ export const editShortcuts = async ({
 		}
 		const { data } = await response.json();
 		return { status: response.status, data: data.editShortcuts };
+	} catch (_error) {
+		return { status: 500, data: [] };
+	}
+};
+
+export const authenticate = async ({
+	username,
+	password,
+}: {
+	username: string;
+	password: string;
+}) => {
+	try {
+		const response = await graphQLCall({
+			query: GRAPHQL_AUTH_QUERIES.AUTHENTICATE,
+			data: { username, password },
+		});
+		if (response.status !== 200) {
+			return { status: response.status, data: [] };
+		}
+		const { data } = await response.json();
+		return { status: response.status, data: data.authenticate };
 	} catch (_error) {
 		return { status: 500, data: [] };
 	}

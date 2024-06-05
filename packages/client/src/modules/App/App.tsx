@@ -11,6 +11,7 @@ import {
 	TableRow,
 } from "@versini/ui-components";
 import { TextInput } from "@versini/ui-form";
+import { useLocalStorage } from "@versini/ui-hooks";
 import {
 	IconAdd,
 	IconDelete,
@@ -27,6 +28,7 @@ import {
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
 	LOCAL_STORAGE_BASIC_AUTH,
+	LOCAL_STORAGE_PREFIX,
 } from "../../common/constants";
 import {
 	onChangeSectionTitle,
@@ -34,7 +36,7 @@ import {
 	onClickChangeSectionPosition,
 	onClickDeleteSection,
 } from "../../common/handlers";
-import { useLocalStorage } from "../../common/hooks";
+// import { useLocalStorage } from "../../common/hooks";
 import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
 import { SectionProps } from "../../common/types";
 import { getShortcuts } from "../../common/utilities";
@@ -45,13 +47,13 @@ import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
 
 function App() {
-	const storage = useLocalStorage();
+	// const storage = useLocalStorage();
 	const [errorMessage, setErrorMessage] = useState("");
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
-	const [basicAuth, setBasicAuth] = useState(
-		storage.get(LOCAL_STORAGE_BASIC_AUTH),
-	);
+	// const [basicAuth, setBasicAuth] = useState(
+	// storage.get(LOCAL_STORAGE_BASIC_AUTH),
+	// );
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
 		sections: [],
@@ -60,6 +62,10 @@ function App() {
 	const customTheme = {
 		"--av-action-dark-hover": "#64748b",
 	};
+	const [basicAuth, setBasicAuth] = useLocalStorage({
+		key: LOCAL_STORAGE_PREFIX + LOCAL_STORAGE_BASIC_AUTH,
+		defaultValue: "",
+	});
 
 	/**
 	 * Fade out the logo and fade in the app.
@@ -93,7 +99,7 @@ function App() {
 
 			if (response.status !== 200) {
 				if (response.status === 401) {
-					storage.remove(LOCAL_STORAGE_BASIC_AUTH);
+					// storage.remove(LOCAL_STORAGE_BASIC_AUTH);
 					setBasicAuth("");
 					setErrorMessage("Invalid credentials");
 				}
@@ -137,10 +143,10 @@ function App() {
 					</Header>
 					<Main>
 						<Login
-							storage={storage}
+							// storage={storage}
 							errorMessage={errorMessage}
 							setErrorMessage={setErrorMessage}
-							setBasicAuth={setBasicAuth}
+							// setBasicAuth={setBasicAuth}
 						/>
 					</Main>
 					<Footer
