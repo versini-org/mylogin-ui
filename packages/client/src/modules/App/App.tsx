@@ -97,12 +97,9 @@ function App() {
 				basicAuth,
 			});
 
-			if (response.status !== 200) {
-				if (response.status === 401) {
-					// storage.remove(LOCAL_STORAGE_BASIC_AUTH);
-					setBasicAuth("");
-					setErrorMessage("Invalid credentials");
-				}
+			if (response.status !== 200 || response?.errors?.length > 0) {
+				setBasicAuth("");
+				setErrorMessage("Invalid credentials");
 				dispatch({
 					type: ACTION_REFRESH_DATA,
 					payload: {

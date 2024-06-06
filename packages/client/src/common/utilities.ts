@@ -151,11 +151,11 @@ export const getShortcuts = async ({
 	userId,
 	basicAuth,
 }: {
-	basicAuth: string | boolean;
+	basicAuth: any;
 	userId: string;
 }) => {
 	try {
-		const authorization = `Basic ${basicAuth}`;
+		const authorization = `Bearer ${basicAuth.token}`;
 		const response = await graphQLCall({
 			headers: {
 				authorization,
@@ -163,12 +163,24 @@ export const getShortcuts = async ({
 			query: GRAPHQL_QUERIES.GET_SHORTCUTS,
 			data: { userId },
 		});
+
+		// console.log(`==> [${Date.now()}] response: `, response);
+
 		if (response.status !== 200) {
 			return { status: response.status, data: [] };
 		}
-		const { data } = await response.json();
-		return { status: response.status, data: data.getUserSections };
+		const { data, errors } = await response.json();
+
+		// console.log(`==> [${Date.now()}] data: `, data);
+
+		return {
+			status: response.status,
+			data: data.getUserSections,
+			errors,
+		};
 	} catch (_error) {
+		console.error(`==> [${Date.now()}] error: `, _error);
+
 		return { status: 500, data: [] };
 	}
 };
