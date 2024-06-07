@@ -1,20 +1,14 @@
 import { v4 as uuidv4 } from "uuid";
 
 import {
+	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
 	ACTION_SET_STATUS,
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
 } from "./constants";
-import { FAKE_USER_EMAIL } from "./strings";
 import type { SectionProps } from "./types";
-import {
-	addSection,
-	changeSectionPosition,
-	deleteSection,
-	editSectionTitle,
-	editShortcuts,
-} from "./utilities";
+import { SERVICE_TYPES, serviceCall } from "./utilities";
 
 /**
  *
@@ -32,14 +26,16 @@ export const onClickAddSection = async ({
 	position: number;
 	sections: any;
 }) => {
-	const response = await addSection({
-		userId: FAKE_USER_EMAIL,
+	const response = await serviceCall({
 		basicAuth,
-		position,
+		type: SERVICE_TYPES.ADD_SECTION,
+		params: {
+			position,
+		},
 	});
-	if (response.status !== 200) {
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -74,15 +70,17 @@ export const onChangeSectionTitle = async ({
 	section: any;
 	state: any;
 }) => {
-	const response = await editSectionTitle({
-		userId: FAKE_USER_EMAIL,
+	const response = await serviceCall({
 		basicAuth,
-		sectionId: section.id,
-		sectionTitle: e.target.value,
+		type: SERVICE_TYPES.EDIT_SECTION_TITLE,
+		params: {
+			sectionId: section.id,
+			sectionTitle: e.target.value,
+		},
 	});
-	if (response.status !== 200) {
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -117,15 +115,17 @@ export const onClickChangeSectionPosition = async ({
 	dispatch: any;
 	sectionId: string;
 }) => {
-	const response = await changeSectionPosition({
-		userId: FAKE_USER_EMAIL,
+	const response = await serviceCall({
 		basicAuth,
-		sectionId,
-		direction,
+		type: SERVICE_TYPES.CHANGE_SECTION_POSITION,
+		params: {
+			sectionId,
+			direction,
+		},
 	});
-	if (response.status !== 200) {
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -150,14 +150,16 @@ export const onClickDeleteSection = async ({
 	dispatch: any;
 	section: any;
 }) => {
-	const response = await deleteSection({
-		userId: FAKE_USER_EMAIL,
+	const response = await serviceCall({
 		basicAuth,
-		sectionId: section.id,
+		type: SERVICE_TYPES.DELETE_SECTION,
+		params: {
+			sectionId: section.id,
+		},
 	});
-	if (response.status !== 200) {
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -184,7 +186,7 @@ export const onClickAddShortcut = async ({
 	basicAuth,
 	dispatch,
 }: {
-	basicAuth: string | boolean;
+	basicAuth: any;
 	dispatch: any;
 	position: number | null;
 	section: SectionProps | null;
@@ -195,14 +197,16 @@ export const onClickAddShortcut = async ({
 			label: "New Shortcut",
 			url: "https://www.example.com",
 		});
-		const response = await editShortcuts({
+		const response = await serviceCall({
 			basicAuth,
-			userId: FAKE_USER_EMAIL,
-			sectionId: section.id,
-			sectionTitle: section.title,
-			shortcuts: section.shortcuts,
+			type: SERVICE_TYPES.EDIT_SHORTCUTS,
+			params: {
+				sectionId: section.id,
+				sectionTitle: section.title,
+				shortcuts: section.shortcuts,
+			},
 		});
-		if (response.status !== 200) {
+		if (response.status !== 200 || response?.errors?.length > 0) {
 			dispatch({
 				type: ACTION_SET_STATUS,
 				payload: {
@@ -220,7 +224,7 @@ export const onClickAddShortcut = async ({
 		}
 	} else {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -249,16 +253,18 @@ export const onChangeShortcut = async ({
 	if (url) {
 		section.shortcuts[position].url = url;
 	}
-	const response = await editShortcuts({
+	const response = await serviceCall({
 		basicAuth,
-		userId: FAKE_USER_EMAIL,
-		sectionId: section.id,
-		sectionTitle: section.title,
-		shortcuts: section.shortcuts,
+		type: SERVICE_TYPES.EDIT_SHORTCUTS,
+		params: {
+			sectionId: section.id,
+			sectionTitle: section.title,
+			shortcuts: section.shortcuts,
+		},
 	});
-	if (response.status !== 200) {
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -280,21 +286,23 @@ export const onClickDeleteShortcut = async ({
 	basicAuth,
 	dispatch,
 }: {
-	basicAuth: string | boolean;
+	basicAuth: any;
 	dispatch: any;
 	position: number | null;
 	section: SectionProps | null;
 }) => {
 	if (section && position !== null) {
 		section.shortcuts.splice(position, 1);
-		const response = await editShortcuts({
+		const response = await serviceCall({
 			basicAuth,
-			userId: FAKE_USER_EMAIL,
-			sectionId: section.id,
-			sectionTitle: section.title,
-			shortcuts: section.shortcuts,
+			type: SERVICE_TYPES.EDIT_SHORTCUTS,
+			params: {
+				sectionId: section.id,
+				sectionTitle: section.title,
+				shortcuts: section.shortcuts,
+			},
 		});
-		if (response.status !== 200) {
+		if (response.status !== 200 || response?.errors?.length > 0) {
 			dispatch({
 				type: ACTION_SET_STATUS,
 				payload: {
@@ -312,7 +320,7 @@ export const onClickDeleteShortcut = async ({
 		}
 	} else {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},
@@ -346,16 +354,19 @@ export const onClickChangeShortcutPosition = async ({
 		section.shortcuts[position + 1] = shortcut;
 	}
 
-	const response = await editShortcuts({
+	const response = await serviceCall({
 		basicAuth,
-		userId: FAKE_USER_EMAIL,
-		sectionId: section.id,
-		sectionTitle: section.title,
-		shortcuts: section.shortcuts,
+		type: SERVICE_TYPES.EDIT_SHORTCUTS,
+		params: {
+			sectionId: section.id,
+			sectionTitle: section.title,
+			shortcuts: section.shortcuts,
+		},
 	});
-	if (response.status !== 200) {
+
+	if (response.status !== 200 || response?.errors?.length > 0) {
 		dispatch({
-			type: ACTION_SET_STATUS,
+			type: ACTION_INVALIDATE_SESSION,
 			payload: {
 				status: ACTION_STATUS_ERROR,
 			},

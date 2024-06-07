@@ -1,4 +1,5 @@
 import {
+	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
 	ACTION_SET_STATUS,
 	ACTION_STATUS_ERROR,
@@ -19,7 +20,11 @@ export type SectionProps = {
 
 export type StateProps = {
 	sections: SectionProps[];
-	status: string | typeof ACTION_STATUS_ERROR | typeof ACTION_STATUS_SUCCESS;
+	status:
+		| string
+		| typeof ACTION_STATUS_ERROR
+		| typeof ACTION_STATUS_SUCCESS
+		| typeof ACTION_INVALIDATE_SESSION;
 };
 
 export type ActionProps =
@@ -39,6 +44,15 @@ export type ActionProps =
 					| typeof ACTION_STATUS_SUCCESS;
 			};
 			type: typeof ACTION_REFRESH_DATA;
+	  }
+	| {
+			payload: {
+				status:
+					| string
+					| typeof ACTION_STATUS_ERROR
+					| typeof ACTION_STATUS_SUCCESS;
+			};
+			type: typeof ACTION_INVALIDATE_SESSION;
 	  };
 
 export type AppContextProps = {

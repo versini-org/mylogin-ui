@@ -1,36 +1,45 @@
 import { Button, ButtonIcon } from "@versini/ui-components";
-import { TextInputMask } from "@versini/ui-form";
+import { TextInput, TextInputMask } from "@versini/ui-form";
 import { IconHide, IconShow } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useState } from "react";
 
-import { LOCAL_STORAGE_BASIC_AUTH } from "../../common/constants";
-import type { StorageInterface } from "../../common/hooks";
-import {
-	FAKE_USER_EMAIL,
-	LOG_IN,
-	PASSWORD_PLACEHOLDER,
-} from "../../common/strings";
+import { useAuth } from "../../common/auth";
+import { LOG_IN, PASSWORD_PLACEHOLDER } from "../../common/strings";
 
 export const Login = ({
-	storage,
 	errorMessage,
 	setErrorMessage,
-	setBasicAuth,
 }: {
 	errorMessage: string;
-	setBasicAuth: (basicAuth: string | boolean) => void;
 	setErrorMessage: (errorMessage: string) => void;
-	storage: StorageInterface;
 }) => {
+	const auth = useAuth();
 	const [masked, setMasked] = useState(true);
 	const [simpleLogin, setSimpleLogin] = useState({
+		username: "",
 		password: "",
 	});
 
 	return (
 		<form className="mx-auto mt-8">
-			<Flexgrid direction="column" width="24rem">
+			<Flexgrid direction="column" width="36rem" rowGap={7}>
+				<FlexgridItem>
+					<TextInput
+						mode="dark"
+						focusMode="light"
+						name="username"
+						label="Username"
+						onChange={(e) => {
+							setSimpleLogin({
+								...simpleLogin,
+								username: e.target.value,
+							});
+							setErrorMessage("");
+						}}
+						error={errorMessage !== ""}
+					/>
+				</FlexgridItem>
 				<FlexgridItem>
 					<TextInputMask
 						mode="dark"
@@ -61,14 +70,16 @@ export const Login = ({
 						fullWidth
 						noBorder
 						type="submit"
-						className="mb-4 mt-8"
-						onClick={(e) => {
+						className="mb-4 mt-6"
+						onClick={async (e) => {
 							e.preventDefault();
-							const data = `${btoa(
-								`${FAKE_USER_EMAIL}:${simpleLogin.password}`,
-							)}`;
-							storage.set(LOCAL_STORAGE_BASIC_AUTH, data);
-							setBasicAuth(storage.get(LOCAL_STORAGE_BASIC_AUTH));
+							const response = await auth.login(
+								simpleLogin.username,
+								simpleLogin.password,
+							);
+							if (!response) {
+								setErrorMessage("Invalid username or password");
+							}
 						}}
 					>
 						{LOG_IN}

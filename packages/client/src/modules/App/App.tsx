@@ -22,11 +22,13 @@ import { IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
 import { useEffect, useReducer, useRef, useState } from "react";
 
+import { useAuth } from "../../common/auth";
 import {
+	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
-	LOCAL_STORAGE_BASIC_AUTH,
+	EXPIRED_SESSION,
 } from "../../common/constants";
 import {
 	onChangeSectionTitle,
@@ -34,10 +36,9 @@ import {
 	onClickChangeSectionPosition,
 	onClickDeleteSection,
 } from "../../common/handlers";
-import { useLocalStorage } from "../../common/hooks";
-import { APP_NAME, APP_OWNER, FAKE_USER_EMAIL } from "../../common/strings";
+import { APP_NAME, APP_OWNER } from "../../common/strings";
 import { SectionProps } from "../../common/types";
-import { getShortcuts } from "../../common/utilities";
+import { SERVICE_TYPES, serviceCall } from "../../common/utilities";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
@@ -45,13 +46,9 @@ import { AppContext } from "./AppContext";
 import { reducer } from "./reducer";
 
 function App() {
-	const storage = useLocalStorage();
 	const [errorMessage, setErrorMessage] = useState("");
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
-	const [basicAuth, setBasicAuth] = useState(
-		storage.get(LOCAL_STORAGE_BASIC_AUTH),
-	);
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
 		sections: [],
@@ -60,6 +57,9 @@ function App() {
 	const customTheme = {
 		"--av-action-dark-hover": "#64748b",
 	};
+
+	const auth = useAuth();
+	const basicAuth = auth.basicAuth;
 
 	/**
 	 * Fade out the logo and fade in the app.
@@ -86,22 +86,17 @@ function App() {
 		 * User is authenticated, we can request for data.
 		 */
 		(async () => {
-			const response = await getShortcuts({
-				userId: FAKE_USER_EMAIL,
+			const response = await serviceCall({
 				basicAuth,
+				type: SERVICE_TYPES.GET_SHORTCUTS,
 			});
 
-			if (response.status !== 200) {
-				if (response.status === 401) {
-					storage.remove(LOCAL_STORAGE_BASIC_AUTH);
-					setBasicAuth("");
-					setErrorMessage("Invalid credentials");
-				}
+			if (response.status !== 200 || response?.errors?.length > 0) {
+				auth.logout();
 				dispatch({
-					type: ACTION_REFRESH_DATA,
+					type: ACTION_INVALIDATE_SESSION,
 					payload: {
 						status: ACTION_STATUS_ERROR,
-						sections: [],
 					},
 				});
 			} else {
@@ -115,8 +110,15 @@ function App() {
 				});
 			}
 		})();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [basicAuth]);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		if (state.status === ACTION_STATUS_ERROR) {
+			setErrorMessage(EXPIRED_SESSION);
+			auth.logout();
+		}
+	}, [state.status]);
 
 	/**
 	 * User is not authenticated, we need to show simple login form.
@@ -137,10 +139,8 @@ function App() {
 					</Header>
 					<Main>
 						<Login
-							storage={storage}
 							errorMessage={errorMessage}
 							setErrorMessage={setErrorMessage}
-							setBasicAuth={setBasicAuth}
 						/>
 					</Main>
 					<Footer
