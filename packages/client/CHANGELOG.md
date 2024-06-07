@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/aversini/mylogin-ui/compare/client-v1.15.0...client-v1.16.0) (2024-06-07)
+
+
+### Features
+
+* migrating to JWT authentication ([de700e5](https://github.com/aversini/mylogin-ui/commit/de700e5e48c83ce60fe571d50cd3b4fa82b8d05f))
+
 ## [1.15.0](https://github.com/aversini/mylogin-ui/compare/client-v1.14.7...client-v1.15.0) (2024-06-04)
 
 
