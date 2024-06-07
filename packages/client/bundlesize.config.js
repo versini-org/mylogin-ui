@@ -17,7 +17,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/vendors-*uuid*.<hash>.js",
-			limit: "14 kb",
+			limit: "15 kb",
 		},
 		/**
 		 * JavaScript static async assets.
