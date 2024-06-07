@@ -10,7 +10,6 @@ import {
 	TableRow,
 } from "@versini/ui-components";
 import { TextArea, TextInput } from "@versini/ui-form";
-import { useLocalStorage } from "@versini/ui-hooks";
 import {
 	IconAdd,
 	IconDelete,
@@ -20,34 +19,26 @@ import {
 } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext, useRef, useState } from "react";
-import {
-	LOCAL_STORAGE_BASIC_AUTH,
-	LOCAL_STORAGE_PREFIX,
-} from "../../common/constants";
+
+import { useAuth } from "../../common/auth";
 import {
 	onChangeShortcut,
 	onClickAddShortcut,
 	onClickChangeShortcutPosition,
 	onClickDeleteShortcut,
 } from "../../common/handlers";
-// import { useLocalStorage } from "../../common/hooks";
 import type { SectionProps } from "../../common/types";
 import { AppContext } from "../App/AppContext";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Shortcuts = () => {
-	// const storage = useLocalStorage();
 	const { state, dispatch } = useContext(AppContext);
 	const [editable, setEditable] = useState<string | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
-	// const [basicAuth] = useState(storage.get(LOCAL_STORAGE_BASIC_AUTH));
 	const shortcutPositionRef = useRef<number | null>(null);
 	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
-	const [basicAuth] = useLocalStorage({
-		key: LOCAL_STORAGE_PREFIX + LOCAL_STORAGE_BASIC_AUTH,
-		defaultValue: "",
-	});
+	const { basicAuth } = useAuth();
 
 	return state && state?.sections?.length > 0 ? (
 		<>
