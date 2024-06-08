@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.1](https://github.com/aversini/mylogin-ui/compare/client-v1.16.0...client-v1.16.1) (2024-06-08)
+
+
+### Bug Fixes
+
+* refactor authentication with custom AuthProvider ([47f5b92](https://github.com/aversini/mylogin-ui/commit/47f5b92757f64670902ca2b60224ea3623fdeae0))
+
 ## [1.16.0](https://github.com/aversini/mylogin-ui/compare/client-v1.15.0...client-v1.16.0) (2024-06-07)
 
 
