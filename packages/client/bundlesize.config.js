@@ -9,19 +9,27 @@ export default {
 		 */
 		{
 			path: "dist/static/js/index.<hash>.js",
-			limit: "8 kb",
+			limit: "5 kb",
 		},
 		{
 			path: "dist/static/js/lib-react.<hash>.js",
 			limit: "45 kb",
 		},
 		{
-			path: "dist/static/js/vendors-*uuid*.<hash>.js",
-			limit: "15 kb",
+			path: "dist/static/js/vendors-*ui-components*.<hash>.js",
+			limit: "9 kb",
 		},
 		/**
 		 * JavaScript static async assets.
 		 */
+		{
+			path: "dist/static/js/async/*App_App*.<hash>.js",
+			limit: "5 kb",
+		},
+		{
+			path: "dist/static/js/async/vendors-*uuid*.<hash>.js",
+			limit: "8 kb",
+		},
 		{
 			path: "dist/static/js/async/vendors-*ui-components*.<hash>.js",
 			limit: "20 kb",

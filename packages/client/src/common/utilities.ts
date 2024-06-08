@@ -4,11 +4,6 @@ export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
 const GRAPHQL_QUERIES = {
-	AUTHENTICATE: `query authenticate($username: String!, $password: String!) {
-		authenticate(username: $username, password: $password) {
-			token
-		}
-	}`,
 	GET_SHORTCUTS: `query GetShortcuts {
 		getUserSections {
 			title
@@ -112,10 +107,6 @@ export const SERVICE_TYPES = {
 	EDIT_SHORTCUTS: {
 		schema: GRAPHQL_QUERIES.SET_SHORTCUTS,
 		method: "editShortcuts",
-	},
-	AUTHENTICATE: {
-		schema: GRAPHQL_QUERIES.AUTHENTICATE,
-		method: "authenticate",
 	},
 };
 
