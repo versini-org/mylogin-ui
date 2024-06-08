@@ -1,6 +1,5 @@
 import {
 	ButtonIcon,
-	Footer,
 	Header,
 	Main,
 	Table,
@@ -20,9 +19,8 @@ import {
 } from "@versini/ui-icons";
 import { IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
-import { useAuth } from "../../common/auth";
 import {
 	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
@@ -36,30 +34,27 @@ import {
 	onClickChangeSectionPosition,
 	onClickDeleteSection,
 } from "../../common/handlers";
-import { APP_NAME, APP_OWNER } from "../../common/strings";
 import { SectionProps } from "../../common/types";
 import { SERVICE_TYPES, serviceCall } from "../../common/utilities";
+import { useAuth } from "../AuthProvider";
+import { AppFooter } from "../Common/AppFooter";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
-import { Login } from "../Login/Login";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
-import { reducer } from "./reducer";
 
 function App() {
-	const [errorMessage, setErrorMessage] = useState("");
+	const { accessToken, logout, isAuthenticated } = useAuth();
+
+	const [, setErrorMessage] = useState("");
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
-	const [state, dispatch] = useReducer(reducer, {
-		status: ACTION_STATUS_SUCCESS,
-		sections: [],
-	});
+
+	const { state, dispatch } = useContext(AppContext);
+
 	const sectionToDeleteRef = useRef<SectionProps | null>(null);
 	const customTheme = {
 		"--av-action-dark-hover": "#64748b",
 	};
-
-	const auth = useAuth();
-	const basicAuth = auth.basicAuth;
 
 	/**
 	 * Fade out the logo and fade in the app.
@@ -78,7 +73,7 @@ function App() {
 		/**
 		 * User is not authenticated, we cannot request for data yet.
 		 */
-		if (!basicAuth || basicAuth === "") {
+		if (!isAuthenticated) {
 			return;
 		}
 
@@ -87,12 +82,14 @@ function App() {
 		 */
 		(async () => {
 			const response = await serviceCall({
-				basicAuth,
+				basicAuth: accessToken,
 				type: SERVICE_TYPES.GET_SHORTCUTS,
 			});
 
 			if (response.status !== 200 || response?.errors?.length > 0) {
-				auth.logout();
+				console.info(`==> [${Date.now()}] : `, "logout after failed request");
+
+				logout();
 				dispatch({
 					type: ACTION_INVALIDATE_SESSION,
 					payload: {
@@ -110,61 +107,17 @@ function App() {
 				});
 			}
 		})();
-	}, [basicAuth]);
+	}, [accessToken]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
+		console.info(`==> [${Date.now()}] in app: `, state.status);
 		if (state.status === ACTION_STATUS_ERROR) {
 			setErrorMessage(EXPIRED_SESSION);
-			auth.logout();
+			logout();
 		}
 	}, [state.status]);
 
-	/**
-	 * User is not authenticated, we need to show simple login form.
-	 */
-	if (!basicAuth || basicAuth === "") {
-		return (
-			<AppContext.Provider value={{ state, dispatch }}>
-				<div className="prose prose-lighter">
-					<Header mode="dark">
-						<h1 className="heading mb-0">
-							<Flexgrid alignVertical="center">
-								<FlexgridItem>
-									<IconStarInCircle spacing={{ r: 2 }} />
-								</FlexgridItem>
-								<FlexgridItem>My Shortcuts</FlexgridItem>
-							</Flexgrid>
-						</h1>
-					</Header>
-					<Main>
-						<Login
-							errorMessage={errorMessage}
-							setErrorMessage={setErrorMessage}
-						/>
-					</Main>
-					<Footer
-						mode="light"
-						row1={
-							<div>
-								{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
-								{import.meta.env.BUILDTIME}
-							</div>
-						}
-						row2={
-							<div>
-								&copy; {new Date().getFullYear()} {APP_OWNER}
-							</div>
-						}
-					/>
-				</div>
-			</AppContext.Provider>
-		);
-	}
-
-	/**
-	 * User is fully authenticated. We can show the app.
-	 */
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
 			<ConfirmationPanel
@@ -173,7 +126,7 @@ function App() {
 				action={() => {
 					onClickDeleteSection({
 						dispatch,
-						basicAuth,
+						basicAuth: accessToken,
 						section: sectionToDeleteRef.current,
 					});
 				}}
@@ -241,7 +194,7 @@ function App() {
 													defaultValue={section.title}
 													onChange={(e) => {
 														onChangeSectionTitle({
-															basicAuth,
+															basicAuth: accessToken,
 															e,
 															section,
 															dispatch,
@@ -260,7 +213,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangeSectionPosition({
-																	basicAuth,
+																	basicAuth: accessToken,
 																	sectionId: section.id,
 																	direction: "up",
 																	dispatch,
@@ -280,7 +233,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangeSectionPosition({
-																	basicAuth,
+																	basicAuth: accessToken,
 																	sectionId: section.id,
 																	direction: "down",
 																	dispatch,
@@ -301,7 +254,7 @@ function App() {
 														label="New Section"
 														onClick={() => {
 															onClickAddSection({
-																basicAuth,
+																basicAuth: accessToken,
 																dispatch,
 																sections: state.sections,
 																position: idx,
@@ -346,20 +299,7 @@ function App() {
 					)}
 					{state && state?.sections?.length > 0 && <Shortcuts />}
 				</Main>
-				<Footer
-					mode="light"
-					row1={
-						<div>
-							{APP_NAME} v{import.meta.env.BUILDVERSION} -{" "}
-							{import.meta.env.BUILDTIME}
-						</div>
-					}
-					row2={
-						<div>
-							&copy; {new Date().getFullYear()} {APP_OWNER}
-						</div>
-					}
-				/>
+				<AppFooter />
 			</ThemeProvider>
 		</AppContext.Provider>
 	);

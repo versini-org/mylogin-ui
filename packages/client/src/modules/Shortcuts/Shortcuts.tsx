@@ -20,7 +20,6 @@ import {
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext, useRef, useState } from "react";
 
-import { useAuth } from "../../common/auth";
 import {
 	onChangeShortcut,
 	onClickAddShortcut,
@@ -29,6 +28,7 @@ import {
 } from "../../common/handlers";
 import type { SectionProps } from "../../common/types";
 import { AppContext } from "../App/AppContext";
+import { useAuth } from "../AuthProvider";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Shortcuts = () => {
@@ -38,7 +38,7 @@ export const Shortcuts = () => {
 	const shortcutPositionRef = useRef<number | null>(null);
 	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
-	const { basicAuth } = useAuth();
+	const { accessToken } = useAuth();
 
 	return state && state?.sections?.length > 0 ? (
 		<>
@@ -47,7 +47,7 @@ export const Shortcuts = () => {
 				showConfirmation={showConfirmation}
 				action={() => {
 					onClickDeleteShortcut({
-						basicAuth,
+						basicAuth: accessToken,
 						dispatch,
 						section: sectionWithShortcutRef.current,
 						position: shortcutPositionRef.current,
@@ -135,7 +135,7 @@ export const Shortcuts = () => {
 														onChange={(e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth,
+																basicAuth: accessToken,
 																label: e.target.value,
 																section,
 																dispatch,
@@ -153,7 +153,7 @@ export const Shortcuts = () => {
 														onChange={(e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth,
+																basicAuth: accessToken,
 																url: e.target.value,
 																section,
 																dispatch,
@@ -171,7 +171,7 @@ export const Shortcuts = () => {
 																focusMode="alt-system"
 																onClick={() => {
 																	onClickChangeShortcutPosition({
-																		basicAuth,
+																		basicAuth: accessToken,
 																		section,
 																		direction: "up",
 																		dispatch,
@@ -191,7 +191,7 @@ export const Shortcuts = () => {
 																focusMode="alt-system"
 																onClick={() => {
 																	onClickChangeShortcutPosition({
-																		basicAuth,
+																		basicAuth: accessToken,
 																		section,
 																		direction: "down",
 																		dispatch,
@@ -213,7 +213,7 @@ export const Shortcuts = () => {
 															label="New Shortcut"
 															onClick={() => {
 																onClickAddShortcut({
-																	basicAuth,
+																	basicAuth: accessToken,
 																	dispatch,
 																	position: idx,
 																	section,
