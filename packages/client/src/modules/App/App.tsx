@@ -26,7 +26,6 @@ import {
 	ACTION_REFRESH_DATA,
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
-	EXPIRED_SESSION,
 } from "../../common/constants";
 import {
 	onChangeSectionTitle,
@@ -45,7 +44,6 @@ import { AppContext } from "./AppContext";
 function App() {
 	const { accessToken, logout, isAuthenticated } = useAuth();
 
-	const [, setErrorMessage] = useState("");
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -87,8 +85,6 @@ function App() {
 			});
 
 			if (response.status !== 200 || response?.errors?.length > 0) {
-				console.info(`==> [${Date.now()}] : `, "logout after failed request");
-
 				logout();
 				dispatch({
 					type: ACTION_INVALIDATE_SESSION,
@@ -111,9 +107,7 @@ function App() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
-		console.info(`==> [${Date.now()}] in app: `, state.status);
 		if (state.status === ACTION_STATUS_ERROR) {
-			setErrorMessage(EXPIRED_SESSION);
 			logout();
 		}
 	}, [state.status]);
