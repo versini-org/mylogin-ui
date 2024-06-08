@@ -19,7 +19,6 @@ export default {
 			path: "dist/static/js/vendors-*ui-components*.<hash>.js",
 			limit: "9 kb",
 		},
-		,
 		/**
 		 * JavaScript static async assets.
 		 */
