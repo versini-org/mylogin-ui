@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.17.0](https://github.com/aversini/mylogin-ui/compare/client-v1.16.1...client-v1.17.0) (2024-06-13)
+
+
+### Features
+
+* wip ([5c39a73](https://github.com/aversini/mylogin-ui/commit/5c39a735e206a735e44d9f6c2c294205ac0a17c6))
+
+
+### Bug Fixes
+
+* use auth server ([1e784d0](https://github.com/aversini/mylogin-ui/commit/1e784d00016e553ba13334468c00fcdb101d61a4))
+
 ## [1.16.1](https://github.com/aversini/mylogin-ui/compare/client-v1.16.0...client-v1.16.1) (2024-06-08)
 
 
