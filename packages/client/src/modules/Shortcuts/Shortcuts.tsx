@@ -38,7 +38,7 @@ export const Shortcuts = () => {
 	const shortcutPositionRef = useRef<number | null>(null);
 	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
-	const { accessToken } = useAuth();
+	const { idToken } = useAuth();
 
 	return state && state?.sections?.length > 0 ? (
 		<>
@@ -47,7 +47,7 @@ export const Shortcuts = () => {
 				showConfirmation={showConfirmation}
 				action={() => {
 					onClickDeleteShortcut({
-						basicAuth: accessToken,
+						basicAuth: idToken,
 						dispatch,
 						section: sectionWithShortcutRef.current,
 						position: shortcutPositionRef.current,
@@ -135,7 +135,7 @@ export const Shortcuts = () => {
 														onChange={(e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth: accessToken,
+																basicAuth: idToken,
 																label: e.target.value,
 																section,
 																dispatch,
@@ -153,7 +153,7 @@ export const Shortcuts = () => {
 														onChange={(e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth: accessToken,
+																basicAuth: idToken,
 																url: e.target.value,
 																section,
 																dispatch,
@@ -171,7 +171,7 @@ export const Shortcuts = () => {
 																focusMode="alt-system"
 																onClick={() => {
 																	onClickChangeShortcutPosition({
-																		basicAuth: accessToken,
+																		basicAuth: idToken,
 																		section,
 																		direction: "up",
 																		dispatch,
@@ -191,7 +191,7 @@ export const Shortcuts = () => {
 																focusMode="alt-system"
 																onClick={() => {
 																	onClickChangeShortcutPosition({
-																		basicAuth: accessToken,
+																		basicAuth: idToken,
 																		section,
 																		direction: "down",
 																		dispatch,
@@ -213,7 +213,7 @@ export const Shortcuts = () => {
 															label="New Shortcut"
 															onClick={() => {
 																onClickAddShortcut({
-																	basicAuth: accessToken,
+																	basicAuth: idToken,
 																	dispatch,
 																	position: idx,
 																	section,

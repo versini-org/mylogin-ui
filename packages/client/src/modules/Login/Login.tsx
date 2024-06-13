@@ -27,9 +27,7 @@ export const Login = () => {
 		password: "",
 	});
 
-	const handleLogin = async (
-		e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-	) => {
+	const handleLogin = async (e: { preventDefault: () => void }) => {
 		e.preventDefault();
 		const response = await login(simpleLogin.username, simpleLogin.password);
 		if (!response) {
@@ -44,21 +42,6 @@ export const Login = () => {
 			});
 		}
 	};
-
-	// const handleLogin = async (
-	// 	e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-	// ) => {
-	// 	e.preventDefault();
-
-	// 	const response = await fetch(
-	// 		`${process.env.PUBLIC_AUTH_SERVER_URL}/health`,
-	// 		{
-	// 			credentials: "include",
-	// 			method: "GET",
-	// 		},
-	// 	);
-	// 	console.info(`==> [${Date.now()}] : `, response);
-	// };
 
 	useEffect(() => {
 		document.getElementById("logo")?.classList.add("fadeOut");

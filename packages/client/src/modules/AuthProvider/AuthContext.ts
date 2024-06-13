@@ -5,6 +5,8 @@ export type AuthContextType = {
 	logout: () => void;
 	isAuthenticated: boolean;
 	accessToken?: string;
+	refreshToken?: string;
+	idToken?: string;
 	logoutReason?: string;
 };
 
@@ -17,5 +19,7 @@ export const AuthContext = createContext<AuthContextType>({
 	login: stub,
 	logout: stub,
 	accessToken: undefined,
+	refreshToken: undefined,
+	idToken: undefined,
 	logoutReason: "",
 });

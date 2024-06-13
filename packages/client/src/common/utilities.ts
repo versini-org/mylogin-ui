@@ -120,7 +120,7 @@ const graphQLCall = async ({
 	query: any;
 	headers?: any;
 }) => {
-	const response = await fetch(`${process.env.PUBLIC_SERVER_URL}/graphql`, {
+	const response = await fetch(`${process.env.PUBLIC_API_SERVER_URL}/graphql`, {
 		method: "POST",
 		headers: {
 			...headers,
@@ -149,10 +149,10 @@ export const serviceCall = async ({
 	basicAuth,
 	type,
 	params = {},
-}: { basicAuth: any; type: any; params?: any }) => {
+}: { basicAuth: string; type: any; params?: any }) => {
 	const requestData = type?.data ? type.data(params) : params;
 	try {
-		const authorization = `Bearer ${basicAuth.token}`;
+		const authorization = `Bearer ${basicAuth}`;
 		const response = await graphQLCall({
 			headers: {
 				authorization,

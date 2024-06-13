@@ -42,7 +42,7 @@ import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 
 function App() {
-	const { accessToken, logout, isAuthenticated } = useAuth();
+	const { idToken, logout, isAuthenticated } = useAuth();
 
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
@@ -80,12 +80,11 @@ function App() {
 		 */
 		(async () => {
 			const response = await serviceCall({
-				basicAuth: accessToken,
+				basicAuth: idToken || "",
 				type: SERVICE_TYPES.GET_SHORTCUTS,
 			});
 
 			if (response.status !== 200 || response?.errors?.length > 0) {
-				logout();
 				dispatch({
 					type: ACTION_INVALIDATE_SESSION,
 					payload: {
@@ -103,7 +102,7 @@ function App() {
 				});
 			}
 		})();
-	}, [accessToken]);
+	}, [idToken]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -120,7 +119,7 @@ function App() {
 				action={() => {
 					onClickDeleteSection({
 						dispatch,
-						basicAuth: accessToken,
+						basicAuth: idToken,
 						section: sectionToDeleteRef.current,
 					});
 				}}
@@ -188,7 +187,7 @@ function App() {
 													defaultValue={section.title}
 													onChange={(e) => {
 														onChangeSectionTitle({
-															basicAuth: accessToken,
+															basicAuth: idToken,
 															e,
 															section,
 															dispatch,
@@ -207,7 +206,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangeSectionPosition({
-																	basicAuth: accessToken,
+																	basicAuth: idToken,
 																	sectionId: section.id,
 																	direction: "up",
 																	dispatch,
@@ -227,7 +226,7 @@ function App() {
 															focusMode="alt-system"
 															onClick={() => {
 																onClickChangeSectionPosition({
-																	basicAuth: accessToken,
+																	basicAuth: idToken,
 																	sectionId: section.id,
 																	direction: "down",
 																	dispatch,
@@ -248,7 +247,7 @@ function App() {
 														label="New Section"
 														onClick={() => {
 															onClickAddSection({
-																basicAuth: accessToken,
+																basicAuth: idToken,
 																dispatch,
 																sections: state.sections,
 																position: idx,
