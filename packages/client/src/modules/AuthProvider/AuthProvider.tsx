@@ -1,5 +1,6 @@
 import { useLocalStorage } from "@versini/ui-hooks";
 import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { AuthContext } from "./AuthContext";
 
@@ -19,6 +20,7 @@ const EXPIRED_SESSION =
 
 const serviceCall = async ({ params = {} }: { params?: any }) => {
 	try {
+		const nonce = uuidv4();
 		const response = await fetch(
 			`${process.env.PUBLIC_AUTH_SERVER_URL}/authenticate`,
 			{
@@ -28,7 +30,7 @@ const serviceCall = async ({ params = {} }: { params?: any }) => {
 					"Content-Type": "application/json",
 					"X-Auth-TenantId": `${params.tenantId}`,
 				},
-				body: JSON.stringify(params),
+				body: JSON.stringify({ ...params, nonce }),
 			},
 		);
 
@@ -36,6 +38,10 @@ const serviceCall = async ({ params = {} }: { params?: any }) => {
 			return { status: response.status, data: [] };
 		}
 		const { data, errors } = await response.json();
+		if (data.nonce !== nonce) {
+			return { status: 500, data: [] };
+		}
+
 		return {
 			status: response.status,
 			data,
