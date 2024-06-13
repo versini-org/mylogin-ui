@@ -3,63 +3,34 @@ import { useEffect, useRef, useState } from "react";
 
 import { AuthContext } from "./AuthContext";
 
+type AuthState = {
+	isAuthenticated: boolean;
+	idToken: string;
+	logoutReason: string;
+	userId: string;
+	accessToken?: string;
+	refreshToken?: string;
+};
+export const AUTH_TYPES = {
+	ID_TOKEN: "id_token",
+};
 const EXPIRED_SESSION =
 	"Oops! It looks like your session has expired. For your security, please log in again to continue.";
-const authenticateQuery = {
-	method: "authenticate",
-	schema: `query authenticate(
-		$username: String!,
-		$password: String!,
-		$sessionExpiration: String)
-{
-	authenticate(
-			username: $username,
-			password: $password,
-			sessionExpiration: $sessionExpiration)
-	{
-		token
-	}
-}`,
-};
 
-const graphQLCall = async ({
-	query,
-	data,
-	headers = {},
-}: {
-	data: any;
-	query: any;
-	headers?: any;
-}) => {
-	const response = await fetch(`${process.env.PUBLIC_SERVER_URL}/graphql`, {
-		method: "POST",
-		headers: {
-			...headers,
-			"Content-Type": "application/json",
-			Accept: "application/json",
-		},
-		body: JSON.stringify({
-			query,
-			variables: data,
-		}),
-	});
-	return response;
-};
-const serviceCall = async ({
-	basicAuth,
-	type,
-	params = {},
-}: { basicAuth: any; type: any; params?: any }) => {
-	const requestData = type?.data ? type.data(params) : params;
+const serviceCall = async ({ params = {} }: { params?: any }) => {
 	try {
-		const authorization = `Bearer ${basicAuth.token}`;
-		const response = await graphQLCall({
-			headers: {
-				authorization,
+		const response = await fetch(
+			`${process.env.PUBLIC_AUTH_SERVER_URL}/authenticate`,
+			{
+				credentials: "include",
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"X-Auth-TenantId": `${params.tenantId}`,
+				},
+				body: JSON.stringify(params),
 			},
-			query: type.schema,
-			data: requestData,
-		});
+		);
 
 		if (response.status !== 200) {
 			return { status: response.status, data: [] };
@@ -67,7 +38,7 @@ const serviceCall = async ({
 		const { data, errors } = await response.json();
 		return {
 			status: response.status,
-			data: data[type.method],
+			data,
 			errors,
 		};
 	} catch (_error) {
@@ -75,6 +46,7 @@ const serviceCall = async ({
 		return { status: 500, data: [] };
 	}
 };
+
 function usePrevious<T>(state: T): T | undefined {
 	const ref = useRef<T>();
 	useEffect(() => {
@@ -86,54 +58,81 @@ function usePrevious<T>(state: T): T | undefined {
 export const AuthProvider = ({
 	children,
 	sessionExpiration,
-	clientId,
+	tenantId,
+	accessType,
 }: {
 	children: React.ReactNode;
 	sessionExpiration?: string;
-	clientId: string;
+	tenantId: string;
+	accessType?: string;
 }) => {
-	const [accessToken, setBasicAuth] = useLocalStorage(
-		`${clientId}-basic-auth`,
+	const [accessToken, setAccessToken, removeAccessToken] = useLocalStorage(
+		`@@auth@@::${tenantId}::@@access@@`,
 		"",
 	);
-	const [authState, setAuthState] = useState({
-		isAuthenticated: !!accessToken,
+	const [refreshToken, setRefreshToken, removeRefreshToken] = useLocalStorage(
+		`@@auth@@::${tenantId}::@@refresh@@`,
+		"",
+	);
+	const [idToken, setIdToken, removeIdToken] = useLocalStorage(
+		`@@auth@@::${tenantId}::@@user@@`,
+		"",
+	);
+	const [authState, setAuthState] = useState<AuthState>({
+		isAuthenticated: !!idToken,
 		accessToken,
+		refreshToken,
+		idToken,
 		logoutReason: "",
+		userId: "",
 	});
 
-	const previousAccessToken = usePrevious(accessToken) || "";
+	const previousIdToken = usePrevious(idToken) || "";
 
 	useEffect(() => {
-		if (previousAccessToken !== accessToken && accessToken !== "") {
+		if (previousIdToken !== idToken && idToken !== "") {
 			setAuthState({
 				isAuthenticated: true,
 				accessToken,
+				refreshToken,
+				idToken,
 				logoutReason: "",
+				userId: authState.userId,
 			});
-		} else if (previousAccessToken !== accessToken && accessToken === "") {
+		} else if (previousIdToken !== idToken && idToken === "") {
 			setAuthState({
 				isAuthenticated: false,
 				accessToken: "",
+				refreshToken: "",
+				idToken: "",
 				logoutReason: EXPIRED_SESSION,
+				userId: "",
 			});
 		}
-	}, [accessToken, previousAccessToken]);
+	}, [accessToken, refreshToken, idToken, previousIdToken, authState.userId]);
 
 	const login = async (username: string, password: string) => {
 		const response = await serviceCall({
-			basicAuth: accessToken,
-			type: authenticateQuery,
 			params: {
+				type: accessType || AUTH_TYPES.ID_TOKEN,
 				username,
 				password,
 				sessionExpiration,
+				tenantId,
 			},
 		});
-		if (response.data?.token) {
-			setBasicAuth({
-				// @ts-expect-error
-				token: response.data.token,
+
+		if (response.data?.idToken) {
+			setIdToken(response.data.idToken);
+			response.data.accessToken && setAccessToken(response.data.accessToken);
+			response.data.refreshToken && setRefreshToken(response.data.refreshToken);
+			setAuthState({
+				isAuthenticated: true,
+				idToken: response.data.idToken,
+				accessToken: response.data.accessToken,
+				refreshToken: response.data.refreshToken,
+				userId: response.data.userId,
+				logoutReason: "",
 			});
 			return true;
 		}
@@ -141,7 +140,9 @@ export const AuthProvider = ({
 	};
 
 	const logout = () => {
-		setBasicAuth("");
+		removeAccessToken();
+		removeRefreshToken();
+		removeIdToken();
 	};
 
 	return (

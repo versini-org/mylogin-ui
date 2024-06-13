@@ -27,6 +27,22 @@ export const Login = () => {
 		password: "",
 	});
 
+	const handleLogin = async (e: { preventDefault: () => void }) => {
+		e.preventDefault();
+		const response = await login(simpleLogin.username, simpleLogin.password);
+		if (!response) {
+			setGlobalErrorMessage("");
+			setErrorMessage("Invalid username or password");
+		} else {
+			dispatch({
+				type: ACTION_SET_STATUS,
+				payload: {
+					status: ACTION_STATUS_SUCCESS,
+				},
+			});
+		}
+	};
+
 	useEffect(() => {
 		document.getElementById("logo")?.classList.add("fadeOut");
 		setTimeout(() => {
@@ -46,7 +62,7 @@ export const Login = () => {
 		<>
 			<AppHeader />
 			<Main>
-				<form className="mx-auto">
+				<form className="mx-auto" onSubmit={handleLogin}>
 					<Flexgrid rowGap={7} width="350px">
 						<FlexgridItem span={12}>
 							{globalErrorMessage && (
@@ -58,7 +74,10 @@ export const Login = () => {
 
 						<FlexgridItem span={12}>
 							<TextInput
+								required
 								autoCapitalize="off"
+								autoComplete="off"
+								autoCorrect="off"
 								mode="dark"
 								focusMode="light"
 								name="username"
@@ -75,6 +94,10 @@ export const Login = () => {
 						</FlexgridItem>
 						<FlexgridItem span={12}>
 							<TextInputMask
+								required
+								autoCapitalize="off"
+								autoComplete="off"
+								autoCorrect="off"
 								mode="dark"
 								focusMode="light"
 								name="password"
@@ -104,24 +127,7 @@ export const Login = () => {
 								noBorder
 								type="submit"
 								className="mb-4 mt-6"
-								onClick={async (e) => {
-									e.preventDefault();
-									const response = await login(
-										simpleLogin.username,
-										simpleLogin.password,
-									);
-									if (!response) {
-										setGlobalErrorMessage("");
-										setErrorMessage("Invalid username or password");
-									} else {
-										dispatch({
-											type: ACTION_SET_STATUS,
-											payload: {
-												status: ACTION_STATUS_SUCCESS,
-											},
-										});
-									}
-								}}
+								// onClick={handleLogin}
 							>
 								{LOG_IN}
 							</Button>

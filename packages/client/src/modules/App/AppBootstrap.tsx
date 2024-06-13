@@ -3,7 +3,6 @@ import { Suspense, lazy, useReducer } from "react";
 import {
 	ACTION_STATUS_SUCCESS,
 	DEFAULT_SESSION_EXPIRATION,
-	LOCAL_STORAGE_PREFIX,
 } from "../../common/constants";
 import { AppContext } from "../../modules/App/AppContext";
 import { reducer } from "../../modules/App/reducer";
@@ -32,7 +31,7 @@ export const AppBootstrap = () => {
 	});
 	return (
 		<AuthProvider
-			clientId={LOCAL_STORAGE_PREFIX}
+			tenantId={"b44c68f0-e5b3-4a1d-a3e3-df8632b0223b"}
 			sessionExpiration={DEFAULT_SESSION_EXPIRATION}
 		>
 			<AppContext.Provider value={{ state, dispatch }}>
