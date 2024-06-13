@@ -40,8 +40,8 @@ export default defineConfig({
 		host: "macmini.gizmette.local.com",
 		port: 5173,
 		https: {
-			key: fs.readFileSync("certificates/key.pem"),
-			cert: fs.readFileSync("certificates/cert.pem"),
+			key: process.env.SSL_KEY,
+			cert: process.env.SSL_CERT,
 		},
 	},
 	plugins: [pluginReact()],
