@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/aversini/mylogin-ui/compare/client-v1.17.0...client-v1.18.0) (2024-06-14)
+
+
+### Features
+
+* adding nonce protection to mitigate replay attacks ([3f94ae9](https://github.com/aversini/mylogin-ui/commit/3f94ae9e7f7628b4529cc37b74b4791c2131aa5c))
+
 ## [1.17.0](https://github.com/aversini/mylogin-ui/compare/client-v1.16.1...client-v1.17.0) (2024-06-13)
 
 
