@@ -16,7 +16,7 @@ export default {
 			limit: "45 kb",
 		},
 		{
-			path: "dist/static/js/vendors-*ui-components*.<hash>.js",
+			path: "dist/static/js/vendors-*auth-provider*.<hash>.js",
 			limit: "9 kb",
 		},
 		/**

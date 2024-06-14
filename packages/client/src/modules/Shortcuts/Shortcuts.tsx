@@ -20,6 +20,7 @@ import {
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext, useRef, useState } from "react";
 
+import { useAuth } from "@versini/auth-provider";
 import {
 	onChangeShortcut,
 	onClickAddShortcut,
@@ -28,7 +29,6 @@ import {
 } from "../../common/handlers";
 import type { SectionProps } from "../../common/types";
 import { AppContext } from "../App/AppContext";
-import { useAuth } from "../AuthProvider";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Shortcuts = () => {

@@ -21,6 +21,7 @@ import { IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
 import { useContext, useEffect, useRef, useState } from "react";
 
+import { useAuth } from "@versini/auth-provider";
 import {
 	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
@@ -35,7 +36,6 @@ import {
 } from "../../common/handlers";
 import { SectionProps } from "../../common/types";
 import { SERVICE_TYPES, serviceCall } from "../../common/utilities";
-import { useAuth } from "../AuthProvider";
 import { AppFooter } from "../Common/AppFooter";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
