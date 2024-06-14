@@ -4,13 +4,13 @@ import { IconHide, IconShow } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext, useEffect, useState } from "react";
 
+import { useAuth } from "@versini/auth-provider";
 import {
 	ACTION_SET_STATUS,
 	ACTION_STATUS_SUCCESS,
 } from "../../common/constants";
 import { LOG_IN, PASSWORD_PLACEHOLDER } from "../../common/strings";
 import { AppContext } from "../App/AppContext";
-import { useAuth } from "../AuthProvider";
 import { AppFooter } from "../Common/AppFooter";
 import { AppHeader } from "../Common/AppHeader";
 

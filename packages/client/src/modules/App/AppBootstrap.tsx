@@ -1,12 +1,12 @@
 import { Suspense, lazy, useReducer } from "react";
 
+import { AuthProvider, useAuth } from "@versini/auth-provider";
 import {
 	ACTION_STATUS_SUCCESS,
 	DEFAULT_SESSION_EXPIRATION,
 } from "../../common/constants";
 import { AppContext } from "../../modules/App/AppContext";
 import { reducer } from "../../modules/App/reducer";
-import { AuthProvider, useAuth } from "../../modules/AuthProvider";
 import { Login } from "../../modules/Login/Login";
 
 const LazyApp = lazy(() => import("./App"));
