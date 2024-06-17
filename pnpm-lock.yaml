@@ -21,8 +21,8 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 1.0.0
-        version: 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.0.1
+        version: 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.19.5
         version: 5.19.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1270,8 +1270,11 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@versini/auth-provider@1.0.0':
-    resolution: {integrity: sha512-qCdqMXlAa8nBnXgSBwn5ofiJn08eBlqold1ct/Xk7DDxPWz/pXWPFLI1MqmhW9TuVibaJ+J2DLXVq/rNgfnpaQ==}
+  '@versini/auth-common@1.0.0':
+    resolution: {integrity: sha512-1W7muG7jlMvrvDxC8945+Zh1mgBxUoIMVOk4pG4sXU4uHo8dNUDUL0ozIiYlgg+gkiOjJZL7gFCX0Ipc8weiTw==}
+
+  '@versini/auth-provider@1.0.1':
+    resolution: {integrity: sha512-1amZN3z0tNN74LOwApaoUIYVzWWkCq7m0WCKLQhtPpGXOx+lm9hyxbeKmGw1VmCfFJiQhVIbhWpOSk1Psp0AVQ==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -5958,8 +5961,11 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@versini/auth-provider@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-common@1.0.0': {}
+
+  '@versini/auth-provider@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
+      '@versini/auth-common': 1.0.0
       '@versini/ui-hooks': 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
