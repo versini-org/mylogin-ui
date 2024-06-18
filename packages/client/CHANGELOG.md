@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.1](https://github.com/aversini/mylogin-ui/compare/client-v1.18.0...client-v1.18.1) (2024-06-18)
+
+
+### Bug Fixes
+
+* bump to auth-provider v2 ([fd46def](https://github.com/aversini/mylogin-ui/commit/fd46defed5285d42043e946d58371174f5614cbe))
+
 ## [1.18.0](https://github.com/aversini/mylogin-ui/compare/client-v1.17.0...client-v1.18.0) (2024-06-14)
 
 
