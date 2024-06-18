@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.2](https://github.com/aversini/mylogin-ui/compare/client-v1.18.1...client-v1.18.2) (2024-06-18)
+
+
+### Bug Fixes
+
+* bump auth-provider to fix CORS issue ([ad1b2c5](https://github.com/aversini/mylogin-ui/commit/ad1b2c5b402deaf0df5a13e8b535c4b802c97fba))
+
 ## [1.18.1](https://github.com/aversini/mylogin-ui/compare/client-v1.18.0...client-v1.18.1) (2024-06-18)
 
 
