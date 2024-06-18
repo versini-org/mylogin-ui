@@ -31,7 +31,7 @@ export const AppBootstrap = () => {
 	});
 	return (
 		<AuthProvider
-			tenantId={"b44c68f0-e5b3-4a1d-a3e3-df8632b0223b"}
+			clientId={"b44c68f0-e5b3-4a1d-a3e3-df8632b0223b"}
 			sessionExpiration={DEFAULT_SESSION_EXPIRATION}
 		>
 			<AppContext.Provider value={{ state, dispatch }}>
