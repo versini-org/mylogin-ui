@@ -21,8 +21,8 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 2.0.1
-        version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 2.0.2
+        version: 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.19.5
         version: 5.19.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1273,8 +1273,8 @@ packages:
   '@versini/auth-common@2.0.0':
     resolution: {integrity: sha512-/biiWjr9wSjbo4VGh5sa426oAxGcvp0iQTzrs8fBV5yU9V+3BBjecNKs8aoao9zWWXXXf0VfzEEp1tHFHrLnvA==}
 
-  '@versini/auth-provider@2.0.1':
-    resolution: {integrity: sha512-W0Q64aKNO3u0z+nL5jqFcq6UB2/7iy/Y+inxOwN7Db4rG/QUAMEsFONhxWwFj83fz1QTzGsjfrfRn+tnU1ZAUg==}
+  '@versini/auth-provider@2.0.2':
+    resolution: {integrity: sha512-klY1Qh9xMF/QaiCvMZ74Ld6lAqHn0i+27taWz6wN7pom2fw+aWV5A3jWGAnWP/ZI9D99RlY3EFPd0qAAsykSEw==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -2840,6 +2840,9 @@ packages:
 
   jju@1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
+
+  jose@5.4.1:
+    resolution: {integrity: sha512-U6QajmpV/nhL9SyfAewo000fkiRQ+Yd2H0lBxJJ9apjpOgkOcBQJWOrMo917lxLptdS/n/o/xPzMkXhF46K8hQ==}
 
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -5963,10 +5966,11 @@ snapshots:
 
   '@versini/auth-common@2.0.0': {}
 
-  '@versini/auth-provider@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/auth-common': 2.0.0
       '@versini/ui-hooks': 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      jose: 5.4.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       uuid: 10.0.0
@@ -7845,6 +7849,8 @@ snapshots:
   jiti@1.21.0: {}
 
   jju@1.4.0: {}
+
+  jose@5.4.1: {}
 
   joycon@3.1.1: {}
 
