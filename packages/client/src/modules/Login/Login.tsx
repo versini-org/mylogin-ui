@@ -127,7 +127,6 @@ export const Login = () => {
 								noBorder
 								type="submit"
 								className="mb-4 mt-6"
-								// onClick={handleLogin}
 							>
 								{LOG_IN}
 							</Button>
