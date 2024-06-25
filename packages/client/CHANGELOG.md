@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/aversini/mylogin-ui/compare/client-v1.18.3...client-v1.19.0) (2024-06-25)
+
+
+### Features
+
+* bump to slightly more secure AuthProvider ([96c2bdd](https://github.com/aversini/mylogin-ui/commit/96c2bddcaed028f36f9ecc4f6136a3e2b027ecd8))
+
 ## [1.18.3](https://github.com/aversini/mylogin-ui/compare/client-v1.18.2...client-v1.18.3) (2024-06-20)
 
 
