@@ -28,6 +28,7 @@ export const AppBootstrap = () => {
 	const [state, dispatch] = useReducer(reducer, {
 		status: ACTION_STATUS_SUCCESS,
 		sections: [],
+		editMode: false,
 	});
 	return (
 		<AuthProvider

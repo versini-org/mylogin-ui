@@ -38,6 +38,7 @@ import { SectionProps } from "../../common/types";
 import { SERVICE_TYPES, serviceCall } from "../../common/utilities";
 import { AppFooter } from "../Common/AppFooter";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
+import { Settings } from "../Settings/Settings";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 
@@ -66,12 +67,11 @@ function App() {
 		}, 500);
 	});
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		/**
 		 * User is not authenticated, we cannot request for data yet.
 		 */
-		if (!isAuthenticated && !idTokenClaims) {
+		if (!isAuthenticated || !idTokenClaims || !idTokenClaims.__raw) {
 			return;
 		}
 
@@ -102,7 +102,7 @@ function App() {
 				});
 			}
 		})();
-	}, [idTokenClaims]);
+	}, [idTokenClaims, dispatch, isAuthenticated]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -140,24 +140,28 @@ function App() {
 										<IconStarInCircle spacing={{ r: 2 }} />
 									</FlexgridItem>
 									<FlexgridItem>My Shortcuts</FlexgridItem>
+									<FlexgridItem>
+										{state && state?.sections?.length > 0 && state.editMode && (
+											<ButtonIcon
+												spacing={{ l: 2 }}
+												noBackground
+												focusMode="light"
+												mode="light"
+												noBorder
+												label="Edit all sections"
+												onClick={() => {
+													setEditable(!editable);
+												}}
+											>
+												<IconEdit />
+											</ButtonIcon>
+										)}
+									</FlexgridItem>
 								</Flexgrid>
 							</h1>
 						</FlexgridItem>
 						<FlexgridItem>
-							{state && state?.sections?.length > 0 && (
-								<ButtonIcon
-									noBackground
-									focusMode="light"
-									mode="light"
-									noBorder
-									label="Edit all sections"
-									onClick={() => {
-										setEditable(!editable);
-									}}
-								>
-									<IconEdit />
-								</ButtonIcon>
-							)}
+							<Settings />
 						</FlexgridItem>
 					</Flexgrid>
 				</Header>

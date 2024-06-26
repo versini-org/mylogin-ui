@@ -7,18 +7,24 @@ export const ConfirmationPanel = ({
 	setShowConfirmation,
 	action,
 	children,
+	customStrings,
 }: {
 	action: () => void;
 	children: React.ReactNode;
 	setShowConfirmation: (show: boolean) => void;
 	showConfirmation: boolean;
+	customStrings?: {
+		title: string;
+		cancelAction: string;
+		confirmAction: string;
+	};
 }) => {
 	return (
 		<Panel
 			kind="messagebox"
 			open={showConfirmation}
 			onOpenChange={setShowConfirmation}
-			title="Delete Shortcut"
+			title={customStrings?.title || "Delete Shortcut"}
 			footer={
 				<Flexgrid columnGap={2} alignHorizontal="flex-end">
 					<FlexgridItem>
@@ -30,7 +36,7 @@ export const ConfirmationPanel = ({
 								setShowConfirmation(false);
 							}}
 						>
-							Cancel
+							{customStrings?.cancelAction || "Cancel"}
 						</Button>
 					</FlexgridItem>
 					<FlexgridItem>
@@ -43,7 +49,7 @@ export const ConfirmationPanel = ({
 								action();
 							}}
 						>
-							Delete
+							{customStrings?.confirmAction || "Delete"}
 						</Button>
 					</FlexgridItem>
 				</Flexgrid>
