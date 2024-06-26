@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/aversini/mylogin-ui/compare/client-v1.19.0...client-v1.20.0) (2024-06-26)
+
+
+### Features
+
+* adding menu for toggle edit mode and logout ([5757453](https://github.com/aversini/mylogin-ui/commit/575745391cce04db6bb65b020ea6e377f8250ea4))
+
 ## [1.19.0](https://github.com/aversini/mylogin-ui/compare/client-v1.18.3...client-v1.19.0) (2024-06-25)
 
 

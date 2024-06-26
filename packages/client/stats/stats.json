@@ -1214,5 +1214,49 @@
       "limit": "9 kb",
       "passed": true
     }
+  },
+  "1.20.0": {
+    "dist/static/js/index.<hash>.js": {
+      "fileSize": 12280,
+      "fileSizeGzip": 3737,
+      "limit": "4 kb",
+      "passed": true
+    },
+    "dist/static/js/lib-react.<hash>.js": {
+      "fileSize": 141746,
+      "fileSizeGzip": 45219,
+      "limit": "45 kb",
+      "passed": true
+    },
+    "dist/static/js/vendors-*auth-provider*.<hash>.js": {
+      "fileSize": 57626,
+      "fileSizeGzip": 15090,
+      "limit": "15 kb",
+      "passed": true
+    },
+    "dist/static/js/async/*App_App*.<hash>.js": {
+      "fileSize": 24862,
+      "fileSizeGzip": 4922,
+      "limit": "5 kb",
+      "passed": true
+    },
+    "dist/static/js/async/vendors-*uuid*.<hash>.js": {
+      "fileSize": 108507,
+      "fileSizeGzip": 32152,
+      "limit": "32 kb",
+      "passed": true
+    },
+    "dist/static/js/async/node_modules_*ui-components*.<hash>.js": {
+      "fileSize": 5378,
+      "fileSizeGzip": 2093,
+      "limit": "3 kb",
+      "passed": true
+    },
+    "dist/static/css/index.<hash>.css": {
+      "fileSize": 57344,
+      "fileSizeGzip": 8971,
+      "limit": "9 kb",
+      "passed": true
+    }
   }
 }
