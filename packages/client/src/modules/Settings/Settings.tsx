@@ -17,12 +17,10 @@ export const Settings = () => {
 	const [showConfirmation, setShowConfirmation] = useState(false);
 
 	const onClickConfirmLogout = () => {
-		console.info("Log out");
 		setShowConfirmation(!showConfirmation);
 	};
 
 	const onClickToggleEditMode = () => {
-		console.info("Toggle edit mode");
 		dispatch({
 			type: ACTION_SET_EDIT_MODE,
 			payload: {
