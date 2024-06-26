@@ -88,19 +88,23 @@ export const Shortcuts = () => {
 									<h2 className="heading">{section.title}</h2>
 								</FlexgridItem>
 								<FlexgridItem>
-									<ButtonIcon
-										noBackground
-										focusMode="light"
-										mode="light"
-										noBorder
-										size="small"
-										label={`Edit shortcuts for section ${section.title}`}
-										onClick={() => {
-											setEditable(editable === section.id ? null : section.id);
-										}}
-									>
-										<IconEdit className="h-3 w-3" />
-									</ButtonIcon>
+									{state && state?.sections?.length > 0 && state.editMode && (
+										<ButtonIcon
+											noBackground
+											focusMode="light"
+											mode="light"
+											noBorder
+											size="small"
+											label={`Edit shortcuts for section ${section.title}`}
+											onClick={() => {
+												setEditable(
+													editable === section.id ? null : section.id,
+												);
+											}}
+										>
+											<IconEdit className="h-3 w-3" />
+										</ButtonIcon>
+									)}
 								</FlexgridItem>
 							</Flexgrid>
 						}

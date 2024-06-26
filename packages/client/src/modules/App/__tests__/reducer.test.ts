@@ -12,6 +12,7 @@ describe("Non-DOM tests", () => {
 			const state = {
 				status: ACTION_STATUS_SUCCESS,
 				sections: [],
+				editMode: false,
 			};
 			expect(reducer(state, undefined)).toEqual(state);
 		});
@@ -20,9 +21,11 @@ describe("Non-DOM tests", () => {
 			const state = {
 				status: ACTION_STATUS_SUCCESS,
 				sections: [],
+				editMode: false,
 			};
 			const actionPayload = {
 				status: ACTION_STATUS_SUCCESS,
+				editMode: false,
 				sections: [
 					{
 						title: "testTitle",
@@ -43,6 +46,7 @@ describe("Non-DOM tests", () => {
 					payload: actionPayload,
 				}),
 			).toEqual({
+				editMode: actionPayload.editMode,
 				status: actionPayload.status,
 				sections: actionPayload.sections,
 			});
