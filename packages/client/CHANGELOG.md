@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/aversini/mylogin-ui/compare/client-v1.20.0...client-v1.21.0) (2024-06-28)
+
+
+### Features
+
+* adding access token authentication ([0908d1c](https://github.com/aversini/mylogin-ui/commit/0908d1c4efbd84960309cb4acaefd95e289bedb4))
+
 ## [1.20.0](https://github.com/aversini/mylogin-ui/compare/client-v1.19.0...client-v1.20.0) (2024-06-26)
 
 
