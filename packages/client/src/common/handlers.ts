@@ -16,18 +16,18 @@ import { SERVICE_TYPES, serviceCall } from "./utilities";
  *
  */
 export const onClickAddSection = async ({
-	basicAuth,
+	accessToken,
 	dispatch,
 	sections,
 	position,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	position: number;
 	sections: any;
 }) => {
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.ADD_SECTION,
 		params: {
 			position,
@@ -61,17 +61,17 @@ export const onChangeSectionTitle = async ({
 	e,
 	section,
 	dispatch,
-	basicAuth,
+	accessToken,
 	state,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	e: any;
 	section: any;
 	state: any;
 }) => {
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.EDIT_SECTION_TITLE,
 		params: {
 			sectionId: section.id,
@@ -105,18 +105,18 @@ export const onChangeSectionTitle = async ({
 };
 
 export const onClickChangeSectionPosition = async ({
-	basicAuth,
+	accessToken,
 	sectionId,
 	direction,
 	dispatch,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	direction: string;
 	dispatch: any;
 	sectionId: string;
 }) => {
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.CHANGE_SECTION_POSITION,
 		params: {
 			sectionId,
@@ -143,15 +143,15 @@ export const onClickChangeSectionPosition = async ({
 
 export const onClickDeleteSection = async ({
 	dispatch,
-	basicAuth,
+	accessToken,
 	section,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	section: any;
 }) => {
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.DELETE_SECTION,
 		params: {
 			sectionId: section.id,
@@ -183,10 +183,10 @@ export const onClickDeleteSection = async ({
 export const onClickAddShortcut = async ({
 	section,
 	position,
-	basicAuth,
+	accessToken,
 	dispatch,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	position: number | null;
 	section: SectionProps | null;
@@ -198,7 +198,7 @@ export const onClickAddShortcut = async ({
 			url: "https://www.example.com",
 		});
 		const response = await serviceCall({
-			basicAuth,
+			accessToken,
 			type: SERVICE_TYPES.EDIT_SHORTCUTS,
 			params: {
 				sectionId: section.id,
@@ -238,9 +238,9 @@ export const onChangeShortcut = async ({
 	position,
 	section,
 	dispatch,
-	basicAuth,
+	accessToken,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	position: any;
 	section: any;
@@ -254,7 +254,7 @@ export const onChangeShortcut = async ({
 		section.shortcuts[position].url = url;
 	}
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.EDIT_SHORTCUTS,
 		params: {
 			sectionId: section.id,
@@ -283,10 +283,10 @@ export const onChangeShortcut = async ({
 export const onClickDeleteShortcut = async ({
 	section,
 	position,
-	basicAuth,
+	accessToken,
 	dispatch,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	dispatch: any;
 	position: number | null;
 	section: SectionProps | null;
@@ -294,7 +294,7 @@ export const onClickDeleteShortcut = async ({
 	if (section && position !== null) {
 		section.shortcuts.splice(position, 1);
 		const response = await serviceCall({
-			basicAuth,
+			accessToken,
 			type: SERVICE_TYPES.EDIT_SHORTCUTS,
 			params: {
 				sectionId: section.id,
@@ -329,13 +329,13 @@ export const onClickDeleteShortcut = async ({
 };
 
 export const onClickChangeShortcutPosition = async ({
-	basicAuth,
+	accessToken,
 	section,
 	direction,
 	position,
 	dispatch,
 }: {
-	basicAuth: any;
+	accessToken: any;
 	direction: string;
 	dispatch: any;
 	position: number;
@@ -355,7 +355,7 @@ export const onClickChangeShortcutPosition = async ({
 	}
 
 	const response = await serviceCall({
-		basicAuth,
+		accessToken,
 		type: SERVICE_TYPES.EDIT_SHORTCUTS,
 		params: {
 			sectionId: section.id,

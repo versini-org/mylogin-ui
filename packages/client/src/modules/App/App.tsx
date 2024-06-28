@@ -43,7 +43,7 @@ import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 
 function App() {
-	const { idTokenClaims, logout, isAuthenticated } = useAuth();
+	const { logout, isAuthenticated, getAccessToken } = useAuth();
 
 	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
@@ -67,11 +67,12 @@ function App() {
 		}, 500);
 	});
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: dispatch is not a dependency because it is a stable reference
 	useEffect(() => {
 		/**
 		 * User is not authenticated, we cannot request for data yet.
 		 */
-		if (!isAuthenticated || !idTokenClaims || !idTokenClaims.__raw) {
+		if (!isAuthenticated) {
 			return;
 		}
 
@@ -80,7 +81,7 @@ function App() {
 		 */
 		(async () => {
 			const response = await serviceCall({
-				basicAuth: idTokenClaims.__raw,
+				accessToken: await getAccessToken(),
 				type: SERVICE_TYPES.GET_SHORTCUTS,
 			});
 
@@ -102,7 +103,7 @@ function App() {
 				});
 			}
 		})();
-	}, [idTokenClaims, dispatch, isAuthenticated]);
+	}, [isAuthenticated]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -116,10 +117,10 @@ function App() {
 			<ConfirmationPanel
 				setShowConfirmation={setShowConfirmation}
 				showConfirmation={showConfirmation}
-				action={() => {
+				action={async () => {
 					onClickDeleteSection({
 						dispatch,
-						basicAuth: idTokenClaims.__raw,
+						accessToken: await getAccessToken(),
 						section: sectionToDeleteRef.current,
 					});
 				}}
@@ -189,9 +190,9 @@ function App() {
 													label="Section Title"
 													name={section.title}
 													defaultValue={section.title}
-													onChange={(e) => {
+													onChange={async (e) => {
 														onChangeSectionTitle({
-															basicAuth: idTokenClaims.__raw,
+															accessToken: await getAccessToken(),
 															e,
 															section,
 															dispatch,
@@ -208,9 +209,9 @@ function App() {
 															label="Move up"
 															mode="light"
 															focusMode="alt-system"
-															onClick={() => {
+															onClick={async () => {
 																onClickChangeSectionPosition({
-																	basicAuth: idTokenClaims.__raw,
+																	accessToken: await getAccessToken(),
 																	sectionId: section.id,
 																	direction: "up",
 																	dispatch,
@@ -228,9 +229,9 @@ function App() {
 															label="Move down"
 															mode="light"
 															focusMode="alt-system"
-															onClick={() => {
+															onClick={async () => {
 																onClickChangeSectionPosition({
-																	basicAuth: idTokenClaims.__raw,
+																	accessToken: await getAccessToken(),
 																	sectionId: section.id,
 																	direction: "down",
 																	dispatch,
@@ -249,9 +250,9 @@ function App() {
 														focusMode="alt-system"
 														noBorder
 														label="New Section"
-														onClick={() => {
+														onClick={async () => {
 															onClickAddSection({
-																basicAuth: idTokenClaims.__raw,
+																accessToken: await getAccessToken(),
 																dispatch,
 																sections: state.sections,
 																position: idx,

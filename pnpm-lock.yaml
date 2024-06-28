@@ -21,8 +21,8 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 4.1.0
-        version: 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 4.3.0
+        version: 4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.19.5
         version: 5.19.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -42,8 +42,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       uuid:
-        specifier: 9.0.1
-        version: 9.0.1
+        specifier: 10.0.0
+        version: 10.0.0
     devDependencies:
       '@versini/ui-styles':
         specifier: 1.9.2
@@ -1267,11 +1267,11 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@versini/auth-common@2.6.0':
-    resolution: {integrity: sha512-2o5IyfijY/cjzaC69zsVO4aCxEknuWasOGW1sCOFVBuOSlA8VwsgW+X23R6R8Ejik92WWXCChlhrWDbyxPZQBg==}
+  '@versini/auth-common@2.9.0':
+    resolution: {integrity: sha512-WHcKnsDOwshet1uokN+9DpoDvr7VwAMdbNCaf7u2Lw0JcHxIRTwvMCAX+U7WZNaqK4nleeji24IxK+k6TNfpqw==}
 
-  '@versini/auth-provider@4.1.0':
-    resolution: {integrity: sha512-R78pcu0r4FdcyueLtWhlTZyg0of36TuszfNZtb+mnN2nx/VbBoroXRwZlo+4Fl6bEEyROKpao67rCy4q7XtwpQ==}
+  '@versini/auth-provider@4.3.0':
+    resolution: {integrity: sha512-I8Lr0sixavLHcSE4coQom4eeS1JCNZ3hwqM/eQSCncTPRPBXwjgjxCcnohKhC9PmaK+6auhiOdFk5u4lRsMPmg==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -5952,13 +5952,14 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@versini/auth-common@2.6.0':
+  '@versini/auth-common@2.9.0':
     dependencies:
       jose: 5.4.1
+      uuid: 10.0.0
 
-  '@versini/auth-provider@4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@versini/auth-common': 2.6.0
+      '@versini/auth-common': 2.9.0
       '@versini/ui-hooks': 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       jose: 5.4.1
       react: 18.3.1
