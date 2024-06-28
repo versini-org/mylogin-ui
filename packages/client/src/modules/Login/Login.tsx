@@ -4,7 +4,7 @@ import { IconHide, IconShow } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext, useEffect, useState } from "react";
 
-import { useAuth } from "@versini/auth-provider";
+import { AUTH_TYPES, useAuth } from "@versini/auth-provider";
 import {
 	ACTION_SET_STATUS,
 	ACTION_STATUS_SUCCESS,
@@ -29,7 +29,11 @@ export const Login = () => {
 
 	const handleLogin = async (e: { preventDefault: () => void }) => {
 		e.preventDefault();
-		const response = await login(simpleLogin.username, simpleLogin.password);
+		const response = await login(
+			simpleLogin.username,
+			simpleLogin.password,
+			AUTH_TYPES.CODE,
+		);
 		if (!response) {
 			setGlobalErrorMessage("");
 			setErrorMessage("Invalid username or password");

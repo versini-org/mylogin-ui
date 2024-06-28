@@ -146,13 +146,13 @@ export const getViewportWidth = () => {
 /* c8 ignore stop */
 
 export const serviceCall = async ({
-	basicAuth,
+	accessToken,
 	type,
 	params = {},
-}: { basicAuth: string; type: any; params?: any }) => {
+}: { accessToken: string; type: any; params?: any }) => {
 	const requestData = type?.data ? type.data(params) : params;
 	try {
-		const authorization = `Bearer ${basicAuth}`;
+		const authorization = `Bearer ${accessToken}`;
 		const response = await graphQLCall({
 			headers: {
 				authorization,

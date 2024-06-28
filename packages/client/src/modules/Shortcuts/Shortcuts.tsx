@@ -38,16 +38,16 @@ export const Shortcuts = () => {
 	const shortcutPositionRef = useRef<number | null>(null);
 	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
-	const { idTokenClaims } = useAuth();
+	const { getAccessToken } = useAuth();
 
 	return state && state?.sections?.length > 0 ? (
 		<>
 			<ConfirmationPanel
 				setShowConfirmation={setShowConfirmation}
 				showConfirmation={showConfirmation}
-				action={() => {
+				action={async () => {
 					onClickDeleteShortcut({
-						basicAuth: idTokenClaims.__raw,
+						accessToken: await getAccessToken(),
 						dispatch,
 						section: sectionWithShortcutRef.current,
 						position: shortcutPositionRef.current,
@@ -136,10 +136,10 @@ export const Shortcuts = () => {
 														labelHidden
 														name={shortcut.label}
 														defaultValue={shortcut.label}
-														onChange={(e) => {
+														onChange={async (e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth: idTokenClaims.__raw,
+																accessToken: await getAccessToken(),
 																label: e.target.value,
 																section,
 																dispatch,
@@ -154,10 +154,10 @@ export const Shortcuts = () => {
 														label="URL"
 														name={shortcut.url}
 														defaultValue={shortcut.url}
-														onChange={(e) => {
+														onChange={async (e) => {
 															onChangeShortcut({
 																position: idx,
-																basicAuth: idTokenClaims.__raw,
+																accessToken: await getAccessToken(),
 																url: e.target.value,
 																section,
 																dispatch,
@@ -173,9 +173,9 @@ export const Shortcuts = () => {
 																label="Move up"
 																mode="light"
 																focusMode="alt-system"
-																onClick={() => {
+																onClick={async () => {
 																	onClickChangeShortcutPosition({
-																		basicAuth: idTokenClaims.__raw,
+																		accessToken: await getAccessToken(),
 																		section,
 																		direction: "up",
 																		dispatch,
@@ -193,9 +193,9 @@ export const Shortcuts = () => {
 																label="Move down"
 																mode="light"
 																focusMode="alt-system"
-																onClick={() => {
+																onClick={async () => {
 																	onClickChangeShortcutPosition({
-																		basicAuth: idTokenClaims.__raw,
+																		accessToken: await getAccessToken(),
 																		section,
 																		direction: "down",
 																		dispatch,
@@ -215,9 +215,9 @@ export const Shortcuts = () => {
 															focusMode="alt-system"
 															noBorder
 															label="New Shortcut"
-															onClick={() => {
+															onClick={async () => {
 																onClickAddShortcut({
-																	basicAuth: idTokenClaims.__raw,
+																	accessToken: await getAccessToken(),
 																	dispatch,
 																	position: idx,
 																	section,
