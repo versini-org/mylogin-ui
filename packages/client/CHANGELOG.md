@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.21.1](https://github.com/aversini/mylogin-ui/compare/client-v1.21.0...client-v1.21.1) (2024-07-03)
+
+
+### Bug Fixes
+
+* bump non-breaking dependencies to latest ([c81d72f](https://github.com/aversini/mylogin-ui/commit/c81d72fd03ee33df49251730bfc10e62821e5d6e))
+* do not send double request on load in dev mode ([63c94f6](https://github.com/aversini/mylogin-ui/commit/63c94f6c2d4e4eeaa61891d6da935e62f98232f2))
+
 ## [1.21.0](https://github.com/aversini/mylogin-ui/compare/client-v1.20.0...client-v1.21.0) (2024-06-28)
 
 
