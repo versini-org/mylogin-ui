@@ -21,14 +21,14 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 4.3.0
-        version: 4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 5.0.0
+        version: 5.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.19.5
         version: 5.19.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-form':
-        specifier: 1.3.4
-        version: 1.3.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.3.5
+        version: 1.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-icons':
         specifier: 1.9.0
         version: 1.9.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1267,11 +1267,11 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@versini/auth-common@2.9.0':
-    resolution: {integrity: sha512-WHcKnsDOwshet1uokN+9DpoDvr7VwAMdbNCaf7u2Lw0JcHxIRTwvMCAX+U7WZNaqK4nleeji24IxK+k6TNfpqw==}
+  '@versini/auth-common@2.10.1':
+    resolution: {integrity: sha512-OlSRFZPlKhRgRPs1RspUgn+GzCkgT6ecgDOIhe71w4y5usYbRG40qHDFkxl/S3dG+6v/4Yr0v2Zj6Sskvh6kYA==}
 
-  '@versini/auth-provider@4.3.0':
-    resolution: {integrity: sha512-I8Lr0sixavLHcSE4coQom4eeS1JCNZ3hwqM/eQSCncTPRPBXwjgjxCcnohKhC9PmaK+6auhiOdFk5u4lRsMPmg==}
+  '@versini/auth-provider@5.0.0':
+    resolution: {integrity: sha512-jhNJ+QaMQdrcBVmc9JJQ2Vv1nOAoNKkXZ/fp+bPrPKNMhAbw73IHo5FjIDlMy8cItbOrXSX2poVMgujd0X8VIA==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -1291,8 +1291,8 @@ packages:
       react: ^18.3.1
       react-dom: ^18.3.1
 
-  '@versini/ui-form@1.3.4':
-    resolution: {integrity: sha512-1/u/20NCe9c+4SFwwLLOHP9wsOJAPSNqeUhhrq35F/elshwRQmR/Try2IkxpSR/NvuCt8VBZe10WzET8TXFm1A==}
+  '@versini/ui-form@1.3.5':
+    resolution: {integrity: sha512-DiDUgXv6wOPzsuV2P+U9TEfDgVef4UMwr4DZa9vKEBQnZqmEYQi8qUwUhdYHT3gTSMBZnUOldMNZisHKvXeUaA==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -2838,8 +2838,8 @@ packages:
   jju@1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
 
-  jose@5.4.1:
-    resolution: {integrity: sha512-U6QajmpV/nhL9SyfAewo000fkiRQ+Yd2H0lBxJJ9apjpOgkOcBQJWOrMo917lxLptdS/n/o/xPzMkXhF46K8hQ==}
+  jose@5.6.2:
+    resolution: {integrity: sha512-F1t1/WZJ4JdmCE/XoMYw1dPOW5g8JF0xGm6Ox2fwaCAPlCzt+4Bh0EWP59iQuZNHHauDkCdjx+kCZSh5z/PGow==}
 
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -5952,16 +5952,16 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@versini/auth-common@2.9.0':
+  '@versini/auth-common@2.10.1':
     dependencies:
-      jose: 5.4.1
+      jose: 5.6.2
       uuid: 10.0.0
 
-  '@versini/auth-provider@4.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@5.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@versini/auth-common': 2.9.0
+      '@versini/auth-common': 2.10.1
       '@versini/ui-hooks': 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      jose: 5.4.1
+      jose: 5.6.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       uuid: 10.0.0
@@ -6092,10 +6092,10 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@versini/ui-form@1.3.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/ui-form@1.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@versini/ui-hooks': 2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@versini/ui-private': 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@versini/ui-hooks': 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@versini/ui-private': 1.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -7840,7 +7840,7 @@ snapshots:
 
   jju@1.4.0: {}
 
-  jose@5.4.1: {}
+  jose@5.6.2: {}
 
   joycon@3.1.1: {}
 
