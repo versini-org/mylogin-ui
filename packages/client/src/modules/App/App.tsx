@@ -50,6 +50,7 @@ function App() {
 
 	const { state, dispatch } = useContext(AppContext);
 
+	const effectToGetShortcutsDidRun = useRef(false);
 	const sectionToDeleteRef = useRef<SectionProps | null>(null);
 	const customTheme = {
 		"--av-action-dark-hover": "#64748b",
@@ -69,6 +70,9 @@ function App() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: dispatch is not a dependency because it is a stable reference
 	useEffect(() => {
+		if (effectToGetShortcutsDidRun.current) {
+			return;
+		}
 		/**
 		 * User is not authenticated, we cannot request for data yet.
 		 */
@@ -80,8 +84,18 @@ function App() {
 		 * User is authenticated, we can request for data.
 		 */
 		(async () => {
+			const accessToken = await getAccessToken();
+			if (!accessToken) {
+				dispatch({
+					type: ACTION_INVALIDATE_SESSION,
+					payload: {
+						status: ACTION_STATUS_ERROR,
+					},
+				});
+				return;
+			}
 			const response = await serviceCall({
-				accessToken: await getAccessToken(),
+				accessToken,
 				type: SERVICE_TYPES.GET_SHORTCUTS,
 			});
 
@@ -103,6 +117,9 @@ function App() {
 				});
 			}
 		})();
+		return () => {
+			effectToGetShortcutsDidRun.current = true;
+		};
 	}, [isAuthenticated]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
