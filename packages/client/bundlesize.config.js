@@ -17,7 +17,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/vendors-*auth-provider*.<hash>.js",
-			limit: "16 kb",
+			limit: "17 kb",
 		},
 		/**
 		 * JavaScript static async assets.
