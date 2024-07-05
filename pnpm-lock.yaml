@@ -21,8 +21,8 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 5.0.0
-        version: 5.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 5.0.2
+        version: 5.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.19.5
         version: 5.19.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1270,8 +1270,8 @@ packages:
   '@versini/auth-common@2.10.1':
     resolution: {integrity: sha512-OlSRFZPlKhRgRPs1RspUgn+GzCkgT6ecgDOIhe71w4y5usYbRG40qHDFkxl/S3dG+6v/4Yr0v2Zj6Sskvh6kYA==}
 
-  '@versini/auth-provider@5.0.0':
-    resolution: {integrity: sha512-jhNJ+QaMQdrcBVmc9JJQ2Vv1nOAoNKkXZ/fp+bPrPKNMhAbw73IHo5FjIDlMy8cItbOrXSX2poVMgujd0X8VIA==}
+  '@versini/auth-provider@5.0.2':
+    resolution: {integrity: sha512-O/VslRP+v6gPrPBHoSGSqrCzkUXFNMILoDl8z4nlgeD7P+wrjl1b4awdDZQ+NiPgxGGxZPBhD/73DeynaolA+w==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -2840,6 +2840,9 @@ packages:
 
   jose@5.6.2:
     resolution: {integrity: sha512-F1t1/WZJ4JdmCE/XoMYw1dPOW5g8JF0xGm6Ox2fwaCAPlCzt+4Bh0EWP59iQuZNHHauDkCdjx+kCZSh5z/PGow==}
+
+  jose@5.6.3:
+    resolution: {integrity: sha512-1Jh//hEEwMhNYPDDLwXHa2ePWgWiFNNUadVmguAAw2IJ6sj9mNxV5tGXJNqlMkJAybF6Lgw1mISDxTePP/187g==}
 
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -5957,11 +5960,11 @@ snapshots:
       jose: 5.6.2
       uuid: 10.0.0
 
-  '@versini/auth-provider@5.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@5.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/auth-common': 2.10.1
       '@versini/ui-hooks': 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      jose: 5.6.2
+      jose: 5.6.3
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       uuid: 10.0.0
@@ -7841,6 +7844,8 @@ snapshots:
   jju@1.4.0: {}
 
   jose@5.6.2: {}
+
+  jose@5.6.3: {}
 
   joycon@3.1.1: {}
 
