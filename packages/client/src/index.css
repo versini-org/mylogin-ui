@@ -24,10 +24,6 @@ h2.heading {
   transform: translate(-75%, -125%) scale(0.1);
 }
 
-/* .sassycomponent {
-  @apply prose-sm prose-light md:prose-base prose-h1:mb-0 prose-h2:mt-0;
-} */
-
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
