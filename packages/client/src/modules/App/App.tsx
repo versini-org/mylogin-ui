@@ -1,6 +1,5 @@
 import {
 	ButtonIcon,
-	Header,
 	Main,
 	Table,
 	TableBody,
@@ -10,15 +9,8 @@ import {
 	TableRow,
 } from "@versini/ui-components";
 import { TextInput } from "@versini/ui-form";
-import {
-	IconAdd,
-	IconDelete,
-	IconDown,
-	IconEdit,
-	IconUp,
-} from "@versini/ui-icons";
-import { IconStarInCircle } from "@versini/ui-icons";
-import { Flexgrid, FlexgridItem, ThemeProvider } from "@versini/ui-system";
+import { IconAdd, IconDelete, IconDown, IconUp } from "@versini/ui-icons";
+import { ThemeProvider } from "@versini/ui-system";
 import { useContext, useEffect, useRef, useState } from "react";
 
 import { useAuth } from "@versini/auth-provider";
@@ -38,14 +30,12 @@ import { SectionProps } from "../../common/types";
 import { SERVICE_TYPES, serviceCall } from "../../common/utilities";
 import { AppFooter } from "../Common/AppFooter";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
-import { Settings } from "../Settings/Settings";
 import { Shortcuts } from "../Shortcuts/Shortcuts";
 import { AppContext } from "./AppContext";
 
 function App() {
 	const { logout, isAuthenticated, getAccessToken } = useAuth();
 
-	const [editable, setEditable] = useState<boolean | null>();
 	const [showConfirmation, setShowConfirmation] = useState(false);
 
 	const { state, dispatch } = useContext(AppContext);
@@ -149,43 +139,8 @@ function App() {
 			</ConfirmationPanel>
 
 			<ThemeProvider customTheme={customTheme} className="prose prose-lighter">
-				<Header mode="dark">
-					<Flexgrid alignHorizontal="space-between" alignVertical="center">
-						<FlexgridItem>
-							<h1 className="heading mb-0">
-								<Flexgrid alignVertical="center">
-									<FlexgridItem>
-										<IconStarInCircle spacing={{ r: 2 }} />
-									</FlexgridItem>
-									<FlexgridItem>My Shortcuts</FlexgridItem>
-									<FlexgridItem>
-										{state && state?.sections?.length > 0 && state.editMode && (
-											<ButtonIcon
-												spacing={{ l: 2 }}
-												noBackground
-												focusMode="light"
-												mode="light"
-												noBorder
-												label="Edit all sections"
-												onClick={() => {
-													setEditable(!editable);
-												}}
-											>
-												<IconEdit />
-											</ButtonIcon>
-										)}
-									</FlexgridItem>
-								</Flexgrid>
-							</h1>
-						</FlexgridItem>
-						<FlexgridItem>
-							<Settings />
-						</FlexgridItem>
-					</Flexgrid>
-				</Header>
-
 				<Main className="pt-0">
-					{state && state?.sections?.length > 0 && editable && (
+					{state && state?.sections?.length > 0 && state.editSections && (
 						<div className="flex flex-wrap">
 							<Table compact caption="Edit Sections" spacing={{ b: 5 }}>
 								<TableHead>
@@ -314,6 +269,7 @@ function App() {
 					)}
 					{state && state?.sections?.length > 0 && <Shortcuts />}
 				</Main>
+
 				<AppFooter />
 			</ThemeProvider>
 		</AppContext.Provider>

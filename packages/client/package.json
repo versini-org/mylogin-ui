@@ -12,6 +12,7 @@
 		"build:js": "rsbuild build",
 		"build": "npm-run-all --serial clean build:check build:js",
 		"lint": "biome lint src",
+		"preview": "rsbuild preview",
 		"start": "static-server dist --port 5173",
 		"stats:pr": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o tmp/stats.json --silent",
 		"stats:release": "bundlesize -c bundlesize.config.js -p \"$npm_package_version\" -o stats/stats.json --silent",
@@ -27,12 +28,14 @@
 	},
 	"dependencies": {
 		"@versini/auth-provider": "5.0.2",
+		"@versini/sassysaint": "1.0.0",
 		"@versini/ui-components": "5.19.5",
 		"@versini/ui-form": "1.3.5",
 		"@versini/ui-icons": "1.9.0",
 		"@versini/ui-system": "1.4.1",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
+		"react-router-dom": "6.24.1",
 		"uuid": "10.0.0"
 	}
 }
