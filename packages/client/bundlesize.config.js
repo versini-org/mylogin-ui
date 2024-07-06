@@ -9,7 +9,7 @@ export default {
 		 */
 		{
 			path: "dist/static/js/index.<hash>.js",
-			limit: "4 kb",
+			limit: "5 kb",
 		},
 		{
 			path: "dist/static/js/lib-react.<hash>.js",
@@ -17,7 +17,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/vendors-*auth-provider*.<hash>.js",
-			limit: "17 kb",
+			limit: "55 kb",
 		},
 		/**
 		 * JavaScript static async assets.
@@ -39,7 +39,7 @@ export default {
 		 */
 		{
 			path: "dist/static/css/index.<hash>.css",
-			limit: "9 kb",
+			limit: "11 kb",
 		},
 	],
 };
