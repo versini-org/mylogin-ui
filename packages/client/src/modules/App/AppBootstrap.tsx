@@ -1,5 +1,4 @@
 import { AuthProvider, useAuth } from "@versini/auth-provider";
-import { SassySaint } from "@versini/sassysaint";
 import { Suspense, lazy, useReducer } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -13,6 +12,7 @@ import { Login } from "../../modules/Login/Login";
 import { Root } from "../Layout/Root";
 
 const LazyApp = lazy(() => import("./App"));
+const LazySassySaint = lazy(() => import("./LazySassySaint"));
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -28,7 +28,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "chat",
-				element: <SassySaint />,
+				element: (
+					<Suspense fallback={<div />}>
+						<LazySassySaint />
+					</Suspense>
+				),
 			},
 		],
 	},
