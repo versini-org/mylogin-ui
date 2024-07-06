@@ -1,6 +1,6 @@
 import { AuthProvider, useAuth } from "@versini/auth-provider";
 import { Suspense, lazy, useReducer } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 
 import {
 	ACTION_STATUS_SUCCESS,
@@ -13,7 +13,7 @@ import { Root } from "../Layout/Root";
 
 const LazyApp = lazy(() => import("./App"));
 const LazySassySaint = lazy(() => import("./LazySassySaint"));
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <Root />,
