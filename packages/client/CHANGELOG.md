@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.1](https://github.com/aversini/mylogin-ui/compare/client-v1.22.0...client-v1.22.1) (2024-07-06)
+
+
+### Bug Fixes
+
+* replacing browser router with hash router ([357ba0a](https://github.com/aversini/mylogin-ui/commit/357ba0ada9e6acaee12aaf244d48a9df876a9d73))
+
 ## [1.22.0](https://github.com/aversini/mylogin-ui/compare/client-v1.21.2...client-v1.22.0) (2024-07-06)
 
 
