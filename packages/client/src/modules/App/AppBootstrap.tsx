@@ -1,6 +1,7 @@
-import { Suspense, lazy, useReducer } from "react";
-
 import { AuthProvider, useAuth } from "@versini/auth-provider";
+import { Suspense, lazy, useReducer } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import {
 	ACTION_STATUS_SUCCESS,
 	DEFAULT_SESSION_EXPIRATION,
@@ -8,8 +9,34 @@ import {
 import { AppContext } from "../../modules/App/AppContext";
 import { reducer } from "../../modules/App/reducer";
 import { Login } from "../../modules/Login/Login";
+import { Root } from "../Layout/Root";
 
 const LazyApp = lazy(() => import("./App"));
+const LazySassySaint = lazy(() => import("./LazySassySaint"));
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Root />,
+		children: [
+			{
+				path: "",
+				element: (
+					<Suspense fallback={<div />}>
+						<LazyApp />
+					</Suspense>
+				),
+			},
+			{
+				path: "chat",
+				element: (
+					<Suspense fallback={<div />}>
+						<LazySassySaint />
+					</Suspense>
+				),
+			},
+		],
+	},
+]);
 
 const Bootstrap = () => {
 	const { isAuthenticated } = useAuth();
@@ -17,11 +44,7 @@ const Bootstrap = () => {
 	if (!isAuthenticated) {
 		return <Login />;
 	}
-	return (
-		<Suspense fallback={<div />}>
-			<LazyApp />
-		</Suspense>
-	);
+	return <RouterProvider router={router} />;
 };
 
 export const AppBootstrap = () => {
@@ -29,6 +52,7 @@ export const AppBootstrap = () => {
 		status: ACTION_STATUS_SUCCESS,
 		sections: [],
 		editMode: false,
+		editSections: false,
 	});
 	return (
 		<AuthProvider

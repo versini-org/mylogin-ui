@@ -2,6 +2,7 @@ import {
 	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,
 	ACTION_SET_EDIT_MODE,
+	ACTION_SET_EDIT_SECTIONS,
 	ACTION_SET_STATUS,
 	ACTION_STATUS_ERROR,
 	ACTION_STATUS_SUCCESS,
@@ -20,6 +21,7 @@ export type SectionProps = {
 };
 
 export type StateProps = {
+	editSections: boolean;
 	editMode: boolean;
 	sections: SectionProps[];
 	status:
@@ -36,6 +38,12 @@ export type ActionProps =
 				editMode: boolean;
 			};
 			type: typeof ACTION_SET_EDIT_MODE;
+	  }
+	| {
+			payload: {
+				editSections: boolean;
+			};
+			type: typeof ACTION_SET_EDIT_SECTIONS;
 	  }
 	| {
 			payload: {

@@ -5,6 +5,7 @@ export const ACTION_STATUS_ERROR = "error";
 export const ACTION_STATUS_SUCCESS = "success";
 export const ACTION_INVALIDATE_SESSION = "action-invalidate-session";
 export const ACTION_SET_EDIT_MODE = "action-set-edit-mode";
+export const ACTION_SET_EDIT_SECTIONS = "action-set-edit-sections";
 
 export const LOCAL_STORAGE_PREFIX = "my-shortcuts";
 export const LOCAL_STORAGE_BASIC_AUTH = "basic-auth";
