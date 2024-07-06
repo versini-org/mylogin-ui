@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/aversini/mylogin-ui/compare/client-v1.21.2...client-v1.22.0) (2024-07-06)
+
+
+### Features
+
+* adding Sassy Saint ([6905627](https://github.com/aversini/mylogin-ui/commit/6905627f96373c0dc2b5d08d6624fd9136f63c91))
+
 ## [1.21.2](https://github.com/aversini/mylogin-ui/compare/client-v1.21.1...client-v1.21.2) (2024-07-05)
 
 
