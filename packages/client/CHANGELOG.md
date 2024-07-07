@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.1](https://github.com/aversini/mylogin-ui/compare/client-v1.23.0...client-v1.23.1) (2024-07-07)
+
+
+### Bug Fixes
+
+* chat history crashes on empty localstorage ([e916620](https://github.com/aversini/mylogin-ui/commit/e916620411ea1b8dc97903254638e7c935d4c060))
+
 ## [1.23.0](https://github.com/aversini/mylogin-ui/compare/client-v1.22.1...client-v1.23.0) (2024-07-07)
 
 
