@@ -1,23 +1,10 @@
 import { defineConfig } from "@rsbuild/core";
-import { pluginReact } from "@rsbuild/plugin-react";
+
+import defaultConfig from "../packages/client/rsbuild.config";
 
 export default defineConfig({
-	source: {
-		entry: {
-			index: "./src/main.tsx",
-		},
-		define: {
-			"import.meta.env.BUILDTIME": "N/A",
-			"import.meta.env.BUILDVERSION": "N/A",
-		},
-	},
-	output: {
-		polyfill: "off",
-		cleanDistPath: true,
-		distPath: {
-			root: "./dist",
-		},
-	},
+	...defaultConfig,
+
 	tools: {
 		rspack: {
 			optimization: {
@@ -26,11 +13,4 @@ export default defineConfig({
 			},
 		},
 	},
-	html: {
-		template: "./index.html",
-	},
-	server: {
-		port: 5173,
-	},
-	plugins: [pluginReact()],
 });
