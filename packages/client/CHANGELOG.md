@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/aversini/mylogin-ui/compare/client-v1.22.1...client-v1.23.0) (2024-07-07)
+
+
+### Features
+
+* adding support for access token fallback via httpOnly cookie ([6255ad9](https://github.com/aversini/mylogin-ui/commit/6255ad98a3b08fe33d3e903218fcd71abe8ba763))
+
 ## [1.22.1](https://github.com/aversini/mylogin-ui/compare/client-v1.22.0...client-v1.22.1) (2024-07-06)
 
 
