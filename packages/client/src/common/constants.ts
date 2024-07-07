@@ -10,4 +10,4 @@ export const ACTION_SET_EDIT_SECTIONS = "action-set-edit-sections";
 export const LOCAL_STORAGE_PREFIX = "my-shortcuts";
 export const LOCAL_STORAGE_BASIC_AUTH = "basic-auth";
 
-export const DEFAULT_SESSION_EXPIRATION = "90d";
+export const CLIENT_ID = "b44c68f0-e5b3-4a1d-a3e3-df8632b0223b";
