@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.3](https://github.com/aversini/mylogin-ui/compare/client-v1.23.2...client-v1.23.3) (2024-07-08)
+
+
+### Bug Fixes
+
+* passing the right domain ([94dbc60](https://github.com/aversini/mylogin-ui/commit/94dbc60db36a5688ad78f2a177e198bb5f9fa8ac))
+
 ## [1.23.2](https://github.com/aversini/mylogin-ui/compare/client-v1.23.1...client-v1.23.2) (2024-07-08)
 
 
