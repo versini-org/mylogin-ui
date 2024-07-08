@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.2](https://github.com/aversini/mylogin-ui/compare/client-v1.23.1...client-v1.23.2) (2024-07-08)
+
+
+### Bug Fixes
+
+* trying to fix cookie shared between chat and shortcuts ([31d2fa7](https://github.com/aversini/mylogin-ui/commit/31d2fa7a934d2294d0345d2d139d202b8bbd9a96))
+
 ## [1.23.1](https://github.com/aversini/mylogin-ui/compare/client-v1.23.0...client-v1.23.1) (2024-07-07)
 
 
