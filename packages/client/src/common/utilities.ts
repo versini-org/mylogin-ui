@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
 
-export const DOMAIN = isDev ? "gizmette.local.com" : "mylogin.gizmette.com";
+export const DOMAIN = isDev ? "gizmette.local.com" : "gizmette.com";
 
 const GRAPHQL_QUERIES = {
 	GET_SHORTCUTS: `query GetShortcuts {
