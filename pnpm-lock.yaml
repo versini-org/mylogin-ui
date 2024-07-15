@@ -24,8 +24,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
-        specifier: 1.0.5
-        version: 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.0.6
+        version: 1.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.20.0
         version: 5.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1165,8 +1165,8 @@ packages:
   '@versini/dev-dependencies-types@1.3.1':
     resolution: {integrity: sha512-jaIEB8wXomAkRxv/aVbeaoZY/vz6jftIalTdFIN3iyXY9v4yXV+hU5zSwCZAbP4xe/il5DnKYFHjyeEVXqhB3g==}
 
-  '@versini/sassysaint@1.0.5':
-    resolution: {integrity: sha512-wNvwWfqT1JDbkcAdBXCnt1qPZm8Dhj8zEAu+9Z909ESRQeKiuNb6R6gFs674lgrl+j2oKDC6pDnW5rCvsnWk3w==}
+  '@versini/sassysaint@1.0.6':
+    resolution: {integrity: sha512-EFwAbPdQJUGrcXNUDJlCG+koAw3a0MN0ijnQ05u7XiAovB/ia1Z8i7mzBFbzgQyu+AI2lN+BWnxAzBlzXmrZgA==}
     peerDependencies:
       react: 18.3.1
       react-dom: 18.3.1
@@ -5857,7 +5857,7 @@ snapshots:
       '@types/uuid': 10.0.0
       '@types/yargs': 17.0.32
 
-  '@versini/sassysaint@1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/sassysaint@1.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/ui-hooks': 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
