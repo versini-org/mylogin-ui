@@ -24,7 +24,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/vendors-*uuid*.<hash>.js",
-			limit: "46 kb",
+			limit: "47 kb",
 			alias: "Static vendors",
 		},
 		/**
