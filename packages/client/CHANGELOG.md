@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/aversini/mylogin-ui/compare/client-v1.24.0...client-v1.25.0) (2024-07-15)
+
+
+### Features
+
+* adding support for Passkey ([d40f7ba](https://github.com/aversini/mylogin-ui/commit/d40f7ba8fa0647c7849cfb370f7dcd7a5f6c0b06))
+
 ## [1.24.0](https://github.com/aversini/mylogin-ui/compare/client-v1.23.4...client-v1.24.0) (2024-07-15)
 
 
