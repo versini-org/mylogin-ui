@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/aversini/mylogin-ui/compare/client-v1.23.4...client-v1.24.0) (2024-07-15)
+
+
+### Features
+
+* bump to the most recent auth provider ([26c1ff1](https://github.com/aversini/mylogin-ui/commit/26c1ff1f8bd06d5ba539d6ca77f64ec24fc31534))
+
 ## [1.23.4](https://github.com/aversini/mylogin-ui/compare/client-v1.23.3...client-v1.23.4) (2024-07-09)
 
 
