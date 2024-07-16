@@ -24,8 +24,8 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
-        specifier: 1.0.6
-        version: 1.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.0.7
+        version: 1.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.20.0
         version: 5.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1168,8 +1168,8 @@ packages:
   '@versini/dev-dependencies-types@1.3.1':
     resolution: {integrity: sha512-jaIEB8wXomAkRxv/aVbeaoZY/vz6jftIalTdFIN3iyXY9v4yXV+hU5zSwCZAbP4xe/il5DnKYFHjyeEVXqhB3g==}
 
-  '@versini/sassysaint@1.0.6':
-    resolution: {integrity: sha512-EFwAbPdQJUGrcXNUDJlCG+koAw3a0MN0ijnQ05u7XiAovB/ia1Z8i7mzBFbzgQyu+AI2lN+BWnxAzBlzXmrZgA==}
+  '@versini/sassysaint@1.0.7':
+    resolution: {integrity: sha512-e/8wpzJgK9Nv/xxtr2W0PvugSsTAw2XSkZr1ERrwnU7CkLk8AqRFF+zozM1ZvuNa5mpxw4eQyWyAYjwaMDlSxQ==}
     peerDependencies:
       react: 18.3.1
       react-dom: 18.3.1
@@ -4048,6 +4048,11 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  tailwindcss@3.4.6:
+    resolution: {integrity: sha512-1uRHzPB+Vzu57ocybfZ4jh5Q3SdlH7XW23J5sQoM9LhE9eIOlzxer/3XPSsycvih3rboRsvt0QCmzSrqyOYUIA==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
@@ -5863,13 +5868,13 @@ snapshots:
       '@types/uuid': 10.0.0
       '@types/yargs': 17.0.32
 
-  '@versini/sassysaint@1.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/sassysaint@1.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/ui-hooks': 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      tailwindcss: 3.4.4
+      tailwindcss: 3.4.6
     transitivePeerDependencies:
       - ts-node
 
@@ -9050,6 +9055,33 @@ snapshots:
   tabbable@6.2.0: {}
 
   tailwindcss@3.4.4:
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.6.0
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.0
+      lilconfig: 2.1.0
+      micromatch: 4.0.7
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.0.1
+      postcss: 8.4.39
+      postcss-import: 15.1.0(postcss@8.4.39)
+      postcss-js: 4.0.1(postcss@8.4.39)
+      postcss-load-config: 4.0.2(postcss@8.4.39)
+      postcss-nested: 6.0.1(postcss@8.4.39)
+      postcss-selector-parser: 6.0.15
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+
+  tailwindcss@3.4.6:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
