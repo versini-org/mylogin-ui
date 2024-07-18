@@ -21,11 +21,11 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 6.1.1
-        version: 6.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.2.1
+        version: 6.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
-        specifier: 1.0.7
-        version: 1.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.0.8
+        version: 1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.20.0
         version: 5.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1031,9 +1031,6 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@thumbmarkjs/thumbmarkjs@0.14.8':
-    resolution: {integrity: sha512-J+/HnYBv24ufFCoyqbFhtZk1zTGKWzHfyN15sc6kJq/1D/6H1oaKt+W1yWxkUwzclMS1n36EaoHbNjFeiuDqDg==}
-
   '@tufjs/canonical-json@2.0.0':
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
     engines: {node: ^16.14.0 || >=18.0.0}
@@ -1153,8 +1150,8 @@ packages:
   '@versini/auth-common@2.12.1':
     resolution: {integrity: sha512-JSeWi4Z1am4KUMbhXLtUKqZ6jPw23P4SdVwR7dw4CtGZbtFfj5QP3DdUhOJX0I6YU63pXKCPmU/zdKZUkzQKcQ==}
 
-  '@versini/auth-provider@6.1.1':
-    resolution: {integrity: sha512-YHw6KtRGVbGoRNbwTFoyx27Tf6V6wOGXEg+vh2ZiNm1hqkjZigKFkXrhqE+sAyTr8JYYC37Uz5vykeBTZVXTwg==}
+  '@versini/auth-provider@6.2.1':
+    resolution: {integrity: sha512-jR7NNH8b9+460TnP74HBnCgOIwEjJMHIbqBUBQqdPXPLno3Ui7tmWfcbhodaZmXCwir9m+t6qrLbX9xBQZkxFA==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -1168,8 +1165,8 @@ packages:
   '@versini/dev-dependencies-types@1.3.1':
     resolution: {integrity: sha512-jaIEB8wXomAkRxv/aVbeaoZY/vz6jftIalTdFIN3iyXY9v4yXV+hU5zSwCZAbP4xe/il5DnKYFHjyeEVXqhB3g==}
 
-  '@versini/sassysaint@1.0.7':
-    resolution: {integrity: sha512-e/8wpzJgK9Nv/xxtr2W0PvugSsTAw2XSkZr1ERrwnU7CkLk8AqRFF+zozM1ZvuNa5mpxw4eQyWyAYjwaMDlSxQ==}
+  '@versini/sassysaint@1.0.8':
+    resolution: {integrity: sha512-KLf2OzWSRy3qKvOOHqTZW8vCusWxSx3G9gJ5tHbttT0mM1CQaX/dKsRLyOXuMwEhju0UNR/zS3C4WYPYdY172g==}
     peerDependencies:
       react: 18.3.1
       react-dom: 18.3.1
@@ -1179,6 +1176,9 @@ packages:
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
+
+  '@versini/ui-fingerprint@1.0.1':
+    resolution: {integrity: sha512-V7Gtyk2FU7lRv3+qcWEHtvTV3XbZSVm9Q2/t28DChQZO89MMHWZQRfrfFH2UV30j8aRxDX0Z/jao0+ZOZ9Ixbg==}
 
   '@versini/ui-form@1.3.6':
     resolution: {integrity: sha512-jA575VfdK6JpLytvKX3uMUigVXbwQ4VyeSBOTtUfUfH0g+/apov3j1AYkITpegq7hMmoyI1+UduTIERoFUUoGw==}
@@ -5611,8 +5611,6 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.3.1
 
-  '@thumbmarkjs/thumbmarkjs@0.14.8': {}
-
   '@tufjs/canonical-json@2.0.0': {}
 
   '@tufjs/models@2.0.0':
@@ -5744,11 +5742,11 @@ snapshots:
       jose: 5.6.3
       uuid: 10.0.0
 
-  '@versini/auth-provider@6.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@6.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@simplewebauthn/browser': 10.0.0
-      '@thumbmarkjs/thumbmarkjs': 0.14.8
       '@versini/auth-common': 2.12.1
+      '@versini/ui-fingerprint': 1.0.1
       '@versini/ui-hooks': 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       jose: 5.6.3
       react: 18.3.1
@@ -5868,7 +5866,7 @@ snapshots:
       '@types/uuid': 10.0.0
       '@types/yargs': 17.0.32
 
-  '@versini/sassysaint@1.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/sassysaint@1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/ui-hooks': 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
@@ -5891,6 +5889,8 @@ snapshots:
       tailwindcss: 3.4.4
     transitivePeerDependencies:
       - ts-node
+
+  '@versini/ui-fingerprint@1.0.1': {}
 
   '@versini/ui-form@1.3.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -9367,7 +9367,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.4(supports-color@5.5.0)
       pathe: 1.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       vite: 5.3.3(@types/node@20.14.10)
     transitivePeerDependencies:
       - '@types/node'

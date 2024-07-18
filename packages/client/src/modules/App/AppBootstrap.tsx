@@ -9,6 +9,9 @@ import { reducer } from "../../modules/App/reducer";
 import { Login } from "../../modules/Login/Login";
 import { Root } from "../Layout/Root";
 
+const params = new URL(document.location.href).searchParams;
+const debug = Boolean(params.get("debug")) || false;
+
 const LazyApp = lazy(() => import("./App"));
 const LazySassySaint = lazy(() => import("./LazySassySaint"));
 const router = createHashRouter([
@@ -53,7 +56,7 @@ export const AppBootstrap = () => {
 		editSections: false,
 	});
 	return (
-		<AuthProvider clientId={CLIENT_ID} domain={DOMAIN}>
+		<AuthProvider clientId={CLIENT_ID} domain={DOMAIN} debug={debug}>
 			<AppContext.Provider value={{ state, dispatch }}>
 				<Bootstrap />
 			</AppContext.Provider>
