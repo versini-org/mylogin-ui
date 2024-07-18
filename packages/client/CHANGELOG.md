@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.2](https://github.com/aversini/mylogin-ui/compare/client-v1.25.1...client-v1.25.2) (2024-07-18)
+
+
+### Bug Fixes
+
+* adding debug support for auth ([8114978](https://github.com/aversini/mylogin-ui/commit/811497817c533040eaf8318d8f6cd1ad40ce882f))
+
 ## [1.25.1](https://github.com/aversini/mylogin-ui/compare/client-v1.25.0...client-v1.25.1) (2024-07-16)
 
 
