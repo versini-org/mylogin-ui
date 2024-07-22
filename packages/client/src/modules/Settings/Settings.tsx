@@ -44,10 +44,14 @@ export const Settings = () => {
 	 */
 	useEffect(() => {
 		(async () => {
-			const token = await getAccessToken();
-			if (token) {
-				isEditGrantedRef.current = await isGranted(token, [GRANTS.EDIT]);
-				isSassyGrantedRef.current = await isGranted(token, [GRANTS.SASSY]);
+			try {
+				const token = await getAccessToken();
+				if (token) {
+					isEditGrantedRef.current = await isGranted(token, [GRANTS.EDIT]);
+					isSassyGrantedRef.current = await isGranted(token, [GRANTS.SASSY]);
+				}
+			} catch (error) {
+				console.error("Failed to fetch token or check grants:", error);
 			}
 		})();
 	}, [getAccessToken]);
