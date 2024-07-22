@@ -21,8 +21,8 @@ importers:
   packages/client:
     dependencies:
       '@versini/auth-provider':
-        specifier: 6.2.1
-        version: 6.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.3.0
+        version: 6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
         specifier: 1.0.8
         version: 1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1147,11 +1147,11 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@versini/auth-common@2.12.1':
-    resolution: {integrity: sha512-JSeWi4Z1am4KUMbhXLtUKqZ6jPw23P4SdVwR7dw4CtGZbtFfj5QP3DdUhOJX0I6YU63pXKCPmU/zdKZUkzQKcQ==}
+  '@versini/auth-common@3.2.0':
+    resolution: {integrity: sha512-tLycQSqWvS7DnIezI8zb6jLBmpBlbG4/kl5k1ccBXGe2MIlnOFG7mtaT+HKPSJ0A31+slW5Kzy2Fgw8dow4FRA==}
 
-  '@versini/auth-provider@6.2.1':
-    resolution: {integrity: sha512-jR7NNH8b9+460TnP74HBnCgOIwEjJMHIbqBUBQqdPXPLno3Ui7tmWfcbhodaZmXCwir9m+t6qrLbX9xBQZkxFA==}
+  '@versini/auth-provider@6.3.0':
+    resolution: {integrity: sha512-rkWSNwE+w5/QJ5FadCMrTCMNZ56f0UU0gMYaq5D4beWarrHqjYz+z8uXCZ/5FakzmslU4ZNkRtLLgOo8ao0ikA==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -5737,15 +5737,15 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@versini/auth-common@2.12.1':
+  '@versini/auth-common@3.2.0':
     dependencies:
       jose: 5.6.3
       uuid: 10.0.0
 
-  '@versini/auth-provider@6.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/auth-provider@6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@simplewebauthn/browser': 10.0.0
-      '@versini/auth-common': 2.12.1
+      '@versini/auth-common': 3.2.0
       '@versini/ui-fingerprint': 1.0.1
       '@versini/ui-hooks': 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       jose: 5.6.3
