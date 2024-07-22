@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.0](https://github.com/aversini/mylogin-ui/compare/client-v1.25.2...client-v1.26.0) (2024-07-22)
+
+
+### Features
+
+* using isGranted to enforce per-user policies ([42a9a54](https://github.com/aversini/mylogin-ui/commit/42a9a54ff4d4a5916f11a4cb724dd82216605c2d))
+
 ## [1.25.2](https://github.com/aversini/mylogin-ui/compare/client-v1.25.1...client-v1.25.2) (2024-07-18)
 
 
