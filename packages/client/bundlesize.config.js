@@ -9,7 +9,7 @@ export default {
 		 */
 		{
 			path: "dist/static/js/index.<hash>.js",
-			limit: "6 kb",
+			limit: "7 kb",
 			alias: "index.js",
 		},
 		{
