@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.1](https://github.com/aversini/mylogin-ui/compare/client-v1.26.0...client-v1.26.1) (2024-07-22)
+
+
+### Bug Fixes
+
+* only check for grants on load / refresh ([c06be12](https://github.com/aversini/mylogin-ui/commit/c06be12473b99d76a71485d5646760ce7382a623))
+
 ## [1.26.0](https://github.com/aversini/mylogin-ui/compare/client-v1.25.2...client-v1.26.0) (2024-07-22)
 
 
