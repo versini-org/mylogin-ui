@@ -22,6 +22,7 @@ export const Settings = () => {
 
 	const isEditGrantedRef = useRef(false);
 	const isSassyGrantedRef = useRef(false);
+	const effectToGetGrantsDidRun = useRef(false);
 
 	const onClickConfirmLogout = () => {
 		setShowConfirmation(!showConfirmation);
@@ -43,6 +44,9 @@ export const Settings = () => {
 	 * is doing the same checks, but cannot be modified by the client.
 	 */
 	useEffect(() => {
+		if (effectToGetGrantsDidRun.current) {
+			return;
+		}
 		(async () => {
 			try {
 				const token = await getAccessToken();
@@ -54,6 +58,9 @@ export const Settings = () => {
 				console.error("Failed to fetch token or check grants:", error);
 			}
 		})();
+		return () => {
+			effectToGetGrantsDidRun.current = true;
+		};
 	}, [getAccessToken]);
 
 	return (
