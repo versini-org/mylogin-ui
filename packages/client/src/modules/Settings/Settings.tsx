@@ -1,4 +1,4 @@
-import { useAuth } from "@versini/auth-provider";
+import { isGranted, useAuth } from "@versini/auth-provider";
 import {
 	ButtonIcon,
 	Menu,
@@ -6,19 +6,22 @@ import {
 	MenuSeparator,
 } from "@versini/ui-components";
 import { IconBack, IconEdit, IconSettings } from "@versini/ui-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { ACTION_SET_EDIT_MODE } from "../../common/constants";
+import { ACTION_SET_EDIT_MODE, GRANTS } from "../../common/constants";
 import { AppContext } from "../App/AppContext";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
 export const Settings = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { logout } = useAuth();
+	const { logout, getAccessToken } = useAuth();
 	const { state, dispatch } = useContext(AppContext);
 	const [showConfirmation, setShowConfirmation] = useState(false);
+
+	const isEditGrantedRef = useRef(false);
+	const isSassyGrantedRef = useRef(false);
 
 	const onClickConfirmLogout = () => {
 		setShowConfirmation(!showConfirmation);
@@ -32,6 +35,22 @@ export const Settings = () => {
 			},
 		});
 	};
+
+	/**
+	 * Check if the user has the required grants to either edit shortcuts,
+	 * or use the Sassy Saint chat. This is the first line of defense to
+	 * enforce policies. The second line is the server-side validation which
+	 * is doing the same checks, but cannot be modified by the client.
+	 */
+	useEffect(() => {
+		(async () => {
+			const token = await getAccessToken();
+			if (token) {
+				isEditGrantedRef.current = await isGranted(token, [GRANTS.EDIT]);
+				isSassyGrantedRef.current = await isGranted(token, [GRANTS.SASSY]);
+			}
+		})();
+	}, [getAccessToken]);
 
 	return (
 		<>
@@ -60,18 +79,28 @@ export const Settings = () => {
 			>
 				{location.pathname === "/" ? (
 					<>
-						<MenuItem
-							label="Sassy Saint"
-							onClick={() => {
-								navigate("/chat");
-							}}
-						/>
-						<MenuSeparator />
-						<MenuItem
-							label="Toggle edit mode"
-							onClick={onClickToggleEditMode}
-							icon={<IconEdit />}
-						/>
+						{isSassyGrantedRef.current && (
+							<>
+								<MenuItem
+									label="Sassy Saint"
+									onClick={() => {
+										navigate("/chat");
+									}}
+								/>
+								<MenuSeparator />
+							</>
+						)}
+
+						{isEditGrantedRef.current && (
+							<>
+								<MenuItem
+									label="Toggle edit mode"
+									onClick={onClickToggleEditMode}
+									icon={<IconEdit />}
+								/>
+								<MenuSeparator />
+							</>
+						)}
 					</>
 				) : (
 					<MenuItem
@@ -82,7 +111,6 @@ export const Settings = () => {
 					/>
 				)}
 
-				<MenuSeparator />
 				<MenuItem
 					label="Log out"
 					onClick={onClickConfirmLogout}

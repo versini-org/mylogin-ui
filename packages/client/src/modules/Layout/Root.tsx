@@ -1,9 +1,9 @@
 import { ButtonIcon, Header } from "@versini/ui-components";
 import { IconEdit, IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
+import { useContext } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { useContext } from "react";
 import { ACTION_SET_EDIT_SECTIONS } from "../../common/constants";
 import { AppContext } from "../App/AppContext";
 import { Settings } from "../Settings/Settings";
