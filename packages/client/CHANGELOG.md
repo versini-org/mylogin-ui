@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.3](https://github.com/aversini/mylogin-ui/compare/client-v1.26.2...client-v1.26.3) (2024-08-01)
+
+
+### Bug Fixes
+
+* bump dependencies to latest ([29e3d32](https://github.com/aversini/mylogin-ui/commit/29e3d3247f92ecf23a0725f7f8326cd56ac725c1))
+
 ## [1.26.2](https://github.com/aversini/mylogin-ui/compare/client-v1.26.1...client-v1.26.2) (2024-07-23)
 
 
