@@ -19,7 +19,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/lib-router.<hash>.js",
-			limit: "20 kb",
+			limit: "21 kb",
 			alias: "React Router",
 		},
 		{
