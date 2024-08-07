@@ -24,15 +24,15 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@versini/ui-styles": "1.9.3"
+		"@versini/ui-styles": "1.9.4"
 	},
 	"dependencies": {
 		"@versini/auth-provider": "6.4.4",
-		"@versini/sassysaint": "1.0.11",
-		"@versini/ui-components": "5.21.0",
-		"@versini/ui-form": "1.3.6",
+		"@versini/sassysaint": "1.0.12",
+		"@versini/ui-components": "5.21.1",
+		"@versini/ui-form": "1.3.7",
 		"@versini/ui-icons": "1.11.0",
-		"@versini/ui-system": "1.4.2",
+		"@versini/ui-system": "1.4.3",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-router-dom": "6.26.0",
