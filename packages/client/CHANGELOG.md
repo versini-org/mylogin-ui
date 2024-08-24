@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/aversini/mylogin-ui/compare/client-v1.26.5...client-v2.0.0) (2024-08-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* using new AuthProvider v7 that uses the new Auth Server v8
+
+### Features
+
+* using new AuthProvider v7 that uses the new Auth Server v8 ([2db5f89](https://github.com/aversini/mylogin-ui/commit/2db5f89aa5f846aa937ec6285c6e51be452c658c))
+
 ## [1.26.5](https://github.com/aversini/mylogin-ui/compare/client-v1.26.4...client-v1.26.5) (2024-08-07)
 
 
