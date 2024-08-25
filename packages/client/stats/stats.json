@@ -2266,5 +2266,55 @@
       "limit": "11 kb",
       "passed": true
     }
+  },
+  "2.0.1": {
+    "index.js": {
+      "fileSize": 21017,
+      "fileSizeGzip": 5918,
+      "limit": "7 kb",
+      "passed": true
+    },
+    "React": {
+      "fileSize": 141663,
+      "fileSizeGzip": 45219,
+      "limit": "45 kb",
+      "passed": true
+    },
+    "React Router": {
+      "fileSize": 61058,
+      "fileSizeGzip": 20181,
+      "limit": "21 kb",
+      "passed": true
+    },
+    "Static vendors": {
+      "fileSize": 158284,
+      "fileSizeGzip": 45458,
+      "limit": "53 kb",
+      "passed": true
+    },
+    "App": {
+      "fileSize": 14862,
+      "fileSizeGzip": 3299,
+      "limit": "5 kb",
+      "passed": true
+    },
+    "UI components loader": {
+      "fileSize": 5378,
+      "fileSizeGzip": 2092,
+      "limit": "6 kb",
+      "passed": true
+    },
+    "UI components": {
+      "fileSize": 21149,
+      "fileSizeGzip": 5294,
+      "limit": "6 kb",
+      "passed": true
+    },
+    "index.css": {
+      "fileSize": 72065,
+      "fileSizeGzip": 10425,
+      "limit": "11 kb",
+      "passed": true
+    }
   }
 }
