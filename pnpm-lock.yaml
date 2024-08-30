@@ -24,8 +24,8 @@ importers:
         specifier: 7.1.1
         version: 7.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
-        specifier: 2.0.2
-        version: 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 4.0.3
+        version: 4.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.21.2
         version: 5.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1319,8 +1319,8 @@ packages:
   '@versini/dev-dependencies-types@1.3.4':
     resolution: {integrity: sha512-iTh/psuY7BlDyn/Tek923ZCzVtsQ9dCJvpdkPhlBDn7S3JtxG0vOEntQfravgiZmgcUxILGZDxce1/tfB/9aTw==}
 
-  '@versini/sassysaint@2.0.2':
-    resolution: {integrity: sha512-gJhfPBjgi45JeXFdH1As8KMvweEm20Apape8cA7dGCKDLt/7K6D0neqlecflaXy5yVZVN9fjez9vbMEsDcj09Q==}
+  '@versini/sassysaint@4.0.3':
+    resolution: {integrity: sha512-V1jZEBL5eNjZP7div6jqAmulG13Nh7T/T7tm+oHFbSZJWU53+5VldgpaH1uovKuTXusi7EnhJx7sh0dQ3kWQbg==}
     peerDependencies:
       react: 18.3.1
       react-dom: 18.3.1
@@ -5284,7 +5284,7 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
       '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
       '@jridgewell/trace-mapping': 0.3.25
 
   '@jridgewell/resolve-uri@3.1.1': {}
@@ -6345,7 +6345,7 @@ snapshots:
       '@types/uuid': 10.0.0
       '@types/yargs': 17.0.33
 
-  '@versini/sassysaint@2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/sassysaint@4.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/ui-hooks': 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
