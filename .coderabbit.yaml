@@ -2,6 +2,7 @@
 
 reviews:
   poem: false
+  sequence_diagrams: false
   auto_review:
     enabled: true
     ignore_title_keywords:
