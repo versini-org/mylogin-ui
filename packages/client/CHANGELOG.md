@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.5](https://github.com/versini-org/mylogin-ui/compare/client-v2.0.4...client-v2.0.5) (2024-09-07)
+
+
+### Bug Fixes
+
+* bump to most recent sassy saint ([2c746af](https://github.com/versini-org/mylogin-ui/commit/2c746af48f67d1e0f1e32a1c0c2a03515098673d))
+
 ## [2.0.4](https://github.com/versini-org/mylogin-ui/compare/client-v2.0.3...client-v2.0.4) (2024-09-06)
 
 
