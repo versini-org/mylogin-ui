@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/coderabbit-overrides.v2.json
 
 reviews:
+  high_level_summary: true
   poem: false
   sequence_diagrams: false
   review_status: false
