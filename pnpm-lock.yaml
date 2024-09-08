@@ -24,14 +24,14 @@ importers:
         specifier: 7.3.1
         version: 7.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/sassysaint':
-        specifier: 4.3.2
-        version: 4.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 4.3.3
+        version: 4.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-components':
         specifier: 5.21.3
         version: 5.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-form':
-        specifier: 1.3.8
-        version: 1.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.3.9
+        version: 1.3.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-icons':
         specifier: 1.12.0
         version: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1298,8 +1298,8 @@ packages:
   '@versini/dev-dependencies-types@1.3.5':
     resolution: {integrity: sha512-Hs+gcjZVZHh5P1cXUyJWNqlsH81k4P8zStsngByuo+4L9P8Dof1ED2qGXd5ZCYcAiBG53F/JTN4rimPYtgDWhA==}
 
-  '@versini/sassysaint@4.3.2':
-    resolution: {integrity: sha512-EK5Q6lRnTs39eYWolADRLfeA2ZL3cFDIQrlAX5yBQ3WpxtxyQgnLxvgFuPOlWtIcrqiw2yGgc8tq7vaO7sPUAA==}
+  '@versini/sassysaint@4.3.3':
+    resolution: {integrity: sha512-k6vKd7eSZ+LdZtTT+5VhnNMc825zDW/2yg3FSyQzY4QOSn4XEpE/K9gP2jSN2ffWDjhJ15S9OEuhAb0+fq36VQ==}
     peerDependencies:
       react: 18.3.1
       react-dom: 18.3.1
@@ -1310,8 +1310,8 @@ packages:
       react: ^18.3.1
       react-dom: ^18.3.1
 
-  '@versini/ui-form@1.3.8':
-    resolution: {integrity: sha512-nOLaEP5UFgUsE4Vi8/Tz2htXAUcEGxJn08ldDzHyfIW3f08Q5G73QJnJECY+Kr+0RC3MMZEOR+VUMyeJrinoMg==}
+  '@versini/ui-form@1.3.9':
+    resolution: {integrity: sha512-n0Iu+5VOad9guF2FfO9+JqiaEdHXDff49k5SPGjQNyqFWLfmzNmYJ+JsDNpT8P9LiccDVKoxxTZhtAQqahdgWw==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -1324,6 +1324,12 @@ packages:
 
   '@versini/ui-hooks@4.1.1':
     resolution: {integrity: sha512-SYHvE/0/zgXLd4fqjNLnSqY0kAKrcwXcsugygikMAcQEEm4pZ+8RtrrUHGN0ZhlKwnjr3vWFOJXzjD4H0pq1iA==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
+  '@versini/ui-hooks@4.1.2':
+    resolution: {integrity: sha512-GKSKUyTU6mJ6zJ3bbEZ/xHrTSBw5I5z9KJMLnNkdUfloIpff0CdULsn4BGGj41otm6d6H2gl/abH+oIOMoJCzw==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -6279,7 +6285,7 @@ snapshots:
       '@types/uuid': 10.0.0
       '@types/yargs': 17.0.33
 
-  '@versini/sassysaint@4.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/sassysaint@4.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@versini/ui-hooks': 4.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
@@ -6303,9 +6309,9 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@versini/ui-form@1.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/ui-form@1.3.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@versini/ui-hooks': 4.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@versini/ui-hooks': 4.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-private': 1.4.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
@@ -6317,6 +6323,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@versini/ui-hooks@4.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@versini/ui-hooks@4.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
