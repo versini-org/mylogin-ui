@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.0.7...client-v2.1.0) (2024-09-18)
+
+
+### Features
+
+* migrate to individual UI components ([664595d](https://github.com/versini-org/mylogin-ui/commit/664595d720e662adee029daeafda6faca1fd0afa))
+
 ## [2.0.7](https://github.com/versini-org/mylogin-ui/compare/client-v2.0.6...client-v2.0.7) (2024-09-10)
 
 
