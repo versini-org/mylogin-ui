@@ -1,4 +1,4 @@
-import { Header } from "@versini/ui-components";
+import { Header } from "@versini/ui-header";
 import { IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 
