@@ -2616,5 +2616,103 @@
       "limit": "11 kb",
       "passed": true
     }
+  },
+  "2.1.0": {
+    "index.js": {
+      "fileSize": 14836,
+      "fileSizeGzip": 5378,
+      "limit": "7 kb",
+      "passed": true
+    },
+    "React": {
+      "fileSize": 140248,
+      "fileSizeGzip": 45057,
+      "limit": "45 kb",
+      "passed": true
+    },
+    "React Router": {
+      "fileSize": 60679,
+      "fileSizeGzip": 20176,
+      "limit": "21 kb",
+      "passed": true
+    },
+    "Static vendors": {
+      "fileSize": 151603,
+      "fileSizeGzip": 45103,
+      "limit": "53 kb",
+      "passed": true
+    },
+    "dist/static/js/async/315.<hash>.js": {
+      "fileSize": 244,
+      "fileSizeGzip": 201,
+      "limit": "1 kb",
+      "passed": true
+    },
+    "dist/static/js/async/758.<hash>.js": {
+      "fileSize": 4506,
+      "fileSizeGzip": 1911,
+      "limit": "2 kb",
+      "passed": true
+    },
+    "dist/static/js/async/85.<hash>.js": {
+      "fileSize": 4797,
+      "fileSizeGzip": 2007,
+      "limit": "3 kb",
+      "passed": true
+    },
+    "dist/static/js/async/807.<hash>.js": {
+      "fileSize": 10255,
+      "fileSizeGzip": 3801,
+      "limit": "4 kb",
+      "passed": true
+    },
+    "dist/static/js/async/773.<hash>.js": {
+      "fileSize": 11964,
+      "fileSizeGzip": 2993,
+      "limit": "4 kb",
+      "passed": true
+    },
+    "dist/static/js/async/292.<hash>.js": {
+      "fileSize": 20288,
+      "fileSizeGzip": 6233,
+      "limit": "7 kb",
+      "passed": true
+    },
+    "dist/static/js/async/135.<hash>.js": {
+      "fileSize": 28549,
+      "fileSizeGzip": 8992,
+      "limit": "10 kb",
+      "passed": true
+    },
+    "dist/static/js/async/46.<hash>.js": {
+      "fileSize": 35215,
+      "fileSizeGzip": 7769,
+      "limit": "8 kb",
+      "passed": true
+    },
+    "dist/static/js/async/17.<hash>.js": {
+      "fileSize": 80131,
+      "fileSizeGzip": 24632,
+      "limit": "25 kb",
+      "passed": true
+    },
+    "dist/static/js/async/891.<hash>.js": {
+      "fileSize": 146223,
+      "fileSizeGzip": 43141,
+      "limit": "45 kb",
+      "passed": true
+    },
+    "dist/static/js/async/121.<hash>.js": {
+      "fileSize": 439341,
+      "fileSizeGzip": 126253,
+      "limit": "130 kb",
+      "passed": true
+    },
+    "index.css": {
+      "fileSize": 70727,
+      "fileSizeGzip": 10210,
+      "limit": "11 kb",
+      "passed": true
+    }
   }
 }
