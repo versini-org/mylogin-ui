@@ -1,4 +1,4 @@
-import { Footer } from "@versini/ui-components";
+import { Footer } from "@versini/ui-footer";
 import { APP_NAME, APP_OWNER } from "../../common/strings";
 
 export const AppFooter = () => {

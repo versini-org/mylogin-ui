@@ -1,4 +1,5 @@
-import { ButtonIcon, Header } from "@versini/ui-components";
+import { ButtonIcon } from "@versini/ui-button";
+import { Header } from "@versini/ui-header";
 import { IconEdit, IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { useContext } from "react";

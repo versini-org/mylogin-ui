@@ -1,19 +1,19 @@
 import { useAuth } from "@versini/auth-provider";
+import { IconAdd, IconDelete, IconDown, IconUp } from "@versini/ui-icons";
+import { ThemeProvider } from "@versini/ui-system";
+import { TextInput } from "@versini/ui-textinput";
+import { useContext, useEffect, useRef, useState } from "react";
+
+import { ButtonIcon } from "@versini/ui-button";
+import { Main } from "@versini/ui-main";
 import {
-	ButtonIcon,
-	Main,
 	Table,
 	TableBody,
 	TableCell,
 	TableFooter,
 	TableHead,
 	TableRow,
-} from "@versini/ui-components";
-import { TextInput } from "@versini/ui-form";
-import { IconAdd, IconDelete, IconDown, IconUp } from "@versini/ui-icons";
-import { ThemeProvider } from "@versini/ui-system";
-import { useContext, useEffect, useRef, useState } from "react";
-
+} from "@versini/ui-table";
 import {
 	ACTION_INVALIDATE_SESSION,
 	ACTION_REFRESH_DATA,

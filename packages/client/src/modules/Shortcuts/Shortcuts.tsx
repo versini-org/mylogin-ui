@@ -1,15 +1,7 @@
-import {
-	Anchor,
-	ButtonIcon,
-	Card,
-	Table,
-	TableBody,
-	TableCell,
-	TableFooter,
-	TableHead,
-	TableRow,
-} from "@versini/ui-components";
-import { TextArea, TextInput } from "@versini/ui-form";
+import { useAuth } from "@versini/auth-provider";
+import { Anchor } from "@versini/ui-anchor";
+import { ButtonIcon } from "@versini/ui-button";
+import { Card } from "@versini/ui-card";
 import {
 	IconAdd,
 	IconDelete,
@@ -18,9 +10,18 @@ import {
 	IconUp,
 } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableFooter,
+	TableHead,
+	TableRow,
+} from "@versini/ui-table";
+import { TextArea } from "@versini/ui-textarea";
+import { TextInput } from "@versini/ui-textinput";
 import { useContext, useRef, useState } from "react";
 
-import { useAuth } from "@versini/auth-provider";
 import {
 	onChangeShortcut,
 	onClickAddShortcut,

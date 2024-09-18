@@ -1,11 +1,7 @@
 import { isGranted, useAuth } from "@versini/auth-provider";
-import {
-	ButtonIcon,
-	Menu,
-	MenuItem,
-	MenuSeparator,
-} from "@versini/ui-components";
+import { ButtonIcon } from "@versini/ui-button";
 import { IconBack, IconEdit, IconSettings } from "@versini/ui-icons";
+import { Menu, MenuItem, MenuSeparator } from "@versini/ui-menu";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
