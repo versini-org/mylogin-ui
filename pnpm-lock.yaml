@@ -54,8 +54,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-system':
-        specifier: 1.4.12
-        version: 1.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.4.13
+        version: 1.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-table':
         specifier: 1.0.2
         version: 1.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1417,11 +1417,17 @@ packages:
       react: ^18.3.1
       react-dom: ^18.3.1
 
+  '@versini/ui-private@1.4.12':
+    resolution: {integrity: sha512-I4B7LThLlY/3s4xjuod8WhvYCpImZfBcmcha5JXQ8CErtF3Rd1uiIMXWyFeES/UP8zMzIAen/PI9sns/t2Z2CA==}
+    peerDependencies:
+      react: ^18.3.1
+      react-dom: ^18.3.1
+
   '@versini/ui-styles@1.9.9':
     resolution: {integrity: sha512-1MlXcHaAzRt/F9DKZsg6M8yFa7xKw6y6Iw9krll1S7ktsNhKlq0pVm+RBwB+4m00Yo5DX0tdvAB9VJhmNIcxlA==}
 
-  '@versini/ui-system@1.4.12':
-    resolution: {integrity: sha512-6J6VbpU7l1cDqJI//xurfN1SAHfkbbsXjPz7C7ktlbmwqAcaHb6RGhS5voNzGDgSTSCsJtPYac+jNPNIVsrVrg==}
+  '@versini/ui-system@1.4.13':
+    resolution: {integrity: sha512-Qc28z8XoFVJRUWjI/lPAWRuBYHeKO7TTac1sQaYEJyfI6yrEuPI9AvMYW8lcpEm8luDOLIuO43bbfghgj7K6Gw==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -6566,6 +6572,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@versini/ui-private@1.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/react': 0.26.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@versini/ui-hooks': 4.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@versini/ui-styles@1.9.9':
     dependencies:
       '@tailwindcss/typography': 0.5.15(tailwindcss@3.4.12)
@@ -6574,9 +6588,9 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@versini/ui-system@1.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/ui-system@1.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@versini/ui-private': 1.4.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@versini/ui-private': 1.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -9417,7 +9431,7 @@ snapshots:
   postcss@8.4.45:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       source-map-js: 1.2.0
 
   postcss@8.4.47:
