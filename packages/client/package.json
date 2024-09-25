@@ -27,7 +27,7 @@
 	},
 	"dependencies": {
 		"@versini/auth-provider": "7.3.2",
-		"@versini/sassysaint": "5.0.1",
+		"@versini/sassysaint": "5.1.2",
 		"@versini/ui-anchor": "1.1.4",
 		"@versini/ui-button": "1.1.4",
 		"@versini/ui-card": "1.0.4",
