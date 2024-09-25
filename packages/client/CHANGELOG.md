@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.1.0...client-v2.1.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* bump non-breaking dependencies to latest ([5a49bde](https://github.com/versini-org/mylogin-ui/commit/5a49bde1cd06ade562a18f03562f2ed75571a5ec))
+
 ## [2.1.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.0.7...client-v2.1.0) (2024-09-18)
 
 
