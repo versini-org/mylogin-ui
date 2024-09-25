@@ -12,8 +12,10 @@ import { Root } from "../Layout/Root";
 const params = new URL(document.location.href).searchParams;
 const debug = Boolean(params.get("debug")) || false;
 
-const LazyApp = lazy(() => import("./App"));
-const LazySassySaint = lazy(() => import("./LazySassySaint"));
+const LazyApp = lazy(() => import(/* webpackChunkName: "LazyApp" */ "./App"));
+const LazySassySaint = lazy(
+	() => import(/* webpackChunkName: "LazySassySaint" */ "./LazySassySaint"),
+);
 const router = createHashRouter([
 	{
 		path: "/",
