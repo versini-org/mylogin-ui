@@ -1,8 +1,10 @@
 import { ButtonIcon } from "@versini/ui-button";
 import { Header } from "@versini/ui-header";
+import { useHotkeys } from "@versini/ui-hooks";
 import { IconEdit, IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
-import { useContext } from "react";
+import { TextInput } from "@versini/ui-textinput";
+import { useContext, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 import { ACTION_SET_EDIT_SECTIONS } from "../../common/constants";
@@ -11,8 +13,56 @@ import { Settings } from "../Settings/Settings";
 
 export const Root = () => {
 	const location = useLocation();
-	const title = location.pathname === "/" ? "My Shortcuts" : "My Chat";
+	const isShortcuts = location.pathname === "/";
+	const title = isShortcuts ? "My Shortcuts" : "My Chat";
 	const { state, dispatch } = useContext(AppContext);
+	const searchRef = useRef<HTMLInputElement>(null);
+	const allShortcutsRef = useRef([]);
+
+	const onSearchChange = (e: {
+		preventDefault: () => void;
+		target: { value: string | RegExp };
+	}) => {
+		e.preventDefault();
+		const re = new RegExp(e.target.value, "i");
+		const all = allShortcutsRef.current;
+
+		all.forEach((node: HTMLDivElement) => {
+			if (re.test(node.textContent as string)) {
+				node.style.display = "block";
+			} else {
+				node.style.display = "none";
+			}
+		});
+	};
+
+	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+	};
+
+	useHotkeys([
+		[
+			"mod+K",
+			() => {
+				isShortcuts && searchRef.current && searchRef.current.focus();
+			},
+		],
+	]);
+
+	useEffect(() => {
+		if (
+			state &&
+			state?.sections?.length > 0 &&
+			isShortcuts &&
+			searchRef.current &&
+			allShortcutsRef.current
+		) {
+			allShortcutsRef.current = Array.from(
+				document.querySelectorAll("a.btn-shortcut"),
+			);
+		}
+	}, [isShortcuts, state]);
+
 	return (
 		<>
 			<Header mode="dark">
@@ -24,6 +74,7 @@ export const Root = () => {
 									<IconStarInCircle spacing={{ r: 2 }} />
 								</FlexgridItem>
 								<FlexgridItem>{title}</FlexgridItem>
+
 								<FlexgridItem>
 									{state && state?.sections?.length > 0 && state.editMode && (
 										<ButtonIcon
@@ -49,6 +100,25 @@ export const Root = () => {
 							</Flexgrid>
 						</h1>
 					</FlexgridItem>
+					{isShortcuts && (
+						<FlexgridItem>
+							<form
+								autoComplete="off"
+								onSubmit={onSubmit}
+								className="myl-search"
+							>
+								<TextInput
+									ref={searchRef}
+									labelHidden
+									focusMode="light"
+									size={"xs"}
+									name="Search"
+									label="Search"
+									onChange={onSearchChange}
+								/>
+							</form>
+						</FlexgridItem>
+					)}
 					<FlexgridItem>
 						<Settings />
 					</FlexgridItem>

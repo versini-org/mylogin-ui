@@ -1,6 +1,8 @@
 import { Button, ButtonIcon } from "@versini/ui-button";
 import { Card } from "@versini/ui-card";
+import { Header } from "@versini/ui-header";
 import { IconHide, IconKey, IconShow } from "@versini/ui-icons";
+import { IconStarInCircle } from "@versini/ui-icons";
 import { Main } from "@versini/ui-main";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { TextInput, TextInputMask } from "@versini/ui-textinput";
@@ -18,7 +20,6 @@ import {
 } from "../../common/strings";
 import { AppContext } from "../App/AppContext";
 import { AppFooter } from "../Common/AppFooter";
-import { AppHeader } from "../Common/AppHeader";
 
 export const Login = () => {
 	const { login, logoutReason, loginWithPasskey } = useAuth();
@@ -66,7 +67,16 @@ export const Login = () => {
 
 	return (
 		<>
-			<AppHeader />
+			<Header mode="dark">
+				<h1 className="heading mb-0">
+					<Flexgrid alignVertical="center">
+						<FlexgridItem>
+							<IconStarInCircle spacing={{ r: 2 }} />
+						</FlexgridItem>
+						<FlexgridItem>My Shortcuts</FlexgridItem>
+					</Flexgrid>
+				</h1>
+			</Header>
 			<Main>
 				<form className="mt-5" onSubmit={handleLogin}>
 					<Flexgrid rowGap={7} alignHorizontal="center">
