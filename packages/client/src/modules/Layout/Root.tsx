@@ -100,33 +100,38 @@ export const Root = () => {
 							</Flexgrid>
 						</h1>
 					</FlexgridItem>
-					{isShortcuts && (
-						<FlexgridItem>
-							<form
-								autoComplete="off"
-								onSubmit={onSubmit}
-								className="myl-search"
-							>
-								<TextInput
-									ref={searchRef}
-									labelHidden
-									noBorder
-									focusMode="light"
-									size={"xs"}
-									name="Search"
-									label="Search"
-									onChange={onSearchChange}
-									rightElement={
-										<div className="text-copy-dark">
-											<IconSearch monotone className="size-4" />
-										</div>
-									}
-								/>
-							</form>
-						</FlexgridItem>
-					)}
+
 					<FlexgridItem>
-						<Settings />
+						<Flexgrid columnGap={5}>
+							{isShortcuts && (
+								<FlexgridItem>
+									<form
+										autoComplete="off"
+										onSubmit={onSubmit}
+										className="myl-search"
+									>
+										<TextInput
+											ref={searchRef}
+											labelHidden
+											noBorder
+											focusMode="light"
+											size={"xs"}
+											name="Search"
+											label="Search"
+											onChange={onSearchChange}
+											rightElement={
+												<div className="text-copy-dark">
+													<IconSearch monotone className="size-4" />
+												</div>
+											}
+										/>
+									</form>
+								</FlexgridItem>
+							)}
+							<FlexgridItem>
+								<Settings />
+							</FlexgridItem>
+						</Flexgrid>
 					</FlexgridItem>
 				</Flexgrid>
 			</Header>
