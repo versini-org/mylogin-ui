@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.1.2...client-v2.2.0) (2024-09-27)
+
+
+### Features
+
+* adding search capabilities ([9d908a6](https://github.com/versini-org/mylogin-ui/commit/9d908a6efd66c254736d2343b92d4e4dc5fbb67b))
+
+
+### Bug Fixes
+
+* slightly better search field with icon ([4fec1e8](https://github.com/versini-org/mylogin-ui/commit/4fec1e81882cc386135cb3cda0c58fe961158464))
+
 ## [2.1.2](https://github.com/versini-org/mylogin-ui/compare/client-v2.1.1...client-v2.1.2) (2024-09-25)
 
 
