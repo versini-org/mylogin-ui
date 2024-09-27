@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.2.0...client-v2.2.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* move the search bar to the right since it cannot be centered ([6dc779a](https://github.com/versini-org/mylogin-ui/commit/6dc779aca53fd3c53c29f6be2ceeaeb3b46c0692))
+
 ## [2.2.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.1.2...client-v2.2.0) (2024-09-27)
 
 
