@@ -1,7 +1,7 @@
 import { ButtonIcon } from "@versini/ui-button";
 import { Header } from "@versini/ui-header";
 import { useHotkeys } from "@versini/ui-hooks";
-import { IconEdit, IconStarInCircle } from "@versini/ui-icons";
+import { IconEdit, IconSearch, IconStarInCircle } from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { TextInput } from "@versini/ui-textinput";
 import { useContext, useEffect, useRef } from "react";
@@ -110,11 +110,17 @@ export const Root = () => {
 								<TextInput
 									ref={searchRef}
 									labelHidden
+									noBorder
 									focusMode="light"
 									size={"xs"}
 									name="Search"
 									label="Search"
 									onChange={onSearchChange}
+									rightElement={
+										<div className="text-copy-dark">
+											<IconSearch monotone className="size-4" />
+										</div>
+									}
 								/>
 							</form>
 						</FlexgridItem>
