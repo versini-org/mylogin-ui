@@ -1,10 +1,15 @@
 import { ButtonIcon } from "@versini/ui-button";
 import { Header } from "@versini/ui-header";
 import { useHotkeys } from "@versini/ui-hooks";
-import { IconEdit, IconSearch, IconStarInCircle } from "@versini/ui-icons";
+import {
+	IconClose,
+	IconEdit,
+	IconSearch,
+	IconStarInCircle,
+} from "@versini/ui-icons";
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { TextInput } from "@versini/ui-textinput";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 import {
@@ -18,16 +23,22 @@ export const Root = () => {
 	const location = useLocation();
 	const isShortcuts = location.pathname === "/";
 	const title = isShortcuts ? "My Shortcuts" : "My Chat";
+
 	const { state, dispatch } = useContext(AppContext);
+
 	const searchRef = useRef<HTMLInputElement>(null);
 	const allShortcutsRef = useRef([]);
 
-	const onSearchChange = (e: {
-		preventDefault: () => void;
-		target: { value: string | RegExp };
-	}) => {
-		e.preventDefault();
-		const re = new RegExp(e.target.value, "i");
+	const [searchString, setSearchString] = useState("");
+
+	const toggleShortcutsVisibility = (value: string) => {
+		/**
+		 * value is a string that is used to filter the shortcuts.
+		 * If the value contains characters that are incompatible with the RegExp
+		 * constructor, it will throw an error, so we need to escape them before hand.
+		 */
+		value = value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+		const re = new RegExp(value, "i");
 		const all = allShortcutsRef.current;
 
 		all.forEach((node: HTMLDivElement) => {
@@ -39,8 +50,27 @@ export const Root = () => {
 		});
 	};
 
+	const onSearchChange = (e: {
+		preventDefault: () => void;
+		target: { value: string };
+	}) => {
+		e.preventDefault();
+		setSearchString(e.target.value);
+		toggleShortcutsVisibility(e.target.value);
+	};
+
 	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+	};
+
+	const onResetSearch = (e: { preventDefault: () => void }) => {
+		e.preventDefault();
+		setSearchString("");
+		toggleShortcutsVisibility("");
+		if (searchRef.current) {
+			searchRef.current.value = "";
+			searchRef.current.focus();
+		}
 	};
 
 	useHotkeys([
@@ -124,7 +154,17 @@ export const Root = () => {
 											onChange={onSearchChange}
 											rightElement={
 												<div className="text-copy-dark">
-													<IconSearch monotone className="size-4" />
+													<ButtonIcon
+														size="small"
+														onClick={onResetSearch}
+														disabled={searchString === ""}
+													>
+														{searchString !== "" ? (
+															<IconClose monotone className="size-3" />
+														) : (
+															<IconSearch monotone className="size-3" />
+														)}
+													</ButtonIcon>
 												</div>
 											}
 										/>

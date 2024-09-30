@@ -41,7 +41,7 @@
 		"@versini/ui-system": "1.4.19",
 		"@versini/ui-table": "1.0.10",
 		"@versini/ui-textarea": "1.0.7",
-		"@versini/ui-textinput": "1.1.6",
+		"@versini/ui-textinput": "1.2.0",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-router-dom": "6.26.2",
