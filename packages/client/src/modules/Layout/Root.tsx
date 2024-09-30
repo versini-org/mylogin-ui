@@ -7,7 +7,10 @@ import { TextInput } from "@versini/ui-textinput";
 import { useContext, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { ACTION_SET_EDIT_SECTIONS } from "../../common/constants";
+import {
+	ACTION_SET_EDIT_SECTIONS,
+	CARD_SECTION_VISIBLE,
+} from "../../common/constants";
 import { AppContext } from "../App/AppContext";
 import { Settings } from "../Settings/Settings";
 
@@ -30,8 +33,10 @@ export const Root = () => {
 		all.forEach((node: HTMLDivElement) => {
 			if (re.test(node.textContent as string)) {
 				node.style.display = "block";
+				node.classList.add(CARD_SECTION_VISIBLE);
 			} else {
 				node.style.display = "none";
+				node.classList.remove(CARD_SECTION_VISIBLE);
 			}
 		});
 	};
