@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.3.0...client-v2.4.0) (2024-09-30)
+
+
+### Features
+
+* adding reset button on search field ([75696a2](https://github.com/versini-org/mylogin-ui/commit/75696a21c5f299363cc8e48ca5bd536ba8abfdbb))
+
 ## [2.3.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.2.2...client-v2.3.0) (2024-09-30)
 
 
