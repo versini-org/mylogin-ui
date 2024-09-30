@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.2.2...client-v2.3.0) (2024-09-30)
+
+
+### Features
+
+* hide sections that have no results on search ([8190487](https://github.com/versini-org/mylogin-ui/commit/8190487c039442c77972be8e19b30068ba2da33f))
+
 ## [2.2.2](https://github.com/versini-org/mylogin-ui/compare/client-v2.2.1...client-v2.2.2) (2024-09-29)
 
 
