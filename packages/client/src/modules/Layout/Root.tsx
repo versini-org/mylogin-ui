@@ -153,19 +153,19 @@ export const Root = () => {
 											label="Search"
 											onChange={onSearchChange}
 											rightElement={
-												searchString !== "" ? (
-													<div className="text-copy-dark">
-														<ButtonIcon size="small" onClick={onResetSearch}>
+												<div className="text-copy-dark">
+													<ButtonIcon
+														size="small"
+														onClick={onResetSearch}
+														disabled={searchString === ""}
+													>
+														{searchString !== "" ? (
 															<IconClose monotone className="size-3" />
-														</ButtonIcon>
-													</div>
-												) : (
-													<div className="text-copy-dark">
-														<ButtonIcon size="small" disabled>
+														) : (
 															<IconSearch monotone className="size-3" />
-														</ButtonIcon>
-													</div>
-												)
+														)}
+													</ButtonIcon>
+												</div>
 											}
 										/>
 									</form>
