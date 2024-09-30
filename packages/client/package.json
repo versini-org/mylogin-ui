@@ -26,8 +26,8 @@
 		"@versini/ui-styles": "1.10.2"
 	},
 	"dependencies": {
-		"@versini/auth-provider": "7.3.2",
-		"@versini/sassysaint": "5.1.3",
+		"@versini/auth-provider": "7.3.3",
+		"@versini/sassysaint": "5.1.4",
 		"@versini/ui-anchor": "1.1.10",
 		"@versini/ui-button": "1.1.10",
 		"@versini/ui-card": "1.0.8",
