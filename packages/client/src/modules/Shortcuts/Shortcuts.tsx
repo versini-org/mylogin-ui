@@ -22,6 +22,7 @@ import { TextArea } from "@versini/ui-textarea";
 import { TextInput } from "@versini/ui-textinput";
 import { useContext, useRef, useState } from "react";
 
+import { CARD_SECTION, CARD_SECTION_VISIBLE } from "../../common/constants";
 import {
 	onChangeShortcut,
 	onClickAddShortcut,
@@ -79,6 +80,7 @@ export const Shortcuts = () => {
 			{state.sections.map((section) => {
 				return (
 					<Card
+						className={CARD_SECTION}
 						compact
 						mode="dark"
 						key={section.id}
@@ -265,7 +267,7 @@ export const Shortcuts = () => {
 									return (
 										<Anchor
 											key={`${shortcut.url}-${shortcut.label}-${idx}`}
-											className="mr-1 mt-1 w-44 sm:w-52 btn-shortcut"
+											className={`mr-1 mt-1 w-44 sm:w-52 btn-shortcut ${CARD_SECTION_VISIBLE}`}
 											focusMode="light"
 											href={shortcut.url}
 											mode="dark"

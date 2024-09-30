@@ -16,3 +16,6 @@ export const GRANTS = {
 	EDIT: "shortcuts:write",
 	SASSY: "sassy:embed",
 };
+
+export const CARD_SECTION = "av-card-section";
+export const CARD_SECTION_VISIBLE = "av-card-section-visible";

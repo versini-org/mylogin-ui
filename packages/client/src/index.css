@@ -24,6 +24,18 @@ h2.heading {
   transform: translate(-75%, -125%) scale(0.1);
 }
 
+.av-card-section:not(:has(.av-card-section-visible)) {
+  display: none;
+}
+
+.btn-shortcut.av-card-section-visible {
+  display: block;
+}
+
+.btn-shortcut:not(.av-card-section-visible) {
+  display: none;
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
