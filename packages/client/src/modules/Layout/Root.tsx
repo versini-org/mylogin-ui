@@ -32,10 +32,8 @@ export const Root = () => {
 
 		all.forEach((node: HTMLDivElement) => {
 			if (re.test(node.textContent as string)) {
-				node.style.display = "block";
 				node.classList.add(CARD_SECTION_VISIBLE);
 			} else {
-				node.style.display = "none";
 				node.classList.remove(CARD_SECTION_VISIBLE);
 			}
 		});
