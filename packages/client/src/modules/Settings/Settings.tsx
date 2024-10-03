@@ -1,6 +1,12 @@
 import { isGranted, useAuth } from "@versini/auth-provider";
 import { ButtonIcon } from "@versini/ui-button";
-import { IconBack, IconEdit, IconSettings } from "@versini/ui-icons";
+import {
+	IconBack,
+	IconEdit,
+	IconMessages,
+	IconSettings,
+	IconStarInCircle,
+} from "@versini/ui-icons";
 import { Menu, MenuItem, MenuSeparator } from "@versini/ui-menu";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -93,6 +99,7 @@ export const Settings = () => {
 									onClick={() => {
 										navigate("/chat");
 									}}
+									icon={<IconMessages />}
 								/>
 								<MenuSeparator />
 							</>
@@ -115,6 +122,7 @@ export const Settings = () => {
 						onClick={() => {
 							navigate("/");
 						}}
+						icon={<IconStarInCircle />}
 					/>
 				)}
 

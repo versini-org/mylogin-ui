@@ -4,6 +4,7 @@ import { useHotkeys } from "@versini/ui-hooks";
 import {
 	IconClose,
 	IconEdit,
+	IconMessages,
 	IconSearch,
 	IconStarInCircle,
 } from "@versini/ui-icons";
@@ -104,7 +105,11 @@ export const Root = () => {
 						<h1 className="heading mb-0">
 							<Flexgrid alignVertical="center">
 								<FlexgridItem>
-									<IconStarInCircle spacing={{ r: 2 }} />
+									{isShortcuts ? (
+										<IconStarInCircle spacing={{ r: 2 }} />
+									) : (
+										<IconMessages spacing={{ r: 2 }} />
+									)}
 								</FlexgridItem>
 								<FlexgridItem>{title}</FlexgridItem>
 
