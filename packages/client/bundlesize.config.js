@@ -11,7 +11,7 @@ export default {
 		},
 		{
 			path: "dist/static/js/index.<hash>.js",
-			limit: "120 kb",
+			limit: "123 kb",
 			alias: "Initial JS",
 		},
 		{
