@@ -2,7 +2,6 @@ import { isGranted, useAuth } from "@versini/auth-provider";
 import { ButtonIcon } from "@versini/ui-button";
 import {
 	IconBack,
-	IconEdit,
 	IconMessages,
 	IconSettings,
 	IconStarInCircle,
@@ -11,7 +10,13 @@ import { Menu, MenuItem, MenuSeparator } from "@versini/ui-menu";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { ACTION_SET_EDIT_MODE, GRANTS } from "../../common/constants";
+import { ToggleGroup, ToggleGroupItem } from "@versini/ui-togglegroup";
+import {
+	ACTION_SET_EDIT_MODE,
+	GRANTS,
+	MENU_EDIT,
+	MENU_READONLY,
+} from "../../common/constants";
 import { AppContext } from "../App/AppContext";
 import { ConfirmationPanel } from "../Common/ConfirmationPanel";
 
@@ -30,11 +35,11 @@ export const Settings = () => {
 		setShowConfirmation(!showConfirmation);
 	};
 
-	const onClickToggleEditMode = () => {
+	const onClickToggleEditMode = (flag: boolean) => {
 		dispatch({
 			type: ACTION_SET_EDIT_MODE,
 			payload: {
-				editMode: !state.editMode,
+				editMode: flag,
 			},
 		});
 	};
@@ -88,7 +93,7 @@ export const Settings = () => {
 						<IconSettings />
 					</ButtonIcon>
 				}
-				defaultPlacement="bottom-end"
+				defaultPlacement="bottom-center"
 			>
 				{location.pathname === "/" ? (
 					<>
@@ -107,11 +112,22 @@ export const Settings = () => {
 
 						{isEditGrantedRef.current && (
 							<>
-								<MenuItem
-									label="Toggle edit mode"
-									onClick={onClickToggleEditMode}
-									icon={<IconEdit />}
-								/>
+								<MenuItem raw ignoreClick>
+									<ToggleGroup
+										size="small"
+										mode="dark"
+										focusMode="light"
+										value={state?.editMode ? MENU_EDIT : MENU_READONLY}
+										onValueChange={async (value: string) => {
+											if (value) {
+												onClickToggleEditMode(value === MENU_EDIT);
+											}
+										}}
+									>
+										<ToggleGroupItem value={MENU_EDIT} />
+										<ToggleGroupItem value={MENU_READONLY} />
+									</ToggleGroup>
+								</MenuItem>
 								<MenuSeparator />
 							</>
 						)}

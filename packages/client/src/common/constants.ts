@@ -19,3 +19,6 @@ export const GRANTS = {
 
 export const CARD_SECTION = "av-card-section";
 export const CARD_SECTION_VISIBLE = "av-card-section-visible";
+
+export const MENU_EDIT = "Edit Mode";
+export const MENU_READONLY = "Readonly Mode";
