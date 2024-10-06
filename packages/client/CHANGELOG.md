@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.4.3...client-v2.5.0) (2024-10-06)
+
+
+### Features
+
+* better toggle edit mode in menu ([fa16785](https://github.com/versini-org/mylogin-ui/commit/fa16785e9c29632da1ebf16120770124108f67af))
+
 ## [2.4.3](https://github.com/versini-org/mylogin-ui/compare/client-v2.4.2...client-v2.4.3) (2024-10-06)
 
 
