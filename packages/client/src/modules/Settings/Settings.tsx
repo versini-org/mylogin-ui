@@ -93,7 +93,9 @@ export const Settings = () => {
 						<IconSettings />
 					</ButtonIcon>
 				}
-				defaultPlacement="bottom-center"
+				defaultPlacement={
+					isEditGrantedRef.current ? "bottom-center" : "bottom-end"
+				}
 			>
 				{location.pathname === "/" ? (
 					<>
