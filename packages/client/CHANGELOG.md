@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.3](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.2...client-v2.5.3) (2024-10-07)
+
+
+### Bug Fixes
+
+* disable autocorrect on search field ([70340bd](https://github.com/versini-org/mylogin-ui/commit/70340bd59aed35f03569bb0b8d815a4177cf4511))
+
 ## [2.5.2](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.1...client-v2.5.2) (2024-10-07)
 
 
