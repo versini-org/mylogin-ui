@@ -102,7 +102,7 @@ export const Root = () => {
 
 	return (
 		<>
-			<Header mode="dark">
+			<Header mode="dark" sticky>
 				<Flexgrid alignHorizontal="space-between" alignVertical="center">
 					<FlexgridItem>
 						<h1 className="heading mb-0">

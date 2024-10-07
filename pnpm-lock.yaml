@@ -39,8 +39,8 @@ importers:
         specifier: 1.0.8
         version: 1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-header':
-        specifier: 1.0.8
-        version: 1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.1.0
+        version: 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@versini/ui-hooks':
         specifier: 4.2.2
         version: 4.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1508,8 +1508,8 @@ packages:
       react: ^18.3.1
       react-dom: ^18.3.1
 
-  '@versini/ui-header@1.0.8':
-    resolution: {integrity: sha512-ZAVwtdmnbxPK5dpwSPQLk6gj6VtUtZqPq5X31xqHDbMlWNPFdLey/Zqo7+rBFmdroWUn9aUExoRVBvP5ncqROA==}
+  '@versini/ui-header@1.1.0':
+    resolution: {integrity: sha512-juewJKCZocK4ScZF1+2U/VK5pDaO6QforVdqO7Sd8G7Qqhz3O22R4zDoIkLksad+vV9UTCU/ZcwT308rBh5hrg==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -6724,7 +6724,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@versini/ui-header@1.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@versini/ui-header@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tailwindcss/typography': 0.5.15(tailwindcss@3.4.13)
       '@versini/ui-private': 1.4.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
