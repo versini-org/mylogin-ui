@@ -78,7 +78,10 @@ export const Root = () => {
 		[
 			"mod+K",
 			() => {
-				isShortcuts && searchRef.current && searchRef.current.focus();
+				if (isShortcuts && searchRef.current) {
+					searchRef.current.focus();
+					searchRef.current.select();
+				}
 			},
 		],
 	]);
