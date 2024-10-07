@@ -148,11 +148,14 @@ export const Root = () => {
 								<FlexgridItem>
 									<form
 										autoComplete="off"
+										autoCorrect="off"
 										onSubmit={onSubmit}
 										className="myl-search"
 									>
 										<TextInput
 											ref={searchRef}
+											autoComplete="off"
+											autoCorrect="off"
 											labelHidden
 											noBorder
 											focusMode="light"
