@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.2](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.1...client-v2.5.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* main header should have been sticky all along ([c6f6d5d](https://github.com/versini-org/mylogin-ui/commit/c6f6d5dc7bcf500b58035f1d6677d2a99cd378a4))
+
 ## [2.5.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.0...client-v2.5.1) (2024-10-07)
 
 
