@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.0...client-v2.5.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* ctrl+k should select existing text instead of just focus ([4ea9168](https://github.com/versini-org/mylogin-ui/commit/4ea916843fc24c8037a97d81df3e45d885a39da4))
+
 ## [2.5.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.4.3...client-v2.5.0) (2024-10-06)
 
 
