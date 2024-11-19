@@ -23,29 +23,29 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@versini/ui-styles": "1.11.0"
+		"@versini/ui-styles": "1.11.1"
 	},
 	"dependencies": {
 		"@versini/auth-provider": "7.3.3",
-		"@versini/sassysaint": "5.3.5",
-		"@versini/ui-anchor": "1.1.10",
-		"@versini/ui-button": "1.1.10",
-		"@versini/ui-card": "1.0.9",
-		"@versini/ui-footer": "1.0.8",
-		"@versini/ui-header": "1.1.0",
+		"@versini/sassysaint": "5.3.7",
+		"@versini/ui-anchor": "1.1.11",
+		"@versini/ui-button": "1.1.11",
+		"@versini/ui-card": "1.0.10",
+		"@versini/ui-footer": "1.0.9",
+		"@versini/ui-header": "1.1.1",
 		"@versini/ui-hooks": "4.2.2",
-		"@versini/ui-icons": "1.15.1",
-		"@versini/ui-main": "1.0.8",
-		"@versini/ui-menu": "1.1.0",
-		"@versini/ui-panel": "1.0.14",
-		"@versini/ui-system": "1.4.19",
-		"@versini/ui-table": "1.0.13",
-		"@versini/ui-textarea": "1.0.8",
-		"@versini/ui-textinput": "1.2.1",
-		"@versini/ui-togglegroup": "1.1.0",
+		"@versini/ui-icons": "1.15.2",
+		"@versini/ui-main": "1.0.9",
+		"@versini/ui-menu": "1.1.1",
+		"@versini/ui-panel": "1.0.15",
+		"@versini/ui-system": "1.4.20",
+		"@versini/ui-table": "1.1.0",
+		"@versini/ui-textarea": "1.0.9",
+		"@versini/ui-textinput": "1.2.2",
+		"@versini/ui-togglegroup": "1.1.1",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
-		"react-router-dom": "6.27.0",
+		"react-router-dom": "6.28.0",
 		"uuid": "10.0.0"
 	}
 }
