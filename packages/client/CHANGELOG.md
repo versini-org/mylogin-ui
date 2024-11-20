@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.7](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.6...client-v2.5.7) (2024-11-20)
+
+
+### Bug Fixes
+
+* search string not reset when switching between shortcuts and chat ([37e4d70](https://github.com/versini-org/mylogin-ui/commit/37e4d70f83533f12ed056450beaaa639231a516b))
+
 ## [2.5.6](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.5...client-v2.5.6) (2024-11-19)
 
 
