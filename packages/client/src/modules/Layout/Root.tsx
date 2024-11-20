@@ -100,6 +100,15 @@ export const Root = () => {
 		}
 	}, [isShortcuts, state]);
 
+	/**
+	 * Reset the search string when the user switches between shortcuts and chat.
+	 */
+	useEffect(() => {
+		if (!isShortcuts && searchString !== "") {
+			setSearchString("");
+		}
+	}, [isShortcuts, searchString]);
+
 	return (
 		<>
 			<Header mode="dark" sticky>
