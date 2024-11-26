@@ -3208,5 +3208,31 @@
       "limit": "26 kb",
       "passed": true
     }
+  },
+  "2.6.0": {
+    "Initial CSS": {
+      "fileSize": 73104,
+      "fileSizeGzip": 10541,
+      "limit": "11 kb",
+      "passed": true
+    },
+    "Initial JS": {
+      "fileSize": 403102,
+      "fileSizeGzip": 125250,
+      "limit": "123 kb",
+      "passed": true
+    },
+    "Lazy App JS": {
+      "fileSize": 198593,
+      "fileSizeGzip": 48465,
+      "limit": "48 kb",
+      "passed": true
+    },
+    "Lazy SassySaint JS": {
+      "fileSize": 87641,
+      "fileSizeGzip": 26370,
+      "limit": "26 kb",
+      "passed": true
+    }
   }
 }
