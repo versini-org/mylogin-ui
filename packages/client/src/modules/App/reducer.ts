@@ -39,10 +39,14 @@ export const reducer = (state: StateProps, action: ActionProps) => {
 	}
 
 	if (action?.type === ACTION_SET_EDIT_MODE) {
+		/**
+		 * If the edit mode is disabled, reset the edit sections.
+		 */
+		const editSections = action.payload.editMode ? state.editSections : false;
 		return {
 			editMode: action.payload.editMode,
 
-			editSections: state.editSections,
+			editSections,
 			sections: state.sections,
 			status: state.status,
 		};

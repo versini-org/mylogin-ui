@@ -20,7 +20,7 @@ import {
 } from "@versini/ui-table";
 import { TextArea } from "@versini/ui-textarea";
 import { TextInput } from "@versini/ui-textinput";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import { CARD_SECTION, CARD_SECTION_VISIBLE } from "../../common/constants";
 import {
@@ -41,6 +41,15 @@ export const Shortcuts = () => {
 	const sectionWithShortcutRef = useRef<SectionProps | null>(null);
 
 	const { getAccessToken } = useAuth();
+
+	/**
+	 * Reset the editable section when the edit mode is disabled.
+	 */
+	useEffect(() => {
+		if (!state.editMode) {
+			setEditable(null);
+		}
+	}, [state]);
 
 	return state && state?.sections?.length > 0 ? (
 		<>
