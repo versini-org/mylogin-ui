@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.8...client-v2.6.0) (2024-11-26)
+
+
+### Features
+
+* collapse editable content when global edit mode is false ([b7ae562](https://github.com/versini-org/mylogin-ui/commit/b7ae562b8f4fcba546560df44752bc28ababbf96))
+
 ## [2.5.8](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.7...client-v2.5.8) (2024-11-24)
 
 
