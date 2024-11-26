@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.6.0...client-v2.6.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* bump uuid to latest release ([c44db16](https://github.com/versini-org/mylogin-ui/commit/c44db1623b91498ff748455df583ce2b864ff0ed))
+
 ## [2.6.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.5.8...client-v2.6.0) (2024-11-26)
 
 
