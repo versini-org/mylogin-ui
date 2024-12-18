@@ -1,3 +1,4 @@
+import { isGranted, useAuth } from "@versini/auth-provider";
 import { ButtonIcon } from "@versini/ui-button";
 import { Header } from "@versini/ui-header";
 import { useHotkeys } from "@versini/ui-hooks";
@@ -14,13 +15,16 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router";
 
 import {
+	ACTION_SET_EDIT_MODE,
 	ACTION_SET_EDIT_SECTIONS,
 	CARD_SECTION_VISIBLE,
+	GRANTS,
 } from "../../common/constants";
 import { AppContext } from "../App/AppContext";
 import { Settings } from "../Settings/Settings";
 
 export const Root = () => {
+	const { getAccessToken } = useAuth();
 	const location = useLocation();
 	const isShortcuts = location.pathname === "/";
 	const title = isShortcuts ? "My Shortcuts" : "My Chat";
@@ -29,6 +33,8 @@ export const Root = () => {
 
 	const searchRef = useRef<HTMLInputElement>(null);
 	const allShortcutsRef = useRef([]);
+	const isEditGrantedRef = useRef(false);
+	const effectToGetGrantsDidRun = useRef(false);
 
 	const [searchString, setSearchString] = useState("");
 
@@ -84,7 +90,45 @@ export const Root = () => {
 				}
 			},
 		],
+		[
+			"mod+E",
+			() => {
+				if (state && isEditGrantedRef.current) {
+					dispatch({
+						type: ACTION_SET_EDIT_MODE,
+						payload: {
+							editMode: !state.editMode,
+						},
+					});
+				}
+			},
+		],
 	]);
+
+	/**
+	 * Check if the user has the required grants to edit shortcuts.
+	 * This is the first line of defense to enforce policies.
+	 * The second line is the server-side validation which
+	 * is doing the same checks, but cannot be modified by the client.
+	 */
+	useEffect(() => {
+		if (effectToGetGrantsDidRun.current) {
+			return;
+		}
+		(async () => {
+			try {
+				const token = await getAccessToken();
+				if (token) {
+					isEditGrantedRef.current = await isGranted(token, [GRANTS.EDIT]);
+				}
+			} catch (error) {
+				console.error("Failed to fetch token or check grants:", error);
+			}
+		})();
+		return () => {
+			effectToGetGrantsDidRun.current = true;
+		};
+	}, [getAccessToken]);
 
 	useEffect(() => {
 		if (
