@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.7.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.6.3...client-v2.7.0) (2024-12-18)
+
+
+### Features
+
+* migrating to React 19.x ([1f42f38](https://github.com/versini-org/mylogin-ui/commit/1f42f38514d61f91376ef17ed5b0c299a5785da8))
+* migrating to React 19.x ([2de278f](https://github.com/versini-org/mylogin-ui/commit/2de278f66e320cfd028e2a06d12ea26f25439d12))
+
 ## [2.6.3](https://github.com/versini-org/mylogin-ui/compare/client-v2.6.2...client-v2.6.3) (2024-12-13)
 
 
