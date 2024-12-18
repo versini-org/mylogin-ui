@@ -1,6 +1,6 @@
 import { AuthProvider, useAuth } from "@versini/auth-provider";
 import { Suspense, lazy, useReducer } from "react";
-import { RouterProvider, createHashRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router";
 
 import { ACTION_STATUS_SUCCESS, CLIENT_ID } from "../../common/constants";
 import { DOMAIN } from "../../common/utilities";

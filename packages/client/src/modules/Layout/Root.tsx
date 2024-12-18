@@ -11,7 +11,7 @@ import {
 import { Flexgrid, FlexgridItem } from "@versini/ui-system";
 import { TextInput } from "@versini/ui-textinput";
 import { useContext, useEffect, useRef, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router";
 
 import {
 	ACTION_SET_EDIT_SECTIONS,

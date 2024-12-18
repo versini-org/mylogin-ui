@@ -8,7 +8,7 @@ import {
 } from "@versini/ui-icons";
 import { Menu, MenuItem, MenuSeparator } from "@versini/ui-menu";
 import { useContext, useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 
 import { ToggleGroup, ToggleGroupItem } from "@versini/ui-togglegroup";
 import {
