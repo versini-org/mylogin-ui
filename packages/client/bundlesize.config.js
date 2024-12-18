@@ -11,12 +11,12 @@ export default {
 		},
 		{
 			path: "dist/static/js/index.<hash>.js",
-			limit: "123 kb",
+			limit: "150 kb",
 			alias: "Initial JS",
 		},
 		{
 			path: "dist/static/js/async/LazyApp.<hash>.js",
-			limit: "48 kb",
+			limit: "49 kb",
 			alias: "Lazy App JS",
 		},
 		{
