@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.7.0...client-v2.8.0) (2024-12-18)
+
+
+### Features
+
+* adding mod+E shortcut to edit mode ([fe2453a](https://github.com/versini-org/mylogin-ui/commit/fe2453aece90f82fa0b2608f55a22c7c221273c5))
+
 ## [2.7.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.6.3...client-v2.7.0) (2024-12-18)
 
 
