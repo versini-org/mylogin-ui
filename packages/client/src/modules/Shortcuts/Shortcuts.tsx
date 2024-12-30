@@ -89,11 +89,10 @@ export const Shortcuts = () => {
 			{state.sections.map((section) => {
 				return (
 					<Card
-						className={CARD_SECTION}
+						className={`${CARD_SECTION} mb-2`}
 						compact
 						mode="dark"
 						key={section.id}
-						spacing={{ b: 2 }}
 						header={
 							<Flexgrid alignHorizontal="space-between">
 								<FlexgridItem>
@@ -114,7 +113,7 @@ export const Shortcuts = () => {
 												);
 											}}
 										>
-											<IconEdit className="h-3 w-3" />
+											<IconEdit size="size-3" />
 										</ButtonIcon>
 									)}
 								</FlexgridItem>
@@ -123,11 +122,7 @@ export const Shortcuts = () => {
 					>
 						<div>
 							{editable && editable === section.id && (
-								<Table
-									compact
-									caption="Edit Shortcuts"
-									spacing={{ b: 5, t: 5 }}
-								>
+								<Table compact caption="Edit Shortcuts" className="mb-5 mt-5">
 									<TableHead>
 										<TableRow>
 											<TableCell>Label</TableCell>
@@ -195,7 +190,7 @@ export const Shortcuts = () => {
 																	});
 																}}
 															>
-																<IconUp monotone className="h-3 w-3" />
+																<IconUp monotone size="size-3" />
 															</ButtonIcon>
 														)}
 
@@ -215,7 +210,7 @@ export const Shortcuts = () => {
 																	});
 																}}
 															>
-																<IconDown className="h-3 w-3" monotone />
+																<IconDown size="size-3" monotone />
 															</ButtonIcon>
 														)}
 													</div>
@@ -236,7 +231,7 @@ export const Shortcuts = () => {
 																});
 															}}
 														>
-															<IconAdd className="h-3 w-3" monotone />
+															<IconAdd size="size-3" monotone />
 														</ButtonIcon>
 													</div>
 												</TableCell>
@@ -254,7 +249,7 @@ export const Shortcuts = () => {
 														}}
 													>
 														<div className="text-red-400">
-															<IconDelete className="h-3 w-3" monotone />
+															<IconDelete size="size-3" monotone />
 														</div>
 													</ButtonIcon>
 												</TableCell>

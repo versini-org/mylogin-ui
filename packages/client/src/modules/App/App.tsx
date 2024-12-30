@@ -142,7 +142,7 @@ function App() {
 				<Main className="pt-0">
 					{state && state?.sections?.length > 0 && state.editSections && (
 						<div className="flex flex-wrap">
-							<Table compact caption="Edit Sections" spacing={{ b: 5 }}>
+							<Table compact caption="Edit Sections" className="mb-5">
 								<TableHead>
 									<TableRow>
 										<TableCell>Name</TableCell>
@@ -190,7 +190,7 @@ function App() {
 																});
 															}}
 														>
-															<IconUp monotone className="h-3 w-3" />
+															<IconUp monotone size="size-3" />
 														</ButtonIcon>
 													)}
 
@@ -210,7 +210,7 @@ function App() {
 																});
 															}}
 														>
-															<IconDown className="h-3 w-3" monotone />
+															<IconDown size="size-3" monotone />
 														</ButtonIcon>
 													)}
 												</div>
@@ -231,7 +231,7 @@ function App() {
 															});
 														}}
 													>
-														<IconAdd className="h-3 w-3" monotone />
+														<IconAdd size="size-3" monotone />
 													</ButtonIcon>
 												</div>
 											</TableCell>
@@ -248,7 +248,7 @@ function App() {
 														}}
 													>
 														<div className="text-red-400">
-															<IconDelete className="h-3 w-3" monotone />
+															<IconDelete size="size-3" monotone />
 														</div>
 													</ButtonIcon>
 												</div>
