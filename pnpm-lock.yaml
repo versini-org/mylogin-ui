@@ -29,9 +29,6 @@ importers:
       '@versini/sassysaint':
         specifier: 5.4.10
         version: 5.4.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@versini/ui-anchor':
-        specifier: 1.2.12
-        version: 1.2.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@versini/ui-button':
         specifier: 3.0.0
         version: 3.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1504,12 +1501,6 @@ packages:
 
   '@versini/sassysaint@5.4.10':
     resolution: {integrity: sha512-sRegcjTvrddxPoy+s1L8KYH73Oa3VYFXj4j5ax2thmjQhQ1i+WG7NmM8Rx4PGwDV5AmqV+6BzjJYg2MGsF1SvA==}
-    peerDependencies:
-      react: ^18.3.1 || ^19.0.0
-      react-dom: ^18.3.1 || ^19.0.0
-
-  '@versini/ui-anchor@1.2.12':
-    resolution: {integrity: sha512-7TAA10wFhelbCzgYIPjrkb/XhDgYoU9sJTB88tTWE8NGqmmo8E9Hch9esOzYrRP/sfg+Mhgrj8zqSVGQiMJ7kg==}
     peerDependencies:
       react: ^18.3.1 || ^19.0.0
       react-dom: ^18.3.1 || ^19.0.0
@@ -6624,16 +6615,6 @@ snapshots:
     dependencies:
       '@versini/ui-hooks': 4.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       clsx: 2.1.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      tailwindcss: 3.4.17
-    transitivePeerDependencies:
-      - ts-node
-
-  '@versini/ui-anchor@1.2.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@tailwindcss/typography': 0.5.15(tailwindcss@3.4.17)
-      '@versini/ui-button': 3.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       tailwindcss: 3.4.17
