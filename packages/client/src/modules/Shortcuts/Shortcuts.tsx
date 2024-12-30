@@ -1,6 +1,5 @@
 import { useAuth } from "@versini/auth-provider";
-import { Anchor } from "@versini/ui-anchor";
-import { ButtonIcon } from "@versini/ui-button";
+import { ButtonIcon, ButtonLink } from "@versini/ui-button";
 import { Card } from "@versini/ui-card";
 import {
 	IconAdd,
@@ -269,7 +268,7 @@ export const Shortcuts = () => {
 							<div className="flex flex-wrap justify-center">
 								{section.shortcuts.map((shortcut, idx) => {
 									return (
-										<Anchor
+										<ButtonLink
 											key={`${shortcut.url}-${shortcut.label}-${idx}`}
 											className={`mr-1 mt-1 w-44 sm:w-52 btn-shortcut ${CARD_SECTION_VISIBLE}`}
 											focusMode="light"
@@ -280,7 +279,7 @@ export const Shortcuts = () => {
 											target="_blank"
 										>
 											{shortcut.label}
-										</Anchor>
+										</ButtonLink>
 									);
 								})}
 							</div>
