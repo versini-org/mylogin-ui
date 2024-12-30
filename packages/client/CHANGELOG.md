@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.1](https://github.com/versini-org/mylogin-ui/compare/client-v2.8.0...client-v2.8.1) (2024-12-30)
+
+
+### Bug Fixes
+
+* bump non-breaking and breaking dependencies to latest ([#402](https://github.com/versini-org/mylogin-ui/issues/402)) ([b194b37](https://github.com/versini-org/mylogin-ui/commit/b194b3785be10b7590e3bd608296c52697532375))
+* replace deprecated Anchor with ButtonLink ([#404](https://github.com/versini-org/mylogin-ui/issues/404)) ([9523e03](https://github.com/versini-org/mylogin-ui/commit/9523e034e6e8b11ad3d5057c1315459cb274f283))
+
 ## [2.8.0](https://github.com/versini-org/mylogin-ui/compare/client-v2.7.0...client-v2.8.0) (2024-12-18)
 
 
