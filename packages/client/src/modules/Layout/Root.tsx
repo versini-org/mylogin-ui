@@ -162,9 +162,9 @@ export const Root = () => {
 							<Flexgrid alignVertical="center">
 								<FlexgridItem>
 									{isShortcuts ? (
-										<IconStarInCircle spacing={{ r: 2 }} />
+										<IconStarInCircle className="mr-2" />
 									) : (
-										<IconMessages spacing={{ r: 2 }} />
+										<IconMessages className="mr-2" />
 									)}
 								</FlexgridItem>
 								<FlexgridItem>{title}</FlexgridItem>
@@ -172,7 +172,7 @@ export const Root = () => {
 								<FlexgridItem>
 									{state && state?.sections?.length > 0 && state.editMode && (
 										<ButtonIcon
-											spacing={{ l: 2 }}
+											className="ml-2"
 											noBackground
 											focusMode="light"
 											mode="light"
@@ -224,9 +224,9 @@ export const Root = () => {
 														disabled={searchString === ""}
 													>
 														{searchString !== "" ? (
-															<IconClose monotone className="size-3" />
+															<IconClose monotone size="size-3" />
 														) : (
-															<IconSearch monotone className="size-3" />
+															<IconSearch monotone size="size-3" />
 														)}
 													</ButtonIcon>
 												</div>

@@ -71,7 +71,7 @@ export const Login = () => {
 				<h1 className="heading mb-0">
 					<Flexgrid alignVertical="center">
 						<FlexgridItem>
-							<IconStarInCircle spacing={{ r: 2 }} />
+							<IconStarInCircle className="mr-2" />
 						</FlexgridItem>
 						<FlexgridItem>My Shortcuts</FlexgridItem>
 					</Flexgrid>
